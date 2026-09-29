@@ -1,0 +1,2362 @@
+workflow:
+  key: 0476a40a-4412-4561-b894-dcf181ccd302
+  title:
+    de: Sanierung
+    fr: Rénovation
+    it: Ristrutturazione
+  version: 1
+  start_task_ref: start_sanierung
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    start_sanierung:
+      key: 0d5297f3-6471-4318-83d4-7f30e4795d5e
+      title:
+        de: Start Sanierung
+        fr: Début de la rénovation
+        it: Avvio della ristrutturazione
+      steps:
+      - key: 12f5625a-a565-4e9b-bf8e-2ea8dfcf00c3
+        title:
+          de: Zusätzliche Untersuchungen?
+          fr: Examens supplémentaires?
+          it: Esami supplementari?
+        time_period: 7
+        type: form
+        name: zusatz_untersuchungen
+        fields:
+        - name: zusatz_untersuchungen_noetig
+          type: str
+          choices:
+          - label:
+              de: Ja, es braucht eine Detailuntersuchung
+              fr: Oui, il faut une enquête détaillée
+              it: Sì, è necessaria un'indagine dettagliata
+            value: ja
+          - label:
+              de: Nein, aber Schlussbericht zur DU fehlt noch (Variantenstudien)
+              fr: Non, mais le rapport final sur le ED manque encore (études de variantes)
+              it: No, ma manca ancora il rapporto finale sul ID (studi di variante)
+            value: varianten
+          - label:
+              de: Nein, es kann direkt das Sanierungsprojekt (Bauprojekt) starten
+              fr: Non, le projet de rénovation (projet de construction) peut être
+                lancé directement.
+              it: No, il progetto di ristrutturazione (progetto di costruzione) può
+                iniziare direttamente
+            value: nein
+      - key: abddbf01-fd28-4a36-8884-f7ea11c827ad
+        title:
+          de: Aufforderung zur Einreichung
+          fr: Appel à propositions
+          it: Invito a presentare
+        optional: true
+        time_period: 7
+        type: form
+        name: aufforderung_einreichung
+        fields:
+        - name: inhaber_aufgefordert
+          type: str
+          choices:
+          - label:
+              de: Ja, der Inhaber wurde bereits zur Einreichung aufgefordert
+              fr: Oui, le propriétaire a déjà été invité à déposer une demande.
+              it: Sì, il proprietario è già stato invitato a presentare
+            value: ja
+          - label:
+              de: Nein, Inhaber wurde noch nicht zur Einreichung aufgefordert
+              fr: Non, le propriétaire n'a pas encore été invité à déposer une demande.
+              it: No, il proprietario non è ancora stato invitato a presentare la
+                domanda.
+            value: nein
+      - key: ee6a641d-a1f4-4d93-b64f-0abbac49f43e
+        title:
+          de: Pflichtenheft vorhanden?
+          fr: Cahier des charges disponible?
+          it: Sono disponibili le specifiche?
+        time_period: 7
+        type: form
+        name: pflichtenheft
+        fields:
+        - name: pflichtenheft_noetig
+          type: str
+          choices:
+          - label:
+              de: Das Vorgehen steht bereits fest, kein Pflichtenheft nötig
+              fr: La procédure est déjà définie, pas besoin de cahier des charges
+              it: La procedura è già fissata, non sono necessarie specifiche
+            value: nein
+          - label:
+              de: Das Pflichtenheft muss noch eingereicht werden
+              fr: Le cahier des charges doit encore être soumis
+              it: Le specifiche devono ancora essere presentate
+            value: ja
+      - key: b6e9763f-ccc4-45df-b3f1-531154498a4c
+        title:
+          de: Einreichen Bericht durch Inhaber
+          fr: Soumission du rapport par le propriétaire
+          it: Presentazione del rapporto da parte del proprietario
+        time_period: 7
+        type: form
+        name: start_sanierung__einreichen_brief
+        fields:
+        - name: bericht_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Der Bericht wurde fristgerecht eingereicht
+              fr: Le rapport a été remis dans les délais
+              it: Il rapporto è stato presentato in tempo
+            value: ja
+          - label:
+              de: Keine fristgerechte Einreichung des Berichtes
+              fr: Pas de soumission de rapport dans les délais
+              it: Mancata presentazione tempestiva del rapporto
+            value: nein
+      links:
+      - task_ref: detailuntersuchung_laeuft
+        condition: form.pflichtenheft.pflichtenheft_noetig == `nein`
+      - task_ref: du_pflichtenheft_mahnung
+        condition: form.start_sanierung__einreichen_brief.bericht_eingereicht == `nein`
+      - task_ref: detailuntersuchung_schlussbericht
+        condition: form.zusatz_untersuchungen.zusatz_untersuchungen_noetig == `varianten`
+      - task_ref: sanierung_start_sanierungsprojekt
+        condition: form.zusatz_untersuchungen.zusatz_untersuchungen_noetig == `nein`
+      - task_ref: du_pflichtenheft_beurteilung
+        condition: form.start_sanierung__einreichen_brief.bericht_eingereicht == `ja`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      start_task: true
+      time_period: 7
+    detailuntersuchung_laeuft:
+      key: ae0ed187-f248-4793-9186-0779b81ae12f
+      title:
+        de: Detailuntersuchung läuft
+        fr: Enquête détaillée en cours
+        it: Indagine dettagliata in corso
+      steps:
+      - key: 84b60814-23d2-4db4-9eb4-29f3a3ae5ba7
+        title:
+          de: Abschluss Untersuchungsstufe?
+          fr: Clôture de l'étape d'investigation?
+          it: Completamento della fase di esame?
+        optional: true
+        time_period: 7
+        type: form
+        name: abschluss_untersuchungsstufe
+        fields:
+        - name: phase_abgeschlossen
+          type: bool
+          label:
+            de: Phase abgeschlossen
+            fr: Phase terminée
+            it: Fase completata
+      links:
+      - task_ref: detailuntersuchung_schlussbericht
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    detailuntersuchung_schlussbericht:
+      key: 9fc4fdf2-5ab2-49a8-80cd-adfd2a7cd7cc
+      title:
+        de: Detailuntersuchung Schlussbericht
+        fr: Enquête détaillée Rapport final
+        it: Indagine dettagliata Relazione finale
+      steps:
+      - key: 54a09a16-382e-414c-a0ee-d6fbc45ec122
+        title:
+          de: Aufforderung zur Einreichung
+          fr: Appel à propositions
+          it: Invito a presentare
+        optional: true
+        time_period: 7
+        type: form
+        name: inhaber_aufforderung_einreichung
+        fields:
+        - name: einhaber_aufgefordert
+          type: str
+          choices:
+          - label:
+              de: Ja, der Inhaber wurde bereits zur Einreichung aufgefordert
+              fr: Oui, le propriétaire a déjà été invité à déposer une demande.
+              it: Sì, il proprietario è già stato invitato a presentare
+            value: ja
+          - label:
+              de: Nein, Inhaber wurde noch nicht zur Einreichung aufgefordert
+              fr: Non, le propriétaire n'a pas encore été invité à déposer une demande.
+              it: No, il proprietario non è ancora stato invitato a presentare la
+                domanda.
+            value: nein
+      - key: 46cbaaab-c41f-4a56-80cc-b2ee0257f223
+        title:
+          de: Brief - Aufforderung zur Einreichung Bericht
+          fr: Lettre - Invitation à soumettre un rapport
+          it: Lettera - Richiesta di presentazione del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 080b727c-9895-415d-8e0e-a60567fa7510
+        title:
+          de: Einreichen Bericht durch Inhaber
+          fr: Soumission du rapport par le propriétaire
+          it: Presentazione del rapporto da parte del proprietario
+        time_period: 7
+        type: form
+        name: detailuntersuchung_schlussbericht__einreichen_brief
+        fields:
+        - name: bericht_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Der Bericht wurde fristgerecht eingereicht
+              fr: Le rapport a été remis dans les délais
+              it: Il rapporto è stato presentato in tempo
+            value: ja
+          - label:
+              de: Keine fristgerechte Einreichung des Berichtes
+              fr: Pas de soumission de rapport dans les délais
+              it: Mancata presentazione tempestiva del rapporto
+            value: nein
+      links:
+      - task_ref: detailuntersuchung_schlussbericht_beurteilung
+        condition: form.detailuntersuchung_schlussbericht__einreichen_brief.bericht_eingereicht
+          == `ja`
+      - task_ref: detailuntersuchung_schlussbericht_mahnung
+        condition: form.detailuntersuchung_schlussbericht__einreichen_brief.bericht_eingereicht
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    detailuntersuchung_schlussbericht_beurteilung:
+      key: a679ccde-5c00-48b8-87ae-6e5f704d054d
+      title:
+        de: Detailuntersuchung Schlussbericht - Beurteilung
+        fr: Enquête détaillée Rapport final - évaluation
+        it: Indagine dettagliata Relazione finale - Valutazione
+      steps:
+      - key: 2166b2bf-ba61-40fb-8a4d-0554a00d1d25
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 36c9c083-ccc3-4ed3-8bcc-d0f55e45b23d
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: detailuntersuchung_schlussbericht_beurteilung__stellungnahme_kanton
+        fields:
+        - name: detailuntersuchung_schlussbericht_beurteilung__relevanz_stellungnahme_kanton
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: keine_angabe
+      - key: f785abc4-dc38-44d3-9504-c7a62d5d62a6
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: e39a7f42-a81b-4705-b179-62ecd8bb41b2
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: abschluss_beurteilung
+        fields:
+        - name: beurteilung_abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      - key: 07769378-300f-47fe-b836-040536f751c8
+        title:
+          de: Neubeurteilung Standort nötig
+          fr: Réévaluation du site nécessaire
+          it: È necessario rivalutare la posizione
+        time_period: 7
+        type: form
+        name: neubeurteilung
+        fields:
+        - name: neubeurteilung_noetig
+          type: str
+          choices:
+          - label:
+              de: Ja, Abbruch Sanierungsprojekt (Anlage Geschäft IHO manuell!!)
+              fr: Oui, abandon du projet d'assainissement (Annexe activité OVP manuelle
+                !!)
+              it: Sì, abbattimento del progetto di ristrutturazione (allegato manuale
+                OP business!!!)
+            value: ja
+          - label:
+              de: Nein, Sanierung wird fortgeführt
+              fr: Non, la rénovation se poursuit
+              it: No, la ristrutturazione continuerà
+            value: nein
+      - key: e8392919-606c-4b4e-95d2-563161ff8bda
+        title:
+          de: Ergänzende Detailuntersuchung
+          fr: Examen détaillé complémentaire
+          it: Indagine dettagliata supplementare
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_untersuchungen
+        fields:
+        - name: ergaenzende_untersuchungen_noetig
+          type: str
+          choices:
+          - label:
+              de: Ja
+              fr: Oui
+              it: Sí
+            value: ja
+          - label:
+              de: Nein
+              fr: Non
+              it: 'No'
+            value: nein
+      links:
+      - task_ref: END
+        condition: form.neubeurteilung.neubeurteilung_noetig == `ja`
+      - task_ref: start_ergaenzende_du
+      - task_ref: sanierung_start_sanierungsprojekt
+      time_period: 7
+    du_pflichtenheft_mahnung:
+      key: 692c4cdf-d73e-4b74-a15b-14b90b942090
+      title:
+        de: DU Pflichtenheft - Mahnung zur Einreichung
+        fr: ED Cahier des charges - Rappel de dépôt
+        it: Specifiche ID - promemoria per la presentazione
+      steps:
+      - key: 4cb16c07-241f-498d-b44d-e8a35cf93766
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux titulaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 8bd8b480-ab4d-4c9a-be98-a60a7127f6c6
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: reaktion_inhaber_mahnung
+        fields:
+        - name: bericht_mittlerweile_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      links:
+      - task_ref: du_pflichtenheft_beurteilung
+        condition: form.reaktion_inhaber_mahnung.bericht_mittlerweile_eingereicht
+          == `ja`
+      - task_ref: du_pflichtenheft_mahnung
+        condition: form.reaktion_inhaber_mahnung.bericht_mittlerweile_eingereicht
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    du_pflichtenheft_beurteilung:
+      key: 978bd32e-ca37-4021-bf95-fdf9568e206e
+      title:
+        de: DU Pflichtenheft - Beurteilung
+        fr: ED Cahier des charges - évaluation
+        it: Specifiche ID - Valutazione
+      steps:
+      - key: cb00f387-9594-4fe6-a345-ee12e9c8fe37
+        title:
+          de: Pflichtenheft Inhaber
+          fr: Cahier des charges du propriétaire
+          it: Specifiche del proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 56c10891-90e8-4916-a64d-70ccd9e41d1e
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: du_pflichtenheft_beurteilung_stellungnahme_kanton
+        fields:
+        - name: du_pflichtenheft_beurteilung__relevanz_stellungnahme_kanton
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: keine_angabe
+      - key: 8646e0ea-59cf-44d1-af0b-5bb9a6e4bfeb
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 4b122bfc-68a8-4766-9767-da953014d74e
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation dterminée ?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: du_pflichtenheft_beurteilung__beurteilung_abgeschlossen
+        fields:
+        - name: beurteilung_abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      - key: a31f8e7e-7254-4267-89a7-35513d23ea96
+        title:
+          de: Beurteilung Versand - Brief vollständig?
+          fr: Evaluation de l'envoi - lettre complète ?
+          it: Valutazione spedizione - lettera completa?
+        optional: true
+        time_period: 7
+        type: form
+        name: beurteilung_versand
+        fields:
+        - name: brief_vollstaendig
+          type: bool
+          label:
+            de: Ist der Brief nun vollständig und bereit zum Versand (4-Augen, Dokuliste
+              angepasst)?
+            fr: La lettre est-elle maintenant complète et prête à être envoyée (double
+              contrôle, liste de documentation adaptée) ?
+            it: La lettera è completa e pronta per l'invio (4 occhi, elenco documenti
+              adattato)?
+      links:
+      - task_ref: du_pflichtenheft_anhoerung_inhaber
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    END:
+      key: 40f6de6e-e256-4147-9fb8-413b199b63ec
+      title: __END__
+      links: []
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:26
+      time_period: 7
+    du_pflichtenheft_anhoerung_inhaber:
+      key: ef1a705b-9bc3-4f23-9be5-b6c735cfb595
+      title:
+        de: DU Pflichtenheft - Anhörung Inhaber
+        fr: ED Cahier des charges - Audition du propriétaire
+        it: Specifiche ID - consultazione con il proprietario
+      steps:
+      - key: 4a1fcfee-55f5-4afb-baf2-c1c497a2e606
+        title:
+          de: Brief - Stellungnahme definitiv
+          fr: Lettre - Prise de position définitive
+          it: Lettera - dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: c303dcd1-781c-4a8f-b0de-30c831c11eb3
+        title:
+          de: Eingang Stellungnahme abwarten
+          fr: Attendre la réception de la prise de position
+          it: Attendere il ricevimento della dichiarazione
+        time_period: 7
+        type: form
+        name: eingang_stellungnahme
+        fields:
+        - name: anhoerung_stellungnahme_eingetroffen
+          type: str
+          choices:
+          - label:
+              de: Keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+      - key: ca522058-7d49-400e-9cb0-9984df39fe1a
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `ja`
+        optional: true
+        time_period: 7
+        type: document
+      - key: 2a8f32e0-da66-4ddb-a96f-3eeedee417e6
+        title:
+          de: Einfluss Stellungnahme
+          fr: Influence Prise de position
+          it: Dichiarazione di influenza
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `ja`
+        optional: true
+        time_period: 7
+        type: form
+        name: du_pflichtenheft_anhoerung_inhaber__einfluss_stellungnahme
+        fields:
+        - name: neubeurteilung
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: ja
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: nein
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: nein_abgewiesen
+          - label:
+              de: Einverstanden oder keine Antwort, keine Rückmeldung
+              fr: D'accord ou pas de réponse, pas de réponse
+              it: D'accordo o nessuna risposta, nessun feedback
+            value: nein_rueckmeldung
+      - key: 243417e5-327c-454c-80a5-38fce8203da5
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Feedback sulla dichiarazione
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `ja`
+        optional: true
+        time_period: 7
+        type: document
+      - key: 51ec80c8-6eb4-483d-ac92-c9290968e271
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `ja`
+        optional: true
+        time_period: 7
+        type: form
+        name: dokumentenaufnahme
+        fields:
+        - name: dokumentenaufnahme_korrekt
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: detailuntersuchung_freigabe_durch
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `nein`
+      - task_ref: du_pflichtenheft_beurteilung
+        condition: form.eingang_stellungnahme.anhoerung_stellungnahme_eingetroffen
+          == `ja`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    detailuntersuchung_freigabe_durch:
+      key: bedcfda0-0490-4363-8ede-6e2259e8127f
+      title:
+        de: Detailuntersuchung - Freigabe
+        fr: Examen détaillé - validation
+        it: Indagine dettagliata - approvazione
+      steps:
+      - key: 53fa6a21-da2d-47c8-b327-ac83537db03c
+        title:
+          de: Pflichtenheft bewilligt
+          fr: Cahier des charges approuvé
+          it: Specifiche approvate
+        optional: true
+        time_period: 7
+        type: form
+        name: detailuntersuchung_freigabe_durch__pflichtenheft
+        fields:
+        - name: detailuntersuchung_freigabe_durch__pflichtenheft_bewilligt
+          type: bool
+          label:
+            de: Konzept und Pflichtenheft für diese Sanierungsphase ist definitiv
+              bewilligt, Inhaber kann die Bauarbeiten / Untersuchungen durchführen
+            fr: Le concept et le cahier des charges pour cette phase d'assainissement
+              sont définitivement approuvés, le titulaire peut effectuer les travaux
+              de construction / les examens
+            it: Il concetto e le specifiche per questa fase di risanamento sono stati
+              definitivamente approvati, il proprietario può eseguire i lavori di
+              costruzione/indagini
+      links:
+      - task_ref: detailuntersuchung_laeuft
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    sanierung_start_sanierungsprojekt:
+      key: 9bbe657f-9b08-4edb-ac22-7eb4a7502bec
+      title:
+        de: Sanierung - Start Sanierungsprojekt
+        fr: Rénovation - Lancement du projet de rénovation
+        it: Ristrutturazione - inizio del progetto di ristrutturazione
+      steps:
+      - key: f8a10ec6-f0fa-44ce-887a-8cdb89cc1ad2
+        title:
+          de: Aufforderung zur Einreichung
+          fr: Appel à propositions
+          it: Invito a presentare
+        optional: true
+        time_period: 7
+        type: form
+        name: aufforderung_zur_einreichung
+        fields:
+        - name: sanierung_start_sanierungsprojekt__inhaber_aufgefordert
+          type: str
+          choices:
+          - label:
+              de: Ja, der Inhaber wurde bereits zur Einreichung aufgefordert
+              fr: Oui, le propriétaire a déjà été invité à déposer une demande.
+              it: Sì, il proprietario è già stato invitato a presentare
+            value: ja
+          - label:
+              de: Nein, Inhaber wurde noch nicht zur Einreichung aufgefordert
+              fr: Non, le propriétaire n'a pas encore été invité à déposer une demande.
+              it: No, il proprietario non è ancora stato invitato a presentare la
+                domanda.
+            value: nein
+      - key: 9ad80d20-694f-41ff-9bf9-386df76e878c
+        title:
+          de: Brief - Aufforderung zur Einreichung Bericht
+          fr: Lettre - Invitation à soumettre un rapport
+          it: Lettera - Richiesta di presentazione del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 6e64e437-c274-45ef-899e-29d7fb24522a
+        title:
+          de: Einreichen Bericht durch Inhaber
+          fr: Soumission du rapport par le propriétaire
+          it: Presentazione del rapporto da parte del proprietario
+        time_period: 7
+        type: form
+        name: einreichen_bericht_inhaber
+        fields:
+        - name: fristgerechte_einreichung
+          type: str
+          choices:
+          - label:
+              de: Der Bericht wurde fristgerecht eingereicht
+              fr: Le rapport a été remis dans les délais
+              it: Il rapporto è stato presentato in tempo
+            value: ja
+          - label:
+              de: Keine fristgerechte Einreichung des Berichtes
+              fr: Pas de soumission de rapport dans les délais
+              it: Mancata presentazione tempestiva del rapporto
+            value: nein
+      links:
+      - task_ref: sanierungsprojekt_beurteilung
+        condition: form.einreichen_bericht_inhaber.fristgerechte_einreichung == `ja`
+      - task_ref: sanierungsprojekt_mahnung_zur_einreichung
+        condition: form.einreichen_bericht_inhaber.fristgerechte_einreichung == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    detailuntersuchung_schlussbericht_mahnung:
+      key: 220ca08c-385f-49fe-9b6d-7aa1fd0ab4c7
+      title:
+        de: Detailuntersuchung Schlussbericht - Mahnung Bericht
+        fr: Enquête détaillée Rapport final - Rappel Rapport
+        it: Indagine dettagliata Relazione finale - Relazione di sollecito
+      steps:
+      - key: 8a5d420d-2e3a-42aa-a62f-c4ae082d9949
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux propriétaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 62b58e80-1b0d-4d73-b2df-04f0b3e64173
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: bericht
+        fields:
+        - name: eingang_mahnung
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      links:
+      - task_ref: detailuntersuchung_schlussbericht_beurteilung
+        condition: form.bericht.eingang_mahnung == `ja`
+      - task_ref: detailuntersuchung_schlussbericht_mahnung
+        condition: form.bericht.eingang_mahnung == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    start_ergaenzende_du:
+      key: 9ab6caf6-7d24-4b1b-901e-e56ed8555b2a
+      title:
+        de: Start ergänzende DU
+        fr: Démarrage ED complémentaire
+        it: Avviare la ID supplementare
+      steps:
+      - key: 100ee886-e6d8-45b2-b7ff-852acb868d94
+        title:
+          de: Sanierungsuntersuchung
+          fr: Enquête sur la rénovation
+          it: Indagine di bonifica
+        time_period: 7
+        type: form
+        name: sanierungsuntersuchung
+        fields:
+        - name: pflichtenheft_status
+          type: str
+          choices:
+          - label:
+              de: Nein, schon mit Stellungnahme zur DU bewilligt
+              fr: Non, déjà accordé avec avis sur le ED
+              it: No, già approvato con dichiarazione su ID
+            value: enthalten
+          - label:
+              de: Pflichtenheft vorhanden aber noch zu beurteilen
+              fr: Cahier des charges disponible mais à évaluer
+              it: Specifiche disponibili ma ancora da valutare
+            value: beurteilen
+          - label:
+              de: Pflichtenheft fehlt noch
+              fr: Il manque encore un cahier des charges
+              it: Specifiche ancora mancanti
+            value: fehlt
+      - key: 51fa54cb-8e70-4b47-9112-71d6e0884e34
+        title:
+          de: Pflichtenheft Inhaber
+          fr: Cahier des charges du propriétaire
+          it: Specifiche del proprietario
+        optional: true
+        time_period: 7
+        type: document
+      links:
+      - task_ref: ergaenzende_du_pflichtenheft
+        condition: form.sanierungsuntersuchung.pflichtenheft_status == `fehlt`
+      - task_ref: ergaenzende_du_pflichtenheft_beurteilung
+        condition: form.sanierungsuntersuchung.pflichtenheft_status == `beurteilen`
+      - task_ref: ergaenzende_du_freigabe_durch
+        condition: form.sanierungsuntersuchung.pflichtenheft_status == `enthalten`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    erg_du_pflichtenheft_mahnung_bericht:
+      key: 954d2b6f-9660-4f46-91e0-d1c1a9420975
+      title:
+        de: Erg. DU Pflichtenheft - Mahnung Bericht
+        fr: Complément ED cahier des charges - rappel rapport
+        it: Supplemento alle specifiche ID - rapporto di sollecito
+      steps:
+      - key: 1e471660-475d-4cbd-9e9d-7dd74baf1e87
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux propriétaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 22d0dbda-7965-4991-8191-ce1174aedf0a
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: reaktion_inhaber
+        fields:
+        - name: eingang_bericht
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      links:
+      - task_ref: ergaenzende_du_pflichtenheft_beurteilung
+        condition: form.reaktion_inhaber.eingang_bericht == `ja`
+      - task_ref: erg_du_pflichtenheft_mahnung_bericht
+        condition: form.reaktion_inhaber.eingang_bericht == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    ergaenzende_du_pflichtenheft:
+      key: afda52b6-f4c4-4a96-ade9-35a73a780ce5
+      title:
+        de: Ergänzende DU - Pflichtenheft
+        fr: ED complémentaire - Cahier des charges
+        it: ID supplementare - scheda tecnica
+      steps:
+      - key: 2ef089f0-499a-43d3-a8af-e7368a43de6d
+        title:
+          de: Aufforderung zur Einreichung
+          fr: Appel à propositions
+          it: Invito a presentare
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_du_pflichtenheft__aufforderung
+        fields:
+        - name: ergaenzende_du_pflichtenheft__inhaber_aufgefordert
+          type: str
+          choices:
+          - label:
+              de: Ja, der Inhaber wurde bereits zur Einreichung aufgefordert
+              fr: Oui, le propriétaire a déjà été invité à déposer une demande.
+              it: Sì, il proprietario è già stato invitato a presentare
+            value: ja
+          - label:
+              de: Nein, Inhaber wurde noch nicht zur Einreichung aufgefordert
+              fr: Non, le propriétaire n'a pas encore été invité à déposer une demande.
+              it: No, il proprietario non è ancora stato invitato a presentare la
+                domanda.
+            value: nein
+      - key: 79f86bf2-14ed-41d0-89da-d6590b5abd59
+        title:
+          de: Brief - Aufforderung zur Einreichung Bericht
+          fr: Lettre - Invitation à remettre le rapport
+          it: Lettera - Richiesta di presentazione del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: ad9d57ed-9da6-4951-95e2-f3efbe5079d9
+        title:
+          de: Einreichen Bericht durch Inhaber
+          fr: Soumission du rapport par le propriétaire
+          it: Presentazione del rapporto da parte del proprietario
+        time_period: 7
+        type: form
+        name: einreichung_bericht
+        fields:
+        - name: fristgerecht_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Der Bericht wurde fristgerecht eingereicht
+              fr: Le rapport a été remis dans les délais
+              it: Il rapporto è stato presentato in tempo
+            value: ja
+          - label:
+              de: Keine fristgerechte Einreichung des Berichtes
+              fr: Pas de soumission de rapport dans les délais
+              it: Mancata presentazione tempestiva del rapporto
+            value: nein
+      links:
+      - task_ref: ergaenzende_du_pflichtenheft_beurteilung
+        condition: form.einreichung_bericht.fristgerecht_eingereicht == `ja`
+      - task_ref: erg_du_pflichtenheft_mahnung_bericht
+        condition: form.einreichung_bericht.fristgerecht_eingereicht == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    ergaenzende_du_pflichtenheft_beurteilung:
+      key: 103610d2-c34d-49a3-b357-c99ab8e384e4
+      title:
+        de: Ergänzende DU Pflichtenheft - Beurteilung
+        fr: ED complémentaire Cahier des charges - Evaluation
+        it: Specifiche ID supplementari - Valutazione
+      steps:
+      - key: 74c0076b-1499-4741-b0ac-c628c85fbd3d
+        title:
+          de: Pflichtenheft Inhaber
+          fr: Cahier des charges du propriétaire
+          it: Specifiche del proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 2cc2ba95-1563-48e8-8a07-362133e91370
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: stn_kanton
+        fields:
+        - name: stn_kanton_relevant
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation.
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: kein
+      - key: 4f7c7dbe-aaa8-4902-ae4c-fdd645239f7f
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: c5bed3f6-d1ce-4c88-80a0-adcb5c75cd4f
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée ?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_du_pflichtenheft_beurteilung__beurteilung_abgeschlossen
+        fields:
+        - name: ergaenzende_du_pflichtenheft_beurteilung__abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      links:
+      - task_ref: ergaenzende_du_pflichtenheft_anhoerung_inhaber
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    ergaenzende_du_pflichtenheft_anhoerung_inhaber:
+      key: b535b7be-f97e-4c14-8362-9f5ccf3d01b1
+      title:
+        de: Ergänzende DU Pflichtenheft - Anhörung Inhaber
+        fr: ED complémentaire Cahier des charges - Consultation du propriétaire
+        it: Specifiche ID supplementari - consultazione con il proprietario
+      steps:
+      - key: 44dd26ab-6f9f-4a18-a533-05ae79037f3d
+        title:
+          de: Brief - Stellungnahme definitiv
+          fr: Lettre - Prise de position définitive
+          it: Lettera - dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: 11aa4c0d-6ea3-43dc-9506-2eaea711c61a
+        title:
+          de: Eingang Stellungnahme abwarten
+          fr: Attendre la réception de la prise de position
+          it: Attendere il ricevimento della dichiarazione
+        optional: true
+        time_period: 7
+        type: form
+        name: anhoerung_stn_frist
+        fields:
+        - name: frist_eingehalten
+          type: str
+          choices:
+          - label:
+              de: Keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: ja
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: nein
+      - key: dd3a7a9a-b903-44c9-8d22-2518d3617116
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 7c8b4d8f-8d7a-47dd-8d35-7f8885f6fd9b
+        title:
+          de: Einfluss Stellungnahme
+          fr: Influence Prise de position
+          it: Dichiarazione di influenza
+        optional: true
+        time_period: 7
+        type: form
+        name: einfluss_stn
+        fields:
+        - name: einfluss_stn_bewertung
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: change
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: nochange
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: stillnochange
+          - label:
+              de: Einverstanden oder keine Antwort, keine Rückmeldung
+              fr: D'accord ou pas de réponse, pas de réponse
+              it: D'accordo o nessuna risposta, nessun feedback
+            value: bewertung_ok
+      - key: 970ec04c-a403-4481-9e91-025b3dddbdd0
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Feedback sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 11f6aa7a-d437-4bc8-842a-0acfceb23f79
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_du_pflichtenheft_beurteilung__dokumentenaufnahme
+        fields:
+        - name: dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: ergaenzende_du_freigabe_durch
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    ergaenzende_du_freigabe_durch:
+      key: ade9de6a-93c0-4489-88e0-3b5fa605607e
+      title:
+        de: Ergänzende DU - Freigabe
+        fr: ED complémentaire - Validation
+        it: ID supplementare - approvazione
+      steps:
+      - key: cff0e841-b244-4501-b94e-66d5625eec7f
+        title:
+          de: Pflichtenheft bewilligt
+          fr: Cahier des charges approuvé
+          it: Specifiche approvate
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_du_freigabe_durch__pflichtenheft_bewilligt
+        fields:
+        - name: ergaenzende_du_freigabe_durch__pflichtenheft_bewilligt
+          type: bool
+          label:
+            de: Konzept und Pflichtenheft für diese Sanierungsphase ist definitiv  bewilligt,
+              Inhaber kann die Bauarbeiten / Untersuchungen durchführen
+            fr: Le concept et le cahier des charges pour cette phase d'assainissement
+              sont définitivement approuvés, le titulaire peut effectuer les travaux
+              de construction / les examens
+            it: Il concetto e le specifiche per questa fase di risanamento sono stati
+              definitivamente approvati, il proprietario può eseguire i lavori di
+              costruzione/indagini
+      links:
+      - task_ref: ergaenzende_detailuntersuchung_lauft
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    ergaenzende_detailuntersuchung_lauft:
+      key: ecd518bf-83fe-43b3-8ff1-506522c5e631
+      title:
+        de: Ergänzende Detailuntersuchung läuft
+        fr: Enquête détaillée complémentaire en cours
+        it: In corso un'ulteriore indagine dettagliata
+      steps:
+      - key: 9b7854dd-abc6-48cd-a36d-d0d87cdbd353
+        title:
+          de: Abschluss Untersuchungsstufe?
+          fr: Clôture de l'étape d'investigation?
+          it: Completamento della fase di esame?
+        optional: true
+        time_period: 7
+        type: form
+        name: ergaenzende_detailuntersuchung_lauft__abschluss
+        fields:
+        - name: ergaenzende_detailuntersuchung_lauft__abgeschlossen
+          type: bool
+          label:
+            de: Diese Phase der Standortsanierung ist nun abgeschlossen.
+            fr: Cette phase de rénovation du site est désormais terminée.
+            it: Questa fase di ristrutturazione del sito è stata completata.
+      links:
+      - task_ref: erg_detailuntersuchung_schlussbericht_beurteilung
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:06
+      time_period: 7
+    erg_detailuntersuchung_schlussbericht_beurteilung:
+      key: 5140ee6a-82f8-4c8c-a77e-4e8d0140ee45
+      title:
+        de: Erg. Detailuntersuchung Schlussbericht - Beurteilung
+        fr: Enquête détaillée complémentaire Rapport final - évaluation
+        it: ID supplementare Relazione finale - Valutazione
+      steps:
+      - key: 1aa48069-2a96-4ba7-ba19-0748a32b8c2b
+        title:
+          de: Schlussbericht Inhaber
+          fr: Rapport final Propriétaire
+          it: Proprietario del rapporto finale
+        optional: true
+        time_period: 7
+        type: document
+      - key: a262e0af-6c46-473f-821c-1bbb86ec7137
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: erg_detailuntersuchung_schlussbericht_beurteilung__stn_kanton
+        fields:
+        - name: stn_kanton_relevanz
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: kein
+      - key: 1554d0cb-a818-4668-8759-e693f9b41034
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: a679039d-e03e-4417-860f-442ea6c0b510
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée ?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: erg_detailuntersuchung_schlussbericht_beurteilung__beurteilung
+        fields:
+        - name: erg_detailuntersuchung_schlussbericht_beurteilung__abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      - key: 43135e03-dffc-4daf-8a9b-714889625480
+        title:
+          de: Neubeurteilung Standort nötig
+          fr: Réévaluation du site nécessaire
+          it: È necessario rivalutare la posizione
+        time_period: 7
+        type: form
+        name: erg_detailuntersuchung_schlussbericht_beurteilung__neubeurteilung
+        fields:
+        - name: erg_detailuntersuchung_schlussbericht_beurteilung__abbruch
+          type: str
+          choices:
+          - label:
+              de: Ja, Abbruch Sanierungsprojekt (Anlage Geschäft IHO manuell!!)
+              fr: Oui, abandon du projet d'assainissement (Annexe activité OVP manuelle
+                !!)
+              it: Sì, abbattimento del progetto di ristrutturazione (allegato manuale
+                OP business!!!)
+            value: ja
+          - label:
+              de: Nein, Sanierung wird fortgeführt
+              fr: Non, la rénovation se poursuit
+              it: No, la ristrutturazione continuerà
+            value: nein
+      links:
+      - task_ref: END
+        condition: form.erg_detailuntersuchung_schlussbericht_beurteilung__neubeurteilung.erg_detailuntersuchung_schlussbericht_beurteilung__abbruch
+          == `ja`
+      - task_ref: sanierung_start_sanierungsprojekt
+        condition: form.erg_detailuntersuchung_schlussbericht_beurteilung__neubeurteilung.erg_detailuntersuchung_schlussbericht_beurteilung__abbruch
+          == `nein`
+      time_period: 7
+    sanierungsprojekt_mahnung_zur_einreichung:
+      key: b0265048-b238-4c34-b269-dac1a0f20ba4
+      title:
+        de: Sanierungsprojekt - Mahnung zur Einreichung
+        fr: Projet de rénovation - rappel pour soumission
+        it: Progetto di bonifica - promemoria per la presentazione
+      steps:
+      - key: e7cde5b9-d5cf-4e9e-9374-f0a3739b9bef
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux propriétaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 4b6a1919-fdec-4cd7-b7bc-b41fe48bed5c
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_mahnung_zur_einreichung__mahnung
+        fields:
+        - name: sanierungsprojekt_mahnung_zur_einreichung__bericht_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      links:
+      - task_ref: sanierungsprojekt_beurteilung
+        condition: form.sanierungsprojekt_mahnung_zur_einreichung__mahnung.sanierungsprojekt_mahnung_zur_einreichung__bericht_eingereicht
+          == `ja`
+      - task_ref: sanierungsprojekt_mahnung_zur_einreichung
+        condition: form.sanierungsprojekt_mahnung_zur_einreichung__mahnung.sanierungsprojekt_mahnung_zur_einreichung__bericht_eingereicht
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    sanierungsprojekt_beurteilung:
+      key: fa170a7d-323b-495b-9c72-8ee01e15ba43
+      title:
+        de: Sanierungsprojekt - Beurteilung
+        fr: Projet de rénovation - évaluation
+        it: Progetto di ristrutturazione - Valutazione
+      steps:
+      - key: 2cf3d9df-dc0c-4988-80ee-7d4347d579e8
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: f9376193-c89a-4119-8c25-1d7b88cc1901
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_beurteilung__stn_kanton
+        fields:
+        - name: sanierungsprojekt_beurteilung__stn_kanton_relevanz
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: kein
+      - key: f9b3b111-691b-4988-baf2-c48563cd28e1
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: bd965f6c-e0ac-4530-a8d5-e5b6ecf71b2a
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée ?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_beurteilung__beurteilung
+        fields:
+        - name: sanierungsprojekt_beurteilung__beurteilung_abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      - key: 1bf88fd6-f1cc-43de-8431-0c7dbcba0d26
+        title:
+          de: Beurteilung Versand - Brief vollständig?
+          fr: Evaluation de l'envoi - lettre complète ?
+          it: Valutazione spedizione - lettera completa?
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_beurteilung__brief
+        fields:
+        - name: sanierungsprojekt_beurteilung__brief_bereit
+          type: bool
+          label:
+            de: Ist der Brief nun vollständig und bereit zum Versand (4-Augen, Dokuliste
+              angepasst)?
+            fr: La lettre est-elle maintenant complète et prête à être envoyée (double
+              contrôle, liste de documentation adaptée) ?
+            it: La lettera è completa e pronta per l'invio (4 occhi, elenco documenti
+              adattato)?
+      links:
+      - task_ref: sanierungsprojekt_anhoerung_kanton
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    sanierungsprojekt_anhoerung_kanton:
+      key: 1a49e492-ae2c-4f76-b1a9-4da6665c59f9
+      title:
+        de: Sanierungsprojekt - Anhörung Kanton
+        fr: Projet de rénovation - consultation du canton
+        it: Progetto di ristrutturazione - consultazione cantonale
+      steps:
+      - key: 6ca12702-fba3-403c-a256-7b63dee5cf3b
+        title:
+          de: Brief - Begleitbrief Anhörung Behörde
+          fr: Lettre - lettre d'accompagnement audition autorité
+          it: Lettera - Lettera di accompagnamento dell'autorità d'udienza
+        optional: true
+        time_period: 7
+        type: document
+      - key: 76e7f300-6e4a-4558-8fcb-0dd007ff6862
+        title:
+          de: Eingang Stellungnahme abwarten
+          fr: Attendre la réception de la prise de position
+          it: Attendere il ricevimento della dichiarazione
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_kanton__stn_abwarten
+        fields:
+        - name: sanierungsprojekt_anhoerung_kanton__stn_eingegangen
+          type: str
+          choices:
+          - label:
+              de: Keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+      - key: 35fd7459-6a88-4d2d-a4d3-dc063121a428
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 11904150-b418-4f71-824c-a1d5c27f8ad3
+        title:
+          de: Einfluss Stellungnahme
+          fr: Influence Prise de position
+          it: Dichiarazione di influenza
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_kanton__stn_einfluss
+        fields:
+        - name: sanierungsprojekt_anhoerung_kanton__stn_bewertung
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: change
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: nochange
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: stillnochange
+          - label:
+              de: Einverstanden oder keine Antwort, keine Rückmeldung
+              fr: D'accord ou pas de réponse, pas de réponse
+              it: D'accordoo nessuna risposta, nessun feedback da
+            value: ok
+      - key: 2a6dfb06-268b-4d2a-87d9-70c009aa1ed8
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Feedback sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: a63a75a5-b40d-4ee6-974d-92d1ce7e7017
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_kanton__dokumentenaufnahme
+        fields:
+        - name: sanierungsprojekt_anhoerung_kanton__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: sanierungsprojekt_anhoerung_inhaber
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    sanierungsprojekt_anhoerung_inhaber:
+      key: 7b59d727-7ba5-4ade-815b-d34a20454531
+      title:
+        de: Sanierungsprojekt - Anhörung Inhaber
+        fr: Projet de rénovation - consultation des propriétaires
+        it: Progetto di ristrutturazione - consultazione con i proprietari
+      steps:
+      - key: e414511f-fc37-4e22-bc07-9798504d00e2
+        title:
+          de: Brief - Stellungnahme definitiv
+          fr: Lettre - Prise de position définitive
+          it: Lettera - dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: aae450ad-8cfd-4e93-8d73-34b3b4cd45f9
+        title:
+          de: Eingang Stellungnahme abwarten
+          fr: Attendre la réception de la prise de position
+          it: Attendere il ricevimento della dichiarazione
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_inhaber__stn_inhaber
+        fields:
+        - name: sanierungsprojekt_anhoerung_inhaber__stn_fristgerecht
+          type: str
+          choices:
+          - label:
+              de: Keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+      - key: 175b6e3a-5eac-49df-8ce8-9f5005625b5d
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1bf22df2-cc9d-4b81-b23e-288908344a68
+        title:
+          de: Einfluss Stellungnahme
+          fr: Influence Prise de position
+          it: Dichiarazione di influenza
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_inhaber__stn_einfluss
+        fields:
+        - name: sanierungsprojekt_anhoerung_inhaber__stn_bewertung
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: change
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: nochange
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: stillnochange
+          - label:
+              de: Einverstanden oder keine Antwort, keine Rückmeldung
+              fr: D'accord ou pas de réponse, pas de réponse
+              it: D'accordoo nessuna risposta, nessun feedback
+            value: ok
+      - key: 07e683d6-5c07-44b6-acd6-7698106fcbaa
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Feedback sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: c5f9293a-c33c-4d86-9c80-3a586f1d8e83
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: sanierungsprojekt_anhoerung_inhaber__dokumentenaufnahme
+        fields:
+        - name: sanierungsprojekt_anhoerung_inhaber__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: standortsanierung_freigabe_durch
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    standortsanierung_freigabe_durch:
+      key: f2507028-3b24-489f-83bc-c44ba155240e
+      title:
+        de: Standortsanierung - Freigabe
+        fr: Assainissement du site - autorisation
+        it: Riqualificazione del sito - approvazione
+      steps:
+      - key: ea6cafa6-382a-4dce-92d4-09b45510be18
+        title:
+          de: Pflichtenheft bewilligt
+          fr: Cahier des charges approuvé
+          it: Specifiche approvate
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_freigabe_durch__pflichtenheft
+        fields:
+        - name: standortsanierung_freigabe_durch__pflichtenheft_bewilligt
+          type: bool
+          label:
+            de: Konzept und Pflichtenheft für diese Sanierungsphase ist definitiv
+              bewilligt, Inhaber kann die Bauarbeiten / Untersuchungen durchführen
+            fr: Le concept et le cahier des charges pour cette phase d'assainissement
+              sont définitivement approuvés, le titulaire peut effectuer les travaux
+              de construction / les examens
+            it: Il concetto e le specifiche per questa fase di risanamento sono stati
+              definitivamente approvati, il proprietario può eseguire i lavori di
+              costruzione/indagini
+      links:
+      - task_ref: standortsanierung_laeuft_zwischenbericht
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    standortsanierung_laeuft_zwischenbericht:
+      key: 478b1d0c-83fc-49bc-b865-257b8caebd44
+      title:
+        de: Standortsanierung läuft - Zwischenbericht
+        fr: Assainissement du site en cours - rapport intermédiaire
+        it: Riqualificazione del sito in corso - Rapporti intermedi
+      steps:
+      - key: 522c3b04-98e2-4fbc-adb8-b6c3918e4dfe
+        title:
+          de: Zwischenberichte?
+          fr: Rapports intermédiaires?
+          it: Rapporti intermedi?
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_zwischenbericht__einreichung
+        fields:
+        - name: standortsanierung_laeuft_zwischenbericht__fristgerecht
+          type: str
+          choices:
+          - label:
+              de: Ja, ein Bericht wurde fristgerecht eingereicht
+              fr: Oui, un rapport a été soumis dans le délai imparti
+              it: Sì, un rapporto è stato presentato in tempo
+            value: ja
+          - label:
+              de: Keine fristgerechte Einreichung eines verlangten Berichtes
+              fr: Non-remise d'un rapport demandé dans les délais impartis
+              it: Mancata presentazione tempestiva di un rapporto obbligatorio
+            value: nein
+          - label:
+              de: Inhaber muss keinen Zwischenbericht einreichen
+              fr: Le propriétaire n'est pas tenu de soumettre un rapport intermédiaire
+              it: Il proprietario non è tenuto a presentare una relazione intermedia.
+            value: nichtnoetig
+      - key: 1f14e78f-bd1f-4eb5-92f7-9108edf9d01d
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: a7ef572f-9d32-4b8b-a0de-1db2a22b93b2
+        title:
+          de: Nachfrage beim Inhaber nach Bericht
+          fr: Demande de rapport au propriétaire
+          it: Chiedete al proprietario un rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: fd251f55-ddb3-4b66-98bf-500a178d650c
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_zwischenbericht__dokumentenaufnahme
+        fields:
+        - name: standortsanierung_laeuft_zwischenbericht__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: standortsanierung_laeuft_beurteilung_zwischenbericht
+        condition: form.standortsanierung_laeuft_zwischenbericht__einreichung.standortsanierung_laeuft_zwischenbericht__fristgerecht
+          == `ja`
+      - task_ref: standortsanierung_lauft
+        condition: form.standortsanierung_laeuft_zwischenbericht__einreichung.standortsanierung_laeuft_zwischenbericht__fristgerecht
+          == `nichtnoetig`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    standortsanierung_laeuft_mahnung_bericht:
+      key: e02c1db3-abf5-4889-89ce-1ede1b3255ea
+      title:
+        de: Standortsanierung läuft - Mahnung Bericht
+        fr: Rénovation du site en cours - Rapport d'avertissement
+        it: Ristrutturazione del sito in corso - rapporto di promemoria
+      steps:
+      - key: 0ca26ac2-5d28-4ac7-a700-f6e21ec32114
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux propriétaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 6534900e-05a3-4b13-83a5-7fe3e75031ea
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_mahnung_bericht__brief
+        fields:
+        - name: standortsanierung_laeuft_mahnung_bericht__brief_eingereicht
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      links:
+      - task_ref: standortsanierung_laeuft_beurteilung_zwischenbericht
+        condition: form.standortsanierung_laeuft_mahnung_bericht__brief.standortsanierung_laeuft_mahnung_bericht__brief_eingereicht
+          == `ja`
+      - task_ref: standortsanierung_laeuft_mahnung_bericht
+        condition: form.standortsanierung_laeuft_mahnung_bericht__brief.standortsanierung_laeuft_mahnung_bericht__brief_eingereicht
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    standortsanierung_laeuft_beurteilung_zwischenbericht:
+      key: e3e3ac04-e917-40c4-aec2-2b4540c30cb6
+      title:
+        de: Standortsanierung läuft - Beurteilung Zwischenbericht
+        fr: Rénovation du site en cours - évaluation du rapport intermédiaire
+        it: Bonifica del sito in corso - valutazione del rapporto intermedio
+      steps:
+      - key: 22573515-61c5-4513-a006-1af54e50cca8
+        title:
+          de: Stellungnahme erforderlich?
+          fr: Prise de position nécessaire?
+          it: È necessaria una dichiarazione ?
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_beurteilung_zwischenbericht__stn
+        fields:
+        - name: standortsanierung_laeuft_beurteilung_zwischenbericht__stn_noetig
+          type: str
+          choices:
+          - label:
+              de: Ja, nimmt Stellung
+              fr: Oui, prend position
+              it: Sì, prende posizione
+            value: ja
+          - label:
+              de: Nein, nimmt nicht Stellung zum eingereichten Bericht
+              fr: Non, ne prend pas position sur le rapport déposé
+              it: No, non commenta il rapporto presentato.
+            value: nein
+      - key: 728bd24d-9eaa-4320-8b6c-821371122c95
+        title:
+          de: Beurteilung Versand - Brief vollständig?
+          fr: Evaluation de l'envoi - lettre complète ?
+          it: Valutazione spedizione - lettera completa?
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_beurteilung_zwischenbericht__brief
+        fields:
+        - name: standortsanierung_laeuft_beurteilung_zwischenbericht__brief_vollstaendig
+          type: bool
+          label:
+            de: Ist der Brief nun vollständig und bereit zum Versand (4-Augen, Dokuliste
+              angepasst)?
+            fr: La lettre est-elle maintenant complète et prête à être envoyée (double
+              contrôle, liste de documentation adaptée) ?
+            it: La lettera è completa e pronta per l'invio (4 occhi, elenco documenti
+              adattato)?
+      - key: ad4f1c79-e1b8-4d68-bcdd-f67690d23fcd
+        title:
+          de: Brief - Stellungnahme definitiv
+          fr: Lettre - Prise de position définitive
+          it: Lettera - dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: 7a5b3016-3514-48e3-ad44-85934625dbd2
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_laeuft_beurteilung_zwischenbericht__dokumentenaufnahme
+        fields:
+        - name: standortsanierung_laeuft_beurteilung_zwischenbericht__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: standortsanierung_laeuft_zwischenbericht
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:15
+      time_period: 7
+    standortsanierung_lauft:
+      key: 2af98e65-740f-44cd-a097-52e514a3f8dd
+      title:
+        de: Standortsanierung läuft
+        fr: Rénovation du site en cours
+        it: Bonifica del sito in corso
+      steps:
+      - key: 56559955-3469-4c0a-b8f4-8aa54dc6d076
+        title:
+          de: Abschluss Untersuchungsstufe?
+          fr: Clôture de l'étape d'investigation?
+          it: Completamento della fase di esame?
+        optional: true
+        time_period: 7
+        type: form
+        name: standortsanierung_lauft__abschluss
+        fields:
+        - name: standortsanierung_lauft__abgeschlossen
+          type: bool
+          label:
+            de: Diese Phase der Standortsanierung ist nun abgeschlossen.
+            fr: Cette phase de rénovation du site est désormais terminée.
+            it: Questa fase di ristrutturazione del sito è stata completata.
+      links:
+      - task_ref: erfolgskontrolle
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:20
+      time_period: 7
+    erfolgskontrolle:
+      key: 31c5de70-1f32-4adf-9134-fd8cbf620a9c
+      title:
+        de: Erfolgskontrolle
+        fr: Contrôle des résultats
+        it: Valutazione delle prestazioni
+      steps:
+      - key: 438b656a-f29f-4d3b-9a8f-f59ea26b42b8
+        title:
+          de: Bericht zur Neubeurteilung nach Sanierung
+          fr: Rapport de réévaluation après rénovation
+          it: Rapporto sulla rivalutazione dopo la ristrutturazione
+        time_period: 7
+        type: form
+        name: erfolgskontrolle__neubeurteilung
+        fields:
+        - name: erfolgskontrolle__bericht
+          type: str
+          choices:
+          - label:
+              de: Standort wird aufgrund vorheriger Zwischenberichte beurteilt
+              fr: Le site est évalué sur la base des rapports intermédiaires précédents
+              it: L'ubicazione è valutata sulla base delle precedenti relazioni intermedie.
+            value: bisherige
+          - label:
+              de: Neubeurteilung anhand neu eingereichtem Gesamtbericht
+              fr: Réévaluation sur la base du nouveau rapport général
+              it: Rivalutazione sulla base della nuova relazione complessiva presentata
+            value: ja
+          - label:
+              de: Gesamtbericht muss eingereicht werden, fehlt aber noch
+              fr: Le rapport général doit être remis, mais il manque encore
+              it: Il rapporto complessivo deve essere presentato, ma ancora manca
+            value: fehlt
+          - label:
+              de: Noch keine Beurteilung möglich - Gesamtbericht unvollständig
+              fr: Pas encore d'évaluation possible - Rapport général incomplet
+              it: Non è ancora possibile una valutazione - il rapporto complessivo
+                è incompleto
+            value: nachforderung
+      - key: 83907b65-f9a3-436c-ac2b-2bc40664a268
+        title:
+          de: Schlussbericht Inhaber
+          fr: Rapport final Propriétaire
+          it: Proprietario del rapporto finale
+        optional: true
+        time_period: 7
+        type: document
+      - key: e758785b-d4da-484f-9c97-cb46a9a5843a
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle__dokumentenaufnahme
+        fields:
+        - name: erfolgskontrolle__dokumentenaufnahme_ok
+          type: str
+          choices:
+          - label:
+              de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+              fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+              it: Controllo - la registrazione del documento è corretta (non dimenticare
+                l'autore!)
+            value: ja
+      links:
+      - task_ref: erfolgskontrolle_beurteilung_schlussbericht
+        condition: form.erfolgskontrolle__neubeurteilung.erfolgskontrolle__bericht
+          == `fehlt`
+      - task_ref: erfolgskontrolle_mahnung_schlussbericht
+        condition: form.erfolgskontrolle__neubeurteilung.erfolgskontrolle__bericht
+          != `fehlt`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:25
+      time_period: 7
+    erfolgskontrolle_mahnung_schlussbericht:
+      key: b4991de3-976c-4ab6-bd11-7b9bf7cc0d6c
+      title:
+        de: Erfolgskontrolle - Mahnung Schlussbericht
+        fr: Contrôle des résultats - Rappel Rapport final
+        it: Valutazione delle prestazioni - Promemoria Rapporto finale
+      steps:
+      - key: 5dc0bac0-3fa0-4eb6-8633-366679c21921
+        title:
+          de: Brief - Mahnung an Inhaber
+          fr: Lettre - rappel aux propriétaires
+          it: Lettera - sollecito al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: ca1c89ca-4eb3-45ec-adb7-3e091eb0f7e5
+        title:
+          de: Reaktion Inhaber auf Mahnung
+          fr: Réaction du propriétaire au rappel
+          it: Risposta del proprietario al sollecito
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_mahnung_schlussbericht__inhaber_reaktion
+        fields:
+        - name: erfolgskontrolle_mahnung_schlussbericht__eingereicht
+          type: str
+          choices:
+          - label:
+              de: Ja, der verlangte Bericht wurde eingereicht
+              fr: Oui, le rapport demandé a été remis
+              it: Sì, il rapporto richiesto è stato presentato
+            value: ja
+          - label:
+              de: Nein, der verlangte Bericht wurde noch immer nicht eingereicht
+              fr: Non, le rapport demandé n'a toujours pas été remis.
+              it: No, il rapporto richiesto non è ancora stato presentato.
+            value: nein
+      - key: e651b3cd-1ae8-4d49-92e8-c933200d7c73
+        title:
+          de: Schlussbericht Inhaber
+          fr: Rapport final Propriétaire
+          it: Proprietario del rapporto finale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 02f3cbd1-f1f0-4f4b-bae8-e02929ed8e01
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_mahnung_schlussbericht__dokumentenaufnahme
+        fields:
+        - name: erfolgskontrolle_mahnung_schlussbericht__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: erfolgskontrolle_beurteilung_schlussbericht
+        condition: form.erfolgskontrolle_mahnung_schlussbericht__inhaber_reaktion.erfolgskontrolle_mahnung_schlussbericht__eingereicht
+          == `ja`
+      - task_ref: erfolgskontrolle_mahnung_schlussbericht
+        condition: form.erfolgskontrolle_mahnung_schlussbericht__inhaber_reaktion.erfolgskontrolle_mahnung_schlussbericht__eingereicht
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:25
+      time_period: 7
+    erfolgskontrolle_beurteilung_schlussbericht:
+      key: e97cb42d-e6ee-4c10-9b4e-56843c144c6b
+      title:
+        de: Erfolgskontrolle - Beurteilung Schlussbericht
+        fr: Contrôle des résultats - Évaluation Rapport final
+        it: Valutazione delle prestazioni - Valutazione del rapporto finale
+      steps:
+      - key: 9401dcc6-9b6a-4375-b9f6-5d8718f9801d
+        title:
+          de: Relevante Stellungnahme Kanton?
+          fr: Prise de position pertinente du canton?
+          it: Dichiarazione cantonale pertinente?
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_beurteilung_schlussbericht__stn_kanton
+        fields:
+        - name: erfolgskontrolle_beurteilung_schlussbericht__stn_kanton_relevanz
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme Kanton fliesst in Beurteilung mit ein
+              fr: Oui, prise de position du canton prise en compte dans l'évaluation
+              it: Sì, il parere del Cantone è incluso nella valutazione.
+            value: ja
+          - label:
+              de: Stellungnahme Kanton ist nicht relevant
+              fr: La prise de position du canton n'est pas pertinente
+              it: Il parere del Cantone non è rilevante
+            value: nein
+          - label:
+              de: Der Kanton hat nicht Stellung genommen
+              fr: Le canton n'a pas pris position
+              it: Il Cantone non ha preso posizione
+            value: kein
+      - key: d1732622-090c-460e-87aa-e7ca940a0b57
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: ece319bc-11f5-443c-9b6b-d44ffeba47e4
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée ?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_beurteilung_schlussbericht__beurteilung
+        fields:
+        - name: erfolgskontrolle_beurteilung_schlussbericht__beurteilung_abgeschlossen
+          type: bool
+          label:
+            de: Die Beurteilung des Berichtes und die Anpassung der Standortdaten
+              ist abgeschlossen
+            fr: L'évaluation du rapport et l'adaptation des données de site sont terminées
+            it: La valutazione del rapporto e l'adeguamento dei dati relativi all'ubicazione
+              del sito sono stati completati. dati del sito è stata completata
+      - key: 64a24dc4-4043-4bcd-8be4-bd92f5264a2f
+        title:
+          de: Stellungnahme zu Erfolgskontrolle oder Neubeurteilung?
+          fr: Prise de position sur le contrôle des résultats ou la réévaluation ?
+          it: Dichiarazione sulla revisione delle prestazioni o sulla rivalutazione?
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_beurteilung_schlussbericht__stn
+        fields:
+        - name: erfolgskontrolle_beurteilung_schlussbericht__stn
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme zum Schlussbericht, Standortneubeurteilung später
+              fr: Prise de position sur le rapport final, réévaluation du site plus
+                tard
+              it: Dichiarazione sulla relazione finale, rivalutazione del sito in
+                seguito
+            value: erfolgskontrolle
+          - label:
+              de: Standortneubeurteilung wird jetzt direkt vorgenommen
+              fr: La réévaluation du site se fait désormais directement
+              it: La rivalutazione della posizione viene ora effettuata direttamente
+            value: iho
+      - key: b91acf67-52eb-4d88-a4e7-dd4b5fb1e2ad
+        title:
+          de: Beurteilung Versand - Brief vollständig?
+          fr: Evaluation de l'envoi - lettre complète ?
+          it: Valutazione spedizione - lettera completa?
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_beurteilung_schlussbericht__brief
+        fields:
+        - name: erfolgskontrolle_beurteilung_schlussbericht__brief_vollstaendig
+          type: bool
+          label:
+            de: Ist der Brief nun vollständig und bereit zum Versand (4-Augen, Dokuliste
+              angepasst)?
+            fr: La lettre est-elle maintenant complète et prête à être envoyée (double
+              contrôle, liste de documentation adaptée) ?
+            it: La lettera è completa e pronta per l'invio (4 occhi, elenco documenti
+              adattato)?
+      links:
+      - task_ref: erfolgskontrolle_anhoerung_inhaber
+        condition: form.erfolgskontrolle_beurteilung_schlussbericht__stn.erfolgskontrolle_beurteilung_schlussbericht__stn
+          == `erfolgskontrolle`
+      - task_ref: sanierung_ende
+        condition: form.erfolgskontrolle_beurteilung_schlussbericht__stn.erfolgskontrolle_beurteilung_schlussbericht__stn
+          == `iho`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:25
+      time_period: 7
+    erfolgskontrolle_anhoerung_inhaber:
+      key: 6f02ddd6-0844-4e92-b58e-843de8307bab
+      title:
+        de: Erfolgskontrolle - Anhörung Inhaber
+        fr: Contrôle des résultats - Audition du propriétaire
+        it: Valutazione delle prestazioni - Consultazione Proprietario
+      steps:
+      - key: 65ba7963-5205-4b20-87e8-0182011ade73
+        title:
+          de: Brief - Stellungnahme definitiv
+          fr: Lettre - Prise de position définitive
+          it: Lettera - dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: e81c83fc-8d9f-4322-98c7-bdf0b61a3069
+        title:
+          de: Eingang Stellungnahme abwarten
+          fr: Attendre la réception de la prise de position
+          it: Attendere il ricevimento della dichiarazione
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_anhoerung_inhaber__stn
+        fields:
+        - name: erfolgskontrolle_anhoerung_inhaber__stn_fristgerecht
+          type: str
+          choices:
+          - label:
+              de: Keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+      - key: 65cb6628-a767-4f35-8b8b-92ae62679d11
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1e783819-f940-40d7-a535-6b99e281c824
+        title:
+          de: Einfluss Stellungnahme
+          fr: Influence Prise de position
+          it: Dichiarazione di influenza
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_anhoerung_inhaber__stn_einfluss
+        fields:
+        - name: erfolgskontrolle_anhoerung_inhaber__stn_neubeurteilung
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: change
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: nochange
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: stillnochange
+          - label:
+              de: Einverstanden oder keine Antwort, keine Rückmeldung
+              fr: D'accord ou pas de réponse, pas de réponse
+              it: D'accordoo nessuna risposta, nessun feedback
+            value: ok
+      - key: 157736b3-f041-4419-9dcb-8f30070401fd
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Feedback sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: bfa076fd-6225-40f6-a978-e5ee0e94d030
+        title:
+          de: Dokumentaufnahme
+          fr: Enregistrement du document
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: erfolgskontrolle_anhoerung_inhaber__dokumentenaufnahme
+        fields:
+        - name: erfolgskontrolle_anhoerung_inhaber__dokumentenaufnahme_ok
+          type: bool
+          label:
+            de: Kontrolle - Dokumentaufnahme korrekt (Autor nicht vergessen!)
+            fr: Contrôle - Prise de document correcte (ne pas oublier l'auteur!)
+            it: Controllo - la registrazione del documento è corretta (non dimenticare
+              l'autore!)
+      links:
+      - task_ref: sanierung_ende
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:25
+      time_period: 7
+    sanierung_ende:
+      key: d95b5349-e559-4fc6-b2a2-d47db501bb8d
+      title:
+        de: Sanierung Ende
+        fr: Fin de la rénovation
+        it: Fine ristrutturazione
+      steps:
+      - key: 2b6f0e11-01f9-42f7-b03f-42fb53dfadd0
+        title:
+          de: Sanierung Ende - Neubeurteilung von Inhaber akzeptiert
+          fr: Fin de la rénovation - Réévaluation acceptée par le propriétaire
+          it: Fine ristrutturazione - Rivalutazione accettata dal proprietario
+        time_period: 7
+        type: form
+        name: neubeurteilung_akzeptiert
+        fields:
+        - name: ihodefinitiv
+          type: str
+          choices:
+          - label:
+              de: Ja, der Standort wurde definitiv neu beurteilt
+              fr: Oui, le site a été définitivement réévalué
+              it: Sì, la posizione è stata sicuramente rivalutata
+            value: ja
+          - label:
+              de: Nein, die rechtskräftige Neubeurteilung ist noch hängig
+              fr: Non, la réévaluation juridiquement valable est encore en suspens
+              it: No, la rivalutazione giuridicamente vincolante è ancora in corso.
+            value: nein
+      - key: 47aef935-635b-4a60-bcac-ac519213c589
+        title:
+          de: Eintrag in BAFU Verzeichnis sanierte Standorte
+          fr: Inscription dans la liste des sites assainis de l'OFEV
+          it: Iscrizione nell'elenco UFAM dei siti bonificati
+        optional: true
+        time_period: 7
+        type: form
+        name: eintrag_bafu
+        fields:
+        - name: bafu_eingetragen
+          type: bool
+          label:
+            de: Standort im Verzeichnis der sanierten Standorte des BAFU eintragen
+              (www.sandat.ch). Passwort und Benutzernamen -> bei std oder nötigenfalls
+              bei Webmaster BAFU anfragen.
+            fr: Inscrire le site dans le registre des sites assainis de l'OFEV (www.sandat.ch).
+              Mot de passe et nom d'utilisateur -> auprès de std ou si nécessaire
+              Demander au webmaster de l'OFEV.
+            it: Inserire il sito nella directory dei siti bonificati dell'UFAM (www.sandat.ch).
+              Password e nome utente -> contattare std o il webmaster dell'UFAM se
+              necessario.
+      links:
+      - task_ref: sanierung_ende
+        condition: form.neubeurteilung_akzeptiert.ihodefinitiv == `nein`
+      - task_ref: END
+        condition: form.neubeurteilung_akzeptiert.ihodefinitiv == `ja`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:26
+      time_period: 7
+  time_period: 365

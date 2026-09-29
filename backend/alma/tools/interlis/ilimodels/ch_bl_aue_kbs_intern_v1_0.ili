@@ -1,0 +1,68 @@
+INTERLIS 2.3;
+
+!!========================================================================================
+!! Copyright (c) 2021, GIS-Fachstelle des Amtes für Geoinformation Kanton Basel-Landschaft
+!! All rights reserved.
+!!
+!! Datum     | Version | Autor/in                                | Aenderung
+!!----------------------------------------------------------------------------------------                                      
+!! 18.02.2022| 1.0     | Fabian Studer                           | Anpassung von internal.ili
+!! 06.05.2022| 1.0     | Fabian Studer                           | Datentyp beim Attribut "obje_bezeichnung"
+!!                                                               | geändert von "TEXT*200" zu "MTEXT*200"
+!! 10.05.2022| 1.0     | Fabian Studer                           | Datentyp angepasst bei "url_behoerde" und "url_kataster"                                     
+!!========================================================================================
+
+!!@ furtherInformation=https://geo.bl.ch 
+!!@ technicalContact=mailto:support.gis@bl.ch
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+
+MODEL ch_bl_aue_kbs_intern_v1_0 (de) AT "https://models.geo.bl.ch/AUE" VERSION "2022-02-18" =
+  
+  IMPORTS LocalisationCH_V1,GeometryCHLV95_V1,KbS_V1_5;
+
+
+  TOPIC kataster_belasteter_standorte =
+
+    DOMAIN
+
+      Polygon = SURFACE WITH (STRAIGHTS) VERTEX GeometryCHLV95_V1.Coord2 WITHOUT OVERLAPS > 0.001;
+
+    CLASS zustaendigkeit_kataster =
+      zustaendige_behoerde:         MANDATORY LocalisationCH_V1.MultilingualText;
+      url_behoerde:                 MANDATORY KbS_V1_5.Belastete_Standorte.MultilingualUri;
+      uid:                          TEXT*12;
+      katastername:                 MANDATORY LocalisationCH_V1.MultilingualText;
+      url_kataster:                 MANDATORY KbS_V1_5.Belastete_Standorte.MultilingualUri;
+    END zustaendigkeit_kataster;
+
+    CLASS belasteter_standort =
+      id:                           MANDATORY 1 .. 214783647;
+      vflz_id:                      TEXT*20;
+      vflz_combined_id_kt:          TEXT*40;
+      obje_bezeichnung:             MTEXT*200;
+      c_vflz_vftyp:                 1 .. 32767;
+      standorttyp:                  MANDATORY KbS_V1_5.Standorttyp;
+      vftyp:                        TEXT*200;
+      c_vflz_bearbeitungsstand:     TEXT*200;
+      c_bewertung:                  TEXT*20;
+      status_altl_v:                KbS_V1_5.StatusAltlV;
+      bewertung:                    TEXT*200;
+      bearbeitungsstand:            TEXT*200;
+      c_vflz_untersuchungsstand:    TEXT*200;
+      untersuchungsstand:           TEXT*200;
+      h_gememeinde_id:              1 .. 214783647;
+      gemeinde:                     TEXT*200;
+      deponietyp:                   BAG {0..*} OF KbS_V1_5.Deponietyp_;
+      in_betrieb:                   BOOLEAN;
+      nachsorge:                    BOOLEAN;
+      geo_lage_polygon:             Polygon;
+      geo_lage_punkt:               GeometryCHLV95_V1.Coord2;
+      MANDATORY CONSTRAINT NOT ((standorttyp == #StaoTyp1) AND NOT (DEFINED (in_betrieb)));
+      MANDATORY CONSTRAINT NOT ((standorttyp == #StaoTyp1) AND (in_betrieb) AND NOT (DEFINED (deponietyp)));
+      MANDATORY CONSTRAINT DEFINED (geo_lage_punkt) OR DEFINED (geo_lage_polygon);
+      MANDATORY CONSTRAINT NOT ((standorttyp == #StaoTyp1) AND (NOT (in_betrieb)) AND NOT (DEFINED (nachsorge)));
+    END belasteter_standort;
+
+  END kataster_belasteter_standorte;
+
+END ch_bl_aue_kbs_intern_v1_0.

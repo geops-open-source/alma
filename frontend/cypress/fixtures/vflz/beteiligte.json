@@ -1,0 +1,41 @@
+{
+  "eigentum": [
+    {
+      "beziehungsart": "code:2200:eigentum",
+      "hGemId": "1",
+      "hNbId": "1",
+      "parzellen": ["1"],
+      "status": "ZUGEORDNET",
+      "subjId": "1"
+    },
+    {
+      "beziehungsart": null,
+      "hGemId": "1",
+      "hNbId": "1",
+      "parzellen": ["2"],
+      "status": "FEHLEND",
+      "subjId": null
+    },
+    {
+      "beziehungsart": null,
+      "hGemId": "2",
+      "hNbId": null,
+      "parzellen": ["3"],
+      "status": "FEHLEND",
+      "subjId": null
+    },
+    {
+      "beziehungsart": "code:2200:eigentum",
+      "hGemId": "1",
+      "hNbId": "1",
+      "parzellen": ["4"],
+      "status": "UEBERZAEHLIG",
+      "subjId": "1"
+    }
+  ],
+  "sachbearbeitung": [{ "subjId": "3", "betArtId": null }],
+  "sonstigeBeteiligte": [
+    { "betArtId": null, "beziehungsart": "code:2201:1", "subjId": "6" }
+  ],
+  "vflzId": 1
+}

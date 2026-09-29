@@ -1,0 +1,8 @@
+{
+  "name": "ole",
+  "version": "3.0.0",
+  "description": "OpenLayers Editor",
+  "peerDependencies": {
+    "ol": "^10.0.0"
+  }
+}

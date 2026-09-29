@@ -1,0 +1,158 @@
+workflow:
+  key: 533ad1d0-0b75-43bb-b3cd-ede9e19c8a7b
+  title:
+    de: Test Events
+    fr: Événements de test
+    it: Eventi di test
+  version: 1
+  time_period: 7
+  start_task_ref: historisieren
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    historisieren:
+      key: f405de07-ea01-4a17-a717-7d14a021f866
+      time_period: 7
+      title:
+        de: Standort historisieren
+        fr: Historiser le site
+        it: Storicizzare il sito
+      steps:
+      - key: 1ca23a09-91e7-4669-8fa5-412cc504c1eb
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: bearbeitungsstand
+      triggers:
+      - type: StandortHistorisieren
+        value: Test Historisierung
+      start_task: true
+    bearbeitungsstand:
+      key: 7907264e-29e3-4e2b-9ce6-1c7e8a495f6a
+      time_period: 7
+      title:
+        de: Bearbeitungsstand zu 'Erhebung in Bearbeitung' ändern
+        fr: Modifier l'état de traitement en 'Relevé en cours'
+        it: Modificare lo stato di elaborazione in 'Rilevamento in corso'
+      steps:
+      - key: ce4d55f2-944c-4ca6-83ff-4f9427896e83
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: untersuchungsstand
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:01
+      start_task: true
+    untersuchungsstand:
+      key: 8c8e9062-e5b9-4e92-b093-a71afe8cacae
+      time_period: 7
+      title:
+        de: Untersuchungsstand zu 'keine Untersuchung' ändern
+        fr: Modifier l'état d'investigation en 'aucune investigation'
+        it: Modificare lo stato dell'indagine in 'nessuna indagine'
+      steps:
+      - key: 76790f28-fa8e-45a1-8e06-784b4f019d0c
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: prozessstarten
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:01
+      start_task: true
+    prozessstarten:
+      key: 1f8acdd9-8fc5-401c-a44e-7f689ea41d54
+      time_period: 7
+      title:
+        de: Geschäft Publizieren starten
+        fr: Démarrer la publication de l'affaire
+        it: Avviare la pubblicazione dell'affare
+      steps:
+      - key: 42f9e9eb-df66-4ac5-9357-4dedcbc156c4
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: publizieren
+      triggers:
+      - type: ProzessStarten
+        value: 750fb1fb-ad3b-4b9f-ac16-f5b1916eae1a
+      start_task: true
+    publizieren:
+      key: 98ba7668-8ad8-49c7-801c-4bab6ccfae35
+      time_period: 7
+      title:
+        de: Publizieren
+        fr: Publier
+        it: Pubblicare
+      steps:
+      - key: 5bec8c6f-e44a-4bee-8639-74953b3b3c30
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: END
+      triggers:
+      - type: Publizieren
+        value: Test Historisierung
+      start_task: true
+    END:
+      key: e382d326-3c7e-4240-9809-e20b01826d59
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []
+    all:
+      key: 23311551-f336-4c54-b5c6-1142b6ab0009
+      time_period: 7
+      title:
+        de: Alle Events
+        fr: Tous les événements
+        it: Tutti gli eventi
+      steps:
+      - key: 6a81722a-4603-41ce-8190-c4acecb30263
+        time_period: 7
+        title:
+          de: Test Dokument
+          fr: Document de test
+          it: Documento di test
+        optional: true
+        type: document
+      links:
+      - task_ref: END
+      triggers:
+      - type: StandortHistorisieren
+        value: Test Historisierung
+      - type: BearbeitungsstandSetzen
+        value: code:55:01
+      - type: UntersuchungsStandSetzen
+        value: code:10023:01
+      - type: Publizieren
+        value: Test Historisierung
+      - type: ProzessStarten
+        value: 750fb1fb-ad3b-4b9f-ac16-f5b1916eae1a
+      start_task: true

@@ -1,0 +1,31 @@
+digraph {
+  graph [label=< <B>Test Events</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> historisieren
+  historisieren [label=< {<B>Standort historisieren</B>|[D] Test Dokument} >]
+  __START__bearbeitungsstand [label="START"]
+  __START__bearbeitungsstand -> bearbeitungsstand
+  bearbeitungsstand [label=< {<B>Bearbeitungsstand zu 'Erhebung in Bearbeitung' ändern</B>|[D] Test Dokument} >]
+  __START__untersuchungsstand [label="START"]
+  __START__untersuchungsstand -> untersuchungsstand
+  untersuchungsstand [label=< {<B>Untersuchungsstand zu 'keine Untersuchung' ändern</B>|[D] Test Dokument} >]
+  __START__prozessstarten [label="START"]
+  __START__prozessstarten -> prozessstarten
+  prozessstarten [label=< {<B>Geschäft Publizieren starten</B>|[D] Test Dokument} >]
+  __START__publizieren [label="START"]
+  __START__publizieren -> publizieren
+  publizieren [label=< {<B>Publizieren</B>|[D] Test Dokument} >]
+  END [label=< {<B>__END__</B>} >]
+  __START__all [label="START"]
+  __START__all -> all
+  all [label=< {<B>Alle Events</B>|[D] Test Dokument} >]
+
+  historisieren -> bearbeitungsstand [label="" fontsize=10]
+  bearbeitungsstand -> untersuchungsstand [label="" fontsize=10]
+  untersuchungsstand -> prozessstarten [label="" fontsize=10]
+  prozessstarten -> publizieren [label="" fontsize=10]
+  publizieren -> END [label="" fontsize=10]
+  all -> END [label="" fontsize=10]
+}

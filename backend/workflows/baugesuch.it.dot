@@ -1,0 +1,18 @@
+digraph {
+  graph [label=< <B>Domanda di pianificazione</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> eingang
+  eingang [label=< {<B>Ricezione della domanda di pianificazione</B>|[F] Conferma del ricevimento della domanda di pianificazione} >]
+  vollstaendig [label=< {<B>La domanda di costruzione è completa?</B>|[F] La domanda di costruzione è completa?} >]
+  stellungnahme [label=< {<B>Dichiarazione sulla domanda di pianificazione</B>|[D] Dichiarazione sulla domanda di pianificazione} >]
+  nachfordern [label=< {<B>Richiesta complementare alla domanda di pianificazione</B>|[D] Dichiarazione sulla domanda di pianificazione} >]
+  END [label=< {<B>__END__</B>} >]
+
+  eingang -> vollstaendig [label="form\n.eingang_quittieren\n.eingang_quittieren == `ja`" fontsize=10]
+  vollstaendig -> stellungnahme [label="form\n.baugesuch_status\n.baugesuch_vollstaendig == `ja`" fontsize=10]
+  vollstaendig -> nachfordern [label="form\n.baugesuch_status\n.baugesuch_vollstaendig == `nein`" fontsize=10]
+  stellungnahme -> END [label="" fontsize=10]
+  nachfordern -> vollstaendig [label="" fontsize=10]
+}

@@ -1,0 +1,16 @@
+digraph {
+  graph [label=< <B>Auskunft KbS</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> hinweis_oereb
+  hinweis_oereb [label=< {<B>Hinweis ÖREB-Kataster und Gebührenpflicht</B>|[D] Anfrage Katasterauskunft|[D] Hinweis ÖREB-Kataster|[F] Entscheid Schriftliche Auskunft} >]
+  __START__schriftliche_auskunft [label="START"]
+  __START__schriftliche_auskunft -> schriftliche_auskunft
+  schriftliche_auskunft [label=< {<B>Schriftliche Auskunft</B>|[D] Schriftliche Auskunft} >]
+  END [label=< {<B>__END__</B>} >]
+
+  hinweis_oereb -> schriftliche_auskunft [label="form\n.entscheid_schriftliche_auskunft\n.auskunft_erwuenscht == `ja`" fontsize=10]
+  hinweis_oereb -> END [label="" fontsize=10]
+  schriftliche_auskunft -> END [label="" fontsize=10]
+}

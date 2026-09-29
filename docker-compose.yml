@@ -1,0 +1,220 @@
+services:
+  # alma database
+  db:
+    image: registry.geops.com/geops/alma/alma-db:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: ./docker/db/Dockerfile
+    environment:
+      DB_NAME: alma
+      POSTGRES_USER: alma
+      # TODO these should all come from the env file
+      POSTGRES_PASSWORD: alma
+      POSTGRES_PASSWORD_ANON: alma_anon
+      POSTGRES_PASSWORD_MAPSERVER: alma
+    command: -c shared_preload_libraries='anon'
+    ports:
+      - 127.0.0.1:5435:5432
+    networks:
+      - backend
+
+  # Container to run database migrations
+  db_migrate:
+    image: registry.geops.com/geops/alma/alma-db_migrate:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: ./docker/db_migrate/Dockerfile
+    environment:
+      FLYWAY_USER: alma
+      FLYWAY_PASSWORD: alma
+      FLYWAY_PLACEHOLDERS_POSTGRES_ANON_PASSWORD: dump_anon
+      FLYWAY_PLACEHOLDERS_SKIPPERMISSIONGRANTS: "false"
+      FLYWAY_PLACEHOLDERS_SKIPANONYMIZE: "false"
+    # To actually run migrations, specify 'migrate' on the command line
+    command: info
+    volumes:
+      - ./db/migrations/:/sql/
+    networks:
+      - backend
+
+  # dummy email logger for local development
+  email:
+    image: python:3.11-slim-bookworm
+    networks:
+      - backend
+    command: python3 -u -m smtpd --class DebuggingServer 0.0.0.0:25
+    # The server does not react to signals, so don't waste time waiting for it to stop.
+    stop_grace_period: 100ms
+
+  # alma backend
+  backend:
+    image: registry.geops.com/geops/alma/alma-backend:${TAG:-latest}
+    build:
+      dockerfile: ./docker/backend/prod.Dockerfile
+      args:
+        VERSION: ${VERSION:-0.0.0}
+      labels:
+        ch.alma-os.build.version: ${VERSION:-0.0.0}
+    links:
+      - db
+      - keycloak
+      - email
+    networks:
+      - backend
+    volumes:
+      - ./backend/:/app/src/
+      - search_exports:/app/exports/search/:ro
+      - documents:/app/documents/
+      - ./backend/config/interlis_export:/app/interlis_exports.env:ro
+    env_file:
+      - ./backend/env_file
+    environment:
+      # use mounted alma modules insted of installed ones:
+      PYTHONPATH: /app/src
+    command: -m fastapi_cli dev src/alma/api.py --host 0.0.0.0
+    ports:
+      - 127.0.0.1:8000:8000
+
+  # alma task queue worker
+  scheduler:
+    image: registry.geops.com/geops/alma/alma-backend:${TAG:-latest}
+    build:
+      dockerfile: ./docker/backend/prod.Dockerfile
+      args:
+        VERSION: ${VERSION:-0.0.0}
+      labels:
+        ch.alma-os.build.version: ${VERSION:-0.0.0}
+    links:
+      - db
+      - keycloak
+      - email
+    networks:
+      - backend
+    volumes:
+      - ./backend/:/app/src/
+      - search_exports:/app/exports/search/
+      - interlis_exports:/app/exports/interlis_exports/
+      - report_exports:/app/exports/kbs/
+      - ./backend/interlis_exports.env:/app/interlis_exports.env:ro
+      - ./backend/ca_icinga.srv.geops.de.crt:/app/ca_icinga.srv.geops.de.crt:ro
+    env_file:
+      - ./backend/env_file
+    environment:
+      PYTHONPATH: /app/src
+      ALMA_SCHEDULED_TASKS_PATH: /app/src/scheduled_tasks.yaml
+    entrypoint: ["/usr/bin/supervisord"]
+
+  # Temporary container to run backend tests
+  backend_dev:
+    build:
+      dockerfile: ./docker/backend/dev.Dockerfile
+    links:
+      - db
+    networks:
+      - backend
+    environment:
+      #checkov:skip=CKV_SECRET_4 ignore credentials
+      DB_TEST_URL: "postgresql://alma:alma@db/alma_test"
+    volumes:
+      - ./backend/:/app/src/
+    depends_on:
+      - db
+    profiles:
+      - backend_tests
+
+  # Container to run cypress tests
+  cypress:
+    build:
+      context: .
+      dockerfile: ./docker/cypress/Dockerfile
+    depends_on:
+      - nginx
+      - backend
+      - db
+    networks:
+      - backend
+    profiles:
+      - cypress
+
+  # alma frontend
+  nginx:
+    image: registry.geops.com/geops/alma/alma-nginx:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: ./docker/nginx/prod.Dockerfile
+      args:
+        NEXT_PUBLIC_VERSION: ${VERSION}
+    networks:
+      - backend
+    ports:
+      - 127.0.0.1:8080:80
+    depends_on:
+      - backend
+      - keycloak
+    volumes:
+      - interlis_exports:/var/www/interlis_exports:ro
+      - report_exports:/var/www/report_exports:ro
+
+  # Alternative frontend that proxies to the Next.js dev server
+  nginx_dev:
+    build:
+      dockerfile: ./docker/nginx/dev.Dockerfile
+    networks:
+      - backend
+    ports:
+      - 127.0.0.1:8080:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Required for ubuntu, not for mac
+    depends_on:
+      - backend
+      - keycloak
+      - mapserver
+    profiles:
+      - frontend_dev
+
+  keycloak:
+    image: registry.geops.com/geops/alma/alma-keycloak:${TAG:-latest}
+    build:
+      dockerfile: ./docker/keycloak/Dockerfile
+    links:
+      - db
+      - email
+    environment:
+      - KC_HOSTNAME=http://localhost:8080/auth
+    env_file:
+      - ./backend/env_file
+    networks:
+      - backend
+
+  mapserver:
+    image: registry.geops.com/geops/alma/alma-mapserver:${TAG:-latest}
+    build:
+      dockerfile: ./docker/mapserver/Dockerfile
+    links:
+      - db
+    environment:
+      POSTGRES_USER: alma
+      POSTGRES_PASSWORD: alma
+      MAPSERVER_POSTGRES_USER: alma
+      MAPSERVER_POSTGRES_PASSWORD: alma
+      MAPSERVER_URL: http://localhost:8080/mapserver
+    networks:
+      - backend
+
+  shootme:
+    image: registry.geops.com/geops/shootme:latest
+    restart: unless-stopped
+    environment:
+      AUTHORIZATION_HEADER_VALUE: insecure-key-for-local-development
+      ALLOW_LIST_SCREENSHOT_URLS: http://nginx
+    networks:
+      - backend
+    command: [ "./venv/bin/gunicorn", "--bind", "0.0.0.0:8002", "--workers", "1", "--worker-class", "uvicorn.workers.UvicornWorker", "--limit-request-line=0", "shootme.asgi:app" ]
+
+volumes:
+  interlis_exports:
+  search_exports:
+  report_exports:
+  documents:
+networks:
+  backend:

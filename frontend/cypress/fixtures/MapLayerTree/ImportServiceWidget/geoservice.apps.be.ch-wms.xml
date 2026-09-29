@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<WMS_Capabilities xmlns="http://www.opengis.net/wms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esri_wms="http://www.esri.com/wms" version="1.3.0" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?version=1.3.0%26service=WMS%26request=GetSchemaExtension">
+	<Service>
+		<Name><![CDATA[WMS]]></Name>
+		<Title><![CDATA[Geologie, Böden und naturbedingte Risiken 02]]></Title>
+		<Abstract><![CDATA[Der Dienst stellt Geobasisdatensätze des Kantons Bern der Geokategorie F gemäss eCH-0166 dar. Er enthält die folgenden Geoprodukte: Geologische Sondierungen, Felsreliefkarte, Radonkonzentration in Innenräumen, Naturraumgliederung, Geotope von regionaler Bedeutung, Tracer Verbindungslinien, Permafrost, Geologische Rohstoffkarte ADT]]></Abstract>
+		<KeywordList><Keyword><![CDATA[Permafrost]]></Keyword><Keyword><![CDATA[Bodenoberflächentemperatur]]></Keyword><Keyword><![CDATA[Geomorphologie]]></Keyword><Keyword><![CDATA[Geologie]]></Keyword><Keyword><![CDATA[Seismik]]></Keyword><Keyword><![CDATA[Raumstruktur]]></Keyword><Keyword><![CDATA[Bodenluft]]></Keyword><Keyword><![CDATA[Abbau]]></Keyword><Keyword><![CDATA[Transport]]></Keyword><Keyword><![CDATA[Fels]]></Keyword><Keyword><![CDATA[Tracer]]></Keyword><Keyword><![CDATA[Naturwissenschaft]]></Keyword><Keyword><![CDATA[Erdgas]]></Keyword><Keyword><![CDATA[Erosion]]></Keyword><Keyword><![CDATA[Radon]]></Keyword><Keyword><![CDATA[Bodentemperatur]]></Keyword><Keyword><![CDATA[Bohrloch]]></Keyword><Keyword><![CDATA[Geophysik]]></Keyword><Keyword><![CDATA[Relief]]></Keyword><Keyword><![CDATA[Geoelektrik]]></Keyword><Keyword><![CDATA[Grundwasser]]></Keyword><Keyword><![CDATA[Deponie]]></Keyword></KeywordList>
+		<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?"/>
+		<ContactInformation>
+			<ContactPersonPrimary>
+				<ContactPerson><![CDATA[None]]></ContactPerson>
+				<ContactOrganization><![CDATA[Amt für Geoinformation]]></ContactOrganization>
+			</ContactPersonPrimary>
+			<ContactPosition><![CDATA[None]]></ContactPosition>
+			<ContactAddress>
+				<AddressType><![CDATA[Postal]]></AddressType>
+				<Address><![CDATA[Reiterstrasse 11]]></Address>
+				<City><![CDATA[Bern]]></City>
+				<StateOrProvince><![CDATA[Bern]]></StateOrProvince>
+				<PostCode><![CDATA[3013]]></PostCode>
+				<Country><![CDATA[CH]]></Country>
+			</ContactAddress>
+			<ContactVoiceTelephone><![CDATA[+41 31 633 33 11]]></ContactVoiceTelephone>
+			<ContactFacsimileTelephone><![CDATA[None]]></ContactFacsimileTelephone>
+			<ContactElectronicMailAddress><![CDATA[info.agi@be.ch]]></ContactElectronicMailAddress>
+		</ContactInformation>
+		<Fees><![CDATA[Die Benutzung dieses Dienstes ist kostenlos.]]></Fees>
+		<AccessConstraints><![CDATA[A: öffentlich zugängliche Geodaten
+                    Der Dienst darf frei genutzt und mit gut sichtbarem Quellen-/Grundlagenvermerk reproduziert werden.
+                    Der Dienst enthält keine Personendaten, die dem Datenschutz unterliegen.
+                    beschränkter Benutzerkreis
+                    Für Richtigkeit und Vollständigkeit der Geodaten des Diensts wird keine Haftung übernommen. Rechtlich verbindliche Auskünfte sind beim Dateneigentümer einzuholen.]]></AccessConstraints>
+		<MaxWidth>4096</MaxWidth>
+		<MaxHeight>4096</MaxHeight>
+	</Service>
+	<Capability>
+		<Request>
+			<GetCapabilities>
+				<Format>application/vnd.ogc.wms_xml</Format>
+				<Format>text/xml</Format>
+				<DCPType>
+					<HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?"/></Get></HTTP>
+				</DCPType>
+			</GetCapabilities>
+			<GetMap>
+				<Format>image/bmp</Format>
+				<Format>image/jpeg</Format>
+				<Format>image/tiff</Format>
+				<Format>image/png</Format>
+				<Format>image/png8</Format>
+				<Format>image/png24</Format>
+				<Format>image/png32</Format>
+				<Format>image/gif</Format>
+				<Format>image/svg+xml</Format>
+				<DCPType>
+					<HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?"/></Get></HTTP>
+				</DCPType>
+			</GetMap>
+			<GetFeatureInfo>
+				<Format>application/vnd.esri.wms_raw_xml</Format>
+				<Format>application/vnd.esri.wms_featureinfo_xml</Format>
+				<Format>application/vnd.ogc.wms_xml</Format>
+				<Format>application/geo+json</Format>
+				<Format>text/xml</Format>
+				<Format>text/html</Format>
+				<Format>text/plain</Format>
+				<DCPType>
+					<HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?"/></Get></HTTP>
+				</DCPType>
+			</GetFeatureInfo>
+			<esri_wms:GetStyles>
+				<Format>application/vnd.ogc.sld+xml</Format>
+				<DCPType>
+					<HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?"/></Get></HTTP>
+				</DCPType>
+			</esri_wms:GetStyles>
+		</Request>
+		<Exception>
+			<Format>application/vnd.ogc.se_xml</Format>
+			<Format>application/vnd.ogc.se_inimage</Format>
+			<Format>application/vnd.ogc.se_blank</Format>
+			<Format>text/xml</Format>
+			<Format>XML</Format>
+		</Exception>
+		<Layer>
+			<Title><![CDATA[Geologie, Böden und naturbedingte Risiken 02]]></Title>
+			<CRS>CRS:84</CRS>
+			<CRS>EPSG:4326</CRS>
+			<CRS>EPSG:2056</CRS>
+			<CRS>EPSG:21781</CRS>
+			<CRS>EPSG:102100</CRS>
+			<!-- alias 102100 -->
+			<CRS>EPSG:3857</CRS>
+			<CRS>EPSG:3857</CRS>
+			<!-- alias 3857 -->
+			<CRS>EPSG:102100</CRS>
+			<EX_GeographicBoundingBox><westBoundLongitude>6.837297</westBoundLongitude><eastBoundLongitude>8.549444</eastBoundLongitude><southBoundLatitude>46.322753</southBoundLatitude><northBoundLatitude>47.347589</northBoundLatitude></EX_GeographicBoundingBox>
+			<BoundingBox CRS="CRS:84" minx="6.837297" miny="46.322753" maxx="8.549444" maxy="47.347589"/>
+			<BoundingBox CRS="EPSG:4326" minx="46.322753" miny="6.837297" maxx="47.347589" maxy="8.549444"/>
+			<BoundingBox CRS="EPSG:2056" minx="2554494.000000" miny="1130594.285000" maxx="2683860.000000" maxy="1243929.483200"/>
+			<BoundingBox CRS="EPSG:21781" minx="554494.000000" miny="130594.285000" maxx="683860.000000" maxy="243929.483200"/>
+			<BoundingBox CRS="EPSG:102100" minx="761124.382451" miny="5832222.285981" maxx="951719.701460" maxy="5998995.187380"/>
+			<BoundingBox CRS="EPSG:3857" minx="761124.382451" miny="5832222.285981" maxx="951719.701460" maxy="5998995.187380"/>
+			<BoundingBox CRS="EPSG:3857" minx="761124.382451" miny="5832222.285981" maxx="951719.701460" maxy="5998995.187380"/>
+			<BoundingBox CRS="EPSG:102100" minx="761124.382451" miny="5832222.285981" maxx="951719.701460" maxy="5998995.187380"/>
+			<Layer queryable="1">
+				<Title><![CDATA[Tracer Verbindungslinien]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.837747</westBoundLongitude><eastBoundLongitude>8.383480</eastBoundLongitude><southBoundLatitude>46.356454</southBoundLatitude><northBoundLatitude>47.307744</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.837747" miny="46.356454" maxx="8.383480" maxy="47.307744"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.356454" miny="6.837747" maxx="47.307744" maxy="8.383480"/>
+				<BoundingBox CRS="EPSG:2056" minx="2554494.000000" miny="1134180.000000" maxx="2671372.000000" maxy="1239500.000000"/>
+				<BoundingBox CRS="EPSG:21781" minx="554494.000000" miny="134180.000000" maxx="671372.000000" maxy="239500.000000"/>
+				<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+				<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+				<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+				<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+				<Layer queryable="1">
+					<Name>TRALIN_TRALIN_VW_17724</Name>
+					<Title><![CDATA[Tracer Verbindungslinien]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/TRALIN/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.837747</westBoundLongitude><eastBoundLongitude>8.383480</eastBoundLongitude><southBoundLatitude>46.356454</southBoundLatitude><northBoundLatitude>47.307744</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.837747" miny="46.356454" maxx="8.383480" maxy="47.307744"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.356454" miny="6.837747" maxx="47.307744" maxy="8.383480"/>
+					<BoundingBox CRS="EPSG:2056" minx="2554494.000000" miny="1134180.000000" maxx="2671372.000000" maxy="1239500.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="554494.000000" miny="134180.000000" maxx="671372.000000" maxy="239500.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[TRALIN_TRALIN_VW_17724]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=TRALIN_TRALIN_VW_17724" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>TRALIN_TRALIN_VW_17723</Name>
+					<Title><![CDATA[Tracer Verbindungslinien, Beschriftung]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM2;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/TRALIN/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.837747</westBoundLongitude><eastBoundLongitude>8.383480</eastBoundLongitude><southBoundLatitude>46.356454</southBoundLatitude><northBoundLatitude>47.307744</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.837747" miny="46.356454" maxx="8.383480" maxy="47.307744"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.356454" miny="6.837747" maxx="47.307744" maxy="8.383480"/>
+					<BoundingBox CRS="EPSG:2056" minx="2554494.000000" miny="1134180.000000" maxx="2671372.000000" maxy="1239500.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="554494.000000" miny="134180.000000" maxx="671372.000000" maxy="239500.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:3857" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<BoundingBox CRS="EPSG:102100" minx="761174.478452" miny="5837656.466021" maxx="933244.778695" maxy="5992451.187785"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[TRALIN_TRALIN_VW_17723]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=TRALIN_TRALIN_VW_17723" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Radonkonzentration in Innenräumen]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.867291</westBoundLongitude><eastBoundLongitude>8.372173</eastBoundLongitude><southBoundLatitude>46.377450</southBoundLatitude><northBoundLatitude>47.342056</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.867291" miny="46.377450" maxx="8.372173" maxy="47.342056"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.377450" miny="6.867291" maxx="47.342056" maxy="8.372173"/>
+				<BoundingBox CRS="EPSG:2056" minx="2556755.827600" miny="1136503.231400" maxx="2670471.533800" maxy="1243314.326300"/>
+				<BoundingBox CRS="EPSG:21781" minx="556755.827600" miny="136503.231400" maxx="670471.533800" maxy="243314.326300"/>
+				<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+				<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+				<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+				<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+				<Layer queryable="1">
+					<Name>RADON_RADON_VW_20919</Name>
+					<Title><![CDATA[Radonkonzentration im unbewohnten Bereich]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM3;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/RADON/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.867291</westBoundLongitude><eastBoundLongitude>8.372173</eastBoundLongitude><southBoundLatitude>46.377450</southBoundLatitude><northBoundLatitude>47.342056</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.867291" miny="46.377450" maxx="8.372173" maxy="47.342056"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.377450" miny="6.867291" maxx="47.342056" maxy="8.372173"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556755.827600" miny="1136503.231400" maxx="2670471.533800" maxy="1243314.326300"/>
+					<BoundingBox CRS="EPSG:21781" minx="556755.827600" miny="136503.231400" maxx="670471.533800" maxy="243314.326300"/>
+					<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[RADON_RADON_VW_20919]]></Title>
+						<LegendURL width="103" height="143">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=RADON_RADON_VW_20919" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>76587.425595</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Title><![CDATA[Radonkonzentration im Wohnbereich]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GROUP1;</SPAN></P>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.867291</westBoundLongitude><eastBoundLongitude>8.372173</eastBoundLongitude><southBoundLatitude>46.377450</southBoundLatitude><northBoundLatitude>47.342056</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.867291" miny="46.377450" maxx="8.372173" maxy="47.342056"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.377450" miny="6.867291" maxx="47.342056" maxy="8.372173"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556755.827600" miny="1136503.231400" maxx="2670471.533800" maxy="1243314.326300"/>
+					<BoundingBox CRS="EPSG:21781" minx="556755.827600" miny="136503.231400" maxx="670471.533800" maxy="243314.326300"/>
+					<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+					<Layer queryable="1">
+						<Name>RADON_RADON_VW_20918</Name>
+						<Title><![CDATA[Radonkonzentration im Wohnbereich vereinfacht]]></Title>
+						<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM2;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/RADON/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+						<CRS>CRS:84</CRS>
+						<CRS>EPSG:4326</CRS>
+						<CRS>EPSG:2056</CRS>
+						<CRS>EPSG:21781</CRS>
+						<CRS>EPSG:102100</CRS>
+						<!-- alias 102100 -->
+						<CRS>EPSG:3857</CRS>
+						<CRS>EPSG:3857</CRS>
+						<!-- alias 3857 -->
+						<CRS>EPSG:102100</CRS>
+						<EX_GeographicBoundingBox><westBoundLongitude>6.867291</westBoundLongitude><eastBoundLongitude>8.372173</eastBoundLongitude><southBoundLatitude>46.377450</southBoundLatitude><northBoundLatitude>47.342056</northBoundLatitude></EX_GeographicBoundingBox>
+						<BoundingBox CRS="CRS:84" minx="6.867291" miny="46.377450" maxx="8.372173" maxy="47.342056"/>
+						<BoundingBox CRS="EPSG:4326" minx="46.377450" miny="6.867291" maxx="47.342056" maxy="8.372173"/>
+						<BoundingBox CRS="EPSG:2056" minx="2556755.827600" miny="1136503.231400" maxx="2670471.533800" maxy="1243314.326300"/>
+						<BoundingBox CRS="EPSG:21781" minx="556755.827600" miny="136503.231400" maxx="670471.533800" maxy="243314.326300"/>
+						<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<Style>
+							<Name>default</Name>
+							<Title><![CDATA[RADON_RADON_VW_20918]]></Title>
+							<LegendURL width="78" height="90">
+								<Format>image/png</Format>
+								<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=RADON_RADON_VW_20918" xlink:type="simple"/>
+							</LegendURL>
+						</Style>
+						<MinScaleDenominator>76587.425595</MinScaleDenominator>
+					</Layer>
+					<Layer queryable="1">
+						<Name>RADON_RADON_VW_20916</Name>
+						<Title><![CDATA[Radonkonzentration im Wohnbereich]]></Title>
+						<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/RADON/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+						<CRS>CRS:84</CRS>
+						<CRS>EPSG:4326</CRS>
+						<CRS>EPSG:2056</CRS>
+						<CRS>EPSG:21781</CRS>
+						<CRS>EPSG:102100</CRS>
+						<!-- alias 102100 -->
+						<CRS>EPSG:3857</CRS>
+						<CRS>EPSG:3857</CRS>
+						<!-- alias 3857 -->
+						<CRS>EPSG:102100</CRS>
+						<EX_GeographicBoundingBox><westBoundLongitude>6.867291</westBoundLongitude><eastBoundLongitude>8.372173</eastBoundLongitude><southBoundLatitude>46.377450</southBoundLatitude><northBoundLatitude>47.342056</northBoundLatitude></EX_GeographicBoundingBox>
+						<BoundingBox CRS="CRS:84" minx="6.867291" miny="46.377450" maxx="8.372173" maxy="47.342056"/>
+						<BoundingBox CRS="EPSG:4326" minx="46.377450" miny="6.867291" maxx="47.342056" maxy="8.372173"/>
+						<BoundingBox CRS="EPSG:2056" minx="2556755.827600" miny="1136503.231400" maxx="2670471.533800" maxy="1243314.326300"/>
+						<BoundingBox CRS="EPSG:21781" minx="556755.827600" miny="136503.231400" maxx="670471.533800" maxy="243314.326300"/>
+						<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:3857" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<BoundingBox CRS="EPSG:102100" minx="764463.335877" miny="5841043.498714" maxx="931986.025899" maxy="5998086.080221"/>
+						<Style>
+							<Name>default</Name>
+							<Title><![CDATA[RADON_RADON_VW_20916]]></Title>
+							<LegendURL width="103" height="143">
+								<Format>image/png</Format>
+								<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=RADON_RADON_VW_20916" xlink:type="simple"/>
+							</LegendURL>
+						</Style>
+						<MaxScaleDenominator>76587.425595</MaxScaleDenominator>
+					</Layer>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Permafrost]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>7.312022</westBoundLongitude><eastBoundLongitude>8.379550</eastBoundLongitude><southBoundLatitude>46.342010</southBoundLatitude><northBoundLatitude>46.727008</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="7.312022" miny="46.342010" maxx="8.379550" maxy="46.727008"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.342010" miny="7.312022" maxx="46.727008" maxy="8.379550"/>
+				<BoundingBox CRS="EPSG:2056" minx="2590250.000000" miny="1132580.000000" maxx="2671848.704800" maxy="1174945.768700"/>
+				<BoundingBox CRS="EPSG:21781" minx="590250.000000" miny="132580.000000" maxx="671848.704800" maxy="174945.768700"/>
+				<BoundingBox CRS="EPSG:102100" minx="813970.518728" miny="5835326.960449" maxx="932807.200502" maxy="5897628.054261"/>
+				<BoundingBox CRS="EPSG:3857" minx="813970.518728" miny="5835326.960449" maxx="932807.200502" maxy="5897628.054261"/>
+				<BoundingBox CRS="EPSG:3857" minx="813970.518728" miny="5835326.960449" maxx="932807.200502" maxy="5897628.054261"/>
+				<BoundingBox CRS="EPSG:102100" minx="813970.518728" miny="5835326.960449" maxx="932807.200502" maxy="5897628.054261"/>
+				<Layer queryable="1">
+					<Name>PF_GEOPHYS_VW_13977</Name>
+					<Title><![CDATA[Geophysikalische Profile (Permafrost)]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOPHYS/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.378918</westBoundLongitude><eastBoundLongitude>8.379550</eastBoundLongitude><southBoundLatitude>46.369532</southBoundLatitude><northBoundLatitude>46.727008</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.378918" miny="46.369532" maxx="8.379550" maxy="46.727008"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.369532" miny="7.378918" maxx="46.727008" maxy="8.379550"/>
+					<BoundingBox CRS="EPSG:2056" minx="2595363.154400" miny="1135639.351900" maxx="2671848.704800" maxy="1174945.768700"/>
+					<BoundingBox CRS="EPSG:21781" minx="595363.154400" miny="135639.351900" maxx="671848.704800" maxy="174945.768700"/>
+					<BoundingBox CRS="EPSG:102100" minx="821417.389907" miny="5839766.031195" maxx="932807.200502" maxy="5897628.054403"/>
+					<BoundingBox CRS="EPSG:3857" minx="821417.389907" miny="5839766.031195" maxx="932807.200502" maxy="5897628.054403"/>
+					<BoundingBox CRS="EPSG:3857" minx="821417.389907" miny="5839766.031195" maxx="932807.200502" maxy="5897628.054403"/>
+					<BoundingBox CRS="EPSG:102100" minx="821417.389907" miny="5839766.031195" maxx="932807.200502" maxy="5897628.054403"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[PF_GEOPHYS_VW_13977]]></Title>
+						<LegendURL width="66" height="36">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=PF_GEOPHYS_VW_13977" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>37844.866071</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>PF_GEOPHGEB_VW_14032</Name>
+					<Title><![CDATA[Geophysikalische Untersuchungsgebiete (Permafrost)]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOPHGEB/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.385257</westBoundLongitude><eastBoundLongitude>8.378800</eastBoundLongitude><southBoundLatitude>46.371930</southBoundLatitude><northBoundLatitude>46.724701</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.385257" miny="46.371930" maxx="8.378800" maxy="46.724701"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.371930" miny="7.385257" maxx="46.724701" maxy="8.378800"/>
+					<BoundingBox CRS="EPSG:2056" minx="2595847.531000" miny="1135905.286400" maxx="2671794.457900" maxy="1174689.410500"/>
+					<BoundingBox CRS="EPSG:21781" minx="595847.531000" miny="135905.286400" maxx="671794.457900" maxy="174689.410500"/>
+					<BoundingBox CRS="EPSG:102100" minx="822123.102305" miny="5840152.941109" maxx="932723.733571" maxy="5897253.519352"/>
+					<BoundingBox CRS="EPSG:3857" minx="822123.102305" miny="5840152.941109" maxx="932723.733571" maxy="5897253.519352"/>
+					<BoundingBox CRS="EPSG:3857" minx="822123.102305" miny="5840152.941109" maxx="932723.733571" maxy="5897253.519352"/>
+					<BoundingBox CRS="EPSG:102100" minx="822123.102305" miny="5840152.941109" maxx="932723.733571" maxy="5897253.519352"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[PF_GEOPHGEB_VW_14032]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=PF_GEOPHGEB_VW_14032" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MinScaleDenominator>37845.811012</MinScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>PF_BODETEMP_VW_14117</Name>
+					<Title><![CDATA[Standorte Messung Bodenoberflächentemperatur (Permafrost)]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/BODETEMP/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.312024</westBoundLongitude><eastBoundLongitude>8.379403</eastBoundLongitude><southBoundLatitude>46.342011</southBoundLatitude><northBoundLatitude>46.725849</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.312024" miny="46.342011" maxx="8.379403" maxy="46.725849"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.342011" miny="7.312024" maxx="46.725849" maxy="8.379403"/>
+					<BoundingBox CRS="EPSG:2056" minx="2590250.000000" miny="1132580.000000" maxx="2671839.000000" maxy="1174817.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="590250.000000" miny="132580.000000" maxx="671839.000000" maxy="174817.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="813970.823855" miny="5835327.128046" maxx="932790.820483" maxy="5897439.923321"/>
+					<BoundingBox CRS="EPSG:3857" minx="813970.823855" miny="5835327.128046" maxx="932790.820483" maxy="5897439.923321"/>
+					<BoundingBox CRS="EPSG:3857" minx="813970.823855" miny="5835327.128046" maxx="932790.820483" maxy="5897439.923321"/>
+					<BoundingBox CRS="EPSG:102100" minx="813970.823855" miny="5835327.128046" maxx="932790.820483" maxy="5897439.923321"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[PF_BODETEMP_VW_14117]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=PF_BODETEMP_VW_14117" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>PF_BOHRLOCH_VW_14084</Name>
+					<Title><![CDATA[Bohrlöcher (Permafrost)]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/BOHRLOCH/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.528808</westBoundLongitude><eastBoundLongitude>8.323186</eastBoundLongitude><southBoundLatitude>46.398002</southBoundLatitude><northBoundLatitude>46.674318</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.528808" miny="46.398002" maxx="8.323186" maxy="46.674318"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.398002" miny="7.528808" maxx="46.674318" maxy="8.323186"/>
+					<BoundingBox CRS="EPSG:2056" minx="2606861.000000" miny="1138755.000000" maxx="2667606.000000" maxy="1169093.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="606861.000000" miny="138755.000000" maxx="667606.000000" maxy="169093.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="838103.051445" miny="5844360.342282" maxx="926532.833019" maxy="5889075.493339"/>
+					<BoundingBox CRS="EPSG:3857" minx="838103.051445" miny="5844360.342282" maxx="926532.833019" maxy="5889075.493339"/>
+					<BoundingBox CRS="EPSG:3857" minx="838103.051445" miny="5844360.342282" maxx="926532.833019" maxy="5889075.493339"/>
+					<BoundingBox CRS="EPSG:102100" minx="838103.051445" miny="5844360.342282" maxx="926532.833019" maxy="5889075.493339"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[PF_BOHRLOCH_VW_14084]]></Title>
+						<LegendURL width="60" height="38">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=PF_BOHRLOCH_VW_14084" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Naturraumgliederung]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.859716</westBoundLongitude><eastBoundLongitude>8.470544</eastBoundLongitude><southBoundLatitude>46.324522</southBoundLatitude><northBoundLatitude>47.347589</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.859716" miny="46.324522" maxx="8.470544" maxy="47.347589"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.324522" miny="6.859716" maxx="47.347589" maxy="8.470544"/>
+				<BoundingBox CRS="EPSG:2056" minx="2556187.993400" miny="1130711.065000" maxx="2677897.723000" maxy="1243929.483200"/>
+				<BoundingBox CRS="EPSG:21781" minx="556187.993400" miny="130711.065000" maxx="677897.723000" maxy="243929.483200"/>
+				<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+				<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+				<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+				<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+				<Layer queryable="1">
+					<Name>NATURAUM_NRG_VW_24646</Name>
+					<Title><![CDATA[Naturraumgliederung]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/NRG/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.859716</westBoundLongitude><eastBoundLongitude>8.470544</eastBoundLongitude><southBoundLatitude>46.324522</southBoundLatitude><northBoundLatitude>47.347589</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.859716" miny="46.324522" maxx="8.470544" maxy="47.347589"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.324522" miny="6.859716" maxx="47.347589" maxy="8.470544"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556187.993400" miny="1130711.065000" maxx="2677897.723000" maxy="1243929.483200"/>
+					<BoundingBox CRS="EPSG:21781" minx="556187.993400" miny="130711.065000" maxx="677897.723000" maxy="243929.483200"/>
+					<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[NATURAUM_NRG_VW_24646]]></Title>
+						<LegendURL width="252" height="468">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=NATURAUM_NRG_VW_24646" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>NATURAUM_NRG_VW_24645</Name>
+					<Title><![CDATA[Naturraumgliederung, Beschriftung]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM2;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/NRG/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.859716</westBoundLongitude><eastBoundLongitude>8.470544</eastBoundLongitude><southBoundLatitude>46.324522</southBoundLatitude><northBoundLatitude>47.347589</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.859716" miny="46.324522" maxx="8.470544" maxy="47.347589"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.324522" miny="6.859716" maxx="47.347589" maxy="8.470544"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556187.993400" miny="1130711.065000" maxx="2677897.723000" maxy="1243929.483200"/>
+					<BoundingBox CRS="EPSG:21781" minx="556187.993400" miny="130711.065000" maxx="677897.723000" maxy="243929.483200"/>
+					<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:3857" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<BoundingBox CRS="EPSG:102100" minx="763620.131466" miny="5832507.465284" maxx="942936.661437" maxy="5998995.187097"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[NATURAUM_NRG_VW_24645]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=NATURAUM_NRG_VW_24645" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Geotope von regionaler Bedeutung]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>7.014788</westBoundLongitude><eastBoundLongitude>8.331914</eastBoundLongitude><southBoundLatitude>46.411781</southBoundLatitude><northBoundLatitude>47.297883</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="7.014788" miny="46.411781" maxx="8.331914" maxy="47.297883"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.411781" miny="7.014788" maxx="47.297883" maxy="8.331914"/>
+				<BoundingBox CRS="EPSG:2056" minx="2567874.826000" miny="1140285.258000" maxx="2667485.000000" maxy="1238403.779000"/>
+				<BoundingBox CRS="EPSG:21781" minx="567874.826000" miny="140285.258000" maxx="667485.000000" maxy="238403.779000"/>
+				<BoundingBox CRS="EPSG:102100" minx="780882.640741" miny="5846584.707359" maxx="927504.460760" maxy="5990832.410373"/>
+				<BoundingBox CRS="EPSG:3857" minx="780882.640741" miny="5846584.707359" maxx="927504.460760" maxy="5990832.410373"/>
+				<BoundingBox CRS="EPSG:3857" minx="780882.640741" miny="5846584.707359" maxx="927504.460760" maxy="5990832.410373"/>
+				<BoundingBox CRS="EPSG:102100" minx="780882.640741" miny="5846584.707359" maxx="927504.460760" maxy="5990832.410373"/>
+				<Layer queryable="1">
+					<Name>GEOTREG_GTREGF_VW_13683</Name>
+					<Title><![CDATA[Repräsentatives regionales Geotop, Fläche]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GTREGF/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.014788</westBoundLongitude><eastBoundLongitude>8.316696</eastBoundLongitude><southBoundLatitude>46.411896</southBoundLatitude><northBoundLatitude>47.297883</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.014788" miny="46.411896" maxx="8.316696" maxy="47.297883"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.411896" miny="7.014788" maxx="47.297883" maxy="8.316696"/>
+					<BoundingBox CRS="EPSG:2056" minx="2567874.826000" miny="1140285.258000" maxx="2666333.950000" maxy="1238403.779000"/>
+					<BoundingBox CRS="EPSG:21781" minx="567874.826000" miny="140285.258000" maxx="666333.950000" maxy="238403.779000"/>
+					<BoundingBox CRS="EPSG:102100" minx="780882.640741" miny="5846603.267556" maxx="925810.326780" maxy="5990832.410415"/>
+					<BoundingBox CRS="EPSG:3857" minx="780882.640741" miny="5846603.267556" maxx="925810.326780" maxy="5990832.410415"/>
+					<BoundingBox CRS="EPSG:3857" minx="780882.640741" miny="5846603.267556" maxx="925810.326780" maxy="5990832.410415"/>
+					<BoundingBox CRS="EPSG:102100" minx="780882.640741" miny="5846603.267556" maxx="925810.326780" maxy="5990832.410415"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOTREG_GTREGF_VW_13683]]></Title>
+						<LegendURL width="168" height="144">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOTREG_GTREGF_VW_13683" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>GEOTREG_GTREGP_VW_13638</Name>
+					<Title><![CDATA[Repräsentatives regionales Geotop, Punkt]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GTREGP/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.078330</westBoundLongitude><eastBoundLongitude>8.331868</eastBoundLongitude><southBoundLatitude>46.461418</southBoundLatitude><northBoundLatitude>47.295111</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.078330" miny="46.461418" maxx="8.331868" maxy="47.295111"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.461418" miny="7.078330" maxx="47.295111" maxy="8.331868"/>
+					<BoundingBox CRS="EPSG:2056" minx="2572678.854000" miny="1145802.904000" maxx="2667485.000000" maxy="1238095.661000"/>
+					<BoundingBox CRS="EPSG:21781" minx="572678.854000" miny="145802.904000" maxx="667485.000000" maxy="238095.661000"/>
+					<BoundingBox CRS="EPSG:102100" minx="787956.100911" miny="5854602.651443" maxx="927499.299461" maxy="5990377.464679"/>
+					<BoundingBox CRS="EPSG:3857" minx="787956.100911" miny="5854602.651443" maxx="927499.299461" maxy="5990377.464679"/>
+					<BoundingBox CRS="EPSG:3857" minx="787956.100911" miny="5854602.651443" maxx="927499.299461" maxy="5990377.464679"/>
+					<BoundingBox CRS="EPSG:102100" minx="787956.100911" miny="5854602.651443" maxx="927499.299461" maxy="5990377.464679"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOTREG_GTREGP_VW_13638]]></Title>
+						<LegendURL width="168" height="144">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOTREG_GTREGP_VW_13638" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Geologische Sondierungen]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.863600</westBoundLongitude><eastBoundLongitude>8.549025</eastBoundLongitude><southBoundLatitude>46.354074</southBoundLatitude><northBoundLatitude>47.327489</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.863600" miny="46.354074" maxx="8.549025" maxy="47.327489"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.354074" miny="6.863600" maxx="47.327489" maxy="8.549025"/>
+				<BoundingBox CRS="EPSG:2056" minx="2556465.000000" miny="1134076.000000" maxx="2683860.000000" maxy="1241695.000000"/>
+				<BoundingBox CRS="EPSG:21781" minx="556465.000000" miny="134076.000000" maxx="683860.000000" maxy="241695.000000"/>
+				<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+				<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+				<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+				<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+				<Layer queryable="1">
+					<Name>GEOSOND_GEOSOND_VW_13564</Name>
+					<Title><![CDATA[Sondierungen Felsrelief]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM4;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOSOND/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.863600</westBoundLongitude><eastBoundLongitude>8.549025</eastBoundLongitude><southBoundLatitude>46.354074</southBoundLatitude><northBoundLatitude>47.327489</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.863600" miny="46.354074" maxx="8.549025" maxy="47.327489"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.354074" miny="6.863600" maxx="47.327489" maxy="8.549025"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556465.000000" miny="1134076.000000" maxx="2683860.000000" maxy="1241695.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556465.000000" miny="134076.000000" maxx="683860.000000" maxy="241695.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOSOND_GEOSOND_VW_13564]]></Title>
+						<LegendURL width="307" height="76">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOSOND_GEOSOND_VW_13564" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>38789.806548</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>GEOSOND_GEOSOND_VW_13430</Name>
+					<Title><![CDATA[Bohrprofil vorhanden]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM3;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOSOND/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.863600</westBoundLongitude><eastBoundLongitude>8.549025</eastBoundLongitude><southBoundLatitude>46.354074</southBoundLatitude><northBoundLatitude>47.327489</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.863600" miny="46.354074" maxx="8.549025" maxy="47.327489"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.354074" miny="6.863600" maxx="47.327489" maxy="8.549025"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556465.000000" miny="1134076.000000" maxx="2683860.000000" maxy="1241695.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556465.000000" miny="134076.000000" maxx="683860.000000" maxy="241695.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOSOND_GEOSOND_VW_13430]]></Title>
+						<LegendURL width="45" height="42">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOSOND_GEOSOND_VW_13430" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>GEOSOND_GEOSOND_VW_13437</Name>
+					<Title><![CDATA[Sondierungen vereinfacht]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM2;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOSOND/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.863600</westBoundLongitude><eastBoundLongitude>8.549025</eastBoundLongitude><southBoundLatitude>46.354074</southBoundLatitude><northBoundLatitude>47.327489</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.863600" miny="46.354074" maxx="8.549025" maxy="47.327489"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.354074" miny="6.863600" maxx="47.327489" maxy="8.549025"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556465.000000" miny="1134076.000000" maxx="2683860.000000" maxy="1241695.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556465.000000" miny="134076.000000" maxx="683860.000000" maxy="241695.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOSOND_GEOSOND_VW_13437]]></Title>
+						<LegendURL width="78" height="36">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOSOND_GEOSOND_VW_13437" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MinScaleDenominator>18947.001488</MinScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>GEOSOND_GEOSOND_VW_13426</Name>
+					<Title><![CDATA[Sondierungen]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOSOND/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.863600</westBoundLongitude><eastBoundLongitude>8.549025</eastBoundLongitude><southBoundLatitude>46.354074</southBoundLatitude><northBoundLatitude>47.327489</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.863600" miny="46.354074" maxx="8.549025" maxy="47.327489"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.354074" miny="6.863600" maxx="47.327489" maxy="8.549025"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556465.000000" miny="1134076.000000" maxx="2683860.000000" maxy="1241695.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556465.000000" miny="134076.000000" maxx="683860.000000" maxy="241695.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:3857" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<BoundingBox CRS="EPSG:102100" minx="764052.430256" miny="5837272.466153" maxx="951673.121185" maxy="5995693.413849"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOSOND_GEOSOND_VW_13426]]></Title>
+						<LegendURL width="162" height="185">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOSOND_GEOSOND_VW_13426" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>18946.056548</MaxScaleDenominator>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Geologische Rohstoffkarte ADT]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.860434</westBoundLongitude><eastBoundLongitude>8.344856</eastBoundLongitude><southBoundLatitude>46.433011</southBoundLatitude><northBoundLatitude>47.346731</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.860434" miny="46.433011" maxx="8.344856" maxy="47.346731"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.433011" miny="6.860434" maxx="47.346731" maxy="8.344856"/>
+				<BoundingBox CRS="EPSG:2056" minx="2556241.501000" miny="1142655.573000" maxx="2668401.134600" maxy="1243834.103000"/>
+				<BoundingBox CRS="EPSG:21781" minx="556241.501000" miny="142655.573000" maxx="668401.134600" maxy="243834.103000"/>
+				<BoundingBox CRS="EPSG:102100" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+				<BoundingBox CRS="EPSG:3857" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+				<BoundingBox CRS="EPSG:3857" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+				<BoundingBox CRS="EPSG:102100" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+				<Layer queryable="1">
+					<Name>GEOGRADT_GEOLADT_VW_4974</Name>
+					<Title><![CDATA[Geologische Grundlagen ADT]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/GEOLADT/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860434</westBoundLongitude><eastBoundLongitude>8.344856</eastBoundLongitude><southBoundLatitude>46.433011</southBoundLatitude><northBoundLatitude>47.346731</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860434" miny="46.433011" maxx="8.344856" maxy="47.346731"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.433011" miny="6.860434" maxx="47.346731" maxy="8.344856"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556241.501000" miny="1142655.573000" maxx="2668401.134600" maxy="1243834.103000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556241.501000" miny="142655.573000" maxx="668401.134600" maxy="243834.103000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+					<BoundingBox CRS="EPSG:3857" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+					<BoundingBox CRS="EPSG:3857" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+					<BoundingBox CRS="EPSG:102100" minx="763700.002087" miny="5850013.214758" maxx="928945.124760" maxy="5998854.223876"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[GEOGRADT_GEOLADT_VW_4974]]></Title>
+						<LegendURL width="366" height="270">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=GEOGRADT_GEOLADT_VW_4974" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+			</Layer>
+			<Layer queryable="1">
+				<Title><![CDATA[Felsreliefkarte]]></Title>
+				<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>GPR;</SPAN></P>]]></Abstract>
+				<CRS>CRS:84</CRS>
+				<CRS>EPSG:4326</CRS>
+				<CRS>EPSG:2056</CRS>
+				<CRS>EPSG:21781</CRS>
+				<CRS>EPSG:102100</CRS>
+				<!-- alias 102100 -->
+				<CRS>EPSG:3857</CRS>
+				<CRS>EPSG:3857</CRS>
+				<!-- alias 3857 -->
+				<CRS>EPSG:102100</CRS>
+				<EX_GeographicBoundingBox><westBoundLongitude>6.860414</westBoundLongitude><eastBoundLongitude>8.468511</eastBoundLongitude><southBoundLatitude>46.323489</southBoundLatitude><northBoundLatitude>47.346731</northBoundLatitude></EX_GeographicBoundingBox>
+				<BoundingBox CRS="CRS:84" minx="6.860414" miny="46.323489" maxx="8.468511" maxy="47.346731"/>
+				<BoundingBox CRS="EPSG:4326" minx="46.323489" miny="6.860414" maxx="47.346731" maxy="8.468511"/>
+				<BoundingBox CRS="EPSG:2056" minx="2556240.000000" miny="1130594.285000" maxx="2677745.364000" maxy="1243834.104000"/>
+				<BoundingBox CRS="EPSG:21781" minx="556240.000000" miny="130594.285000" maxx="677745.364000" maxy="243834.104000"/>
+				<BoundingBox CRS="EPSG:102100" minx="763697.790693" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+				<BoundingBox CRS="EPSG:3857" minx="763697.790693" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+				<BoundingBox CRS="EPSG:3857" minx="763697.790693" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+				<BoundingBox CRS="EPSG:102100" minx="763697.790693" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+				<Layer queryable="1">
+					<Name>FRK_FELSRAS_14793</Name>
+					<Title><![CDATA[DTM Felsoberfläche 10 m]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/FELSRAS/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860414</westBoundLongitude><eastBoundLongitude>8.307124</eastBoundLongitude><southBoundLatitude>46.388086</southBoundLatitude><northBoundLatitude>47.346694</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860414" miny="46.388086" maxx="8.307124" maxy="47.346694"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.388086" miny="6.860414" maxx="47.346694" maxy="8.307124"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556240.000000" miny="1137630.000000" maxx="2665550.000000" maxy="1243830.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556240.000000" miny="137630.000000" maxx="665550.000000" maxy="243830.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_FELSRAS_14793]]></Title>
+						<LegendURL width="168" height="68">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_FELSRAS_14793" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_FELSHIL_3043</Name>
+					<Title><![CDATA[Schattiertes Felsrelief]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/FELSHIL/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860414</westBoundLongitude><eastBoundLongitude>8.307124</eastBoundLongitude><southBoundLatitude>46.388086</southBoundLatitude><northBoundLatitude>47.346694</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860414" miny="46.388086" maxx="8.307124" maxy="47.346694"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.388086" miny="6.860414" maxx="47.346694" maxy="8.307124"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556240.000000" miny="1137630.000000" maxx="2665550.000000" maxy="1243830.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556240.000000" miny="137630.000000" maxx="665550.000000" maxy="243830.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_FELSHIL_3043]]></Title>
+						<LegendURL width="96" height="68">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_FELSHIL_3043" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>189035.342262</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_STRATMOL_VW_14794</Name>
+					<Title><![CDATA[Stratigrafie mittelländische Molasse]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/STRATMOL/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860416</westBoundLongitude><eastBoundLongitude>8.468511</eastBoundLongitude><southBoundLatitude>46.323489</southBoundLatitude><northBoundLatitude>47.346731</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860416" miny="46.323489" maxx="8.468511" maxy="47.346731"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.323489" miny="6.860416" maxx="47.346731" maxy="8.468511"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556240.186000" miny="1130594.285000" maxx="2677745.364000" maxy="1243834.104000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556240.186000" miny="130594.285000" maxx="677745.364000" maxy="243834.104000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763698.064722" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+					<BoundingBox CRS="EPSG:3857" minx="763698.064722" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+					<BoundingBox CRS="EPSG:3857" minx="763698.064722" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+					<BoundingBox CRS="EPSG:102100" minx="763698.064722" miny="5832340.968088" maxx="942710.373976" maxy="5998854.225541"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_STRATMOL_VW_14794]]></Title>
+						<LegendURL width="198" height="72">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_STRATMOL_VW_14794" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_SEDIRAS_14792</Name>
+					<Title><![CDATA[Baugrundklassen gruppiert]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM2;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/SEDIRAS/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860414</westBoundLongitude><eastBoundLongitude>8.307124</eastBoundLongitude><southBoundLatitude>46.388086</southBoundLatitude><northBoundLatitude>47.346694</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860414" miny="46.388086" maxx="8.307124" maxy="47.346694"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.388086" miny="6.860414" maxx="47.346694" maxy="8.307124"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556240.000000" miny="1137630.000000" maxx="2665550.000000" maxy="1243830.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556240.000000" miny="137630.000000" maxx="665550.000000" maxy="243830.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_SEDIRAS_14792]]></Title>
+						<LegendURL width="246" height="72">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_SEDIRAS_14792" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_SEDIRAS_4779</Name>
+					<Title><![CDATA[Mächtigkeit Lockergestein]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/SEDIRAS/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860414</westBoundLongitude><eastBoundLongitude>8.307124</eastBoundLongitude><southBoundLatitude>46.388086</southBoundLatitude><northBoundLatitude>47.346694</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860414" miny="46.388086" maxx="8.307124" maxy="47.346694"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.388086" miny="6.860414" maxx="47.346694" maxy="8.307124"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556240.000000" miny="1137630.000000" maxx="2665550.000000" maxy="1243830.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="556240.000000" miny="137630.000000" maxx="665550.000000" maxy="243830.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:3857" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<BoundingBox CRS="EPSG:102100" minx="763697.835359" miny="5842759.819999" maxx="924744.867363" maxy="5998848.160048"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_SEDIRAS_4779]]></Title>
+						<LegendURL width="96" height="234">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_SEDIRAS_4779" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_FELSLIN_VW_6286</Name>
+					<Title><![CDATA[Höhenkurven Felsoberfläche]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/FELSLIN/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>6.860481</westBoundLongitude><eastBoundLongitude>8.306919</eastBoundLongitude><southBoundLatitude>46.388198</southBoundLatitude><northBoundLatitude>47.346619</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="6.860481" miny="46.388198" maxx="8.306919" maxy="47.346619"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.388198" miny="6.860481" maxx="47.346619" maxy="8.306919"/>
+					<BoundingBox CRS="EPSG:2056" minx="2556244.947300" miny="1137642.359900" maxx="2665534.558300" maxy="1243821.675900"/>
+					<BoundingBox CRS="EPSG:21781" minx="556244.947300" miny="137642.359900" maxx="665534.558300" maxy="243821.675900"/>
+					<BoundingBox CRS="EPSG:102100" minx="763705.214663" miny="5842778.008551" maxx="924721.983425" maxy="5998835.857877"/>
+					<BoundingBox CRS="EPSG:3857" minx="763705.214663" miny="5842778.008551" maxx="924721.983425" maxy="5998835.857877"/>
+					<BoundingBox CRS="EPSG:3857" minx="763705.214663" miny="5842778.008551" maxx="924721.983425" maxy="5998835.857877"/>
+					<BoundingBox CRS="EPSG:102100" minx="763705.214663" miny="5842778.008551" maxx="924721.983425" maxy="5998835.857877"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_FELSLIN_VW_6286]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_FELSLIN_VW_6286" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>38789.806548</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_TEKTSTOE_VW_6382</Name>
+					<Title><![CDATA[Vermutete Bruchzone]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/TEKTSTOE/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.034454</westBoundLongitude><eastBoundLongitude>7.703494</eastBoundLongitude><southBoundLatitude>46.746199</southBoundLatitude><northBoundLatitude>47.186213</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.034454" miny="46.746199" maxx="7.703494" maxy="47.186213"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.746199" miny="7.034454" maxx="47.186213" maxy="7.703494"/>
+					<BoundingBox CRS="EPSG:2056" minx="2569297.914800" miny="1177157.596600" maxx="2620000.000000" maxy="1225989.995500"/>
+					<BoundingBox CRS="EPSG:21781" minx="569297.914800" miny="177157.596600" maxx="620000.000000" maxy="225989.995500"/>
+					<BoundingBox CRS="EPSG:102100" minx="783071.796244" miny="5900745.169668" maxx="857549.026146" maxy="5972521.840989"/>
+					<BoundingBox CRS="EPSG:3857" minx="783071.796244" miny="5900745.169668" maxx="857549.026146" maxy="5972521.840989"/>
+					<BoundingBox CRS="EPSG:3857" minx="783071.796244" miny="5900745.169668" maxx="857549.026146" maxy="5972521.840989"/>
+					<BoundingBox CRS="EPSG:102100" minx="783071.796244" miny="5900745.169668" maxx="857549.026146" maxy="5972521.840989"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_TEKTSTOE_VW_6382]]></Title>
+						<LegendURL width="18" height="18">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_TEKTSTOE_VW_6382" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MinScaleDenominator>7182.492560</MinScaleDenominator>
+					<MaxScaleDenominator>189035.342262</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_FRGAS_VW_14795</Name>
+					<Title><![CDATA[Erdgasanzeiger]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/FRGAS/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.233447</westBoundLongitude><eastBoundLongitude>7.907678</eastBoundLongitude><southBoundLatitude>46.461455</southBoundLatitude><northBoundLatitude>47.259995</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.233447" miny="46.461455" maxx="7.907678" maxy="47.259995"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.461455" miny="7.233447" maxx="47.259995" maxy="7.907678"/>
+					<BoundingBox CRS="EPSG:2056" minx="2584400.000000" miny="1145533.000000" maxx="2635425.000000" maxy="1234192.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="584400.000000" miny="145533.000000" maxx="635425.000000" maxy="234192.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="805223.654479" miny="5854608.529295" maxx="880278.673855" maxy="5984615.688483"/>
+					<BoundingBox CRS="EPSG:3857" minx="805223.654479" miny="5854608.529295" maxx="880278.673855" maxy="5984615.688483"/>
+					<BoundingBox CRS="EPSG:3857" minx="805223.654479" miny="5854608.529295" maxx="880278.673855" maxy="5984615.688483"/>
+					<BoundingBox CRS="EPSG:102100" minx="805223.654479" miny="5854608.529295" maxx="880278.673855" maxy="5984615.688483"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_FRGAS_VW_14795]]></Title>
+						<LegendURL width="22" height="33">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_FRGAS_VW_14795" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>38789.806548</MaxScaleDenominator>
+				</Layer>
+				<Layer queryable="1">
+					<Name>FRK_FRARTES_VW_14791</Name>
+					<Title><![CDATA[Arteser aus Fels]]></Title>
+					<Abstract><![CDATA[<DIV STYLE="text-align:Left;font-size:12pt"><DIV><DIV><P><SPAN>KMGDM1;</SPAN></P><P><A href="https://www.geo.apps.be.ch/de/geodaten/suche-nach-geodaten/sheet/FRARTES/layer/complete/public" STYLE="text-decoration:underline;"><SPAN>Metadaten;</SPAN></A></P></DIV></DIV></DIV>]]></Abstract>
+					<CRS>CRS:84</CRS>
+					<CRS>EPSG:4326</CRS>
+					<CRS>EPSG:2056</CRS>
+					<CRS>EPSG:21781</CRS>
+					<CRS>EPSG:102100</CRS>
+					<!-- alias 102100 -->
+					<CRS>EPSG:3857</CRS>
+					<CRS>EPSG:3857</CRS>
+					<!-- alias 3857 -->
+					<CRS>EPSG:102100</CRS>
+					<EX_GeographicBoundingBox><westBoundLongitude>7.110483</westBoundLongitude><eastBoundLongitude>7.933890</eastBoundLongitude><southBoundLatitude>46.456507</southBoundLatitude><northBoundLatitude>47.272526</northBoundLatitude></EX_GeographicBoundingBox>
+					<BoundingBox CRS="CRS:84" minx="7.110483" miny="46.456507" maxx="7.933890" maxy="47.272526"/>
+					<BoundingBox CRS="EPSG:4326" minx="46.456507" miny="7.110483" maxx="47.272526" maxy="7.933890"/>
+					<BoundingBox CRS="EPSG:2056" minx="2575100.000000" miny="1144995.000000" maxx="2637400.000000" maxy="1235585.000000"/>
+					<BoundingBox CRS="EPSG:21781" minx="575100.000000" miny="144995.000000" maxx="637400.000000" maxy="235585.000000"/>
+					<BoundingBox CRS="EPSG:102100" minx="791535.295453" miny="5853809.020611" maxx="883196.626940" maxy="5986671.315992"/>
+					<BoundingBox CRS="EPSG:3857" minx="791535.295453" miny="5853809.020611" maxx="883196.626940" maxy="5986671.315992"/>
+					<BoundingBox CRS="EPSG:3857" minx="791535.295453" miny="5853809.020611" maxx="883196.626940" maxy="5986671.315992"/>
+					<BoundingBox CRS="EPSG:102100" minx="791535.295453" miny="5853809.020611" maxx="883196.626940" maxy="5986671.315992"/>
+					<Style>
+						<Name>default</Name>
+						<Title><![CDATA[FRK_FRARTES_VW_14791]]></Title>
+						<LegendURL width="22" height="33">
+							<Format>image/png</Format>
+							<OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geoservice.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation02_de_ms_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=FRK_FRARTES_VW_14791" xlink:type="simple"/>
+						</LegendURL>
+					</Style>
+					<MaxScaleDenominator>38789.806548</MaxScaleDenominator>
+				</Layer>
+			</Layer>
+		</Layer>
+	</Capability>
+</WMS_Capabilities>

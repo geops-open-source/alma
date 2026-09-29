@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
+<title>ilivalidator-Anleitung</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="ilivalidator-anleitung">
+<h1 class="title">ilivalidator-Anleitung</h1>
+
+<div class="section" id="uberblick">
+<h1>Überblick</h1>
+<p>Ilivalidator ist ein in Java erstelltes Programm, das eine
+Interlis-Transferdatei (itf oder xtf) gemäss einem Interlis-Modell
+(ili) überprüft.</p>
+<p>Es bestehen u.a. folgende Konfigurationsmöglichkeiten:</p>
+<ul class="simple">
+<li>einzelne Prüfungen ein oder auszuschalten</li>
+<li>eigene Fehlermeldungen inkl. Attributwerte zu definieren</li>
+<li>zusätzliche Bedingung zu definieren</li>
+<li>zusätzliche INTERLIS-Funktionen zu implementieren</li>
+<li>Modellnamen zu setzen</li>
+</ul>
+<p>Zusätzlich umfasst der ilivalidator Hilfsfunktionen betrf.
+Daten (z.B. Kataloge) in einem Repository.</p>
+<div class="section" id="log-meldungen">
+<h2>Log-Meldungen</h2>
+<p>Die Log-Meldungen sollen dem Benutzer zeigen, was das Programm macht.
+Am Anfang erscheinen Angaben zur Programm-Version.
+Falls das Programm ohne Fehler durchläuft, wird das am Ende ausgegeben.:</p>
+<pre class="literal-block">
+Info: ilivalidator-1.0.0
+...
+Info: compile models...
+...
+Info: ...validation done
+</pre>
+<p>Bei einem Fehler wird das am Ende des Programms vermerkt. Der eigentliche
+Fehler wird aber in der Regel schon früher ausgegeben.:</p>
+<pre class="literal-block">
+Info: ilivalidator-1.0.0
+...
+Info: compile models...
+...
+Error: DM01.Bodenbedeckung.BoFlaeche_Geometrie: intersection tids 48, 48
+...
+Error: ...validation failed
+</pre>
+</div>
+<div class="section" id="laufzeitanforderungen">
+<h2>Laufzeitanforderungen</h2>
+<p>Das Programm setzt Java 1.6 voraus.</p>
+<p>Zur Validierung wird RAM benötigt. Für eine typische Transferdatei sollten
+ca. 2 GB RAM ausreichen. Am Anfang des Logs steht, wieviel RAM (heapspace)
+dem Programm zur Verfügung steht. Sollte das Programm mit einer Heapspace
+Fehlermeldung abbrechen, kann mittels Java-Option versucht werden, mehr RAM
+bereitzustellen (Für 3 GB z.B. <tt class="docutils literal">java <span class="pre">-Xmx3072m</span> <span class="pre">-jar</span> ilivalidator.jar data.xtf</tt>).
+Grundsätzlich ist nicht die Grösse der Datei kritisch, sondern andere Dinge
+z.B. wieviele Objekte miteinander in Beziehung stehen, oder wieviele
+Objekte bei UNIQUE Bedingungen geprüft werden müssen, aus wievielen
+Rändern die Polygone bestehen, usw.</p>
+</div>
+<div class="section" id="validierung-in-anderen-programmen">
+<h2>Validierung in anderen Programmen</h2>
+<p>Der ilivalidator wird auch von anderen Programmen verwendet (z.B. ili2fgdb).
+Für die Validierung wird im ilivalidator und im anderen Programm (z.B. ili2fgdb)
+der selbe Code verwendet. Der gemeisame Nenner ist iox-ili.
+Man muss also die Version von iox-ili vergleichen, um allenfalls
+die Validierung aufeinander abstimmen zu können
+(am Anfang des Logs zeigen
+beide Programme auch die Version von iox-ili,
+und sonst steht es normalerweise im changelog.txt des jeweiligen Programms.)
+z.B.</p>
+<ul class="simple">
+<li>ili2fgdb-4.4.5 benutzt iox-ili-1.21.4</li>
+<li>ilivalidator-1.11.9 benutzt iox-ili-1.21.4</li>
+</ul>
+<p>Grundsätzlich sollten die Daten natürlich gültig sein gegenüber der
+Spezifikation (also dem INTERLIS-Referenzhandbuch und dem Minimalen Geodatenmodell).</p>
+</div>
+<div class="section" id="lizenz">
+<h2>Lizenz</h2>
+<p>GNU Lesser General Public License</p>
+</div>
+</div>
+<div class="section" id="funktionsweise">
+<h1>Funktionsweise</h1>
+<p>In den folgenden Abschnitten wird die Funktionsweise anhand einzelner
+Anwendungsfälle beispielhaft beschrieben. Die detaillierte Beschreibung
+einzelner Funktionen ist im Kapitel „Referenz“ zu finden.</p>
+<p>Je nach Betriebssystem kann das Programm auch einfach durch Doppelklick mit linker Maustaste
+auf  <tt class="docutils literal">`ilivalidator.jar`</tt> gestartet werden.</p>
+<div class="section" id="beispiele">
+<h2>Beispiele</h2>
+<div class="section" id="fall-1">
+<h3>Fall 1</h3>
+<p>Es wird eine INTERLIS 1-Datei validiert/geprüft.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar path/to/data.itf</tt></p>
+</div>
+<div class="section" id="fall-2">
+<h3>Fall 2</h3>
+<p>Es wird eine INTERLIS 2-Datei inkl. den Referenzen auf den Katalog validiert/geprüft.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--allObjectsAccessible</span> ilidata:catalogDatasetId path/to/data.itf</tt></p>
+</div>
+<div class="section" id="fall-3">
+<h3>Fall 3</h3>
+<p>Es wird eine INTERLIS 2-Datei mit einer spezifischen
+Konfiguration validiert/geprüft.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--config</span> config.ini path/to/data.xtf</tt></p>
+<p>In der Datei config.ini wird definiert, welche Prüfungen gar nicht durchzuführen oder
+bei Nichterfüllen nur als Warnung zu melden sind.</p>
+</div>
+<div class="section" id="fall-4">
+<h3>Fall 4</h3>
+<p>Es wird eine INTERLIS 2-Datei validiert/geprüft, wobei die Fehlermeldungen
+in eine Text-Datei geschrieben werden.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--log</span> result.log path/to/data.xtf</tt></p>
+<p>Die Fehlermeldungen inkl. Warnungen werden in die Datei result.log geschrieben.</p>
+</div>
+<div class="section" id="fall-5">
+<h3>Fall 5</h3>
+<p>Es wird eine INTERLIS 2-Datei validiert/geprüft, wobei die Fehlermeldungen
+als Daten in eine Xtf-Datei geschrieben werden.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--xtflog</span> result.xtf path/to/data.xtf</tt></p>
+<p>Die Fehlermeldungen inkl. Warnungen werden in die Datei result.xtf geschrieben.
+Die Datei result.xtf entspricht dem Modell IliVErrors und kann als normale
+INTERLIS 2-Transferdatei importiert werden. Dadurch können die
+Fehler visualisiert werden.</p>
+</div>
+<div class="section" id="fall-6">
+<h3>Fall 6</h3>
+<p>Es erscheint eine Bildschirmmaske, mit deren Hilfe die zu validierende Datei
+ausgewählt und die Validierung gestartet werden kann.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar</tt></p>
+</div>
+<div class="section" id="fall-7">
+<h3>Fall 7</h3>
+<p>Es wird eine INTERLIS 2-Datei validiert/geprüft. Wobei spezifische Modelle gesetzt werden.
+Dazu wird der Pfad zu den spezifischen Modellen gesetzt.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--models</span> modelname1;modelname2 <span class="pre">--modeldir</span> path/to/data path/to/data.xtf</tt></p>
+</div>
+<div class="section" id="fall-8">
+<h3>Fall 8</h3>
+<p>Es werden alle Dateien (ITF und XTF) im gegebenen Repository geprüft/validiert.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--check-repo-data</span> <span class="pre">http://models.geo.admin.ch</span></tt></p>
+</div>
+<div class="section" id="fall-9">
+<h3>Fall 9</h3>
+<p>Es werden alle Dateien (ITF und XTF) im gegebenen Verzeichnis <tt class="docutils literal">folder</tt> analysiert
+und dann ein neues <tt class="docutils literal">newIlidata.xml</tt> mit den entsprechenden Metadaten erstellt.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--createIliData</span> <span class="pre">--ilidata</span> newIlidata.xml <span class="pre">--repos</span> folder</tt></p>
+</div>
+<div class="section" id="fall-10">
+<h3>Fall 10</h3>
+<p>Es werden alle Dateien (ITF und XTF) gemäss Dateiliste <tt class="docutils literal">files.txt</tt>
+im Repository <tt class="docutils literal"><span class="pre">http://models.geo.admin.ch</span></tt> analysiert
+und dann ein neues <tt class="docutils literal">newIlidata.xml</tt> mit den entsprechenden Metadaten erstellt.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--createIliData</span> <span class="pre">--ilidata</span> newIlidata.xml <span class="pre">--repos</span> <span class="pre">http://models.geo.admin.ch</span> <span class="pre">--srcfiles</span> files.txt</tt></p>
+</div>
+<div class="section" id="fall-11">
+<h3>Fall 11</h3>
+<p>Es wird die gegebene Datei <tt class="docutils literal">newVersionOfData.xml</tt> (ITF oder XTF)
+analysiert, und dann das ilidata.xml aus dem gegebenen Repository
+<tt class="docutils literal"><span class="pre">http://models.geo.admin.ch</span></tt> mit einem neuen Eintrag für
+den Datensatz mit der ID <tt class="docutils literal">datasetId</tt> aktualisiert. Die neue Version des
+ilidata.xml wird in die Datei <tt class="docutils literal">updatedIlidata.xml</tt> geschrieben und muss
+durch den Benutzer ins Repository übertragen werden.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--updateIliData</span> <span class="pre">--ilidata</span> updatedIlidata.xml <span class="pre">--repos</span> <span class="pre">http://models.geo.admin.ch</span> <span class="pre">--datasetId</span> datasetId newVersionOfData.xml</tt></p>
+</div>
+<div class="section" id="fall-12">
+<h3>Fall 12</h3>
+<p>Die Datei wird heruntergeladen und validiert/geprüft.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">https://models.interlis.ch/refhb23/MiniCoordSysData-20200320.xml</span></tt></p>
+</div>
+<div class="section" id="fall-13">
+<h3>Fall 13</h3>
+<p>Die Datei transfer.xtf wird validiert/geprüft und muss einen Basket des
+Topics <tt class="docutils literal">TopicA</tt> aus dem Modell <tt class="docutils literal">ModelA</tt> enthalten.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--mandatoryBasket</span> ModelA.TopicA transfer.xtf</tt></p>
+</div>
+<div class="section" id="fall-14">
+<h3>Fall 14</h3>
+<p>Es wird eine INTERLIS 2-Datei inkl. den Referenzen auf den Katalog validiert/geprüft.
+Die Katalogdaten (=Referenzdaten) selbst werden nicht geprüft.</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--allObjectsAccessible</span> <span class="pre">--refdata</span> ilidata:catalogDatasetId path/to/data.xtf</tt></p>
+</div>
+<div class="section" id="fall-15">
+<h3>Fall 15</h3>
+<p>Es wird eine INTERLIS 2-Datei validiert/geprüft.
+Die benötigten Referenzdaten (werden automatisch ermittelt) anhand des gegebenen
+Datenumfangs (<tt class="docutils literal"><span class="pre">--scope</span> CH</tt>) und der
+Referenzdaten-Abbildungstabelle (<tt class="docutils literal"><span class="pre">--refmapping</span> ilidata:RefDataMappingDatasetId</tt>).</p>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar <span class="pre">--allObjectsAccessible</span> <span class="pre">--scope</span> CH <span class="pre">--refmapping</span> ilidata:RefDataMappingDatasetId path/to/data.xtf</tt></p>
+</div>
+</div>
+</div>
+<div class="section" id="referenz">
+<h1>Referenz</h1>
+<p>In den folgenden Abschnitten werden einzelne Aspekte detailliert, aber
+isoliert, beschrieben. Die Funktionsweise als Ganzes wird anhand
+einzelner Anwendungsfälle beispielhaft im Kapitel „Funktionsweise“
+(weiter oben) beschrieben.</p>
+<div class="section" id="aufruf-syntax">
+<h2>Aufruf-Syntax</h2>
+<p><tt class="docutils literal">java <span class="pre">-jar</span> ilivalidator.jar [Options] <span class="pre">[path...]</span> <span class="pre">[ilidata-URL...]</span> <span class="pre">[http-URL...]</span></tt></p>
+<ul class="simple">
+<li>path: Pfad zu einer oder mehreren lokal vorliegenden Transferdateien (.xtf/.itf) wie im Fall 1 oben (<tt class="docutils literal">path/to/data.itf</tt>)</li>
+<li>ilidata-URL: Angabe von einem oder mehreren Datensätzen mittels <tt class="docutils literal">ilidata:DatesetId</tt> oder <tt class="docutils literal">ilidata:BasketId</tt>. Es werden die entsprechenden Dateien aus den Repositories benutzt.</li>
+<li>http-URL: Angabe von einer oder mehrerer URL mittels <tt class="docutils literal">http:url</tt> oder <tt class="docutils literal">https:url</tt>. Es werden die entsprechenden Dateien heruntergeladen und benutzt.</li>
+</ul>
+<p>Ohne Kommandozeilenargumente erscheint die Bildschirmmaske, mit deren Hilfe die zu validierende Datei
+ausgewählt und die Validierung gestartet werden kann.</p>
+<p>Der Rückgabewert ist wie folgt:</p>
+<blockquote>
+<ul class="simple">
+<li>0 Validierung ok, keine Fehler festgestellt</li>
+<li>!0 Validierung nicht ok, Fehler festgestellt</li>
+</ul>
+</blockquote>
+<p>Optionen:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Option</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">--refdata</span>&nbsp; filename</tt></td>
+<td>Konfiguriert Referenzdaten. Referenzdaten werden selbst nicht validiert aber z.B. zum Prüfen von EXTERNAL Referenzen benötigt.
+<tt class="docutils literal">filename</tt> kann auch die Form <tt class="docutils literal">ilidata:DatesetId</tt>  haben,
+dann wird die entsprechende Datei aus den Repositories benutzt.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--refmapping</span>&nbsp; filename</tt></td>
+<td>Konfiguriert die Herleitung der benötigten Referenzdaten. Die Referenzdaten werden anhand des spezifizierten Validierungsumfangs <tt class="docutils literal"><span class="pre">--scope</span></tt> und des Topics der Daten ermittelt.
+<tt class="docutils literal">filename</tt> kann auch die Form <tt class="docutils literal">ilidata:DatesetId</tt>  haben,
+dann wird die entsprechende Datei aus den Repositories benutzt.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--scope</span>&nbsp; scopeId</tt></td>
+<td>Konfiguriert den Umfang der aktuellen Validierung, z.B. die Gemeinde-Id oder das Kantonskürzel. Dient zum Ermitteln der benötigten Referenzdaten.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--config</span>&nbsp; filename</tt></td>
+<td><p class="first">Konfiguriert die Datenprüfung mit Hilfe einer INI-Datei.
+<tt class="docutils literal">filename</tt> kann auch die Form <tt class="docutils literal">ilidata:DatesetId</tt>  haben,
+dann wird die entsprechende Datei aus den Repositories benutzt.
+Der Eintrag im ilidata.xml soll mit folgenden Kategorien markiert werden.</p>
+<pre class="code xml last literal-block">
+<span class="name tag">&lt;categories&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;DatasetIdx16.Code_&gt;</span><span class="whitespace">
+    </span><span class="name tag">&lt;value&gt;</span>http://codes.interlis.ch/type/ilivalidatorconfig<span class="name tag">&lt;/value&gt;</span><span class="whitespace"> </span><span class="comment multiline">&lt;!-- Hinweis, dass es eine ilivalidator Config-Datei ist.  --&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;/DatasetIdx16.Code_&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;DatasetIdx16.Code_&gt;</span><span class="whitespace">
+    </span><span class="name tag">&lt;value&gt;</span>http://codes.interlis.ch/model/Simple23<span class="name tag">&lt;/value&gt;</span><span class="whitespace"> </span><span class="comment multiline">&lt;!-- Hinweis auf des ili-Modell Simple23 --&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;/DatasetIdx16.Code_&gt;</span><span class="whitespace">
+</span><span class="name tag">&lt;/categories&gt;</span>
+</pre>
+</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--metaConfig</span>&nbsp; filename</tt></td>
+<td><p class="first">Konfiguriert den Validator mit Hilfe einer INI-Datei.
+<tt class="docutils literal">filename</tt> kann auch die Form <tt class="docutils literal">ilidata:DatesetId</tt>  haben,
+dann wird die entsprechende Datei aus den Repositories benutzt.
+Der Eintrag im ilidata.xml soll mit folgenden Kategorien markiert werden.</p>
+<pre class="code xml last literal-block">
+<span class="name tag">&lt;categories&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;DatasetIdx16.Code_&gt;</span><span class="whitespace">
+    </span><span class="name tag">&lt;value&gt;</span>http://codes.interlis.ch/type/metaconfig<span class="name tag">&lt;/value&gt;</span><span class="whitespace"> </span><span class="comment multiline">&lt;!-- Hinweis, dass es eine Meta-Config-Datei ist.  --&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;/DatasetIdx16.Code_&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;DatasetIdx16.Code_&gt;</span><span class="whitespace">
+    </span><span class="name tag">&lt;value&gt;</span>http://codes.interlis.ch/model/Simple23<span class="name tag">&lt;/value&gt;</span><span class="whitespace"> </span><span class="comment multiline">&lt;!-- Hinweis auf des ili-Modell Simple23 --&gt;</span><span class="whitespace">
+  </span><span class="name tag">&lt;/DatasetIdx16.Code_&gt;</span><span class="whitespace">
+</span><span class="name tag">&lt;/categories&gt;</span>
+</pre>
+</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--forceTypeValidation</span></tt></td>
+<td>Ignoriert die Konfiguration der Typprüfung (mittels Metaattribut <tt class="docutils literal">!!&#64; ilivalid.type</tt>) aus der ili-Datei , d.h. es kann nur die Multiplizität aufgeweicht werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--disableAreaValidation</span></tt></td>
+<td>Schaltet die AREA Topologieprüfung aus (XTF).</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--disableConstraintValidation</span></tt></td>
+<td>Schaltet die Constraint prüfung aus.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--allObjectsAccessible</span></tt></td>
+<td>Mit der Option nimmt der Validator an, dass er Zugriff auf alle Objekte hat. D.h. es wird z.B. auch die Multiplizität von Beziehungen auf externe Objekte geprüft.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--multiplicityOff</span></tt></td>
+<td>Schaltet die Prüfung der Multiplizität generell aus.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--runtimeParams</span> param=value</tt></td>
+<td>Definiert Werte für Laufzeitparameter (RunTimeParameterDef). Mehrere Laufzeitparameter werden durch Semikolon ‚;‘ getrennt. Als Parametername muss der qualifizierte Namen verwendet werden.
+Beispiel: <tt class="docutils literal"><span class="pre">--runtimeParams</span> ModelA.Param1=testValue1;ModelB.Param2=testValue2</tt></td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--singlePass</span></tt></td>
+<td>Schaltet alle Prüfungen aus, die nicht unmittelbar beim Ersten Lesen der Objekte ausgeführt werden können.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--skipPolygonBuilding</span></tt></td>
+<td>Schaltet die Bildung der Polygone aus (nur ITF).</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--allowItfAreaHoles</span></tt></td>
+<td>Lässt bei ITF AREA Attributen innere Ränder zu, die keinem Objekt zugeordnet sind.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--simpleBoundary</span></tt></td>
+<td>Lässt bei XTF SURFACE/AREA Attributen als XML BOUNDARY Elemente nur einfache Linien zu.
+Jeder Rand muss also als eigenes BOUNDARY Element codiert sein.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--mandatoryBaskets</span> topicnames</tt></td>
+<td>Die Transferdatei muss Baskets der gegebenen Topics enthalten. Mehrere Topicnamen können durch Semikolon ‚;‘ getrennt werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--optionalBaskets</span> topicnames</tt></td>
+<td>Die Transferdatei kann Baskets der gegebenen Topics enthalten. Mehrere Topicnamen können durch Semikolon ‚;‘ getrennt werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--bannedBaskets</span> topicnames</tt></td>
+<td>Die Transferdatei darf keine Baskets der gegebenen Topics enthalten. Mehrere Topicnamen können durch Semikolon ‚;‘ getrennt werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--models</span> modelnames</tt></td>
+<td>Setzt spezifische Modellnamen, welche sich innerhalb von ili-Dateien befinden. Mehrere Modellnamen können durch Semikolon ‚;‘ getrennt werden. Das Setzen des Pfades, der zu den Modellen führt, muss mittels '--modeldir path' angegeben werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--modeldir</span> path</tt></td>
+<td><p class="first">Dateipfade, die Modell-Dateien (ili-Dateien) enthalten. Mehrere Pfade können durch Semikolon ‚;‘ getrennt werden. Es sind auch URLs von Modell-Repositories möglich. Default ist</p>
+<p>%ITF_DIR;http://models.interlis.ch/;%JAR_DIR/ilimodels</p>
+<p>%ITF_DIR ist ein Platzhalter für das Verzeichnis mit der Transferdatei.</p>
+<p>%JAR_DIR ist ein Platzhalter für das Verzeichnis des ilivalidator Programms (ilivalidator.jar Datei).</p>
+<p>Der erste Modellname (Hauptmodell), zu dem ili2db die ili-Datei sucht, ist nicht von der INTERLIS-Sprachversion abhängig. Es wird in folgender Reihenfolge nach einer ili-Datei gesucht: zuerst INTERLIS 2.3, dann 1.0 und zuletzt 2.2.</p>
+<p class="last">Beim Auflösen eines IMPORTs wird die INTERLIS Sprachversion des Hauptmodells berücksichtigt, so dass also z.B. das Modell Units für ili2.2 oder ili2.3 unterschieden wird.</p>
+</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--check-repo-data</span> repositoryUrl</tt></td>
+<td>Es werden alle Daten (ITF und XTF) im gegebenen Repository geprüft/validiert. (Alle aktuellen Daten (gemäss precursorVersion))</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--createIliData</span></tt>
+<tt class="docutils literal"><span class="pre">--ilidata</span> ilidata.xml</tt>
+<tt class="docutils literal"><span class="pre">--repos</span> repository</tt></td>
+<td>Es werden alle Daten (ITF und XTF) im gegebenen Folder/Repository analysiert und dann ein neues ilidata.xml mit den entsprechenden Metadaten erstellt. Wenn <tt class="docutils literal">repository</tt> ein remote Repository bezeichnet, muss mit <tt class="docutils literal"><span class="pre">--srcfiles</span></tt> die Liste der Dateien angegeben werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--srcfiles</span> files.txt</tt></td>
+<td>Liste mit relativen Dateipfaden (relativ zum gegebenen Folder/Repository). Ein Pfad pro Zeile.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--updateIliData</span></tt>
+<tt class="docutils literal"><span class="pre">--ilidata</span> updatedIlidata.xml</tt>
+<tt class="docutils literal"><span class="pre">--repos</span> repository</tt>
+<tt class="docutils literal"><span class="pre">--dataset</span> datasetId</tt>
+<tt class="docutils literal">newVersionOfData.xml</tt></td>
+<td>Es wird die gegebene Datei <tt class="docutils literal">newVersionOfData.xml</tt> (ITF oder XTF) analysiert, und dann das ilidata.xml aus dem gegebenen Repository <tt class="docutils literal">repository</tt> mit einem neuen Eintrag für  den Datensatz mit der ID <tt class="docutils literal">datasetId</tt> aktualisiert. Die neue Version des ilidata.xml wird in die Datei <tt class="docutils literal">updatedIlidata.xml</tt> geschrieben und muss durch den Benutzer ins Repository übertragen werden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--logtime</span></tt></td>
+<td>Ergänzt die log-Meldungen in der Log-Datei mit Zeitstempeln.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--log</span> filename</tt></td>
+<td>Schreibt die log-Meldungen in eine Text-Datei.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--xtflog</span> filename</tt></td>
+<td>Schreibt die log-Meldungen in eine INTERLIS 2-Datei.  Die Datei result.xtf entspricht dem Modell IliVErrors.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--csvlog</span> filename</tt></td>
+<td>Schreibt die log-Meldungen in eine CSV-Datei.  Die Spalten in der CSV-Datei entsprechen dem Modell IliVErrors.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--plugins</span> folder</tt></td>
+<td>Verzeichnis mit JAR-Dateien, die Zusatzfunktionen enthalten. Die Zusatzfunktionen müssen das Java-Interface <tt class="docutils literal">ch.interlis.iox_j.validator.InterlisFunction</tt> implementieren, und der Name der Java-Klasse muss mit <tt class="docutils literal">IoxPlugin</tt> enden.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--proxy</span> host</tt></td>
+<td>Proxy Server für den Zugriff auf Modell Repositories</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--proxyPort</span> port</tt></td>
+<td>Proxy Port für den Zugriff auf Modell Repositories</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--gui</span></tt></td>
+<td>Es erscheint eine Bildschirmmaske, mit deren Hilfe die zu validierende Datei
+ausgewählt und die Validierung gestartet werden kann.
+Die Pfad der Modell-Dateien und die Proxyeinstellungen werden aus der Datei $HOME/.ilivalidator gelesen.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--verbose</span></tt></td>
+<td>Schreibt detailiertere validierungs log-Meldungen.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--trace</span></tt></td>
+<td>Erzeugt zusätzliche Log-Meldungen (wichtig für Programm-Fehleranalysen)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--help</span></tt></td>
+<td>Zeigt einen kurzen Hilfetext an.</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">--version</span></tt></td>
+<td>Zeigt die Version des Programmes an.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="referenzdaten">
+<h2>Referenzdaten</h2>
+<p>Referenzdaten sind Daten, die selbst nicht geprüft werden, aber für die
+vollständige Validierung benötigt werden. Also z.B. Katalog oder andere
+referenzierte Objekte in anderen Datensätzen oder auch Geometrien des
+Perimeters des Datensatzs wie z.B. Kantons- oder Gemeindegrenzen.</p>
+<p>Rerferenzdaten können explizit definiert werden (Option <tt class="docutils literal"><span class="pre">--refdata</span></tt>)
+oder durch den Validator ermittelt werden (Option <tt class="docutils literal"><span class="pre">--scope</span></tt> und <tt class="docutils literal"><span class="pre">--refmapping</span></tt>).</p>
+</div>
+<div class="section" id="meta-konfiguration">
+<h2>Meta-Konfiguration</h2>
+<p>In der Meta-Konfigurationsdatei werden die folgenden Parameter unterstützt (hier nicht aufgeführte Kommandozeilenargument werden in der Meta-Konfiguration nicht unterstützt).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="31%" />
+<col width="49%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Konfiguration</th>
+<th class="head">Beispiel</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>baseConfig</td>
+<td><pre class="code first last literal-block">
+[CONFIGURATION]
+baseConfig=ilidata:DatesetId
+</pre>
+</td>
+<td><p class="first">Basis-Meta-Konfiguration, auf der die aktuelle Meta-Konfiguration aufbaut.
+Statt <tt class="docutils literal">ilidata:DatesetId</tt> kann auch die Form <tt class="docutils literal"><span class="pre">file:/localfile</span></tt>
+benutzt werden, dann wird die entsprechende lokale Datei benutzt.</p>
+<p class="last">Mehrere Basiskonfigurationen werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>org.interlis2.validator.config</td>
+<td><pre class="code first last literal-block">
+[CONFIGURATION]
+org.interlis2.validator.config=ilidata:DatesetId
+</pre>
+</td>
+<td><p class="first">Validierungs-Konfiguration, die benutzt werden soll.
+Statt <tt class="docutils literal">ilidata:DatesetId</tt> kann auch die Form <tt class="docutils literal"><span class="pre">file:/localfile</span></tt>
+benutzt werden, dann wird die entsprechende lokale Datei  benutzt.</p>
+<p class="last">Mehrere Validierungs-Konfigurationen werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>ch.interlis.referenceData</td>
+<td><pre class="code first last literal-block">
+[CONFIGURATION]
+ch.interlis.referenceData=ilidata:DatesetId
+</pre>
+</td>
+<td><p class="first">Basis-Daten (z.B. Kataloge), die benutzt werden sollen.
+Statt <tt class="docutils literal">ilidata:DatesetId</tt> kann auch die Form <tt class="docutils literal"><span class="pre">file:/localfile</span></tt>
+benutzt werden, dann wird die entsprechende lokale Datei  benutzt.</p>
+<p class="last">Mehrere Basis-Daten werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>models</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+models=Simple23
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--models</span></tt></td>
+</tr>
+<tr><td>config</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+config=ilidata:DatesetId
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--config</span></tt></td>
+</tr>
+<tr><td>forceTypeValidation</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+forceTypeValidation=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--forceTypeValidation</span></tt></td>
+</tr>
+<tr><td>disableAreaValidation</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+disableAreaValidation=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--disableAreaValidation</span></tt></td>
+</tr>
+<tr><td>disableConstraintValidation</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+disableConstraintValidation=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--disableConstraintValidation</span></tt></td>
+</tr>
+<tr><td>multiplicityOff</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+multiplicityOff=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--multiplicityOff</span></tt></td>
+</tr>
+<tr><td>allObjectsAccessible</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+allObjectsAccessible=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--allObjectsAccessible</span></tt></td>
+</tr>
+<tr><td>allowItfAreaHoles</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+allowItfAreaHoles=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--allowItfAreaHoles</span></tt></td>
+</tr>
+<tr><td>simpleBoundary</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+simpleBoundary=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--simpleBoundary</span></tt></td>
+</tr>
+<tr><td>skipPolygonBuilding</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+skipPolygonBuilding=true
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--skipPolygonBuilding</span></tt></td>
+</tr>
+<tr><td>mandatoryBaskets</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+mandatoryBaskets=ModelA.TopicA;ModelB.TopicC
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--mandatoryBaskets</span></tt></td>
+</tr>
+<tr><td>optionalBaskets</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+optionalBaskets=ModelA.TopicA;ModelB.TopicC
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--optionalBaskets</span></tt></td>
+</tr>
+<tr><td>bannedBaskets</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+bannedBaskets=ModelA.TopicA;ModelB.TopicC
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--bannedBaskets</span></tt></td>
+</tr>
+<tr><td>refmapping</td>
+<td><pre class="code first last literal-block">
+[ch.ehi.ilivalidator]
+refmapping=ilidata:DatesetId
+</pre>
+</td>
+<td>Entspricht dem Kommandozeilenargument <tt class="docutils literal"><span class="pre">--refmapping</span></tt></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="konfiguration">
+<h2>Konfiguration</h2>
+<p>Die einzelnen Prüfungen können direkt im Modell über Metaaatribute konfiguriert werden oder
+in einer getrennten Konfigurations-Datei, so dass keine Änderung der ili-Datei notwendig ist.</p>
+<p>Um z.B. bei einem Attribut den Mandatory Check ganz auszuschalten, schreibt man in der ili-Datei:</p>
+<div class="line-block">
+<div class="line">CLASS Gebaeude =</div>
+<div class="line-block">
+<div class="line">!!&#64; ilivalid.multiplicity = off</div>
+<div class="line">Art : MANDATORY (...);</div>
+</div>
+</div>
+<p>Um dieselbe Konfiguration ohne Änderung der ili-Datei vorzunehmen,
+schreibt man in der INI-Datei:</p>
+<div class="line-block">
+<div class="line">[&quot;Beispiel1.Bodenbedeckung.Gebaeude.Art&quot;]</div>
+<div class="line">multiplicity=&quot;off&quot;</div>
+</div>
+<p>Zusätzlich erlaubt die INI Datei pauschale Konfigurationen im Abschnitt &quot;PARAMETER&quot;. Um z.B. generell
+alle Prüfungen auszuschalten schreibt man in die INI-Datei:</p>
+<div class="line-block">
+<div class="line">[&quot;PARAMETER&quot;]</div>
+<div class="line">validation=&quot;off&quot;</div>
+</div>
+<div class="section" id="ini-konfigurationsdatei">
+<h3>INI-Konfigurationsdatei</h3>
+<p><a class="reference external" href="Beispiel1.ini">Beispiel1.ini</a></p>
+</div>
+<div class="section" id="ini-globale-konfigurationen">
+<h3>INI-Globale Konfigurationen</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Konfiguration</th>
+<th class="head">Beispiel</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>additionalModels</td>
+<td>[&quot;PARAMETER&quot;]
+additionalModels=&quot;Model1;Modell2&quot;</td>
+<td><p class="first">&quot;Model1&quot; und &quot;Modell2&quot; sind die Namen der Modelle mit Definitionen von
+zusätzlichen Validierungen (in Form von Interlis Konsistenbedingungen).</p>
+<p class="last">Mehrere Zusatzmodelle werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>validation</td>
+<td>[&quot;PARAMETER&quot;]
+validation=&quot;off&quot;</td>
+<td>&quot;off&quot; schaltet generell alle Prüfungen aus.
+Mögliche Einstellungen sind: &quot;off&quot;, &quot;on&quot;. DEFAULT ist &quot;on&quot;.</td>
+</tr>
+<tr><td>areaOverlapValidation</td>
+<td>[&quot;PARAMETER&quot;]
+areaOverlapValidation=&quot;off&quot;</td>
+<td>&quot;off&quot; schaltet die AREA-Topology Prüfung aus.
+Mögliche Einstellungen sind: &quot;off&quot;, &quot;on&quot;. DEFAULT ist &quot;on&quot;.</td>
+</tr>
+<tr><td>constraintValidation</td>
+<td>[&quot;PARAMETER&quot;]
+constraintValidation=&quot;off&quot;</td>
+<td>&quot;off&quot; schaltet alle Prüfungen von Konsistenzbedingungen aus.
+Mögliche Einstellungen sind: &quot;off&quot;, &quot;on&quot;. DEFAULT ist &quot;on&quot;.</td>
+</tr>
+<tr><td>defaultGeometryTypeValidation</td>
+<td>[&quot;PARAMETER&quot;]
+defaultGeometryTypeValidation=&quot;off&quot;</td>
+<td>Der Default-Wert für die Datentypprüfung bei Geometrie-Attributen.
+Mögliche Einstellungen sind: &quot;warning&quot;, &quot;off&quot;, &quot;on&quot;. DEFAULT ist &quot;on&quot;.</td>
+</tr>
+<tr><td>allowOnlyMultiplicityReduction</td>
+<td>[&quot;PARAMETER&quot;]
+allowOnlyMultiplicityReduction=&quot;true&quot;</td>
+<td>&quot;true&quot; ignoriert die Konfiguration der Typprüfungen (mittels Metaattribut
+<tt class="docutils literal">!!&#64; ilivalid.type</tt>) aus der ili-Datei,
+d.h. es kann nur die Prüfung der Multiplizität konfiguriert werden.
+Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;. DEFAULT ist &quot;false&quot;.</td>
+</tr>
+<tr><td>allObjectsAccessible</td>
+<td>[&quot;PARAMETER&quot;]
+allObjectsAccessible=&quot;true&quot;</td>
+<td>&quot;true&quot; definiert, dass die mitgegebenen Dateien alle
+Objekte enthalten, d.h. dass alle Referenzen (insb. mit EXTERNAL) auflösbar sind.
+Mit false können bei Referenzen mit EXTERNAL
+nicht alle Prüfungen durchgeführt werden.
+Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;. DEFAULT ist &quot;false&quot;.</td>
+</tr>
+<tr><td>multiplicity</td>
+<td>[&quot;PARAMETER&quot;]
+multiplicity=&quot;off&quot;</td>
+<td>&quot;off&quot; schaltet die Multiplizitätsprüfung für alle Attribute und Rollen aus.
+Mögliche Einstellungen sind: &quot;on&quot;, &quot;warning&quot;, &quot;off&quot;. DEFAULT ist &quot;on&quot;.</td>
+</tr>
+<tr><td>disableRounding</td>
+<td>[&quot;PARAMETER&quot;]
+disableRounding=&quot;true&quot;</td>
+<td>&quot;true&quot; schaltet das Runden vor der Validierung von
+numerischen Werten aus (inkl. Koordinaten).
+Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;. DEFAULT ist &quot;false&quot;.</td>
+</tr>
+<tr><td>simpleBoundary</td>
+<td>[&quot;PARAMETER&quot;]
+simpleBoundary=&quot;true&quot;</td>
+<td><p class="first">&quot;true&quot; wie das Kommandzeilenargument --simpleBoundary</p>
+<p class="last">Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;.
+DEFAULT ist &quot;false&quot;; bei einem 2.4 Modell &quot;true&quot;.</p>
+</td>
+</tr>
+<tr><td>disableAreAreasMessages</td>
+<td>[&quot;PARAMETER&quot;]
+disableAreAreasMessages=&quot;true&quot;</td>
+<td>&quot;true&quot; schaltet die Meldungen bei areAreas() Funktionen aus, d.h. die Funktion
+gibt keine Meldung aus, und liefert nur via den Funktioneswert, ob die Daten die
+AREA Bedingung erfüllen, oder nicht.
+Bei &quot;false&quot; gibt die areAreas() Funktionen zusätzlich zum Funktionswert
+Meldungen aus, wo die Daten die
+AREA Bedingung nicht erfüllen.
+Betrifft: INTERLIS.areAreas(), INTERLIS_ext.areAreas2(), INTERLIS_ext.areaAreas3()
+Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;. DEFAULT ist &quot;false&quot;.</td>
+</tr>
+<tr><td>verifyModelVersion</td>
+<td>[&quot;PARAMETER&quot;]
+verifyModelVersion=&quot;true&quot;</td>
+<td>&quot;true&quot; es wird geprüft, ob die VERSIONs Angabe zum Model in der HEADERSECTION
+der XTF-Datei mit der Angabe im Modell (.ili-Datei)  übereinstimmt.
+Wenn die Angabe nicht übereinstimmt, erfolt eine Info-Meldung.
+Mögliche Einstellungen sind: &quot;true&quot;, &quot;false&quot;. DEFAULT ist &quot;false&quot;.</td>
+</tr>
+<tr><td>mandatoryBaskets</td>
+<td>[&quot;PARAMETER&quot;]
+mandatoryBaskets=&quot;ModelA.TopicA;ModelB.TopicC&quot;</td>
+<td><p class="first">&quot;ModelA.TopicA&quot; und &quot;ModelB.TopicC&quot; sind die qualifizierten Namen der Topics
+die in der Transferdatei vorkommen müssen.</p>
+<p class="last">Mehrere Topics werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>optionalBaskets</td>
+<td>[&quot;PARAMETER&quot;]
+optionalBaskets=&quot;ModelA.TopicA;ModelB.TopicC&quot;</td>
+<td><p class="first">&quot;ModelA.TopicA&quot; und &quot;ModelB.TopicC&quot; sind die qualifizierten Namen der Topics
+die in der Transferdatei vorkommen müssen.</p>
+<p class="last">Mehrere Topics werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+<tr><td>bannedBaskets</td>
+<td>[&quot;PARAMETER&quot;]
+bannedBaskets=&quot;ModelA.TopicA;ModelB.TopicC&quot;</td>
+<td><p class="first">&quot;ModelA.TopicA&quot; und &quot;ModelB.TopicC&quot; sind die qualifizierten Namen der Topics
+die in der Transferdatei vorkommen müssen.</p>
+<p class="last">Mehrere Topics werden mit einem Strichpunkt &quot;;&quot; getrennt.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="interlis-metaattribute">
+<h3>INTERLIS-Metaattribute</h3>
+<p>Die einzelnen Prüfungen können direkt im Modell über Metaaatribute konfiguriert werden.
+Metaattribute stehen unmittelbar vor dem Modellelement das sie betreffen und beginnen mit <tt class="docutils literal">!!&#64;</tt>.
+Falls der Wert (rechts von <tt class="docutils literal">`=`</tt>) aus mehreren durch Leerstellen getrennten Wörtern besteht, muss er mit Gänsefüsschen eingerahmt werden (<tt class="docutils literal"><span class="pre">`&quot;...&quot;`</span></tt>).</p>
+<p><a class="reference external" href="Beispiel1.ili">Beispiel1.ili</a></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="20%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Modelelement</th>
+<th class="head">Metaattribut</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>ClassDef</td>
+<td><pre class="first last literal-block">
+ilivalid.keymsg
+ilivalid.keymsg_de
+</pre>
+</td>
+<td><p class="first">Zusätzlicher Text für die Objektidentifikation für alle Fehlermeldung
+die sich auf ein Objekt der diesem Metaattribut folgenden Klasse beziehen.
+Die TID und Zeilennummer erscheint immer, falls vorhanden. keymsg ist
+zusätzlich (eine Benutzerdefinierte/verständliche Identifikation).
+Bei Export aus/Check auf DB ist TID evtl. nicht vorhanden. Bei XML
+ist die Zeilennummer in der Regel nicht hilfreich.
+Inkl. Attributwerte in {}.
+Für irgendeine Sprache bzw. fuer DE.</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.keymsg = &quot;AssNr {AssNr}&quot;
+!!&#64; ilivalid.keymsg_de = &quot;Assekuranz-Nr {AssNr}&quot;
+</pre>
+</td>
+</tr>
+<tr><td>AttributeDef</td>
+<td><pre class="first last literal-block">
+ilivalid.type
+</pre>
+</td>
+<td><p class="first">Datentyppruefung ein/ausschalten bzw. nur als Hinweis.
+z.B. ob eine Zahlenwert innerhalb des Bereichs ist, oder ein
+Aufzählwert dem Modell entspricht oder die Flächen eine
+Gebietseinteilung sind usw.
+Werte sind on/warning/off</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.type = off
+</pre>
+</td>
+</tr>
+<tr><td>AttributeDef</td>
+<td><pre class="first last literal-block">
+ilivalid.multiplicity
+</pre>
+</td>
+<td><p class="first">Multiplizitätprüfung ein/ausschalten bzw. nur als Hinweis.
+z.B. ob bei MANDATORY ein Wert vorhanden ist, oder nicht bzw.
+bei BAG/LIST ob die entsprechende Anzahl Strukturelemente vorhanden ist
+Werte sind on/warning/off</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.multiplicity = warning
+</pre>
+</td>
+</tr>
+<tr><td>AttributeDef</td>
+<td><pre class="first last literal-block">
+ilivalid.requiredIn
+</pre>
+</td>
+<td><p class="first">Bei einem Referenz-Attribut oder Struktur-Attribut definieren, dass nur Objekte
+referenziert werden dürfen, die im Behälter mit der
+gegebenen BID vorkommen. Wenn das Metaattribut bei einem Struktur-Attribut
+benutzt wird, muss die Struktur ein Referenzattribut enthalten,
+und die Restriktion betrifft dann die von diesem
+Referenz-Attribut referenzierten Objekte.</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.requiredIn = bid1
+</pre>
+</td>
+</tr>
+<tr><td>RoleDef</td>
+<td><pre class="first last literal-block">
+ilivalid.target
+</pre>
+</td>
+<td><p class="first">Zielobjekt-Prüfung ein/ausschalten bzw. nur als Hinweis.
+Prüft ob das referenzierte Objekt vorhanden ist und
+ob es von der gewünschten Klasse ist.
+Werte sind on/warning/off</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.target = warning
+</pre>
+</td>
+</tr>
+<tr><td>RoleDef</td>
+<td><pre class="first last literal-block">
+ilivalid.multiplicity
+</pre>
+</td>
+<td><p class="first">Multiplizitätprüfung ein/ausschalten bzw. nur als Hinweis.
+Prüfen ob die vom Modell geforderte Anzahl Objekte referenziert wird.
+Werte sind on/warning/off</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.multiplicity = off
+</pre>
+</td>
+</tr>
+<tr><td>RoleDef</td>
+<td><pre class="first last literal-block">
+ilivalid.requiredIn
+</pre>
+</td>
+<td><p class="first">Bei einer Rolle definieren, dass nur Objekte
+referenziert werden dürfen, die im Behälter mit der
+gegebenen BID vorkommen.</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.requiredIn = bid1
+</pre>
+</td>
+</tr>
+<tr><td>ConstraintDef</td>
+<td><pre class="first last literal-block">
+ilivalid.check
+category
+</pre>
+</td>
+<td><p class="first">Constraint-Prüfung ein/ausschalten bzw. nur als Hinweis.
+Prüfen ob die Konsistenzbedingung erfüllt ist oder nicht.
+Werte sind on/warning/off</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.check = warning
+</pre>
+</td>
+</tr>
+<tr><td>ConstraintDef</td>
+<td><pre class="first last literal-block">
+ilivalid.msg
+ilivalid.msg_de
+message
+message_de
+</pre>
+</td>
+<td><p class="first">Meldungstext, falls dieses Constraint nicht erfüllt ist.
+Wird ergänzt um Objektidentifikation und Name des Constraints.
+inkl. Attributwerte in {}</p>
+<pre class="last literal-block">
+!!&#64; ilivalid.msg_de = &quot;AndereArt muss definiert sein&quot;
+</pre>
+</td>
+</tr>
+<tr><td>ConstraintDef</td>
+<td><pre class="first last literal-block">
+name
+</pre>
+</td>
+<td><p class="first">Name des Constraints (ili2.3 oder bei ili2.4 falls constraint kein name hat)
+Ergänzt die Fehlermeldung (ohne Name wird interne Id des Constraints verwendet)</p>
+<pre class="last literal-block">
+!!&#64; name = c1023
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wenn ein ConstraintDef keinen expliziten Namen hat, wird für die
+Referenzierung eine Name aus der interne Id des Constraints erzeugt. Die
+interne Id ist eine aufsteigende Zahl und beginnt pro Klasse mit 1. Das
+erste Constraint einer Klasse heisst also <tt class="docutils literal">Constraint1</tt>, das Zweite <tt class="docutils literal">Constraint2</tt> usw.</p>
+</div>
+</div>
+<div class="section" id="interlis-laufzeitparameter">
+<h2>INTERLIS-Laufzeitparameter</h2>
+<p>Der ilivalidator definiert die folgenden INTERLIS-Laufzeitparameter.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="59%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Parameter</th>
+<th class="head">Beschreibung</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>MinimalRuntimeSystem01.RuntimeSystemName</td>
+<td>Konstant <tt class="docutils literal">ilivalidator</tt></td>
+</tr>
+<tr><td>MinimalRuntimeSystem01.RuntimeSystemVersion</td>
+<td>Die Progamm-Version des ilivalidators, z.B. <tt class="docutils literal">1.10.11</tt></td>
+</tr>
+<tr><td>MinimalRuntimeSystem01.OperatingSystemName</td>
+<td>Das aktuelle Betriebssystem (<tt class="docutils literal"><span class="pre">System.getProperty(&quot;os.name&quot;)</span></tt>)</td>
+</tr>
+<tr><td>MinimalRuntimeSystem01.CurrentUserName</td>
+<td>Der aktuelle Benutzer (<tt class="docutils literal"><span class="pre">System.getProperty(&quot;user.name&quot;)</span></tt>)</td>
+</tr>
+<tr><td>MinimalRuntimeSystem01.CurrentDateTime</td>
+<td>Der Zeitpunkt des aktuellen Validierungslaufs.</td>
+</tr>
+<tr><td>MinimalRuntimeSystem01.CurrentTransferfile</td>
+<td>Der Name inkl. Pfad der aktuell validierten Transferdatei.</td>
+</tr>
+<tr><td>IliVRuntime_V1_0.Scope</td>
+<td>Der Umfang der aktuellen Validierung,
+z.B. die Gemeinde-Id oder das Kantonskürzel.
+Muss mittels dem Parameter <tt class="docutils literal"><span class="pre">--scope</span></tt> gesetzt
+werden, bleibt sonst undefiniert.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="modell-iliverrors">
+<h2>Modell IliVErrors</h2>
+<p><a class="reference external" href="IliVErrors.ili">IliVErrors.ili</a></p>
+</div>
+<div class="section" id="modell-ilivruntime-v1-0">
+<h2>Modell IliVRuntime_V1_0</h2>
+<p><a href="#system-message-1"><span class="problematic" id="problematic-1">`IliVRuntime_V1_0.ili`_</span></a></p>
+<p>Dieses Datenmodell definiert spezifische Laufzeitdaten des Validators, die über
+das allegemeine Modell <tt class="docutils literal">MinimalRuntimeSystem01</tt> hinausgehen.</p>
+</div>
+<div class="section" id="modell-ilivrefdata-v1-0">
+<h2>Modell IliVRefData_V1_0</h2>
+<p><a class="reference external" href="IliVRefData_V1_0.ili">IliVRefData_V1_0.ili</a></p>
+<p>Mit Daten gemäss diesem Modell und der Definition des Validierungsumfangs
+(<tt class="docutils literal"><span class="pre">--scope</span></tt>) kann der Validator selber die benötigten
+Referenzdaten ermitteln.</p>
+<p>Pro Validierungsumfang und Topic können Referenzdaten definiert werden. z.B.:</p>
+<pre class="literal-block">
+&lt;RefData ili:tid=&quot;o2&quot;&gt;
+        &lt;topic&gt;ModelA.TopicA&lt;/topic&gt;
+        &lt;scope&gt;1&lt;/scope&gt;
+        &lt;refdata&gt;ilidata:1&lt;/refdata&gt;
+&lt;/RefData&gt;
+</pre>
+<p>Wenn die Angabe zum <tt class="docutils literal">topic</tt> fehlt, gilt der Eintrag unabhängig vom Topic der
+zu validierenden Daten.</p>
+<p>Wenn die Angabe zum <tt class="docutils literal">scope</tt> fehlt, gilt der Eintrag unabhängig vom
+Validierungsumfang des aktuellen Validierungslaufs.</p>
+<p>Für die Angabe <tt class="docutils literal">refdata</tt> sind alle URLs möglich, die auch für
+die Angabe der zu validierenden Transferdatei möglich sind.</p>
+</div>
+<div class="section" id="umfang-der-transferdatei">
+<h2>Umfang der Transferdatei</h2>
+<p>Mit den Parameteren <tt class="docutils literal"><span class="pre">--mandatoryBaskets</span></tt>, <tt class="docutils literal"><span class="pre">--optionalBaskets</span></tt>, <tt class="docutils literal"><span class="pre">--bannedBaskets</span></tt> kann der Umfang der Transferdatei
+definiert werden.</p>
+<p>Mit dem Spezialwert <tt class="docutils literal">ANY</tt> kann definiert werden, dass irgendein Basket vorkommen muss, kann oder nicht vorkommen darf.</p>
+<p>Falls keiner dieser Parameter definiert wurde, gilt: <tt class="docutils literal"><span class="pre">--optionalBaskets=ANY</span></tt>. Also jeder Basket darf im Transfer vorkommen, aber keiner muss und keiner darf nicht vorkommen.</p>
+<p>Falls optionalBaskets gesetzt ist und bannedBaskets nicht gesetzt ist, gilt: <tt class="docutils literal"><span class="pre">--bannedBaskets=ANY</span></tt>.</p>
+<p>Falls mandatoryBaskets gesetzt ist und optionalBaskets nicht gesetzt ist, gilt: <tt class="docutils literal"><span class="pre">--optionalBaskets=ANY</span></tt>.</p>
+</div>
+<div class="section" id="interlis-1">
+<h2>INTERLIS 1</h2>
+<p>Das Interlis 1 Modell wird intern in ein Interlis 2 Modell übersetzt. Tabellen werden zu Klassen, Attribute bleiben Attribute.
+Referenzattribute werden zu Assoziationen. Für die Namen der Assoziation und Rollen gelten folgende Regeln.</p>
+<p>Normalerweise ist ein Rollenname der Name des Referenzattributes und der andere ist der Tabellenname, der das Referenzattribut enthält.
+Und der Assoziationsname ist die Verkettung der beiden (falls dies nicht zu einem Namenskonflikt führt). Zum Beispiel folgendes
+Interlis 1 Modell:</p>
+<pre class="literal-block">
+MODEL M =
+        TOPIC T =
+            TABLE A =
+                    AttrA1: TEXT*20;
+            END A;
+                TABLE B =
+                        AttrB1: TEXT*10;
+                        AttrB2: -&gt; A;
+                        AttrB3: -&gt; A;
+                END B;
+        END T.
+END M.
+</pre>
+<p><tt class="docutils literal">AttrB2</tt> wird wie folgt übersetzt:</p>
+<pre class="literal-block">
+ASSOCIATION BAttrB2 =
+        B -- {0..*} B;
+        AttrB2 -- {1} A;
+END BAttrB2;
+</pre>
+<p>Somit sind die qualifizierten Namen der Rollen (die sich aus dem Referenzattribut ergeben): <tt class="docutils literal">M.T.BAttrB2.B</tt> und <tt class="docutils literal">M.T.BAttrB2.AttrB2</tt>.</p>
+<p>Wenn ein Namenskonflikt besteht (wie bei <tt class="docutils literal">AttrB3</tt> im Beispiel), wird der
+Name um einen Index (beginnend bei 2 pro Tabelle) verlängert. <tt class="docutils literal">AttrB3</tt> führt also zu:</p>
+<pre class="literal-block">
+ASSOCIATION B2AttrB3 =
+  B2 -- {0..*} B;
+  AttrB3 -- {1} A;
+END B2AttrB3;
+</pre>
+<p>Somit sind die qualifizierten Namen: <tt class="docutils literal">M.T.B2AttrB3.B2</tt> und <tt class="docutils literal">M.T.B2AttrB3.AttrB3</tt>.</p>
+<p>Die qualifizierten Rollennamen werden auch im Log aufgeführt. z.B.</p>
+<pre class="literal-block">
+Info: validate target of role ``M.T.BAttrB2.B``...
+Info: validate multiplicity of role ``M.T.BAttrB2.B``...
+</pre>
+</div>
+<div class="section" id="nicht-implementierte-funktionen">
+<h2>Nicht implementierte Funktionen</h2>
+<ul class="simple">
+<li>Views (Syntaxregel ViewDef) mit Ausnahme von einfachen Projektionen werden nicht validiert</li>
+<li>Linienattribute (Syntaxregel LineAttrDef) werden nicht validiert (Linienattribute gibt es in INTERLIS 2.4 nicht mehr)</li>
+<li>zusätzliche Kurvenformen (Syntaxregel LineFormTypeDef), zusätzlich zu Geraden und Kreisbögen, werden nicht unterstützt</li>
+</ul>
+</div>
+<div class="section" id="hinweise-zu-fehlermeldungen">
+<h2>Hinweise zu Fehlermeldungen</h2>
+<div class="section" id="intersection-overlap">
+<h3>Intersection overlap</h3>
+<p>Die Fehlermeldung erscheint, wenn sich zwei Liniensegmente überlappen (also zwei Schnittpunkte haben):</p>
+<p>Beispielmeldung:</p>
+<pre class="literal-block">
+Error: Model.Topic.Class: Intersection overlap 3.2508012350263016E-4, coord1 (2612419.901, 1248771.194), coord2 (2612428.532, 1248767.551), tids o1, o2
+</pre>
+<p>Das Mass der Überlappung (<tt class="docutils literal">overlap <span class="pre">3.2508012350263016E-4</span></tt>), die beiden
+Schnittpunkte (<tt class="docutils literal">coord1 (2612419.901, 1248771.194), coord2 (2612428.532, 1248767.551)</tt>)
+und die TIDs/OIDs der betroffenen Objekte (<tt class="docutils literal">tids o1, o2</tt>) werden aufgeführt.</p>
+</div>
+<div class="section" id="intersection">
+<h3>Intersection</h3>
+<p>Die Fehlermeldung erscheint, wenn sich zwei Liniensegmente schneiden (also einen Schnittpunkte haben):</p>
+<p>Beispielmeldung:</p>
+<pre class="literal-block">
+Error: Model.Topic.Class: Intersection coord1 (2612419.220, 1248771.482), tids o1/attrA[1]/flaeche[1], o2/attrA[2]/flaeche[1]
+</pre>
+<p>Der Schnittpunkte (<tt class="docutils literal">coord1 (2612419.220, 1248771.482)</tt>)
+und die TIDs/OIDs der betroffenen Objekte (<tt class="docutils literal">tids <span class="pre">o1/attrA[1]/flaeche[1],</span> <span class="pre">o2/attrA[2]/flaeche[1]</span></tt>) werden aufgeführt.
+In diesem Fall sind die Geometrien innerhalb von Strukturen, darum wird der
+ganze Pfad vom Objekt bis zur Geometrie aufgeführt (<tt class="docutils literal"><span class="pre">o1/attrA[1]/flaeche[1]</span></tt>:
+im Objekt <tt class="docutils literal">o1</tt> das erste Strukturelement des Attributs <tt class="docutils literal">attrA</tt> und darin das erste Element von <tt class="docutils literal">flaeche</tt>)</p>
+</div>
+</div>
+</div>
+<div class="system-messages section">
+<h1>Docutils System Messages</h1>
+<div class="system-message" id="system-message-1">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/home/travis/build/claeis/ilivalidator/docs/ilivalidator.rst</tt>, line 812); <em><a href="#problematic-1">backlink</a></em></p>
+Unknown target name: &quot;ilivruntime_v1_0.ili&quot;.</div>
+</div>
+</div>
+</body>
+</html>

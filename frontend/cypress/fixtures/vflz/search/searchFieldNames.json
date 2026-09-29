@@ -1,0 +1,586 @@
+{
+  "data": {
+    "searchFieldNames": [
+      {
+        "category": "STANDORT",
+        "field": "BEZEICHNUNG",
+        "name": "Bezeichnung"
+      },
+      {
+        "category": "STANDORT",
+        "field": "ERFASSUNG",
+        "name": "Erfassung"
+      },
+      {
+        "category": "STANDORT",
+        "field": "POOL",
+        "name": "Pool"
+      },
+      {
+        "category": "STANDORT",
+        "field": "STANDORTNUMMER",
+        "name": "Standort-Nummer"
+      },
+      {
+        "category": "STANDORT",
+        "field": "STANDORTTYP",
+        "name": "Standorttyp"
+      },
+      {
+        "category": "STANDORT",
+        "field": "VFLZ_ID",
+        "name": "vflz_id"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "BFS_NR",
+        "name": "BFS-Gemeinde-Nr"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "FLURNAME",
+        "name": "Flurname"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "FLAECHE",
+        "name": "Fl\u00e4che"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "GEMEINDE",
+        "name": "Gemeinde"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "GRUNDDATEN_BEMERKUNGEN",
+        "name": "Grunddaten-Bemerkungen"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "KANTON",
+        "name": "Kanton"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "ORT",
+        "name": "Ortsname"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "PLZ",
+        "name": "PLZ"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "SPRACHE",
+        "name": "Sprache"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "STRASSE",
+        "name": "Strasse"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "X_KOORDINATE",
+        "name": "X-Koordinate"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "Y_KOORDINATE",
+        "name": "Y-Koordinate"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "ZEITRAUM_BIS",
+        "name": "Zeitraum-Bis"
+      },
+      {
+        "category": "GRUNDDATEN",
+        "field": "ZEITRAUM_VON",
+        "name": "Zeitraum-Von"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "DEPONIETYP",
+        "name": "Deponietyp"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "IN_BETRIEB",
+        "name": "In-Betrieb"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "KOMPARTIMENT_BEMERKUNGEN",
+        "name": "Kompartiment-Bemerkungen"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "KOMPARTIMENT_BIS",
+        "name": "Kompartiment-Bis"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "KOMPARTIMENT_TIEFE",
+        "name": "Kompartiment-Tiefe"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "KOMPARTIMENT_VOLUMEN",
+        "name": "Kompartiment-Volumen"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "KOMPARTIMENT_VON",
+        "name": "Kompartiment-Von"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "NACHSORGE",
+        "name": "Nachsorge"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFGRUPPE_STOFFGRUPPE",
+        "name": "Stoffgruppe-Stoffgruppe"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFGRUPPE_TEILVOLUMEN",
+        "name": "Stoffgruppe-Teilvolumen"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFKLASSE_BIS",
+        "name": "Stoffklasse-Bis"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFKLASSE_STOFFKLASSE",
+        "name": "Stoffklasse-Stoffklasse"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFKLASSE_TEILVOLUMEN",
+        "name": "Stoffklasse-Teilvolumen"
+      },
+      {
+        "category": "ABLAGERUNGEN",
+        "field": "STOFFKLASSE_VON",
+        "name": "Stoffklasse-Von"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "BEGRUENDUNG_BEWERTUNG_BETRIEB",
+        "name": "Begr\u00fcndung-Bewertung-Betrieb/Begr\u00fcndung-Bewertung-Schiessanlage"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "BETRIEBSGROESSE",
+        "name": "Betriebsgr\u00f6sse"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "BRANCHE",
+        "name": "Branche"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "BRANCHE_NOGA",
+        "name": "Branche-NOGA"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "EVA_NUMMER",
+        "name": "EVA-Nummer"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_BEMERKUNGEN",
+        "name": "Firma-Bemerkungen/Schiessanlage-Bemerkungen"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_BEURTEILUNG",
+        "name": "Firma-Beurteilung/Schiessanlage-Beurteilung"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_BIS",
+        "name": "Firma-Bis/Schiessanlage-Bis"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_KATASTERRELEVANZ",
+        "name": "Firma-Katasterrelevanz/Schiessanlage-Katasterrelevanz"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_NAME",
+        "name": "Firma-Name/Schiessanlage-Name"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_ORT",
+        "name": "Firma-Ort/Schiessanlage-Ort"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_PLZ",
+        "name": "Firma-PLZ/Schiessanlage-PLZ"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_STRASSE",
+        "name": "Firma-Strasse/Schiessanlage-Strasse"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_UNTERSUCHUNGSSTAND",
+        "name": "Firma-Untersuchungsstand/Schiessanlage-Untersuchungsstand"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_VON",
+        "name": "Firma-Von/Schiessanlage-Von"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_X_KOORDINATE",
+        "name": "Firma-X-Koordinate/Schiessanlage-X-Koordinate"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "FIRMA_Y_KOORDINATE",
+        "name": "Firma-Y-Koordinate/Schiessanlage-Y-Koordinate"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "KUGELFANG_VORHANDEN",
+        "name": "Kugelfang-vorhanden"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "SCHEIBENZAHL",
+        "name": "Scheibenzahl"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "SCHIESSANLAGE_TYP",
+        "name": "Schiessanlage-Typ"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "SCHUSSANZAHL",
+        "name": "Schussanzahl"
+      },
+      {
+        "category": "BETRIEBE",
+        "field": "MOBILE_STOFFE",
+        "name": "mobile-Stoffe"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALL_BEMERKUNG",
+        "name": "Unfall-Bemerkung"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALL_GENAUIGKEIT",
+        "name": "Unfall-Genauigkeit"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALL_NAME",
+        "name": "Unfall-Name"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALL_ZEITPUNKT",
+        "name": "Unfall-Zeitpunkt"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALLSTOFF_RESTMENGE",
+        "name": "Unfallstoff-Restmenge"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALLSTOFF_STOFFE",
+        "name": "Unfallstoff-Stoffe-und-Stoffgemische"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALLSTOFF_AUSGELAUFEN",
+        "name": "Unfallstoff-ausgelaufen"
+      },
+      {
+        "category": "UNFAELLE",
+        "field": "UNFALLSTOFF_ZURUECKGEW",
+        "name": "Unfallstoff-zur\u00fcckgew."
+      },
+      {
+        "category": "NATUERLICHES_UMFELD",
+        "field": "DURCHLAESSIGKEIT",
+        "name": "Durchl\u00e4ssigkeit-Untergrund"
+      },
+      {
+        "category": "NATUERLICHES_UMFELD",
+        "field": "GEWAESSERSCHUTZBEREICH",
+        "name": "Gew\u00e4sserschutzbereich"
+      },
+      {
+        "category": "NATUERLICHES_UMFELD",
+        "field": "KARSTGEBIET",
+        "name": "Karstgebiet"
+      },
+      {
+        "category": "NATUERLICHES_UMFELD",
+        "field": "SCHUTZZONE",
+        "name": "Schutzzone"
+      },
+      {
+        "category": "NATUERLICHES_UMFELD",
+        "field": "UMWELT_BEMERKUNGEN",
+        "name": "Umwelt-Bemerkungen"
+      },
+      {
+        "category": "GRUNDWASSER",
+        "field": "DISTANZ_NUTZUNG_GW_ABSTROMBEREICH",
+        "name": "Distanz-zur-GW-Nutzung-im-Abstrombereich"
+      },
+      {
+        "category": "GRUNDWASSER",
+        "field": "FLURABSTAND",
+        "name": "Flurabstand"
+      },
+      {
+        "category": "GRUNDWASSER",
+        "field": "NUTZUNG_GW_ABSTROMBEREICH",
+        "name": "Nutzung-Grundwasser-im-Abstrombereich"
+      },
+      {
+        "category": "GRUNDWASSER",
+        "field": "RELATIVE_LAGE_GRUNDWASSER",
+        "name": "Relative-Lage-zum-Grundwasser"
+      },
+      {
+        "category": "OBERFLAECHENGEWAESSER",
+        "field": "ART_OBERFL_GEWAESSER",
+        "name": "Art-des-Oberfl\u00e4chengew\u00e4ssers"
+      },
+      {
+        "category": "OBERFLAECHENGEWAESSER",
+        "field": "DISTANZ_OBERFL_GEWAESSER",
+        "name": "Distanz-zum-Oberfl\u00e4chengew\u00e4sser"
+      },
+      {
+        "category": "OBERFLAECHENGEWAESSER",
+        "field": "GEWAESSERBAU",
+        "name": "Gew\u00e4sserbau"
+      },
+      {
+        "category": "OBERFLAECHENGEWAESSER",
+        "field": "NAME_OBERFL_GEWAESSER",
+        "name": "Name-Oberfl\u00e4chengew\u00e4sser"
+      },
+      {
+        "category": "OBERFLAECHENGEWAESSER",
+        "field": "RELATIVE_LAGE_OBERFL_GEWAESSER",
+        "name": "Relative-Lage-zum-Oberfl\u00e4chengew\u00e4sser"
+      },
+      {
+        "category": "UMWELTSTOFFE",
+        "field": "UMWELTSTOFF_GRUPPE",
+        "name": "Stoffgruppe"
+      },
+      {
+        "category": "UMWELTSTOFFE",
+        "field": "UMWELT",
+        "name": "Umwelt"
+      },
+      {
+        "category": "UMWELTSTOFFE",
+        "field": "UMWELTSTOFFE_BEURTEILUNG",
+        "name": "Umweltstoffe-Beurteilung"
+      },
+      {
+        "category": "UMWELTSTOFFE",
+        "field": "SPEZIFISCHER_STOFF",
+        "name": "spezifischer-Stoff"
+      },
+      {
+        "category": "NUTZUNGEN_GELAENDE",
+        "field": "AKTUELLE_NUTZUNG",
+        "name": "Aktuelle-Nutzung"
+      },
+      {
+        "category": "NUTZUNGEN_GELAENDE",
+        "field": "NUTZUNGSZONE",
+        "name": "Nutzungszone"
+      },
+      {
+        "category": "UMWELTEINWIRKUNGEN",
+        "field": "UMWELTSCHADEN_BEMERKUNG",
+        "name": "Bemerkung-Umweltschaden"
+      },
+      {
+        "category": "UMWELTEINWIRKUNGEN",
+        "field": "FESTGESTELLTE_EINWIRKUNGEN",
+        "name": "Festgestellte-Einwirkungen"
+      },
+      {
+        "category": "UMWELTEINWIRKUNGEN",
+        "field": "GEFAEHRDETE_UMWELTBEREICHE",
+        "name": "Gef\u00e4hrdete-Umweltbereiche"
+      },
+      {
+        "category": "VORKOMMNISSE",
+        "field": "BEMERKUNG_EINZELEREIGNIS",
+        "name": "Bemerkung-Einzelereignis"
+      },
+      {
+        "category": "VORKOMMNISSE",
+        "field": "VORKOMMNIS",
+        "name": "Vorkommnis"
+      },
+      {
+        "category": "VORKOMMNISSE",
+        "field": "VORKOMMNIS_DATUM",
+        "name": "Vorkommnis-Datum"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "AKTUELLSTE_PUBLIKATION",
+        "name": "Aktuellste-Publikation"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "BEARBEITUNGSSTAND",
+        "name": "Bearbeitungsstand"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "BEGRUENDUNG_BEURTEILUNG",
+        "name": "Begr\u00fcndung-Beurteilung"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "BEURTEILUNG",
+        "name": "Beurteilung"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "DATUM_ERSTEINTRAG",
+        "name": "Datum-Ersteintrag"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "DATUM_PUBLIKATION_KBS",
+        "name": "Datum-Publikation-im-KbS"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "PUBLIZIERT",
+        "name": "Publiziert"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "RECHTSKRAEFTIG",
+        "name": "Rechtskr\u00e4ftig"
+      },
+      {
+        "category": "BEURTEILUNG",
+        "field": "UNTERSUCHUNGSSTAND",
+        "name": "Untersuchungsstand"
+      },
+      {
+        "category": "PRIORISIERUNG",
+        "field": "BEGRUENDUNG_PRIO_UNTERSUCHUNGSBEDARF",
+        "name": "Begr\u00fcndung-Priorisierung-Untersuchungsbedarf"
+      },
+      {
+        "category": "PRIORISIERUNG",
+        "field": "PRIO_UNTERSUCHUNGSBEDARF",
+        "name": "Priorisierung-Untersuchungsbedarf"
+      },
+      {
+        "category": "ZIELE",
+        "field": "BEGRUENDUNG_PRIO_SANIERUNGSBDEDARF",
+        "name": "Begr\u00fcndung-Priorisierung-\u00dcberwachungs-/Sanierungsbedarf"
+      },
+      {
+        "category": "ZIELE",
+        "field": "PRIO_SANIERUNGSBEDARF",
+        "name": "Priorisierung-\u00dcberwachungs-/Sanierungsbedarf"
+      },
+      {
+        "category": "ZIELE",
+        "field": "SANIERUNGSZIEL",
+        "name": "Sanierungsziel"
+      },
+      {
+        "category": "ZIELE",
+        "field": "SANIERUNGSZIEL_BEMERKUNGEN",
+        "name": "Sanierungsziel-Bemerkungen"
+      },
+      {
+        "category": "MASSNAHMEN",
+        "field": "MASSNAHME",
+        "name": "Massnahme"
+      },
+      {
+        "category": "MASSNAHMEN",
+        "field": "MASSNAHME_ANGEORDNET_AM",
+        "name": "Massnahme-Angeordnet-am"
+      },
+      {
+        "category": "MASSNAHMEN",
+        "field": "MASSNAHME_BEMERKUNG",
+        "name": "Massnahme-Bemerkung"
+      },
+      {
+        "category": "MASSNAHMEN",
+        "field": "MASSNAHME_ERLEDIGT_AM",
+        "name": "Massnahme-Erledigt-am"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "BETEILIGTE",
+        "name": "Beteiligte"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "BEZIEHUNGSART",
+        "name": "Beziehungsart"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "NACHNAME",
+        "name": "Nachname"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "STANDORT_EIGENTUEMER",
+        "name": "Standort-Eigent\u00fcmer"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "TAETIGKEIT",
+        "name": "T\u00e4tigkeit"
+      },
+      {
+        "category": "BETEILIGTE",
+        "field": "VORNAME",
+        "name": "Vorname"
+      },
+      {
+        "category": "LOKALISIERUNG",
+        "field": "KARTENAUSSCHNITT",
+        "name": "Karten-Ausschnitt"
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+digraph {
+  graph [label=< <B>Baumassnahme</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> auflagen
+  auflagen [label=< {<B>Auflagen Baumassnahme</B>|[F] Auflagen Baumassnahme} >]
+  eingang_entsorgungskonzept [label=< {<B>Eingang Entsorgungskonzept</B>|[D] Entsorgungskonzept} >]
+  pruefung_entsorgungskonzept [label=< {<B>Prüfung Entsorgungskonzept</B>|[F] Prüfung Entsorgungskonzept} >]
+  stellungnahme_entsorgungskonzept [label=< {<B>Stellungnahme zum Entsorgungskonzept</B>|[D] Stellungnahme zum Entsorgungskonzept} >]
+  aushub_und_entsorgung [label=< {<B>Aushub und Entsorgungsarbeiten</B>|[D] Eingang Abnahmegarantien|[D] Genehmigung Abnahmegarantien} >]
+  einreichen_schlussbericht [label=< {<B>Einreichen Schlussbericht</B>|[D] Schlussbericht} >]
+  perimeteranpassung [label=< {<B>Perimeteranpassung</B>|[F] Perimeteranpassung} >]
+  stellungnahme_schlussbericht [label=< {<B>Stellungnahme zum Schlussbericht</B>|[D] Stellungnahme zum Schlussbericht|[F] Prüfung Schlussbericht} >]
+  meldung_altlastenfachfirma [label=< {<B>Meldung Altlastenfachfirma / Belastungen</B>|[D] Meldung Altlastenfachfirma / Belastungen} >]
+  altlastenfachpersonal [label=< {<B>Meldung Altlastenfachperson</B>|[D] Meldung Altlastenfachperson} >]
+  END [label=< {<B>__END__</B>} >]
+
+  auflagen -> eingang_entsorgungskonzept [label="form\n.auflagen_baumassnahme\n.auflagen == `entsorgung`" fontsize=10]
+  auflagen -> meldung_altlastenfachfirma [label="form\n.auflagen_baumassnahme\n.auflagen == `altlast`" fontsize=10]
+  auflagen -> altlastenfachpersonal [label="form\n.auflagen_baumassnahme\n.auflagen == `aushub`" fontsize=10]
+  eingang_entsorgungskonzept -> pruefung_entsorgungskonzept [label="" fontsize=10]
+  pruefung_entsorgungskonzept -> stellungnahme_entsorgungskonzept [label="form\n.pruefung\n.ergaenzungen_noetig == `nein`" fontsize=10]
+  pruefung_entsorgungskonzept -> eingang_entsorgungskonzept [label="form\n.pruefung\n.ergaenzungen_noetig == `ja`" fontsize=10]
+  stellungnahme_entsorgungskonzept -> aushub_und_entsorgung [label="" fontsize=10]
+  aushub_und_entsorgung -> einreichen_schlussbericht [label="" fontsize=10]
+  einreichen_schlussbericht -> perimeteranpassung [label="" fontsize=10]
+  perimeteranpassung -> stellungnahme_schlussbericht [label="" fontsize=10]
+  stellungnahme_schlussbericht -> END [label="form\n.pruefung_schlussbericht\n.schlussbericht_ok == `ja`" fontsize=10]
+  stellungnahme_schlussbericht -> einreichen_schlussbericht [label="form\n.pruefung_schlussbericht\n.schlussbericht_ok == `nein`" fontsize=10]
+  meldung_altlastenfachfirma -> aushub_und_entsorgung [label="" fontsize=10]
+  altlastenfachpersonal -> aushub_und_entsorgung [label="" fontsize=10]
+}

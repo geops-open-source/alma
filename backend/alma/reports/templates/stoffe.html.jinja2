@@ -1,0 +1,43 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug öffentliche Standortsdaten - Stoffe</title>
+    <meta name="description" content="Standardreportauszug - öffentliche Standortsdaten Stoffe" />
+</head>
+
+<body>
+    <section id="oeffentliche_daten_stoffe">
+        <h3>{{ translations['report.stoffe.h3'] }}</h3>
+        <table id="stoffe">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.KompartimentStoffgruppe.stoffgruppe'] }}</th>
+                    <th>{{ translations['fields.UmweltStoff.stoff'] }}</th>
+                    <th>{{ translations['fields.UmweltStoff.gefaehrdeteBereiche'] }}</th>
+                    <th>{{ translations['fields.UmweltStoff.beurteilung'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if stoffe %}
+                    {% for stoff in stoffe %}
+                        <tr>
+                            <td>{{ stoff.stoffgruppe }}</td>
+                            <td>{{ stoff.stoff }}</td>
+                            <td>{{ stoff.umweltbereich }}</td>
+                            <td>{{ stoff.beurteilung }}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}   
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,345 @@
+@page {
+    size: A4;
+    font-size: 10px;
+    margin: 2cm;
+    font-family: Arial, sans-serif;
+  }
+
+/* TO_DO: add current date */
+
+h5 {
+    string-set: lang-page content();
+}
+
+h6 {
+    string-set: report-type content();
+}
+
+@page {
+    @bottom-right-corner {
+        content: string(lang-page)" " counter(page);
+    }
+    @bottom-left {
+        content: string(report-type)
+    }
+}
+
+@media print {
+    p {
+        widows: 4;
+        orphans: 4;
+    }
+    .no-print, .no-print * {
+        font-size: 0%;
+    }
+
+     /* Nur Seitenumbruch, wenn NICHT erstes Element */
+    .standalone-page:not(:first-child) {
+        break-before: page;
+        page-break-before: always; /* Fallback */
+    }
+
+    /* Optional: verhindern, dass Inhalt umbricht */
+    #karte {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+header > p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Flex-Layout für die Spalten */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.header-content > div > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 6px;
+}
+
+.header-content_flex > div > p {
+  display: flex;
+  justify-content: flex-start;/* nicht mehr automatisch verteilen */
+  margin-top: -2cm;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.left {
+    flex: 1.2;
+    margin: 0;
+}
+
+#left {
+    font-size: 16px;
+}
+
+.middle {
+  flex: 1;
+  margin: 0;
+  padding-top: 8px;
+}
+
+.middle_left {
+  position: absolute;
+  top: 40px;
+  left: 69mm;
+}
+
+.middle_right {
+  position: absolute;
+  top: 40px;
+  left: 114mm;
+}
+
+.right img {
+  height: 2cm;
+  margin-left: auto;
+  display: block;
+}
+
+#logo {
+    padding-right: 2cm;
+    height:2cm;
+    flex: 1;
+}
+
+#logo_small_height {
+    padding-right: 2cm;
+    height:0.6cm;
+}
+
+#logo_upper_corner {
+    height:2cm;
+}
+
+#logo_large {
+    padding-right: 0.5cm;
+    height:5cm;
+    flex: 1;
+}
+
+#legend {
+    height:0.6cm;
+}
+
+#legend_small {
+    height:0.4cm;
+}
+
+#legendtable tr th:first-child {
+    width: 22em;
+    min-width: 22em;
+    max-width: 22em;
+    word-break: normal;
+    vertical-align: middle;
+}
+
+#legendtable tbody tr td:first-child {
+    width: 5em;
+    min-width: 5em;
+    max-width: 5em;
+    word-break: normal;
+    text-align: right;
+    vertical-align: middle;
+}
+
+#department {
+    font-size: 10px;
+    display: inline-block;
+    height: 2cm;
+}
+
+#department_large {
+    font-size: 13px;
+    display: inline-block;
+    height: 2cm;
+}
+
+h1 {
+    font-size: 18px;
+    padding-top: 1cm;
+}
+
+h2 {
+    font-size: 13px;
+    border-width: 2.1px;
+    break-after: avoid-page;
+    page-break-after: avoid;
+    border-bottom-style: solid;
+}
+
+h3 {
+    border-width: 1px;
+    font-style: italic;
+    font-size: 12px;
+    border-bottom-style: solid;
+    break-after: avoid-page;
+    page-break-after: avoid;
+}
+
+h2 + p,
+h2 + table,
+h3 + p,
+h3 + table {
+    break-before: avoid-page;
+    page-break-before: avoid;
+}
+
+p, th, td, h4, figcaption, footer{
+    font-size: 10px;
+}
+
+figcaption, #page {
+    text-align: right;
+}
+
+#report-type {
+    text-align: left;
+}
+
+u{
+    font-size: 14px;
+}
+
+#map {
+    width: 100%;
+}
+
+table {
+    page-break-inside: auto;
+    break-inside: auto;
+}
+
+tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+table tr th:first-child, tbody tr td:first-child {
+  width: 22em;
+  min-width: 22em;
+  max-width: 22em;
+  word-break: normal;
+  page-break-after: avoid;
+}
+
+thead {
+    display: table-header-group;
+}
+
+.blank_row
+{
+    height: 10px !important; /* overwrites any other rules */
+    background-color: #FFFFFF;
+}
+
+.no-break {
+    page-break-before: always;
+}
+
+#legendtable th {
+    vertical-align: middle;
+}
+
+th, td {
+    text-align: left;
+    padding-right: 0.5cm;
+    vertical-align: top;
+}
+
+#hinweis {
+    page-break-before: always;
+    p {
+        font-size: 14px;
+        text-align: justify;
+        border: solid;
+        border-width: 1px;
+        padding: 12px;
+    }
+}
+
+#hinweis_small {
+    page-break-before: always;
+    p {
+        font-size: 10px;
+        text-align: justify;
+        border: solid;
+        border-width: 1px;
+        padding: 12px;
+    }
+}
+
+#ergaenzende_bemerkungen_standort td {
+    white-space: pre-wrap;
+}
+
+#umweltdaten tr.section-header th {
+    padding-top: 15px;
+}
+
+.keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+#blog td {
+    white-space: pre-wrap;
+}
+
+#blog {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#blog th:nth-child(1),
+#blog td:nth-child(1) {
+    width: 20%;
+}
+
+#blog th:nth-child(2),
+#blog td:nth-child(2) {
+    width: 50%;
+}
+
+#blog th:nth-child(3),
+#blog td:nth-child(3) {
+    width: 10%;
+}
+
+#blog th:nth-child(4),
+#blog td:nth-child(4) {
+    width: 20%;
+}
+
+#begruendung td {
+    white-space: pre-wrap;
+}
+
+#begruendung {
+    width: 100%;
+    table-layout: fixed;
+}

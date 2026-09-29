@@ -1,0 +1,18 @@
+digraph {
+  graph [label=< <B>Rimborso</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> antrag_abwarten
+  antrag_abwarten [label=< {<B>Attendere la domanda di rimborso</B>|[F] Attendere la domanda di rimborso|[D] Inserire la richiesta di rimborso|[F] Domanda di rimborso registrata} >]
+  stellungnahme [label=< {<B>Dichiarazione Richiesta di rimborso</B>|[F] Richiesta di rimborso|[D] Lettera del richiedente} >]
+  brief_ablehnung [label=< {<B>Lettera di rifiuto</B>|[F] Lettera di rifiuto del rimborso inviata al richiedente} >]
+  rechnung_bezahlen [label=< {<B>Pagare le bollette</B>|[F] Lettera di pagamento della fattura inviata} >]
+  END [label=< {<B>__END__</B>} >]
+
+  antrag_abwarten -> stellungnahme [label="" fontsize=10]
+  stellungnahme -> brief_ablehnung [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `nein`" fontsize=10]
+  stellungnahme -> rechnung_bezahlen [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `ja`" fontsize=10]
+  brief_ablehnung -> END [label="" fontsize=10]
+  rechnung_bezahlen -> END [label="" fontsize=10]
+}

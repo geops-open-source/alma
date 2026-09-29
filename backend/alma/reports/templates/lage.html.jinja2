@@ -1,0 +1,44 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug öffentliche Standortsdaten Lage</title>
+    <meta name="description" content="Standardreportauszug - öffentliche Standortsdaten Lage" />
+</head>
+
+<body>
+    <section id="lage">
+        <h3>{{ translations['report.lage.h3'] }}</h3> 
+
+        <table id="lage">
+            <tbody>
+                <tr>
+                    <th>{{ translations['fields.Vflz.postleitzahl'] }} / {{ translations['fields.Vflz.ort'] }}</th>
+                    <td>{{ grunddaten[0].vflz_postleitzahl }} / {{ grunddaten[0].vflz_ort }}</td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Vflz.hGemId'] }} / {{ translations['search.field.bfs_nr'] }}</th>
+                    <td>{{ grunddaten[0].gemeinde }} / {{ grunddaten[0].h_gem_id }}</td>
+                </tr>
+                <tr>
+                    <th>{{ translations['report.lage.koordinaten'] }}</th>
+                    <td>{{ grunddaten[0].x_koordinate|format_thousands }}, {{ grunddaten[0].y_koordinate|format_thousands }}</td>
+                </tr>
+                {% for number in range(parzellen|count) %}
+                <tr>
+                    {% if loop.first %}
+                        <th>{{ translations['VflzOverview.parzellen'] }}</th>
+                    {% else %}
+                        <th></th>
+                    {% endif %}
+                    <td>{{ parzellen[number].gemeinde }} : {{ parzellen[number].parzellen }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>{{ translations['report.lage.text.flaeche'] }}</p>
+    </section>
+</body>
+</html>
+

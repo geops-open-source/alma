@@ -1,0 +1,80 @@
+{
+  "bemerkungDatenimport": {
+    "bem": "Test Bemerkung Datenimport für PFAS-Standort"
+  },
+  "bemerkungStandort": { "bem": "Test Bemerkung für PFAS-Standort" },
+  "bemerkungUmwelt": null,
+  "bezeichnung": "PFAS-Standort",
+  "flugplatz": null,
+  "flurname": "PFAS-Flurname",
+  "ktu": null,
+  "lang": "FR",
+  "ort": "PFAS-Ort",
+  "postleitzahl": "2345",
+  "strasse": "PFAS-Strasse 123",
+  "inBetrieb": null,
+  "nachsorge": null,
+  "deponietyp": null,
+  "gwsBereich": null,
+  "gwsZone": null,
+  "durchlaessigkeit": null,
+  "karstgeb": null,
+  "ablagerungen": [],
+  "betriebe": [],
+  "kinderspielplaetzeGruenflaechen": [],
+  "pfas": [
+    {
+      "intpId": "1",
+      "beschreibungenDetail": "Test Beschreibung Detail PFAS",
+      "beurteilung": "code:103:BAV81",
+      "branche": "code:25002:9133",
+      "loeschschaumEinsatz": [
+        {
+          "intpLoeschschaumEinsatzId": "1",
+          "haeufigkeitNutzung": "code:504:nie",
+          "loeschschaumEinsatz": "code:503:hand"
+        }
+      ],
+      "mengeKonzentrat": 2,
+      "mengeSchaumgemisch": 1,
+      "pfasTyp": "code:500:magazin",
+      "pfasHaltigeLoeschmittel": ["code:501:afff", "code:501:fffp"],
+      "pfasLoeschmittel": false,
+      "pfasFreieLoeschmittel": ["code:502:mbs", "code:502:p"],
+      "relevant": true,
+      "untersuchungsStand": "code:10023:05",
+      "name": "TestPFAS",
+      "ort": "TestOrt",
+      "plz": "1234",
+      "strasse": "TestStrasse 123",
+      "eva": "1234",
+      "zentroid": { "type": "Point", "coordinates": [2606757, 1228616] },
+      "zeitraum": {
+        "von": "2023-10-01",
+        "vonjahr": false,
+        "bis": "2024-10-01",
+        "bisjahr": false,
+        "bisheute": false,
+        "genauigkeitVon": "code:90:01",
+        "genauigkeitBis": "code:90:01"
+      },
+      "begruendungBewertung": {
+        "bem": "Test Begründung Bewertung PFAS"
+      },
+      "bemerkung": { "bem": "Test Bemerkung für PFAS" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung Datenimport für PFAS"
+      }
+    }
+  ],
+  "einzelereignisse": [],
+  "gemeinde": { "hGemId": "1" },
+  "grundwasser": [],
+  "nutzungenBoden": [],
+  "oberflaechenGewaesser": [],
+  "schiessanlagen": [],
+  "umweltschaeden": [],
+  "umweltStoffe": [],
+  "unfaelle": [],
+  "vflzId": "6"
+}

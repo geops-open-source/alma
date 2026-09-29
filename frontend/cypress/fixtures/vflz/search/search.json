@@ -1,0 +1,37 @@
+{
+  "tabular": {
+    "numResultsTotal": 2,
+    "results": [
+      [
+        1,
+        "S1",
+        "Schiessanlagenstandort",
+        "Goo",
+        4,
+        "code:103:02",
+        "code:63:04",
+        "Angelika"
+      ],
+      [
+        5,
+        "B1",
+        "Betriebsstandort",
+        "Foo",
+        1,
+        "code:103:01",
+        "code:63:02",
+        "Bernd"
+      ],
+      [
+        5,
+        "B1",
+        "Betriebsstandort2",
+        "Foo",
+        2,
+        "code:103:01",
+        "code:63:02",
+        "Carina"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "bemerkungDatenimport": {
+    "bem": "Test Bemerkung Datenimport für Betriebsstandort"
+  },
+  "bemerkungStandort": { "bem": "Test Bemerkung für Betriebsstandort" },
+  "bemerkungUmwelt": null,
+  "bezeichnung": "Betriebsstandort",
+  "flugplatz": null,
+  "flurname": "BetriebFlurname",
+  "ktu": null,
+  "lang": "FR",
+  "ort": "BetriebOrt",
+  "postleitzahl": "2345",
+  "strasse": "BetriebStrasse 123",
+  "inBetrieb": null,
+  "nachsorge": null,
+  "deponietyp": null,
+  "gwsBereich": null,
+  "gwsZone": null,
+  "durchlaessigkeit": null,
+  "karstgeb": null,
+  "ablagerungen": [],
+  "betriebe": [
+    {
+      "intbId": "1",
+      "begruendungBewertung": { "bem": "Test Begründung Bewertung Betrieb" },
+      "bemerkung": { "bem": "Test Bemerkung für Betrieb" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung Datenimport für Betrieb"
+      },
+      "beurteilung": "code:103:01",
+      "brancheAsw": "code:25:010",
+      "brancheNoga": "code:25001:A2",
+      "eva": "1234",
+      "firmaName": "TestFirma",
+      "firmaOrt": "TestOrt",
+      "firmaPlz": "1234",
+      "firmaStrasse": "TestStrasse 123",
+      "groesse": 1,
+      "mobileStoffe": false,
+      "relevant": false,
+      "untersuchungsStand": "code:10023:01",
+      "zeitraum": {
+        "von": "2010-01-01",
+        "vonjahr": true,
+        "bis": "2013-12-11",
+        "bisjahr": false,
+        "bisheute": false,
+        "genauigkeitVon": "code:90:02",
+        "genauigkeitBis": "code:90:01"
+      },
+      "zentroid": { "type": "Point", "coordinates": [2606757, 1228616] }
+    }
+  ],
+  "einzelereignisse": [],
+  "gemeinde": { "hGemId": "1" },
+  "grundwasser": [],
+  "kinderspielplaetzeGruenflaechen": [],
+  "pfas": [],
+  "nutzungenBoden": [],
+  "oberflaechenGewaesser": [],
+  "schiessanlagen": [],
+  "umweltschaeden": [],
+  "umweltStoffe": [],
+  "unfaelle": [],
+  "vflzId": "2"
+}

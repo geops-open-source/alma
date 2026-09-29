@@ -1,0 +1,135 @@
+MAP
+    NAME "alma Export BAFU"
+    STATUS ON
+    SIZE 800 600
+    EXTENT 2485000 1070000 2834000 1296000
+    UNITS METERS
+    IMAGECOLOR 255 255 255
+    IMAGETYPE PNG
+    SIZE 2050 2050
+    MAXSIZE 4096
+
+    OUTPUTFORMAT
+      NAME png
+      DRIVER "AGG/PNG" # transparent PNGs require the AGG renderer
+      MIMETYPE "image/png" # on some systems (BS) mapserver can not correlate the format parameter to this specification. this fixes this issue
+      EXTENSION "png"
+      IMAGEMODE RGBA
+    END
+
+    PROJECTION
+        "init=epsg:2056"
+    END
+
+    WEB
+        METADATA
+            "wfs_title" "KbS Export BAFU WFS"
+            "wfs_onlineresource" "${MAPSERVER_URL}/?map=bafu&"
+            "wfs_srs" "EPSG:2056"
+            "wfs_enable_request" "*"
+            "ows_enable_request" "*"
+            "ows_encoding"       "UTF-8"
+            "wfs_encoding"       "UTF-8"
+            "gml_encoding"       "UTF-8"
+
+        END
+    END
+
+    LAYER
+        NAME "alma_Export_BAFU_de"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM (select * from alma_export.wfs_bafu where locale='de') USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "BAFU Export de"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "alma_Export_BAFU_fr"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM (select * from alma_export.wfs_bafu where locale='fr') USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "BAFU Export fr"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "alma_Export_BAFU_it"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM (select * from alma_export.wfs_bafu where locale='it') USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "BAFU Export it"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+
+END

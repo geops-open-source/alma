@@ -1,0 +1,65 @@
+fail_fast: true
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+    - id: no-commit-to-branch
+      args:
+        - --branch=main
+        - --pattern=^release-.*
+    - id: check-merge-conflict
+    - id: check-symlinks
+    - id: mixed-line-ending
+      args: ['--fix=no']
+    - id: check-ast
+    - id: check-builtin-literals
+    - id: check-case-conflict
+    - id: check-docstring-first
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.11.12
+  hooks:
+    - id: ruff
+      args: [ --fix, --config, backend/pyproject.toml ]
+      files: '.*\.py$'
+    - id: ruff-format
+      args: [--config, backend/pyproject.toml]
+      files: '.*\.py$'
+- repo: https://github.com/astral-sh/uv-pre-commit
+  rev: 0.7.18
+  hooks:
+    - id: uv-lock
+      files: ^backend/pyproject.toml$
+      args: [--project, backend/]
+- repo: local
+  hooks:
+    - id: pyright
+      name: pyright
+      entry: pyright --project backend/pyproject.toml
+      language: python
+      pass_filenames: false
+      files: 'backend/.*\.py(i)?$'
+    - id: flyway-migrations-changed
+      name: check if flyway migrations changed
+      entry: /bin/bash
+      language: system
+      pass_filenames: false
+      args: ["-c", "exit $(git diff --name-status main -- db/migrations/V* | awk '$1 == \"M\"' | wc -l)"]
+- repo: git@gitlab.geops.com:geops/geops-precommit-hooks.git
+  rev: v1.1
+  hooks:
+    - id: graphql-schema
+      name: graphql-schema
+      files: '(\.graphql)|(backend/.*/graphql/.*)'
+      pass_filenames: false
+      args: ["alma.graphql.schema:schema", "backend", "backend/schema.graphql"]
+-   repo: https://github.com/bridgecrewio/checkov
+    rev: "3.2.266"
+    hooks:
+      # disabled since there are many false-positives, the check is slow and the output is locally not the same as in the CI
+      #- id: checkov
+      #  files: '' # check all files
+      #  args: ['--skip-path', '.cache', '--download-external-modules', 'true', '--quiet', '--skip-check', 'CKV_DOCKER_2,CKV_DOCKER_3' ] # be carefull. This is a bit broken https://github.com/bridgecrewio/checkov/issues/6737
+      - id: checkov_secrets
+        # accepted findings are recorded in .checkov.baseline
+        # `-f` must remain last (upstream hook appends filenames after it)
+        args: ['--baseline', '.checkov.baseline', '-f']

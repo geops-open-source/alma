@@ -1,0 +1,288 @@
+workflow:
+  key: 69ddd8c0-7481-440f-b2f5-0a9d5b5b5caa
+  title:
+    de: Baumassnahme
+    fr: Mesure de construction
+    it: Misura di costruzione
+  version: 1
+  time_period: 200
+  start_task_ref: auflagen
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    auflagen:
+      key: af5053cd-d6df-429c-9bef-b06e0c6e8e57
+      time_period: 7
+      title:
+        de: Auflagen Baumassnahme
+        fr: Conditions de la mesure de construction
+        it: Condizioni Misura di costruzione
+      steps:
+      - key: f4ebd06f-e8eb-4d95-830d-95a5a0fed9f3
+        time_period: 7
+        title:
+          de: Auflagen Baumassnahme
+          fr: Conditions de la mesure de construction
+          it: Condizioni Misura di costruzione
+        type: form
+        name: auflagen_baumassnahme
+        fields:
+        - name: auflagen
+          type: str
+          choices:
+          - label:
+              de: Einreichen Entsorgungskonzept
+              fr: Soumettre le concept d'élimination
+              it: Presentare un concetto di smaltimento
+            value: entsorgung
+          - label:
+              de: Meldungen Altlastenfachfirma
+              fr: Déclarations de l'entreprise spécialisée dans les sites contaminés
+              it: Notifiche da parte della società specializzata in siti contaminati
+            value: altlast
+          - label:
+              de: Meldung belastetes Aushubmaterial
+              fr: Annonce de matériaux d'excavation contaminés
+              it: Notifica di materiale di scavo contaminato
+            value: aushub
+      links:
+      - task_ref: eingang_entsorgungskonzept
+        condition: form.auflagen_baumassnahme.auflagen == `entsorgung`
+      - task_ref: meldung_altlastenfachfirma
+        condition: form.auflagen_baumassnahme.auflagen == `altlast`
+      - task_ref: altlastenfachpersonal
+        condition: form.auflagen_baumassnahme.auflagen == `aushub`
+      start_task: true
+    eingang_entsorgungskonzept:
+      key: 4720dfbe-6237-4de4-b393-3df9775a9137
+      time_period: 7
+      title:
+        de: Eingang Entsorgungskonzept
+        fr: Entrée du concept d'élimination
+        it: Concetto di smaltimento dell'ingresso
+      steps:
+      - key: e58f4494-4798-442e-ae6f-d4058fed6c85
+        time_period: 7
+        title:
+          de: Entsorgungskonzept
+          fr: Concept d'élimination des déchets
+          it: Concetto di smaltimento
+        type: document
+        optional: true
+      links:
+      - task_ref: pruefung_entsorgungskonzept
+    pruefung_entsorgungskonzept:
+      key: 317cf776-1c17-4d01-bd81-7831e7d9ae37
+      time_period: 7
+      title:
+        de: Prüfung Entsorgungskonzept
+        fr: Vérification du concept d'élimination
+        it: Esame del concetto di smaltimento
+      steps:
+      - key: b00cfaf7-3a86-44ee-96e2-f4e3b710a4ed
+        time_period: 7
+        title:
+          de: Prüfung Entsorgungskonzept
+          fr: Vérification du concept d'élimination
+          it: Esame del concetto di smaltimento
+        type: form
+        name: pruefung
+        fields:
+        - name: ergaenzungen_noetig
+          type: str
+          choices:
+          - label:
+              de: Keine Ergänzungen zum Entsorgungskonzept nötig
+              fr: Pas de complément nécessaire au concept d'élimination
+              it: Non sono necessarie aggiunte al concetto di smaltimento
+            value: nein
+          - label:
+              de: Ergänzungen zum Entsorgungskonzept nötig
+              fr: Compléments nécessaires au concept d'élimination
+              it: Sono necessarie aggiunte al concetto di smaltimento
+            value: ja
+      links:
+      - task_ref: stellungnahme_entsorgungskonzept
+        condition: form.pruefung.ergaenzungen_noetig == `nein`
+      - task_ref: eingang_entsorgungskonzept
+        condition: form.pruefung.ergaenzungen_noetig == `ja`
+    stellungnahme_entsorgungskonzept:
+      key: 2917e398-9fc3-4e3f-9e05-2906af81ffc8
+      time_period: 7
+      title:
+        de: Stellungnahme zum Entsorgungskonzept
+        fr: Prise de position sur le concept d'élimination des déchets
+        it: Dichiarazione sul concetto di smaltimento
+      steps:
+      - key: 03e0eaa4-a703-4313-8acc-cbc78a728c6f
+        time_period: 7
+        title:
+          de: Stellungnahme zum Entsorgungskonzept
+          fr: Prise de position sur le concept d'élimination des déchets
+          it: Dichiarazione sul concetto di smaltimento
+        type: document
+        optional: true
+      links:
+      - task_ref: aushub_und_entsorgung
+    aushub_und_entsorgung:
+      key: fcbfb74d-0d0e-4315-8c3d-d50f8b2c4d91
+      time_period: 7
+      title:
+        de: Aushub und Entsorgungsarbeiten
+        fr: Travaux d'excavation et d'élimination
+        it: Lavori di scavo e smaltimento
+      steps:
+      - key: 61515ce8-62e4-48af-bab0-ea68fce9f00d
+        time_period: 7
+        title:
+          de: Eingang Abnahmegarantien
+          fr: Entrée des garanties d'enlèvement
+          it: Ricezione di garanzie di acquisto
+        type: document
+        optional: true
+      - key: 395f3ef1-71af-43fc-9243-7bedbfb815b2
+        time_period: 7
+        title:
+          de: Genehmigung Abnahmegarantien
+          fr: Approbation des garanties d'enlèvement
+          it: Autorizzazione delle garanzie di acquisto
+        type: document
+        optional: true
+      links:
+      - task_ref: einreichen_schlussbericht
+    einreichen_schlussbericht:
+      key: 27d390df-fad4-4bd4-b2c4-56651af3f831
+      time_period: 7
+      title:
+        de: Einreichen Schlussbericht
+        fr: Soumission du rapport final
+        it: Presentazione del rapporto finale
+      steps:
+      - key: e6088bf5-6ee5-4c6f-ad45-cb78ce156c3b
+        time_period: 7
+        title:
+          de: Schlussbericht
+          fr: Rapport final
+          it: Rapporto finale
+        type: document
+        optional: true
+      links:
+      - task_ref: perimeteranpassung
+    perimeteranpassung:
+      key: 866422df-8aee-4072-9ab0-50d9dd75df49
+      time_period: 7
+      title:
+        de: Perimeteranpassung
+        fr: Ajustement du périmètre
+        it: Regolazione del perimetro
+      steps:
+      - key: 63ff1f00-7d56-4048-9665-c5829e938e67
+        time_period: 7
+        title:
+          de: Perimeteranpassung
+          fr: Ajustement du périmètre
+          it: Regolazione del perimetro
+        type: form
+        optional: true
+        name: perimeteranpassung_noetig
+        fields:
+        - name: perimeter_angepasst
+          type: str
+          choices:
+          - label:
+              de: Perimeter angepasst
+              fr: Périmètre adapté
+              it: Perimetro adattato
+            value: ja
+          - label:
+              de: Keine Perimeteranpassung nötig
+              fr: Pas d'adaptation du périmètre nécessaire
+              it: Non è necessaria alcuna regolazione del perimetro
+            value: nein
+      links:
+      - task_ref: stellungnahme_schlussbericht
+    stellungnahme_schlussbericht:
+      key: 845bd876-b004-4942-8d50-dbf2ead79bb8
+      time_period: 7
+      title:
+        de: Stellungnahme zum Schlussbericht
+        fr: Prise de position sur le rapport final
+        it: Dichiarazione sul rapporto finale
+      steps:
+      - key: aa8c0f0c-44a0-4e05-874d-769f3d5d099e
+        time_period: 7
+        title:
+          de: Stellungnahme zum Schlussbericht
+          fr: Prise de position sur le rapport final
+          it: Dichiarazione sul rapporto finale
+        type: document
+        optional: true
+      - key: 1057cbd7-410a-41cf-83e2-a6f7c0fcc005
+        time_period: 7
+        title:
+          de: Prüfung Schlussbericht
+          fr: Examen du rapport final
+          it: Rapporto finale di audit
+        type: form
+        name: pruefung_schlussbericht
+        fields:
+        - name: schlussbericht_ok
+          type: str
+          choices:
+          - label:
+              de: Schlussbericht akzeptiert
+              fr: Rapport final accepté
+              it: Accettato il rapporto finale
+            value: ja
+          - label:
+              de: Ergänzung erforderlich
+              fr: Complément nécessaire
+              it: Supplemento richiesto
+            value: nein
+      links:
+      - task_ref: END
+        condition: form.pruefung_schlussbericht.schlussbericht_ok == `ja`
+      - task_ref: einreichen_schlussbericht
+        condition: form.pruefung_schlussbericht.schlussbericht_ok == `nein`
+    meldung_altlastenfachfirma:
+      key: 4f3fa22f-1592-4cbb-9408-0969e2a3be4c
+      time_period: 7
+      title:
+        de: Meldung Altlastenfachfirma / Belastungen
+        fr: Annonce d'une entreprise spécialisée dans les sites contaminés / charges
+        it: Notifica del sito contaminato Azienda specializzata / contaminazione
+      steps:
+      - key: 376e5214-2496-44d1-be25-116233a84578
+        time_period: 7
+        title:
+          de: Meldung Altlastenfachfirma / Belastungen
+          fr: Annonce d'une entreprise spécialisée dans les sites contaminés / charges
+          it: Notifica del sito contaminato Azienda specializzata / contaminazione
+        type: document
+        optional: true
+      links:
+      - task_ref: aushub_und_entsorgung
+    altlastenfachpersonal:
+      key: 959dcf4f-a692-46cc-8eea-cc267489f05d
+      time_period: 7
+      title:
+        de: Meldung Altlastenfachperson
+        fr: Annonce d'un spécialiste des sites contaminés
+        it: Notifica di un esperto di siti contaminati
+      steps:
+      - key: d606b02a-f88c-426c-8caf-929f9430254a
+        time_period: 7
+        title:
+          de: Meldung Altlastenfachperson
+          fr: Annonce d'un spécialiste des sites contaminés
+          it: Notifica di un esperto di siti contaminati
+        type: document
+        optional: true
+      links:
+      - task_ref: aushub_und_entsorgung
+    END:
+      key: 003e8dd1-0b70-4a9d-ac5c-18038a7d02b4
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

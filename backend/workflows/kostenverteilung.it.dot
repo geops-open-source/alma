@@ -1,0 +1,24 @@
+digraph {
+  graph [label=< <B>Allocazione dei costi</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> antrag_erfassen
+  antrag_erfassen [label=< {<B>Inserire la domanda di allocazione dei costi</B>|[D] Domanda di allocazione dei costi|[F] Domanda registrata} >]
+  entwurf_erstellen [label=< {<B>Creare una bozza per l'allocazione dei costi</B>|[D] Bozza per l'allocazione dei costi|[F] Bozza creata} >]
+  rueckmeldung [label=< {<B>Attendere un riscontro sul diritto di essere ascoltati</B>|[F] Feedback sul diritto di essere ascoltati|[D] Inserisci il feedback|[F] Feedback completato} >]
+  kostenteilerverfuegung [label=< {<B>Creare un ordine di condivisione dei costi</B>|[D] Ordine di condivisione dei costi|[F] Invio dell'ordine di condivisione dei costi} >]
+  beschwerde [label=< {<B>Reclamo ricevuto?</B>|[F] Attendere il reclamo} >]
+  abschliessen [label=< {<B>Finalizzare la transazione di allocazione dei costi</B>|[F] Finalizzare il processo} >]
+  bearbeiten [label=< {<B>Processo di reclamo</B>|[D] Inserire il reclamo|[F] Finalizzare il processo dopo il reclamo} >]
+  END [label=< {<B>__END__</B>} >]
+
+  antrag_erfassen -> entwurf_erstellen [label="" fontsize=10]
+  entwurf_erstellen -> rueckmeldung [label="" fontsize=10]
+  rueckmeldung -> kostenteilerverfuegung [label="" fontsize=10]
+  kostenteilerverfuegung -> beschwerde [label="" fontsize=10]
+  beschwerde -> abschliessen [label="form\n.beschwerde_eingegangen\n.beschwerde_eingegangen == `nein`" fontsize=10]
+  beschwerde -> bearbeiten [label="form\n.beschwerde_eingegangen\n.beschwerde_eingegangen == `ja`" fontsize=10]
+  abschliessen -> END [label="" fontsize=10]
+  bearbeiten -> END [label="" fontsize=10]
+}

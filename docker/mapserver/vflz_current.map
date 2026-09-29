@@ -1,0 +1,633 @@
+MAP
+    NAME "KbS Intern Map"
+    STATUS ON
+    SIZE 800 600
+    EXTENT 2485000 1070000 2834000 1296000
+    UNITS METERS
+    IMAGECOLOR 255 255 255
+    IMAGETYPE PNG
+    SIZE 2050 2050
+    MAXSIZE 4096
+
+    OUTPUTFORMAT
+      NAME png
+      DRIVER "AGG/PNG" # transparent PNGs require the AGG renderer
+      MIMETYPE "image/png" # on some systems (BS) mapserver can not correlate the format parameter to this specification. this fixes this issue
+      EXTENSION "png"
+      IMAGEMODE RGBA
+    END
+
+    PROJECTION
+        "init=epsg:2056"
+    END
+
+    WEB
+        METADATA
+            "wfs_title" "KbS Intern WFS"
+            "wfs_onlineresource" "${MAPSERVER_URL}/?map=kbs_current&"
+            "wfs_srs" "EPSG:2056"
+            "wfs_enable_request" "*"
+
+            "wms_title" "KbS Intern WMS"
+            "wms_onlineresource" "${MAPSERVER_URL}/?map=kbs_current&"
+            "wms_srs"            "EPSG:2056 "
+            "ows_enable_request" "*"
+            "ows_encoding"       "UTF-8"
+            "wfs_encoding"       "UTF-8"
+            "gml_encoding"       "UTF-8"
+            "wms_feature_info_mime_type" "application/json"
+            "wms_exceptions_format" "application/vnd.ogc.se_xml"
+            "wms_abstract"       "Kataster belasteter Standorte" 
+        END
+    END
+
+    LAYER
+        NAME "current_all"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_de_v USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "KbS Current All"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Ablagerungsstandorte"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_de_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "01"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Ablagerungsstandorte"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Site_stockage"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_fr_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "01"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Site_stockage"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Sito_deposito"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_it_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "01"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Sito_deposito"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Betriebsstandorte"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_de_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "02"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Betriebsstandorte"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Aire_entreprise"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_fr_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "02"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Aire_entreprise"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Sito_industriale"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_it_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "02"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Sito_industriale"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Unfallstandorte"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_de_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "03"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Unfallstandorte"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Lieu_accident"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_fr_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "03"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Lieu_accident"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Luogo_incidente"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_it_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "03"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Luogo_incidente"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Schiessanlagen"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_de_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "04"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Schiessanlagen"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Installations_tir"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_fr_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "04"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Installations_tir"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Campi_tiro"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_current_all_it_v USING UNIQUE vflz_id USING SRID=2056"
+        FILTER "04"
+        FILTERITEM "code_vftyp"
+
+        METADATA
+            "wfs_title" "Campi_tiro"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Publizierte_Standorte"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_ispublished_de_v USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "Publizierte_Standorte"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Sites_publiés"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_ispublished_fr_v USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "Sites_publiés"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    LAYER
+        NAME "Luoghi_pubblicati"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.wfs_vflz_ispublished_it_v USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "Luoghi_pubblicati"
+            "wfs_srs" "EPSG:2056"
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                COLOR [color_rgb]
+                SIZE 10
+                OUTLINECOLOR [color_rgb]
+                WIDTH 4
+                ANTIALIAS TRUE
+            END
+        END
+    END
+
+    OUTPUTFORMAT
+        NAME "AGGPNG"
+        DRIVER "AGG/PNG"
+        MIMETYPE "image/png"
+        IMAGEMODE RGB
+        EXTENSION "png"
+        FORMATOPTION "INTERLACE=OFF"
+    END
+
+
+    LAYER
+        NAME "geoportal_fr_export"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.geoportal_fr USING UNIQUE vflz_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "geoportal_fr_export"
+            "wfs_srs" "EPSG:2056 "
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+    END
+
+    LAYER
+        # KbS Intern layer Thurgau
+        NAME "TG_KBS_Intern"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma_export.tg_kbs_intern USING UNIQUE mapserver_id USING SRID=2056"
+
+        METADATA
+            "wfs_title" "TG_KBS_Intern"
+            "wfs_srs" "EPSG:2056 "
+            "gml_include_items" "all"
+            "gml_featureid" "vflz_id"
+            "wfs_enable_request" "*"
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+    END
+
+END

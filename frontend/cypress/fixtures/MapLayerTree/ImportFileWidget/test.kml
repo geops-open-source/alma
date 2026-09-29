@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Kanton Solothurn</name>
+    
+    <!-- Punktmarkierung -->
+    <Placemark>
+      <name>Solothurn Zentrum</name>
+      <Point>
+        <coordinates>7.5355,47.2088,0</coordinates>
+      </Point>
+    </Placemark>
+    
+    <!-- Linie -->
+    <Placemark>
+      <name>Beispiellinie</name>
+      <LineString>
+        <coordinates>
+          7.5300,47.2000,0
+          7.5400,47.2100,0
+          7.5500,47.2200,0
+        </coordinates>
+      </LineString>
+    </Placemark>
+    
+    <!-- Polygon -->
+    <Placemark>
+      <name>Beispielpolygon</name>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              7.5200,47.2000,0
+              7.5600,47.2000,0
+              7.5600,47.2200,0
+              7.5200,47.2200,0
+              7.5200,47.2000,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    
+  </Document>
+</kml>

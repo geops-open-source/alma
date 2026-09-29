@@ -1,0 +1,25 @@
+# direnv configuration
+.envrc
+.direnv/
+
+# Python
+__pycache__
+.coverage
+
+# local build artifacts
+build/
+dev_wheels/
+/media/
+venv/
+wheels/
+development.ini
+*.egg-info/
+*.whl
+
+# certificate
+backend/ca_icinga.srv.geops.de.crt
+
+# zap
+zap/reports
+zap/openapi.json
+zap/zap-automation.yaml

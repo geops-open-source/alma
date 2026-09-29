@@ -1,0 +1,266 @@
+workflow:
+  key: 063f5a11-f049-423c-88ee-17fa2a64ce59
+  title: 
+    de: Kostenverteilung
+    fr: Distribution des coûts
+    it: Allocazione dei costi
+  version: 1
+  time_period: 60
+  start_task_ref: antrag_erfassen
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    antrag_erfassen:
+      key: e56d37a4-b943-46cc-872b-ecbce9b47974
+      time_period: 7
+      title: 
+        de: Antrag auf Kostenverteilung erfassen
+        fr: Saisir une demande de distribution des coûts
+        it: Inserire la domanda di allocazione dei costi
+      steps:
+      - key: af3565a7-1c98-4935-bf01-4213940b8ea6
+        time_period: 7
+        title: 
+          de: Antrag auf Kostenverteilung
+          fr: Demande de distribution des coûts
+          it: Domanda di allocazione dei costi
+        type: document
+        optional: true
+      - key: c9c9f57c-654b-4410-9955-5b147990bfcd
+        time_period: 7
+        title:
+          de: Antrag erfasst
+          fr: Demande saisie
+          it: Domanda registrata
+        type: form
+        optional: true
+        name: antrag_erfasst
+        fields:
+        - name: antrag_erfasst
+          type: bool
+          label: 
+            de: Antrag auf Kostenverteilung ist erfasst
+            fr: La demande de distribution des coûts est enregistrée
+            it: La richiesta di allocazione dei costi viene registrata
+      links:
+      - task_ref: entwurf_erstellen
+      start_task: true
+    entwurf_erstellen:
+      key: 84c73c78-9c0f-4fe9-b771-b0f61733cc7f
+      time_period: 7
+      title: 
+        de: Entwurf zur Kostenverteilung erstellen
+        fr: Elaborer un projet de distribution des coûts
+        it: Creare una bozza per l'allocazione dei costi
+      steps:
+      - key: 82574b93-cf5f-4bc7-9162-747dfe8bcae4
+        time_period: 7
+        title: 
+          de: Entwurf zur Kostenverteilung
+          fr: Projet de distribution des coûts
+          it: Bozza per l'allocazione dei costi
+        type: document
+        optional: true
+      - key: b358c72b-666f-4f96-bb1a-9a699704a56e
+        time_period: 7
+        title: 
+          de: Entwurf erstellt
+          fr: Projet créé
+          it: Bozza creata
+        type: form
+        optional: true
+        name: entwurf_erstellt
+        fields:
+        - name: entwurf_erstellt
+          type: bool
+          label: 
+            de: Entwurf zur Kostenverteilung ist erstellt
+            fr: Le projet de distribution des coûts est établi
+            it: È stata preparata una bozza per l'allocazione dei costi
+      links:
+      - task_ref: rueckmeldung
+    rueckmeldung:
+      key: 8345b3a8-bf8f-4224-a065-557a0e6fd452
+      time_period: 7
+      title: 
+        de: Rückmeldung rechtliches Gehör abwarten
+        fr: Attendre le retour du droit d'être entendu
+        it: Attendere un riscontro sul diritto di essere ascoltati
+      steps:
+      - key: d5ee6627-ded0-4159-9f35-4f1e55b9c040
+        time_period: 7
+        title: 
+          de: Rückmeldung rechtliches Gehör
+          fr: Réaction au droit d'être entendu
+          it: Feedback sul diritto di essere ascoltati
+        type: form
+        optional: true
+        name: rueckmeldung_eingegangen
+        fields:
+        - name: rueckmeldung_eingegangen
+          type: bool
+          label: 
+            de: Rückmeldung rechtliches Gehör eingegangen
+            fr: Réaction du droit d'être entendu reçue
+            it: Ricevuto feedback sul diritto di essere ascoltati
+      - key: 1b3b5711-2eec-4bbe-acd1-1883b42a0a56
+        time_period: 7
+        title: 
+          de: Rückmeldung erfassen
+          fr: Saisir la réponse
+          it: Inserisci il feedback
+        type: document
+        optional: true
+      - key: a0d7aa29-9a40-41f4-9f17-aeaf73622d57
+        time_period: 7
+        title: 
+          de: Rückmeldung abgeschlossen
+          fr: Réaction terminée
+          it: Feedback completato
+        type: form
+        optional: true
+        name: rueckmeldung_abgeschlossen
+        fields:
+        - name: rueckmeldung_abgeschlossen
+          type: bool
+          label: 
+            de: Rechtliches Gehör abgeschlossen
+            fr: Droit d'être entendu terminé
+            it: Conclusa l'udienza legale
+      links:
+      - task_ref: kostenteilerverfuegung
+    kostenteilerverfuegung:
+      key: b601b2ac-eccc-4384-b70f-7ebecc724333
+      time_period: 7
+      title: 
+        de: Kostenteilerverfügung erstellen
+        fr: Créer une décision de partage des frais
+        it: Creare un ordine di condivisione dei costi
+      steps:
+      - key: 878166e4-5c6a-4418-a456-e833403b59b4
+        time_period: 7
+        title: 
+          de: Kostenteilerverfügung
+          fr: Décision de partage des frais
+          it: Ordine di condivisione dei costi
+        type: document
+        optional: true
+      - key: efe605bd-cca8-459a-bb7b-8f2686031650
+        time_period: 7
+        title: 
+          de: Kostenteilerverfügung verschickt
+          fr: Envoi de la décision de répartition des coûts
+          it: Invio dell'ordine di condivisione dei costi
+        type: form
+        optional: true
+        name: verschickt
+        fields:
+        - name: verschickt
+          type: bool
+          label:
+            de: Die Kostenteilerverfügung wurde verschickt
+            fr: La décision de répartition des frais a été envoyée
+            it: L'ordine di condivisione dei costi è stato inviato
+      links:
+      - task_ref: beschwerde
+    beschwerde:
+      key: abd19b77-ffa2-4d5e-afd6-cf53b5e953fb
+      time_period: 7
+      title: 
+        de: Beschwerde eingegangen?
+        fr: Plainte reçue?
+        it: Reclamo ricevuto?
+      steps:
+      - key: 8e0066a0-af63-4698-8126-7eff27c4f31c
+        time_period: 7
+        title: 
+          de: Beschwerde abwarten
+          fr: Attendre la plainte
+          it: Attendere il reclamo
+        type: form
+        name: beschwerde_eingegangen
+        fields:
+        - name: beschwerde_eingegangen
+          type: str
+          choices:
+          - label: 
+              de: Keine Beschwerde
+              fr: Pas de plainte
+              it: Nessun reclamo
+            value: nein
+          - label: 
+              de: Beschwerde eingegangen
+              fr: Plainte reçue
+              it: Reclamo ricevuto
+            value: ja
+      links:
+      - task_ref: abschliessen
+        condition: form.beschwerde_eingegangen.beschwerde_eingegangen == `nein`
+      - task_ref: bearbeiten
+        condition: form.beschwerde_eingegangen.beschwerde_eingegangen == `ja`
+    abschliessen:
+      key: 5ef09752-d1bd-43bf-b4ce-810d922da92c
+      time_period: 7
+      title: 
+        de: Geschäft Kostenverteilung abschliessen
+        fr: Clôture de l'opération Répartition des coûts
+        it: Finalizzare la transazione di allocazione dei costi
+      steps:
+      - key: 1e23fdfa-d477-44b8-a706-209f9ae91900
+        time_period: 7
+        title: 
+          de: Prozess abschliessen
+          fr: Clôturer le processus
+          it: Finalizzare il processo
+        type: form
+        optional: true
+        name: prozess_abschliessen
+        fields:
+        - name: prozess_abschliessen
+          type: bool
+          label:
+            de: Prozess abschliessen
+            fr: Clôturer le processus
+            it: Finalizzare il processo
+      links:
+      - task_ref: END
+    bearbeiten:
+      key: 6d37a71e-1c0d-403e-8e7b-cf542e3fe34c
+      time_period: 7
+      title: 
+        de: Beschwerde bearbeiten
+        fr: Traiter la plainte
+        it: Processo di reclamo
+      steps:
+      - key: 2017d13d-8f95-4b8b-ac56-2ea92d72e2cb
+        time_period: 7
+        title: 
+          de: Beschwerde erfassen
+          fr: Saisir la plainte
+          it: Inserire il reclamo
+        type: document
+        optional: true
+      - key: ed3a90a4-112e-4523-b081-052d5b2d4378
+        time_period: 7
+        title: 
+          de: Prozess nach Beschwerde abschliessen
+          fr: Clôturer le processus après un recours
+          it: Finalizzare il processo dopo il reclamo
+        type: form
+        optional: true
+        name: prozess_abschliessen_beschwerde
+        fields:
+        - name: prozess_abschliessen_beschwerde
+          type: bool
+          label:
+            de: Prozess abschliessen
+            fr: Clôturer le processus
+            it: Finalizzare il processo
+      links:
+      - task_ref: END
+    END:
+      key: 5ea8ca03-099f-411d-8158-eb8c0d6d3ff5
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

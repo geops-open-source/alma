@@ -1,0 +1,279 @@
+workflow:
+  key: a36822ff-2dba-4dd6-8935-f4070d2383ff
+  title: 
+    de: VASA Abgeltung
+    fr: OTAS Indemnisation
+    it: OTaRSi Insediamento
+  version: 1
+  time_period: 90
+  start_task_ref: abgeltung_starten
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+
+    abgeltung_starten:
+      key: ac65c57b-b610-4383-be3b-38d7d4d25f28
+      time_period: 7
+      title: 
+        de: VASA Abgeltung starten
+        fr: Démarrer l'indemnisation OTAS
+        it: Avvio della compensazione OTaRSi
+      steps:
+
+      - key: 75519fff-2206-4c45-9506-bd95a4b89b36
+        time_period: 7
+        title: 
+          de: Prüfung der Abgeltungsvoraussetzungen
+          fr: Examen des conditions d'indemnisation
+          it: Esame dei requisiti di compensazione
+        type: form
+        name: pruefung_voraussetzungen
+        fields:
+        - name: ueber_250000
+          type: str
+          choices:
+          - label: 
+              de: Sanierungskosten über 250'000 CHF / Anhörung BAFU starten
+              fr: Coûts d'assainissement supérieurs à 250'000 CHF / Lancer la consultation de l'OFEV
+              it: Costi di risanamento superiori a 250 000 franchi / Avvio della consultazione con l'UFAM
+            value: ja
+          - label: 
+              de: Sanierungskosten unter 250'000 CHF / Auszahlungsgesuch an BAFU einreichen
+              fr: Coûts d'assainissement inférieurs à 250 000 CHF / Soumettre une demande de versement à l'OFEV
+              it: Costi di risanamento inferiori a 250'000 franchi / Presentazione della domanda di pagamento all'UFAM
+            value: nein
+      
+      links:
+      - task_ref: anhoerung
+        condition: form.pruefung_voraussetzungen.ueber_250000 == `ja`
+      - task_ref: auszahlungsgesuch
+        condition: form.pruefung_voraussetzungen.ueber_250000 == `nein`
+      start_task: true
+    
+    anhoerung:
+      key: eb1e4840-0afb-413d-83d5-b447d22bda7d
+      time_period: 7
+      title: 
+        de: Anhörung BAFU
+        fr: Audition OFEV
+        it: Consultazione UFAM
+      steps:
+
+      - key: 46ef5cb1-2c57-4f22-9de5-a286652ea7e8
+        time_period: 7
+        title: 
+          de: Gesuch um Anhörung erstellen
+          fr: Créer une demande d'audition
+          it: Creare una richiesta di audizione
+        type: document
+        optional: true
+
+      links:
+      - task_ref: reaktion_bafu_anhoerung
+
+    reaktion_bafu_anhoerung:
+      key: 55404db7-1645-4aad-9d8a-50ecbf948bf9
+      time_period: 7
+      title: 
+        de: Reaktion BAFU auf Anhörung
+        fr: Réaction de l'OFEV à l'audition
+        it: Risposta dell'UFAM alla consultazione
+      steps:
+
+      - key: 1d600fb4-b0cc-4254-a07a-c06fe8071a2b
+        time_period: 7
+        title: 
+          de: Reaktion BAFU
+          fr: Réaction de l'OFEV
+          it: Risposta dell'UFAM
+        type: form
+        name: reaktion_anhoerung
+        fields:
+        - name: antrag_bewilligt
+          type: str
+          choices:
+          - label: 
+              de: Antrag abgelehnt
+              fr: Demande refusée
+              it: Domanda respinta
+            value: nein
+          - label: 
+              de: Antrag bewilligt
+              fr: Demande approuvée
+              it: Applicazione approvata
+            value: ja
+      links:
+      - task_ref: END
+        condition: form.reaktion_anhoerung.antrag_bewilligt == `nein`
+      - task_ref: zusicherung
+        condition: form.reaktion_anhoerung.antrag_bewilligt == `ja`
+
+    zusicherung:
+      key: 190b3200-b1c3-4ed5-8238-09aebd13a96b
+      time_period: 7
+      title: 
+        de: Gesuch um Zusicherung
+        fr: Demande d'assurance
+        it: Richiesta di garanzia
+      steps:
+
+      - key: e53e93bd-75e4-4792-8e91-0850f05ccceb
+        time_period: 7
+        title: 
+          de: Gesuch um Zusicherung erstellen
+          fr: Créer une demande d'assurance
+          it: Creare una richiesta di garanzia
+        type: document
+        optional: true
+      
+      links:
+      - task_ref: reaktion_bafu_zusicherung
+    
+    reaktion_bafu_zusicherung:
+      key: 6eed7450-c9b5-4d9b-b004-160b64f4b60b
+      time_period: 7
+      title: 
+        de: Reaktion BAFU auf Zusicherung
+        fr: Réaction de l'OFEV à l'assurance
+        it: Risposta dell'UFAM alla garanzia
+      steps:
+
+      - key: 1fb33490-b13d-4fe6-8675-7752d1abb611
+        time_period: 7
+        title: 
+          de: Reaktion BAFU
+          fr: Réaction de l'OFEV
+          it: Risposta dell'UFAM
+        type: form
+        name: reaktion_zusicherung
+        fields:
+        - name: antrag_bewilligt
+          type: str
+          choices:
+          - label: 
+              de: Antrag abgelehnt
+              fr: Demande refusée
+              it: Domanda respinta
+            value: nein
+          - label: 
+              de: Antrag bewilligt
+              fr: Demande approuvée
+              it: Applicazione approvata
+            value: ja
+      links:
+      - task_ref: END
+        condition: form.reaktion_zusicherung.antrag_bewilligt == `nein`
+      - task_ref: auszahlungsgesuch
+        condition: form.reaktion_zusicherung.antrag_bewilligt == `ja`
+
+    auszahlungsgesuch:
+      key: 4572b376-bc96-479a-bc9b-47fab447c27d
+      time_period: 7
+      title: 
+        de: Auszahlungsgesuch an BAFU
+        fr: Demande de versement à l'OFEV
+        it: Domanda di pagamento all'UFAM
+      steps:
+      - key: c3e39e4a-2bf8-44a3-999b-76da7dbc5a1b
+        time_period: 7
+        title: 
+          de: Auszahlungsgesuch
+          fr: Demande de versement
+          it: Domanda di pagamento
+        type: document
+        optional: true
+      links:
+      - task_ref: reaktion_bafu_auszahlungsgesuch
+
+    reaktion_bafu_auszahlungsgesuch:
+      key: 4ce8e025-0db5-4435-a487-47189a6447aa
+      time_period: 7
+      title: 
+        de: Reaktion BAFU auf Auszahlungsgesuch
+        fr: Réaction de l'OFEV à la demande de versement
+        it: Risposta dell'UFAM alla richiesta di pagamento
+      steps:
+      - key: 823dff5f-f4f1-43bb-957f-4ca5e9f48049
+        time_period: 7
+        title: 
+          de: Reaktion BAFU
+          fr: Réaction de l'OFEV
+          it: Risposta dell'UFAM
+        type: form
+        name: reaktion_auszahlungsgesuch
+        fields:
+        - name: antrag_bewilligt
+          type: str
+          choices:
+          - label: 
+              de: Antrag abgelehnt
+              fr: Demande refusée
+              it: Domanda respinta
+            value: nein
+          - label: 
+              de: Antrag bewilligt
+              fr: Demande approuvée
+              it: Applicazione approvata
+            value: ja
+      links:
+      - task_ref: END
+        condition: form.reaktion_auszahlungsgesuch.antrag_bewilligt == `nein`
+      - task_ref: zahlung
+        condition: form.reaktion_auszahlungsgesuch.antrag_bewilligt == `ja`
+
+    zahlung:
+      key: 7a82a1d3-ff8e-4f49-8663-b1f544baff9c
+      time_period: 7
+      title: 
+        de: Zahlung von BAFU abwarten
+        fr: Attendre le paiement de l'OFEV
+        it: In attesa del pagamento da parte dell'UFAM
+      steps:
+
+      - key: eb1ab5fd-12e7-4c0c-848e-99b682e216b2
+        time_period: 7
+        title: 
+          de: Zahlung BAFU eingetroffen
+          fr: Paiement reçu de l'OFEV
+          it: Pagamento UFAM ricevuto
+        type: form
+        name: zahlung_eingetroffen
+        fields:
+        - name: zahlung_eingetroffen
+          type: str
+          choices:
+          - label:
+              de: Zahlung BAFU eingetroffen
+              fr: Paiement reçu de l'OFEV
+              it: Pagamento UFAM ricevuto
+            value: ja
+      links:
+      - task_ref: auszahlung
+        condition: form.zahlung_eingetroffen.zahlung_eingetroffen == `ja`
+
+    auszahlung:
+      key: 01af9510-b3cf-4c82-ba7d-1d74f8739db1
+      time_period: 7
+      title: 
+        de: Auszahlung an Realleistungspflichtiger
+        fr: Versement au débiteur de prestations réelles
+        it: Pagamento al vero responsabile
+      steps:
+
+      - key: 83c9f62a-6e5a-4320-bb02-d9c0b5668002
+        time_period: 7
+        title: 
+          de: Auszahlung an Realleistungspflichtigen erstellen
+          fr: Créer un paiement aux débiteurs de prestations réelles
+          it: Creare l'esborso ai soggetti responsabili dei benefici reali
+        type: document
+        optional: true
+      links:
+      - task_ref: END
+
+    END:
+      key: 6ede65d6-7334-4888-948e-4554ed26e1ea
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

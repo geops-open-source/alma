@@ -1,0 +1,18 @@
+digraph {
+  graph [label=< <B>Remboursement</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> antrag_abwarten
+  antrag_abwarten [label=< {<B>Attendre la demande de remboursement</B>|[F] Attendre la demande de remboursement|[D] Saisir la demande de remboursement|[F] Demande de remboursement saisie} >]
+  stellungnahme [label=< {<B>Prise de position Demande de remboursement</B>|[F] Demande de remboursement|[D] Lettre du requérant} >]
+  brief_ablehnung [label=< {<B>Lettre de rejet</B>|[F] Lettre de rejet du remboursement envoyée au demandeur} >]
+  rechnung_bezahlen [label=< {<B>Payer les factures</B>|[F] Lettre payer facture envoyée} >]
+  END [label=< {<B>__END__</B>} >]
+
+  antrag_abwarten -> stellungnahme [label="" fontsize=10]
+  stellungnahme -> brief_ablehnung [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `nein`" fontsize=10]
+  stellungnahme -> rechnung_bezahlen [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `ja`" fontsize=10]
+  brief_ablehnung -> END [label="" fontsize=10]
+  rechnung_bezahlen -> END [label="" fontsize=10]
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug interne Standortsdaten</title>
+    <meta name="description" content="Standardreportauszug - interne Standortsdaten" />
+</head>
+
+<body>
+    <section id="interne_daten">
+        <h2 class="no-break">{{ translations['report.interne_daten.header'] }}</h2>
+        <p>{{ translations['report.interne_daten.text'] }}</p>
+
+        <h3>{{ translations['report.interne_daten.geschaefte.header'] }}</h3> 
+        <table id="geschaefte">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Task.title'] }}</th>
+                    <th>{{ translations['fields.Task.startDatum'] }}</th>
+                    <th>{{ translations['fields.Task.faelligkeitsDatum'] }}</th>
+                    <th>{{ translations['fields.Task.endDatum'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(workflows|count) %}
+                    {% if workflows[number].type == "workflow" %}
+                        <tr>
+                            <td>{{ workflows[number].title }}</td>
+                            <td>{{ workflows[number].started_at }}</td>
+                            <td>{{ workflows[number].deadline }}</td>
+                            <td>{{ workflows[number].finished_at }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.interne_daten.dokumente.header'] }}</h3>
+        <table id="geschaefte_dok_bem">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Task.title'] }}</th>
+                    <th>{{ translations['fields.Task.kategorie'] }}</th>
+                    <th>{{ translations['report.inhaberdaten.dokumente.autorin'] }}</th>
+                    <th>{{ translations['report.inhaberdaten.dokumente.datum'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(workflows|count) %}
+                    {% if workflows[number].type == "document" %}
+                        <tr>
+                            <td>{{ workflows[number].title }}</td>
+                            <td>{{ workflows[number].kategorie }}</td>
+                            <td>{{ workflows[number].autor }}</td>
+                            <td>{{ workflows[number].started_at }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.interne_daten.beteiligte.header'] }}</h3>
+        <table id="beteiligte">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Subjekt.name'] }}, {{ translations['fields.Subjekt.vorname'] }}, {{ translations['fields.Subjekt.taetigkeit'] }}</th>
+                    <th>{{ translations['fields.Subjekt.postleitzahl'] }}, {{ translations['fields.Subjekt.ort'] }}</th>
+                    <th>{{ translations['search.field.beziehungsart'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(beteiligte|count) %}
+                <tr>
+                    <td>{{ beteiligte[number].bet_name }}</td>
+                    <td>{{ beteiligte[number].bet_adr}}</td>
+                    <td>{{ beteiligte[number].beziehung }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.interne_daten.blog.header'] }}</h3>
+        <table id="blog">
+            {% if bemerkungen %}
+                <thead>
+                    <tr>
+                        <th>{{ translations['fields.Task.title'] }}</th>
+                        <th>{{ translations['report.interne_daten.blog.bemerkung'] }}</th>
+                        <th>{{ translations['fields.Task.oeffentlich'] }}</th>
+                        <th>{{ translations['report.interne_daten.blog.verfasser'] }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for number in range(bemerkungen|count) %}
+                    <tr>
+                        <td>{{ bemerkungen[number].title }}</td>
+                        <td>{{ bemerkungen[number].bem }}</td>
+                        <td>{{ bemerkungen[number].oeffentlich }}</td>
+                        <td>{{ bemerkungen[number].mutierer }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+    </section>
+</body>
+</html>

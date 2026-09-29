@@ -1,0 +1,123 @@
+# alma
+
+**alma** is a web application to manage the Swiss *Kataster der belasteten Standorte*
+(register of polluted sites / contaminated sites cadastre). It supports cantonal
+authorities in documenting suspected areas (VFLZ) and polluted sites, running the
+investigation and remediation workflows required by the Swiss *Altlasten-Verordnung*
+(AltlV), and producing cadastre extracts and reports.
+
+
+## Requirements
+
+- `docker` and the Compose v2 plugin (`docker-compose-v2` on Ubuntu 22.04+)
+- `make`
+- `curl` (used by the `Makefile` to wait for services to become healthy)
+- ~8 GB free RAM recommended for running the full stack
+
+## Quick start
+
+**Note**: If you want to use our demo data, please get in touch.
+
+Clone the repository and start the full stack:
+
+    $ git clone <repository-url> alma
+    $ cd alma
+    $ make start-services
+
+The first run builds all images locally, initialises the database, and configures authorization. Once it finishes you can open:
+
+- alma UI: <http://localhost:8080/>
+- GraphiQL API explorer: <http://localhost:8080/graphql>
+- SSO login: <http://localhost:8080/api/auth/authorize/>
+
+To stop the instance:
+
+    $ make stop-services
+
+After changing code or switching branches, rebuild the docker images with:
+
+    $ make rebuild
+
+To login, use these credentials: 
+
+- username: `test@alma-os.ch`
+- password: `demo2024`
+
+On the first login, you are asked to complete the profile.
+
+### Using prebuilt images (geOps internal)
+
+The `docker-compose.yml` file references prebuilt images on
+`registry.geops.com`. If you have access to that registry you can pull them
+instead of building locally:
+
+    $ docker login registry.geops.com
+    $ docker compose pull
+
+External contributors do not need this — `make start-services` builds every
+image from the sources in this repository.
+
+## What runs where
+
+`make start-services` starts the following containers (see
+[`docker-compose.yml`](./docker-compose.yml) for the full list):
+
+| Service   | Purpose                                     |
+| ----------| ------------------------------------------- |
+| `nginx`    | Reverse proxy in front of frontend, backend, MapServer and Keycloak |
+| `backend`  | GraphQL / REST API                          |
+| `frontend` | Next.js UI                                  |
+| `db`       | PostgreSQL + PostGIS + anonymizer extension |
+| `keycloak` | Authentication                              |
+| `mapserver`| WMS/WFS map rendering                       |
+| `email`    | Debug SMTP server for local development     |
+| `scheduler`| Cron jobs                                   |
+
+## Configure authentication for deployments
+
+We use keycloak for authentication either directly or via an external identity provider.
+
+The alma backend uses the OpenID Connect protocol but expects `preferred_username` to be set in the user info endpoint. Roles are managed inside the alma backend, not in Keycloak.
+
+The following sections describe the basic setup for the different variants.
+
+### Common setup
+
+It is advised to use a separate realm for the alma backend. This allows only exposing that realm to external requests while keeping the master realm protected.
+
+Initial credentials for the master realm can be set using environment variables (see the `docker-compose.yml` and `backend/settings.py` file).
+
+By default the alma-backend expects an `alma` realm with a client `alma-backend`.
+
+A complete example configuration is available in the `docker/keycloak/initial.json` (used to set up the dev environment).
+
+### Variant 1: Without external identity provider
+
+This is the default setup for local development and testing but can also be used for deployments.
+
+The relevant settings for login requirements can be found under `Authentication`. Here you can configure the required actions for the user to login.
+
+Two-factor authentication is limited to OTP and WebAuthn.
+
+
+### Variant 2: With external identity provider
+
+In this case, the user is redirected to the external identity provider for login. The external identity provider must be configured in keycloak.
+
+Make sure to map the correct field to the keycloak username (e.g. `nickname` for geOps SSO).
+
+After setting up the external identity provider, you can disable the local login in the `Authentication` settings.
+
+
+
+## Getting help & contributing
+
+- **Questions and bug reports:** please open an issue on the project's GitHub
+  repository. Include the commit / release version, the command you ran and the
+  relevant logs.
+- **Contributions:** pull requests are welcome. Before opening one, please make
+  sure that:
+  - `pre-commit` hooks pass (installed via `pre-commit install` in `backend/`)
+  - backend tests pass (`pytest` in `backend/`)
+  - the frontend builds and the Cypress tests pass (`make cypress-tests` in `frontend/`)
+- **Get in Touch**: feel free to get in touch by contacting info@geops.com

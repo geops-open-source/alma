@@ -1,0 +1,33 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { createKcPageStory } from "../KcPageStory";
+
+const { KcPageStory } = createKcPageStory({ pageId: "login-config-totp.ftl" });
+
+const meta = {
+  title: "login/login-config-totp.ftl",
+  component: KcPageStory,
+} satisfies Meta<typeof KcPageStory>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => <KcPageStory kcContext={{
+    totp: {
+      supportedApplications: ["FreeOTP", "Google Authenticator", "Microsoft Authenticator"],
+    }
+  }} />,
+};
+
+export const WithManualSetUp: Story = {
+  render: () => (
+    <KcPageStory
+      kcContext={{
+        mode: "manual", totp: {
+          supportedApplications: ["FreeOTP", "Google Authenticator", "Microsoft Authenticator"],
+        }
+      }}
+    />
+  ),
+};

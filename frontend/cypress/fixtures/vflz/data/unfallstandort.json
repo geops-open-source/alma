@@ -1,0 +1,59 @@
+{
+  "bemerkungDatenimport": {
+    "bem": "Test Bemerkung Datenimport für Unfallstandort"
+  },
+  "bemerkungStandort": { "bem": "Test Bemerkung für Unfallstandort" },
+  "bemerkungUmwelt": null,
+  "bezeichnung": "Unfallstandort",
+  "flugplatz": null,
+  "flurname": "UnfallFlurname",
+  "gemeinde": {
+    "hGemId": "3"
+  },
+  "ktu": null,
+  "lang": "DE",
+  "ort": "UnfallOrt",
+  "postleitzahl": "3456",
+  "strasse": "UnfallStrasse 123",
+  "inBetrieb": null,
+  "nachsorge": null,
+  "deponietyp": null,
+  "gwsBereich": null,
+  "gwsZone": null,
+  "durchlaessigkeit": null,
+  "karstgeb": null,
+  "ablagerungen": [],
+  "betriebe": [],
+  "schiessanlagen": [],
+  "unfaelle": [
+    {
+      "bemerkung": { "bem": "Test Bemerkung für Unfall" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung Datenimport für Unfall"
+      },
+      "intuId": "1",
+      "name": "UnfallTest",
+      "zeitpunkt": "2020-02-02",
+      "zeitpunktjahr": false,
+      "genauigkeitZeitpunkt": "code:90:01",
+      "unfallstoffe": [
+        {
+          "inumId": "1",
+          "ausgelaufen": 30,
+          "stoff": "code:117:111",
+          "zurueckgewonnen": 20,
+          "stoffmng": 10
+        }
+      ]
+    }
+  ],
+  "einzelereignisse": [],
+  "grundwasser": [],
+  "kinderspielplaetzeGruenflaechen": [],
+  "pfas": [],
+  "nutzungenBoden": [],
+  "oberflaechenGewaesser": [],
+  "umweltschaeden": [],
+  "umweltStoffe": [],
+  "vflzId": "3"
+}

@@ -1,0 +1,31 @@
+digraph {
+  graph [label=< <B>VASA Abgeltung</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> abgeltung_starten
+  abgeltung_starten [label=< {<B>VASA Abgeltung starten</B>|[F] Prüfung der Abgeltungsvoraussetzungen} >]
+  anhoerung [label=< {<B>Anhörung BAFU</B>|[D] Gesuch um Anhörung erstellen} >]
+  reaktion_bafu_anhoerung [label=< {<B>Reaktion BAFU auf Anhörung</B>|[F] Reaktion BAFU} >]
+  zusicherung [label=< {<B>Gesuch um Zusicherung</B>|[D] Gesuch um Zusicherung erstellen} >]
+  reaktion_bafu_zusicherung [label=< {<B>Reaktion BAFU auf Zusicherung</B>|[F] Reaktion BAFU} >]
+  auszahlungsgesuch [label=< {<B>Auszahlungsgesuch an BAFU</B>|[D] Auszahlungsgesuch} >]
+  reaktion_bafu_auszahlungsgesuch [label=< {<B>Reaktion BAFU auf Auszahlungsgesuch</B>|[F] Reaktion BAFU} >]
+  zahlung [label=< {<B>Zahlung von BAFU abwarten</B>|[F] Zahlung BAFU eingetroffen} >]
+  auszahlung [label=< {<B>Auszahlung an Realleistungspflichtiger</B>|[D] Auszahlung an Realleistungspflichtigen erstellen} >]
+  END [label=< {<B>__END__</B>} >]
+
+  abgeltung_starten -> anhoerung [label="form\n.pruefung_voraussetzungen\n.ueber_250000 == `ja`" fontsize=10]
+  abgeltung_starten -> auszahlungsgesuch [label="form\n.pruefung_voraussetzungen\n.ueber_250000 == `nein`" fontsize=10]
+  anhoerung -> reaktion_bafu_anhoerung [label="" fontsize=10]
+  reaktion_bafu_anhoerung -> END [label="form\n.reaktion_anhoerung\n.antrag_bewilligt == `nein`" fontsize=10]
+  reaktion_bafu_anhoerung -> zusicherung [label="form\n.reaktion_anhoerung\n.antrag_bewilligt == `ja`" fontsize=10]
+  zusicherung -> reaktion_bafu_zusicherung [label="" fontsize=10]
+  reaktion_bafu_zusicherung -> END [label="form\n.reaktion_zusicherung\n.antrag_bewilligt == `nein`" fontsize=10]
+  reaktion_bafu_zusicherung -> auszahlungsgesuch [label="form\n.reaktion_zusicherung\n.antrag_bewilligt == `ja`" fontsize=10]
+  auszahlungsgesuch -> reaktion_bafu_auszahlungsgesuch [label="" fontsize=10]
+  reaktion_bafu_auszahlungsgesuch -> END [label="form\n.reaktion_auszahlungsgesuch\n.antrag_bewilligt == `nein`" fontsize=10]
+  reaktion_bafu_auszahlungsgesuch -> zahlung [label="form\n.reaktion_auszahlungsgesuch\n.antrag_bewilligt == `ja`" fontsize=10]
+  zahlung -> auszahlung [label="form\n.zahlung_eingetroffen\n.zahlung_eingetroffen == `ja`" fontsize=10]
+  auszahlung -> END [label="" fontsize=10]
+}

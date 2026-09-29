@@ -1,0 +1,244 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug Standortsdaten Inhaberorienteirung</title>
+    <meta name="description" content="Standardreportauszug - Standortsdaten Inhaberorientierung" />
+</head>
+
+<body>
+    <section id="inhaber_daten">
+        <h2 class="no-break">{{ translations['report.inhaberdaten.header'] }}</h2>
+        <p>{{ translations['report.inhaberdaten.info.1'] }}
+            {{ translations['report.inhaberdaten.info.2'] }}
+            {{ translations['report.inhaberdaten.info.3'] }} </p>
+
+        <h3>{{ translations['report.inhaberdaten.ergaenzungen.header'] }}</h3> 
+        <table id="ergaenzende_bemerkungen_standort">
+            <tbody>
+                <tr>
+                    <th>{{ translations['report.inhaberdaten.ergaenzungen.generell'] }}</th>
+                    <td>{{ grunddaten[0].bemerkungen }}</td>
+                </tr>
+                <tr>
+                    <th>{{ translations['report.inhaberdaten.ergaenzungen.ergaenzend'] }}</th>
+                    {% if grunddaten[0].c_vflz_vftyp == "01" and inta %}
+                    <td>{{ inta[0].bem }}</td>
+                    {% elif grunddaten[0].c_vflz_vftyp == "02" and intb %}
+                    <td>{{ intb[0].bem }}</td>
+                    {% elif grunddaten[0].c_vflz_vftyp == "03" and intu %}
+                    <td>{{ intu[0].bem }}</td>
+                    {% else %}
+                    <td>-</td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>{{ translations['fields.Vflz.begruendungBewertung.bem'] }}</h3> 
+        <table id="begruendung">
+            <tbody>
+                <tr>
+                    <th>{{ translations['fields.Vflz.begruendungBewertung.bem'] }}</th>
+                    <td>{{ grunddaten[0].begruendung | replace("_______________", "_____") }}</td>
+                </tr>
+
+                {% if grunddaten[0].publizieren and sanierbere %}
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.prioSanier'] }}</th>
+                    <td>{{ sanierbere[0].bem }}</td>
+                </tr>
+                {% endif %}
+
+                {% if grunddaten[0].begr_prio %}
+                <tr>
+                    <th>{{ translations['fields.Vflz.begruendungPrioUntersuchungsbedarf.bem'] }}</th>
+                    <td>{{ grunddaten[0].begr_prio }}</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        {% if massnahme or sani or vfus or veen%}
+        <h3>{{ translations['report.inhaberdaten.massnahme.header'] }}</h3> 
+        <table id="ergaenzende_bemerkungen_massnahmen">
+
+            {% if massnahme %}
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Massnahme.massnahme'] }}</th>
+                    <th>{{ translations['fields.Massnahme.angMassnahme'] }}</th>
+                    <th>{{ translations['fields.Massnahme.bemerkung.bem'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(massnahme|count) %}
+                <tr>
+                    <td>{{ massnahme[number].massnahme }}</td>
+                    <td>{{ massnahme[number].ang_massnahme or '-' }}</td>
+                    <td>{{ massnahme[number].bem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+
+            {% if sani %}
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Sanierungsziel.sanierungsziel'] }}</th>
+                    <th>{{ translations['fields.Sanierungsziel.bemerkung.bem'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(sani|count) %}
+                <tr>
+                    <td>{{ sani[number].saniziel }}</td>
+                    <td>{{ sani[number].bem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+
+            {% if vfus %}
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Umweltschaden.artSchaden'] }}</th>
+                    <th>{{ translations['vflz.data.umweltschaeden'] }}</th>
+                    <th>{{ translations['fields.Umweltschaden.bemerkung.bem'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(vfus|count) %}
+                <tr>
+                    <td>{{ vfus[number].vfus_art_schaden }}</td>
+                    <td>{{ vfus[number].vfus_schaeden }}</td>
+                    <td>{{ vfus[number].bem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+
+            {% if veen %}
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Einzelereignis.einzelereignis'] }}</th>
+                    <th>{{ translations['fields.Einzelereignis.datum'] }}</th>
+                    <th>{{ translations['fields.Einzelereignis.bemerkung.bem'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(veen|count) %}
+                <tr>
+                    <td>{{ veen[number].veen_natuerlich }}</td>
+                    <td>{{ veen[number].veen_datum or '-' }}</td>
+                    <td>{{ veen[number].bem }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {% endif %}
+
+        </table>
+        {% endif %}
+
+        <h3>{{ translations['report.inhaberdaten.umweltdaten.header'] }}</h3> 
+        <table id="umweltdaten">
+            <tbody class="keep-together">
+                <tr>
+                    <th>{{ translations['fields.Vflz.gwsBereich'] }}</th>
+                    <th>{{ translations['fields.Vflz.gwsZone'] }}</th>
+                    <th>{{ translations['fields.Grundwasser.relativeLage'] }}</th>
+                </tr>
+                <tr>
+                    <td>{{ umweltdaten[0].gwsbereich }}</td>
+                    <td>{{ umweltdaten[0].gwszone }}</td>
+                    <td>{{ umweltdaten[0].relzugw }}</td>
+                </tr>
+            </tbody>
+            <tbody class="keep-together">
+                <tr class="section-header">
+                    <th>{{ translations['fields.Grundwasser.flurabstand'] }}</th>
+                    <th>{{ translations['fields.Grundwasser.nutzung'] }}</th>
+                    <th>{{ translations['fields.Grundwasser.distanz'] }}</th>
+                </tr>
+                <tr>
+                    <td>{{ umweltdaten[0].flurabstand }}</td>
+                    <td>{{ umweltdaten[0].gwas_nutzung }}</td>
+                    <td>{{ umweltdaten[0].gwas_distanz }}</td>
+                </tr>
+            </tbody>
+            <tbody class="keep-together">
+                <tr class="section-header">
+                    <th>{{ translations['fields.OberflaechenGewaesser.name'] }}</th>
+                    <th>{{ translations['fields.OberflaechenGewaesser.relativeLage'] }}</th>
+                    <th>{{ translations['fields.OberflaechenGewaesser.distanz'] }}</th>
+                </tr>
+                <tr>
+                    <td>{{ umweltdaten[0].ogw_name }}</td>
+                    <td>{{ umweltdaten[0].ogw_rellage }}</td>
+                    <td>{{ umweltdaten[0].ogw_distanz }}</td>
+                </tr>
+            </tbody>
+            <tbody class="keep-together">
+                <tr class="section-header">
+                    <th>{{ translations['fields.Vflz.durchlaessigkeit'] }}</th>
+                    <th>{{ translations['fields.Vflz.bemerkungUmwelt.bem'] }}</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>{{ umweltdaten[0].durchlaessigkeit }}</td>
+                    <td>{{ umweltdaten[0].bem }}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="umweltdaten">
+            <tbody class="keep-together">
+                <tr class="section-header">
+                    <th>{{ translations['fields.NutzungBoden.nutzungsart'] }}</th>
+                    <th>{{ translations['fields.NutzungBoden.aktuelleNutzung'] }}</th>
+                    <th></th>
+                </tr>
+                {% if nubo and nubo | length > 0 %}
+                    {% for eintrag in nubo %}
+                        <tr>
+                            <td>{{ eintrag.nubo_nutzungsart }}</td>
+                            <td>{{ eintrag.nubo_akt_nutzung }}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.inhaberdaten.dokumente.header'] }}</h3> 
+        <table id="dokumente">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Task.title'] }}</th>
+                    <th>{{ translations['fields.Task.kategorie'] }}</th>
+                    <th>{{ translations['report.inhaberdaten.dokumente.autorin'] }}</th>
+                    <th>{{ translations['report.inhaberdaten.dokumente.datum'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for number in range(workflows|count) %}
+                    {% if workflows[number].type == "document" and workflows[number].show_doc_iho_report %}
+                    <tr>
+                        <td>{{ workflows[number].title }}</td>
+                        <td>{{ workflows[number].kategorie }}</td>
+                        <td>{{ workflows[number].autor }}</td>
+                        <td>{{ workflows[number].started_at }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,11 @@
+digraph {
+  graph [label=< <B>Standortänderungen publizieren</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> standort_publizieren
+  standort_publizieren [label=< {<B>Standortänderungen im KbS publizieren</B>|[F] Standort Informationen} >]
+  END [label=< {<B>__END__</B>} >]
+
+  standort_publizieren -> END [label="" fontsize=10]
+}

@@ -1,0 +1,31 @@
+digraph {
+  graph [label=< <B>Événements de test</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> historisieren
+  historisieren [label=< {<B>Historiser le site</B>|[D] Document de test} >]
+  __START__bearbeitungsstand [label="START"]
+  __START__bearbeitungsstand -> bearbeitungsstand
+  bearbeitungsstand [label=< {<B>Modifier l'état de traitement en 'Relevé en cours'</B>|[D] Document de test} >]
+  __START__untersuchungsstand [label="START"]
+  __START__untersuchungsstand -> untersuchungsstand
+  untersuchungsstand [label=< {<B>Modifier l'état d'investigation en 'aucune investigation'</B>|[D] Document de test} >]
+  __START__prozessstarten [label="START"]
+  __START__prozessstarten -> prozessstarten
+  prozessstarten [label=< {<B>Démarrer la publication de l'affaire</B>|[D] Document de test} >]
+  __START__publizieren [label="START"]
+  __START__publizieren -> publizieren
+  publizieren [label=< {<B>Publier</B>|[D] Document de test} >]
+  END [label=< {<B>__END__</B>} >]
+  __START__all [label="START"]
+  __START__all -> all
+  all [label=< {<B>Tous les événements</B>|[D] Document de test} >]
+
+  historisieren -> bearbeitungsstand [label="" fontsize=10]
+  bearbeitungsstand -> untersuchungsstand [label="" fontsize=10]
+  untersuchungsstand -> prozessstarten [label="" fontsize=10]
+  prozessstarten -> publizieren [label="" fontsize=10]
+  publizieren -> END [label="" fontsize=10]
+  all -> END [label="" fontsize=10]
+}

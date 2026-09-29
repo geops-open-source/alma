@@ -1,0 +1,87 @@
+c_cli_id;de;fr;it
+63;Standorttyp;Type de site;Tipo di sito
+15;Kanton;Canton;Cantone
+78;Ja_Nein;Oui_Non;Sì_No
+12001;Deponietypen;Types de décharge;Tipi di discarica
+94;Stoffklassen;Classes de substances;Classi di sostanze
+115;Stoffe der Klasse IV;Substances de la classe IV;Sostanze della classe IV
+25;Branchencode nach ASW;Code de branche selon ASW;Codice di settore secondo ASW
+25001;Branchencodes nach NOGA;Codes de branche selon NOGA;Codici di settore secondo NOGA
+103;Beurteilung;Évaluation;Valutazione
+90;Informationsgüte Datumsangaben;Qualité de l'information des dates;Qualità dell'informazione delle date
+10023;Untersuchungsstand;État de l'investigation;Stato dell'indagine
+110;Stoffe der Klasse I;Substances de la classe I;Sostanze della classe I
+117;Stoffe und Stoffgemische;Substances et mélanges de substances;Sostanze e miscele di sostanze
+11410;Schiessanlage-Typ;Type d'installation de tir;Tipo di impianto di tiro
+87;Nutzungszone;Zone d'utilisation;Zona di utilizzo
+104;Aktuelle Nutzung Wald;Utilisation actuelle du sol forêt;Effetti riscontrati del suolo bosco
+83;Aktuelle Nutzung Landwirtschaft;Utilisation actuelle du sol agriculture;Effetti riscontrati del suolo agricoltura
+92;Aktuelle Nutzung Siedlungsgebiet;Utilisation actuelle du sol zone d'habitation;Effetti riscontrati del suolo zona residenziale
+66;Art des Oberflächengewässers;Type de cours d'eau;Tipo di corso d'acqua superficiale
+67;Gewässerbau;Construction du cours d'eau;Tipo di corso d'acqua superficiale
+70;Relative Lage zum Oberflächengewässer;Position relative au cours d'eau;Tipo di corso d'acqua superficiale
+88;Nutzung Grundwasser im Abstrombereich;Utilisation des eaux souterraines en aval;Utilizzo delle acque sotterranee a valle
+71;Nutzung Grundwasser im Abstrombereich;Posizione relativa alle acque sotterranee;Posizione relativa alle acque sotterranee
+58;Durchlässigkeit Untergrund;Perméabilité du sol;Permeabilità del suolo
+80;Ja_Nein_Unbekannt;Oui_Non_Inconnu;Sì_No_Sconosciuto
+10017;Gewässerschutzbereich;Secteur de protection des eaux;Zone di protezione delle acque
+10018;Schutzzone;Zone de protection;Zone di protezione
+299;Umweltstoffe Umwelt;Substances environnementales Environnement;Sostanze ambientali Ambiente
+300;Stoffgruppen zur Erfassung von Stoffen;Groupes de substances pour la saisie de substances;Gruppi di sostanze per il rilevamento di sostanze
+301;Stoffgruppe CKW;Groupe de substances CKW;Gruppo di sostanze CKW
+302;Stoffgruppe Schwermetalle;Groupe de substances métaux lourds;Gruppo di sostanze metalli pesanti
+303;Stoffgruppe Mineralölartige Kohlenwasserstoffe;Groupe de substances hydrocarbures de type huile minérale;Gruppo di sostanze idrocarburi di tipo olio minerale
+304;Stoffgruppe BTEX;Groupe de substances BTEX;Gruppo di sostanze BTEX
+305;Stoffgruppe PAK;Groupe de substances HAP;Gruppo di sostanze IPA
+306;Stoffgruppe Dioxine;Groupe de substances dioxines;Gruppo di sostanze diossine
+307;Stoffgruppe PCB;Groupe de substances PCB;Gruppo di sostanze PCB
+308;Stoffgruppe PFAS;Groupe de substances PFAS;Gruppo di sostanze PFAS
+309;Stoffgruppe Benzinartige Kohlenwasserstoffe;Groupe de substances hydrocarbures de type essence;Gruppo di sostanze idrocarburi di tipo benzina
+310;Stoffgruppe Nichtmetalle, anorganische Verbindungen;Groupe de substances non-métaux, composés inorganiques;Gruppo di sostanze non metalli, composti inorganici
+311;Stoffgruppe Halogenierte Kohlenwasserstoffe;Groupe de substances hydrocarbures halogénés;Gruppo di sostanze idrocarburi alogenati
+312;Stoffgruppe Freone;Groupe de substances fréons;Gruppo di sostanze freon
+313;Stoffgruppe Sonstige;Groupe de substances autres;Gruppo di sostanze altri
+314;Stoffgruppe Phenole;Groupe de substances phénols;Gruppo di sostanze fenoli
+330;Beurteilung erfasster Stoffe;Évaluation des substances saisies;Valutazione delle sostanze rilevate
+61;Vorkommnis;Événement;Evento singolo
+99;Festgestellte Einwirkungen Boden;Effets constatés sol;Effetti riscontrati suolo
+100;Festgestellte Einwirkungen Luft;Effets constatés air;Effetti riscontrati aria
+101;Gefährdete Umweltbereiche;Zones environnementales menacées;Aree ambientali minacciate
+102;Festgestellte Einwirkungen Grundwasser/Oberflächengewässer;Effets constatés eaux_souterraines/eaux_de_surface;Effetti riscontrati acque_sotterranee/acque_superficiali
+55;Bearbeitungsstand;État de traitement;Stato di elaborazione
+10021;Massnahme;Mesure;Misura
+10020;Sanierungsziel;Objectif de réhabilitation;Obiettivo di bonifica
+10105;Handlungsbedarf, korrespondiert zu c_cli_id=103;Besoin d'action, correspond à c_cli_id=103;Necessità d'intervento, corrisponde a c_cli_id=103
+26020;Priorisierung Untersuchungsbedarf;Priorisation du besoin d'investigation;Prioritizzazione del bisogno di indagine
+26021;Priorisierung Überwachungs-/Sanierungsbedarf;Priorisation des besoins de surveillance / d'assainissement ;Priorità per la necessità di monitoraggio/bonifica
+26010;Art des Beteilgten-Eintrags (Person, Unternehmen);Type d'entrée du participant (personne, entreprise);Tipo di voce del partecipante (persona, impresa)
+2200;Beziehungsart Beteiligte Eigentum;Type de relation Parties prenantes propriété;Tipo di relazione Persone coinvolte proprietà
+2201;Beziehungsart Beteiligte Sonstige;Type de relation Parties prenantes autres;Tipo di relazione Persone coinvolte altri
+2202;Beziehungsart Beteiligte Sachbearbeitung;Type de relation Parties prenantes traitement;Tipo di relazione Persone coinvolte trattamento
+26030;Behörden Kürzel;Abréviation des autorités;Abbreviazione delle autorità
+26000;Status Parzelle;Statut de la parcelle;Stato della parcella
+10104;Rechtlicher Bezug, korrespondiert mit c_cli_id_=103;Référence légale, correspond à c_cli_id=103;Riferimento legale, corrisponde a  c_cli_id_=103
+210;Inhaber KTU;Propriétaire ETC;Proprietario ITC
+402;Altersstufe Kinder;Groupe d'âge des enfants;Fascia d'età del bambini
+600;Flugplatz Bezeichnung;Désignation de l'aérodrome;Designazione dell'aerodromo
+25002;Branche PFAS-Feuerlösch-Standort;Branche site d'extinction PFAS;Settore sito di spegnimento PFAS
+500;PFAS-Typ;Type PFAS;Tipo PFAS
+501;PFAS-haltiges Löschmittel;Agent extincteur contenant des PFAS;Agente estinguente contenente PFAS
+502;PFAS-freies Löschmittel;Agent extincteur sans PFAS;Agente estinguente senza PFAS
+503;Löschschaum-Einsatz;Utilisation de mousse extinctrice;Utilizzo di schiuma estinguente
+504;Häufigkeit der Nutzung Handfeuerlöscher;Fréquence d'utilisation extincteurs portables;Frequenza di utilizzo estintori portatili
+505;Häufigkeit der Nutzung Beimischer;Fréquence d'utilisation proportionneurs;Frequenza di utilizzo miscelatori
+506;Häufigkeit der Nutzung Tanklöscher;Fréquence d'utilisation extincteurs à réservoir;Frequenza di utilizzo estintori a serbatoio
+14;Land;Pays;Paese
+31;Anrede;Civilité;Appellativo
+111;Stoffe der Klasse I;Substances de la classe I;Sostanze della classe I
+112;Stoffe der Klasse II;Substances de la classe II;Sostanze della classe II
+113;Stoffe der Klasse III;Substances de la classe III;Sostanze della classe III
+400;Kinderspielplatz/Grünfläche-Typ;Type d'aire de jeux/espace vert;Tipo di parco giochi/area verde
+401;Kinderspielplatz/Grünfläche Eigentumsform;Aire de jeux/espace vert Forme de propriété;Parco giochi/area verde Forma di proprietà
+1031;Beurteilungsgruppe;Groupe d'évaluation;Gruppo di valutazione
+10022;Task-Kategorie;Catégorie de tâche;Categoria di attività
+26031;Behörden Langbezeichnung;Désignation longue des autorités;Denominazione estesa delle autorità
+30000;Task-Typ;Type de tâche;Tipo di attività
+30001;Task-Status;Statut de tâche;Stato dell'attività
+33;Kontakttyp;Type de contact;Tipo di contatto

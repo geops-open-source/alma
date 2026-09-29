@@ -1,0 +1,17 @@
+INTERLIS 2.3;
+
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+MODEL KbS_V1_5_GR_V1 (de)
+AT "https://test.de"
+VERSION "2022-06-15"  =
+  IMPORTS KbS_V1_5;
+
+  TOPIC Belastete_Standorte EXTENDS KbS_V1_5.Belastete_Standorte =
+
+    CLASS Belasteter_Standort (EXTENDED) =
+      Bezeichnung: TEXT;
+    END Belasteter_Standort;
+
+  END Belastete_Standorte;
+
+END KbS_V1_5_GR_V1.

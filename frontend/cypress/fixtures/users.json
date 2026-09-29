@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "email": "unauthorized@example.test",
+    "firstName": "unauthorized",
+    "lastName": "unauthorized",
+    "roleName": null,
+    "isSachbearbeitung": false
+  },
+  {
+    "id": "6",
+    "email": "admin@example.test",
+    "firstName": "admin",
+    "lastName": "admin",
+    "roleName": "ADMINISTRATION",
+    "isSachbearbeitung": true
+  }
+]

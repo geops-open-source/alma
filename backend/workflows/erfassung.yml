@@ -1,0 +1,55 @@
+workflow:
+  key: e556b72e-35eb-4328-9092-7e91fd9fe05f
+  title:
+    de: Erfassung
+    fr: Saisie
+    it: Registrazione
+  version: 1
+  time_period: 7
+  start_task_ref: erfassung
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    erfassung:
+      key: ed9c809d-1c96-46cd-be86-a9ebf53c7d93
+      time_period: 7
+      title:
+        de: Erfassung der Standortsdaten bei Neuanlage
+        fr: Saisie des données relatives au site lors d'une nouvelle installation
+        it: Registrazione dei dati di localizzazione per le nuove installazioni
+      steps:
+      - key: 767f2cdd-6f09-48d0-93cb-dc880942e3ff
+        time_period: 7
+        title:
+          de: Wurden alle Standortsdaten erfasst?
+          fr: Toutes les données relatives au site ont-elles été saisies?
+          it: Sono stati registrati tutti i dati relativi alla posizione?
+        type: form
+        optional: true
+        name: standortsdaten_erfasst
+        fields:
+        - name: standortsdaten_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja
+              fr: Oui
+              it: Sì
+            value: ja
+          - label:
+              de: Nein
+              fr: Non
+              it: 'No'
+            value: nein
+      links:
+      - task_ref: END
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:01
+      start_task: true
+    END:
+      key: 2d6f5d5c-7214-4a7a-be66-457e0f90775d
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

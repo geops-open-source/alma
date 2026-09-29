@@ -1,0 +1,88 @@
+workflow:
+  key: d253b732-5b06-431c-88d9-e4daa9217819
+  title:
+    de: Auskunft KbS
+    fr: Renseignements CSP
+    it: Informazioni CSIN
+  version: 1
+  time_period: 14
+  start_task_ref: hinweis_oereb
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    hinweis_oereb:
+      key: e78b99f1-fea8-47dc-aa2a-7d108fc7ff16
+      time_period: 7
+      title:
+        de: Hinweis ÖREB-Kataster und Gebührenpflicht
+        fr: Remarque sur le cadastre RDPPF et l'obligation de payer des émoluments
+        it: Informazioni sul catasto dei RDPP e sull'obbligo di pagamento delle tasse
+      steps:
+      - key: 3b2e3f35-1a42-41a1-af8b-c40578671ea5
+        time_period: 7
+        title:
+          de: Anfrage Katasterauskunft
+          fr: Demande de renseignements cadastraux
+          it: Richiesta di informazioni catastali
+        type: document
+        optional: true
+      - key: 984c0947-72da-41b5-a0d4-ffb36b31e1ba
+        time_period: 7
+        title:
+          de: Hinweis ÖREB-Kataster
+          fr: Remarque sur le cadastre RDPPF
+          it: Nota su RDPP-cadastre
+        type: document
+        optional: true
+      - key: ca007aa2-71e0-4c2a-85de-721b3d76cb9a
+        time_period: 7
+        title:
+          de: Entscheid Schriftliche Auskunft
+          fr: Décision Renseignements écrits
+          it: Decisione Informazioni scritte
+        type: form
+        optional: true
+        name: entscheid_schriftliche_auskunft
+        fields:
+        - name: auskunft_erwuenscht
+          type: str
+          choices:
+          - label:
+              de: schriftliche Katasterauskunft erwünscht
+              fr: Renseignements cadastraux écrits souhaités
+              it: Sono richieste informazioni catastali scritte
+            value: ja
+          - label:
+              de: keine Katasterauskunft erwünscht
+              fr: pas de renseignement cadastral souhaité
+              it: Nessuna informazione catastale desiderata
+            value: nein
+      links:
+      - task_ref: schriftliche_auskunft
+        condition: form.entscheid_schriftliche_auskunft.auskunft_erwuenscht == `ja`
+      - task_ref: END
+      start_task: true
+    schriftliche_auskunft:
+      key: b650c0a9-176b-48b9-9150-86deecf51bdb
+      time_period: 7
+      title:
+        de: Schriftliche Auskunft
+        fr: Renseignements écrits
+        it: Informazioni scritte
+      steps:
+      - key: 90fef4fd-6975-4e17-9b44-b8fb9367d0c3
+        time_period: 7
+        title:
+          de: Schriftliche Auskunft
+          fr: Renseignements écrits
+          it: Informazioni scritte
+        type: document
+      links:
+      - task_ref: END
+      start_task: true
+    END:
+      key: a22492bd-cec5-4d84-831a-e534065e9604
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

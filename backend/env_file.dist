@@ -1,0 +1,16 @@
+# This works for the initial dev and E2E-test setup, don't use it in production!
+# Needs to be changed in keycloak as well.
+OIDC_CLIENT_SECRET=demo-secret-CHANGE_ME
+
+# Uncomment these to enable the e2e test user (for example to run cypress tests locally)
+#DEBUG_ENABLE_E2E_TEST_USER=1
+
+# Code value of behoerde, uncomment with appropriate value!
+# ALMA_BEHOERDE=demo
+
+
+# directory for report templates
+ALMA_TEMPLATES_BASE_DIR="/app/src/alma/reports/templates"
+ALMA_SCREENSHOT_USER_SUB="99d3ec21-9c8e-493d-9be0-f7fdf915d949"
+#checkov:skip=CKV_SECRET_6 ignore credentials
+ALMA_SCREENSHOT_API_KEY="insecure-key-for-local-development"

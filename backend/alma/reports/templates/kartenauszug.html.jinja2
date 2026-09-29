@@ -1,0 +1,71 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Standortdatenblatt Kartenauszug</title>
+    <meta name="description" content="Standardreport - Kartenauszug" />
+</head>
+
+<body>
+    <section id="karte" class="standalone-page">
+        <div class="no_break">         
+            <h2>{{ translations['report.kartenauszug.h2'] }}</h2>
+            <table id="map_info">
+                <tr>
+                    <th>{{ translations['fields.Vollzug.combinedId'] }}</th>
+                    <td>{{ grunddaten[0].vflz_combined_id_kt }} {{ grunddaten[0].bezeichnung }}</td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Vflz.hGemId'] }}</th>
+                    <td>{{ grunddaten[0].gemeinde }} / {{ grunddaten[0].h_gem_id }}</td>
+                </tr>
+            </table>
+            
+            <img id="map" src="http://shootme:8002/screenshot?selector=%23rendercomplete&device_scale_factor=2&width=1000&height=900&timeout=5000&url=http://nginx/vflz/{{ query_params[0].vflz_id }}/map?layers=parzellen&baselayer=aerial" alt="Platzhalter Karte" />
+            <figcaption> &#169; {{ translations['report.kartenauszug.datenquelle'] }}</figcaption>
+            <h3>{{ translations['report.kartenauszug.legende.h3'] }}</h3>
+            <table id="legendtable">
+                <tr>
+                    <td id="legendtable">
+                        <img  id="legend" src="StatusAltlV1.jpg" alt="StatusAltlV1"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v1'] }}</th>
+
+                </tr>
+                <tr>
+                    <td>
+                        <img id="legend" src="StatusAltlV3.jpg" alt="StatusAltlV2"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v2'] }}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="legend" src="StatusAltlV4.jpg" alt="StatusAltlV3"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v3'] }}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="legend" src="StatusAltlV5.jpg" alt="StatusAltlV4"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v4'] }}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="legend" src="StatusAltlV2.jpg" alt="StatusAltlV5"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v5'] }}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="legend" src="StatusAltlV6.jpg" alt="StatusAltlV6"/>
+                    </td>
+                    <th>{{ translations['report.kartenauszug.legende.v6'] }}</th>
+                </tr>
+            </table>
+            <p>{{ translations['report.kartenauszug.legende.hinweis'] }}</p>
+            
+        </div>
+    </section>
+</body>
+</html>

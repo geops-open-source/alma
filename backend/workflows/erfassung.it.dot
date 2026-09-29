@@ -1,0 +1,11 @@
+digraph {
+  graph [label=< <B>Registrazione</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> erfassung
+  erfassung [label=< {<B>Registrazione dei dati di localizzazione per le nuove installazioni</B>|[F] Sono stati registrati tutti i dati relativi alla posizione?} >]
+  END [label=< {<B>__END__</B>} >]
+
+  erfassung -> END [label="" fontsize=10]
+}

@@ -1,0 +1,14 @@
+updateConfig:
+  ignoreDependencies:
+    - graphql-request
+    - react-hook-form
+    - "@graphql-codegen/cli"
+    - "@graphql-codegen/typescript"
+    - "@graphql-codegen/typescript-operations"
+    - "typescript"
+
+allowBuilds:
+  "@parcel/watcher": true
+  "@sentry/cli": true
+  cypress: true
+  sharp: true

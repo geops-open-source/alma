@@ -1,0 +1,24 @@
+INTERLIS 2.3;
+
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+MODEL KbS_LV95_V1_4_LU_V1 (de)
+AT "https://test.de"
+VERSION "2020-09-30"  =
+  IMPORTS KbS_LV95_V1_4;
+  IMPORTS LocalisationCH_V1;
+
+  STRUCTURE Branche = 
+  	value : TEXT; 
+  	END Branche;
+
+  TOPIC Belastete_Standorte EXTENDS KbS_LV95_V1_4.Belastete_Standorte =
+
+    CLASS Belasteter_Standort (EXTENDED) =
+      Bezeichnung: TEXT;
+      Bearbeitungsstand: TEXT;
+      Branchenbezeichnung:  BAG {0..*} OF KbS_LV95_V1_4_LU_V1.Branche;
+    END Belasteter_Standort;
+
+  END Belastete_Standorte;
+
+END KbS_LV95_V1_4_LU_V1.

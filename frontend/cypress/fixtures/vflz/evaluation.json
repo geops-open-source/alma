@@ -1,0 +1,43 @@
+{
+  "bearbeitungsStand": "code:55:BAV_110",
+  "beurteilung": {
+    "beurteilung": "code:103:01",
+    "prioUntersuch": "code:26020:2026",
+    "prioSanier": "code:26021:2032"
+  },
+  "begruendungBewertung": {
+    "bem": "Test Begründung für Bewertung"
+  },
+  "datPublizieren": null,
+  "datRechtskraft": null,
+  "publizieren": false,
+  "rechtskraft": false,
+  "untersuchungsStand": "code:10023:13",
+  "begruendungPrioUntersuchungsbedarf": {
+    "bem": "Begründung Untersuchung"
+  },
+  "begruendungPrioSanierungsbedarf": {
+    "bem": "Begründung Sanierung"
+  },
+  "sanierungsziele": [
+    {
+      "saniId": "2",
+      "sanierungsziel": "code:10020:TEILDEK",
+      "bemerkung": {
+        "bem": "Bemerkung für Sanierungsziel."
+      }
+    }
+  ],
+  "massnahmen": [
+    {
+      "angMassnahme": "2024-09-29",
+      "bemerkung": {
+        "bem": "Bemerkung für Entwässerung"
+      },
+      "datMassnahme": "2024-10-31",
+      "massId": "2",
+      "massnahme": "code:10021:ENTWASS"
+    }
+  ],
+  "vflzId": 1
+}

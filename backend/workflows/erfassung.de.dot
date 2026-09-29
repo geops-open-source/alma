@@ -1,0 +1,11 @@
+digraph {
+  graph [label=< <B>Erfassung</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> erfassung
+  erfassung [label=< {<B>Erfassung der Standortsdaten bei Neuanlage</B>|[F] Wurden alle Standortsdaten erfasst?} >]
+  END [label=< {<B>__END__</B>} >]
+
+  erfassung -> END [label="" fontsize=10]
+}

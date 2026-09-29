@@ -1,0 +1,890 @@
+workflow:
+  key: 4327c39e-2c19-4a35-a9a9-f29a4b3784d5
+  title:
+    de: Erstbeurteilung Inhaberorientierung
+    fr: Évaluation initiale Orientation du titulaire
+    it: Valutazione iniziale dell'orientamento del proprietario
+  version: 1
+  start_task_ref: start_erstbeurteilung
+  min_per_entity: 0
+  max_per_entity: 1
+  tasks:
+    start_erstbeurteilung:
+      key: 53a81490-3416-4399-9a5a-8f0d06885478
+      title:
+        de: Erstbeurteilung Erhebungsdokumente
+        fr: Évaluation initiale Documents d'enquête
+        it: Valutazione iniziale Documenti di indagine
+      steps:
+      - key: 022e07c0-6afa-4ebe-8ffb-19f3d247d6ae
+        title:
+          de: Erhebungsdokumente
+          fr: Documents d'enquête
+          it: Documenti dell'indagine
+        optional: true
+        time_period: 7
+        type: document
+      - key: 9892b5bc-722d-4eb6-84df-6497a145a35b
+        title:
+          de: Erhebungsdokumente vollständig erfasst?
+          fr: Documents d'enquête entièrement saisis?
+          it: I documenti dell'indagine sono completamente registrati?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_erhebungsdokumente
+        fields:
+        - name: entscheid_erhebungsdokumente_erfasst
+          type: bool
+          label:
+            de: Alle Erhebungsdokumente erfasst
+            fr: Tous les documents d'enquête saisis
+            it: Tutti i documenti di indagine registrati
+      links:
+      - task_ref: kontrolle_standortdaten
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:01
+      start_task: true
+      time_period: 7
+    kontrolle_standortdaten:
+      key: 4ddf90e8-5d18-41a3-9257-5c60db367102
+      title:
+        de: Kontrolle Standortsdaten und Beurteilung
+        fr: Données de site complètes et évaluation
+        it: Dati e valutazione completa del sito
+      steps:
+      - key: 69a387fe-0bd7-4605-b058-934985a7a01a
+        title:
+          de: Standortsdaten und Beurteilung erfasst?
+          fr: Données de site et évaluation saisies?
+          it: Dati sulla posizione e valutazione registrati?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_standortsdaten
+        fields:
+        - name: entscheid_standortsdaten_erfasst
+          type: bool
+          label:
+            de: Standortsdaten und Beurteilung vollständig erfasst
+            fr: Données de site et évaluation complètes
+            it: Dati e valutazione del sito completamente registrati
+      links:
+      - task_ref: anhoerung_kanton
+      time_period: 7
+    anhoerung_kanton:
+      key: 41c588fe-744e-4b54-bb80-df2abe271acf
+      title:
+        de: Vorbereitung Anhörung Kanton
+        fr: Préparation de l'audition du canton
+        it: Preparazione alla consultazione cantonale
+      steps:
+      - key: 005d39ce-e3dd-485e-a66c-489df797f0df
+        title:
+          de: Entwurf vollständig erfasst?
+          fr: Projet entièrement saisi ?
+          it: Bozza completamente registrata?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_entwurf_ah
+        fields:
+        - name: entscheid_entwurf_ah_erfasst
+          type: bool
+          label:
+            de: Entwurf zu Anhörung Kanton ist vollständig erfasst
+            fr: Le projet de consultation du canton est complet
+            it: Il progetto per la consultazione cantonale è completo
+      - key: d6e5a6b2-e4b4-44b5-8efb-7452b27dc87d
+        title:
+          de: Kontrolle Entwurf Anhörung Kanton
+          fr: Contrôle Projet Consultation du canton
+          it: Progetto di controllo Consultazione Canton
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_kontrolle_entwurf_ah
+        fields:
+        - name: entscheid_kontrolle_entwurf_ah_erfasst
+          type: bool
+          label:
+            de: Kontrolle (4-Augen) des Entwurfs abgeschlossen
+            fr: Contrôle (4 yeux) du projet terminé
+            it: Controllo (4 occhi) della bozza completata
+      - key: e8a1b657-201f-47da-88d9-4120e9f58396
+        title:
+          de: Entwurf zu Anhörung Kanton zum Versand freigeben
+          fr: Projet de consultation du canton pour envoi
+          it: Rilascio della bozza per la consultazione con il Cantone per l'invio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_versand_entwurf_ah
+        fields:
+        - name: entscheid_versand_entwurf_ah_erfasst
+          type: bool
+          label:
+            de: Anhörung Kanton zum Versand freigeben
+            fr: Consultation du canton pour envoi
+            it: Rilascio della consultazione cantonale per l'invio
+      links:
+      - task_ref: versand_anhoerung_kanton
+      time_period: 7
+    versand_anhoerung_kanton:
+      key: 3c8f7e02-5407-4d11-859b-b50878229331
+      title:
+        de: Versand Anhörung Kanton
+        fr: Envoi Audition Canton
+        it: Consultazione del dispaccio cantonale
+      steps:
+      - key: 0c5235e6-d6dc-413e-a0cf-31ff2539cd1f
+        title:
+          de: Begleitbrief zu Anhörung Kanton
+          fr: Lettre d'accompagnement pour l'audition du canton
+          it: Lettera di accompagnamento all'udienza cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 51370d83-490b-4c80-9905-e2d3563f8e91
+        title:
+          de: Datenabgabe digital
+          fr: Distribution de données numériques
+          it: Consegna di dati digitali
+        optional: true
+        time_period: 3
+        type: form
+        name: entscheid_datenabgabe_digital_ah
+        fields:
+        - name: entscheid_datenabgabe_digital_ah_erfasst
+          type: bool
+          label:
+            de: Die Datenblätter wurden auch digital geschickt (inkl. unbelastete
+              und Vollzugsänderungen, spätestens 3 Tage nach Versand IHO)
+            fr: Les fiches de données ont également été envoyées sous forme numérique
+              (y compris les modifications non chargées et d'exécution, au plus tard
+              3 jours après l'envoi ODP)
+            it: Le schede tecniche sono state inviate anche in formato digitale (incluse
+              le schede non vincolate e le modifiche in esecuzione, entro 3 giorni
+              dall'invio ODP)
+      - key: 4872f8c2-03ba-40b3-a221-6309befaad98
+        title:
+          de: Eingang Stellungnahme Kanton
+          fr: Réception de la prise de position du canton
+          it: Ricezione del rendiconto cantonale
+        time_period: 30
+        type: form
+        name: entscheid_stellungnahme_ah
+        fields:
+        - name: entscheid_stellungnahme_ah_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb der Frist eingegangen
+              fr: Avis reçu dans le délai imparti
+              it: Dichiarazione ricevuta entro i termini
+            value: ja
+          - label:
+              de: Keine Stellungnahme innerhalb der Frist
+              fr: Absence d'avis dans le délai imparti
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_anhoerung_kanton
+        condition: form.entscheid_stellungnahme_ah.entscheid_stellungnahme_ah_erfasst
+          == `ja`
+      - task_ref: inhaberorientierung
+        condition: form.entscheid_stellungnahme_ah.entscheid_stellungnahme_ah_erfasst
+          == `nein`
+      time_period: 7
+    stellungnahme_anhoerung_kanton:
+      key: cd6b132c-45c3-4bb2-8faa-8219cfda53a5
+      title:
+        de: Reaktion Stellungnahme Anhörung Kanton
+        fr: Réaction Prise de position Audition du canton
+        it: Dichiarazione di reazione Consultazione di Canton
+      steps:
+      - key: d880e428-6c7a-4344-ab19-312fd21258be
+        title:
+          de: Einfluss Stellungnahme Kanton
+          fr: Influence Prise de position du canton
+          it: Influenza Dichiarazione cantonale
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_kanton
+        fields:
+        - name: entscheid_stellungnahme_kanton_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: neu
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: ignoriert
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgewiesen
+          - label:
+              de: Mit Amt einverstanden (oder keine Antwort Kanton), keine Rückmeldung
+                notwendig
+              fr: D'accord avec l'office (ou pas de réponse du canton), pas de réponse
+                nécessaire
+              it: D'accordo con l'ufficio (o nessuna risposta da parte del cantone),
+                non è necessario alcun feedback
+            value: einverstanden
+      - key: 5f8f1c2e-dafd-40d2-a060-688e6e52a026
+        title:
+          de: Rückmeldung zur Stellungnahme
+          fr: Réaction à la prise de position
+          it: Commenti sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 09920d8a-6991-494d-8854-1d94742bc086
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement de documents
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_rueckmeldung_stellungnahme_ah
+        fields:
+        - name: entscheid_rueckmeldung_stellungnahme_ah_erfasst
+          type: bool
+          label:
+            de: 'Die Dokumente zu dieser Aufgabe wurden vollständig aufgenommen (Zusatzdokumente:
+              über Popup-Symbol in Titelleiste der Aufgabe jetzt hinzufügen, ausserdem
+              Autor nicht vergessen!)'
+            fr: 'Les documents relatifs à cette tâche ont été entièrement intégrés
+              (Documents supplémentaires: via l''icône popup dans la barre de titre
+              de la tâche, ajouter maintenant l''auteur) ajouter, ne pas oublier l''auteur)'
+            it: 'I documenti per questa attività sono stati aggiunti per intero (documenti
+              aggiuntivi: aggiungere ora tramite il simbolo pop-up nella barra del
+              titolo  dell''attività, senza dimenticare l''autore).'
+      - key: cb058686-24cb-4ccc-8c4c-504360b5113a
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      links:
+      - task_ref: stellungnahme_anhoerung_kanton
+        condition: form.entscheid_stellungnahme_kanton.entscheid_stellungnahme_kanton_erfasst
+          == `abgewiesen`
+      - task_ref: inhaberorientierung
+        condition: form.entscheid_stellungnahme_kanton.entscheid_stellungnahme_kanton_erfasst
+          == `einverstanden` || form.entscheid_stellungnahme_kanton.entscheid_stellungnahme_kanton_erfasst
+          == `ignoriert`
+      - task_ref: kontrolle_standortdaten
+        condition: form.entscheid_stellungnahme_kanton.entscheid_stellungnahme_kanton_erfasst
+          == `neu`
+      time_period: 7
+    inhaberorientierung:
+      key: e7799d63-0795-493a-a6ab-63203b3dc989
+      title:
+        de: Vorbereitung Inhaberorientierung
+        fr: Préparation à l'orientation des propriétaires
+        it: Preparazione per l'orientamento del proprietario
+      steps:
+      - key: 68efc908-8d1e-41cc-9434-581e8914b72a
+        title:
+          de: Entscheid Inhaberorientierung vollständig erfasst?
+          fr: Décision Orientation des propriétaires entièrement saisie?
+          it: Decisione sull'orientamento del proprietario pienamente riconosciuta?
+        time_period: 7
+        type: form
+        name: entscheid_iho
+        fields:
+        - name: entscheid_iho_erfasst
+          type: str
+          choices:
+          - label:
+              de: Standortdatenblatt(er) für Inhaberorientierung angepasst, falls
+                nötig
+              fr: Fiche(s) de données spécifiques au site adaptée(s) pour l'orientation
+                des titulaires, si nécessaire
+              it: Scheda/e di localizzazione adattata/e per l'orientamento del proprietario,
+                se necessario
+            value: datenblatt_angepasst
+          - label:
+              de: Inhaberorientierungsbrief aktualisiert (Hinweis Anhörung Kanton,
+                Datum usw.)
+              fr: Lettre d'orientation aux propriétaires mise à jour (mention audition
+                canton, date, etc.)
+              it: Lettera di orientamento del proprietario aggiornata (nota sul cantone
+                dell'udienza, data, ecc.)
+            value: iho_angepasst
+      - key: 9c85fe3e-f276-4336-90a9-c0c6aa5c8cc9
+        title:
+          de: Kontrolle Entscheid Inhaberorientierung
+          fr: Contrôle Décision Orientation vers le propriétaire
+          it: Decisione di controllo Orientamento del proprietario
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_kontrolle_iho
+        fields:
+        - name: entscheid_kontrolle_iho_erfasst
+          type: bool
+          label:
+            de: Angepasster Versand kontrolliert (4-Augen (falls nötig), Dokuliste
+              aktuell)
+            fr: Envoi adapté contrôlé (double contrôle (si nécessaire), liste de documents
+              à jour)
+            it: Controllo della spedizione personalizzata (4 occhi (se necessario),
+              elenco dei documenti aggiornato)
+      - key: 0722260a-84b8-4667-b3c3-3c8e7af9a05b
+        title:
+          de: Entscheid Inhaberorientierung zum Versand freigeben
+          fr: Décision Orientation du titulaire Valider pour envoi
+          it: Rilascio della decisione di orientamento del proprietario per l'invio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_versand_iho
+        fields:
+        - name: entscheid_versand_iho_erfasst
+          type: bool
+          label:
+            de: Inhaberorientierung zum Versand freigeben
+            fr: Valider l'orientation du propriétaire pour l'envoi
+            it: Rilascio dell'orientamento del proprietario per l'invio
+      links:
+      - task_ref: versand_iho_ersteintrag
+        condition: vflz.belastet == `true`
+      - task_ref: versand_iho_nichteintrag
+        condition: vflz.belastet == `false`
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:BAV_105
+      time_period: 7
+    versand_iho_ersteintrag:
+      key: 4db3344f-213b-42c7-b3b2-8332dc19c355
+      title:
+        de: Versand Inhaberorientierung Ersteintrag
+        fr: Envoi orientation titulaire Première inscription
+        it: Orientamento del proprietario della spedizione prima voce
+      steps:
+      - key: 33864b0f-354f-42df-ac39-34463c273a48
+        title:
+          de: Inhaberorientierungsbrief
+          fr: Lettre d'orientation aux propriétaires
+          it: Lettera di orientamento del proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1dc18df3-10b6-4b87-af1b-09bff37ea59b
+        title:
+          de: Datenabgabe digital
+          fr: Distribution de données numériques
+          it: Consegna di dati digitali
+        optional: true
+        time_period: 3
+        type: form
+        name: entscheid_datenabgabe_digital_iho
+        fields:
+        - name: entscheid_datenabgabe_digital_iho_erfasst
+          type: bool
+          label:
+            de: Die Datenblätter wurden auch digital geschickt (inkl. unbelastete
+              und Vollzugsänderungen, spätestens 3 Tage nach Versand IHO)
+            fr: Les fiches de données ont également été envoyées sous forme numérique
+              (y compris les modifications non et modifications d'exécution, au plus
+              tard 3 jours après l'envoi ODP)
+            it: Le schede tecniche sono state inviate anche in formato digitale (incluse
+              le modifiche complete e non vincolate, entro 3 giorni dalla spedizione
+              ODP)
+      - key: 82c50e89-7187-4f4d-a95b-618e9cfec7bc
+        title:
+          de: Eingang Stellungnahme Inhaber
+          fr: Réception de la Prise de position du propriétaire
+          it: Ricezione dell'estratto conto del proprietario
+        time_period: 30
+        type: form
+        name: entscheid_stellungnahme_iho
+        fields:
+        - name: entscheid_stellungnahme_iho_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb der Frist eingegangen
+              fr: Avis reçu dans le délai imparti
+              it: Dichiarazione ricevuta entro i termini
+            value: ja
+          - label:
+              de: Keine Stellungnahme innerhalb der Frist
+              fr: Absence d'avis dans le délai imparti
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Feststellungsverfügung direkt vom Inhaber verlangt
+              fr: Décision de constatation demandée directement par le propriétaire
+              it: Sentenza dichiarativa richiesta direttamente al proprietario
+            value: feststellungsverfuegung
+      links:
+      - task_ref: stellungnahme_inhaber
+        condition: form.entscheid_stellungnahme_iho.entscheid_stellungnahme_iho_erfasst
+          == `ja`
+      - task_ref: ersteintrag
+        condition: form.entscheid_stellungnahme_iho.entscheid_stellungnahme_iho_erfasst
+          == `nein`
+      - task_ref: feststellungsverfuegung
+        condition: form.entscheid_stellungnahme_iho.entscheid_stellungnahme_iho_erfasst
+          == `feststellungsverfuegung`
+      time_period: 7
+    ersteintrag:
+      key: 5eb35a22-22d0-4430-b5c9-30060fc80939
+      title:
+        de: rechtskräftiger Ersteintrag im Kataster
+        fr: première inscription juridiquement valable au cadastre
+        it: prima iscrizione legalmente valida nel registro fondiario
+      steps:
+      - key: 375326b1-7e12-43d6-898b-4c51c631db07
+        title:
+          de: Rechtskräftiger Ersteintrag
+          fr: Première inscription juridiquement valable
+          it: Prima iscrizione legalmente vincolante
+        optional: true
+        time_period: 30
+        type: form
+        name: entscheid_ersteintrag
+        fields:
+        - name: entscheid_ersteintrag_erfasst
+          type: bool
+          label:
+            de: Standort erstmalig rechtskräftig im Kataster publizieren.
+            fr: Publier pour la première fois le site dans le cadastre avec force
+              de loi.
+            it: Pubblicare per la prima volta l'ubicazione nel registro fondiario
+              con valore legale.
+      links:
+      - task_ref: END
+      triggers:
+      - type: Publizieren
+        value: wf:4327c39e-2c19-4a35-a9a9-f29a4b3784d5:task:ersteintrag:title
+      - type: BearbeitungsstandSetzen
+        value: code:55:BAV_110
+      - type: StandortHistorisieren
+        value: wf:4327c39e-2c19-4a35-a9a9-f29a4b3784d5:task:ersteintrag:title
+      time_period: 7
+    stellungnahme_inhaber:
+      key: 68bd89c8-6c13-4697-9e56-bdaf427736e1
+      title:
+        de: Reaktion Stellungnahme Inhaber
+        fr: Réaction Prise de position du propriétaire
+        it: Proprietario della dichiarazione di reazione
+      steps:
+      - key: 2e138be3-4e35-414f-a8c1-f0e1ad508968
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 6230dbd8-9336-448b-99e5-cfc0c280e49e
+        title:
+          de: Einfluss Stellungnahme Inhaber
+          fr: Influence Prise de position du propriétaire
+          it: Influenza proprietario della dichiarazione
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_inhaber
+        fields:
+        - name: entscheid_stellungnahme_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: neu
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: ignoriert
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgewiesen
+          - label:
+              de: Mit Amt einverstanden (oder keine Antwort Kanton), keine Rückmeldung
+                notwendig
+              fr: D'accord avec l'office (ou pas de réponse du canton), pas de réponse
+                nécessaire
+              it: D'accordo con l'ufficio (o nessuna risposta da parte del cantone),
+                non è necessario alcun feedback
+            value: einverstanden
+          - label:
+              de: Nach negativer Antwort verlangt Inhaber Feststellungsverfügung
+              fr: Après une réponse négative, le propriétaire demande une décision
+                de constatation
+              it: A seguito di una risposta negativa, il proprietario chiede una sentenza
+                dichiarativa
+            value: feststellungsverfuegung
+      - key: cb325b5a-3a8b-4cac-ae6d-806f58ee2173
+        title:
+          de: Rückmeldung zur Stellungnahme
+          fr: Réaction à la prise de position
+          it: Commenti sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 58f6bcb4-a8ce-4515-8b02-9b2fbea78828
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_rueckmeldung_stellungnahme_iho
+        fields:
+        - name: entscheid_rueckmeldung_stellungnahme_iho_erfasst
+          type: bool
+          label:
+            de: 'Die Dokumente zu dieser Aufgabe wurden vollständig aufgenommen (Zusatzdokumente:
+              über Popup-Symbol in Titelleiste der Aufgabe jetzt hinzufügen, ausserdem
+              Autor nicht vergessen!)'
+            fr: 'Les documents relatifs à cette tâche ont été entièrement intégrés
+              (documents supplémentaires: les ajouter maintenant via l''icône popup
+              dans la barre de titre de la tâche, ne pas oublier l''auteur!)'
+            it: 'I documenti per questa attività sono stati aggiunti per intero (Documenti
+              aggiuntivi: aggiungere ora tramite il simbolo a comparsa nella barra
+              del titolo dell''attività. barra del titolo dell''attività, senza dimenticare
+              l''autore!)'
+      links:
+      - task_ref: ersteintrag
+        condition: form.entscheid_stellungnahme_inhaber.entscheid_stellungnahme_inhaber_erfasst
+          == `ignoriert` || form.entscheid_stellungnahme_inhaber.entscheid_stellungnahme_inhaber_erfasst
+          == `einverstanden`
+      - task_ref: kontrolle_standortdaten
+        condition: form.entscheid_stellungnahme_inhaber.entscheid_stellungnahme_inhaber_erfasst
+          == `neu`
+      - task_ref: stellungnahme_inhaber
+        condition: form.entscheid_stellungnahme_inhaber.entscheid_stellungnahme_inhaber_erfasst
+          == `abgewiesen`
+      - task_ref: feststellungsverfuegung
+        condition: form.entscheid_stellungnahme_inhaber.entscheid_stellungnahme_inhaber_erfasst
+          == `feststellungsverfuegung`
+      time_period: 7
+    versand_iho_nichteintrag:
+      key: 7a640a63-f979-43c1-9bc7-354b8b3a1199
+      title:
+        de: Versand Inhaberorientierung Nichteintrag
+        fr: Envoi orientation aux propriétaires Non-inscription
+        it: Orientamento del proprietario del dispaccio non inserito
+      steps:
+      - key: 5fa1eb50-93fd-44d5-8c93-0b9c8be52c55
+        title:
+          de: Inhaberorientierungsbrief
+          fr: Lettre d'orientation aux propriétaires
+          it: Lettera di orientamento del proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: e0bf8175-efcf-4e87-aad9-237e2e761433
+        title:
+          de: Datenabgabe digital
+          fr: Distribution de données numériques
+          it: Consegna di dati digitali
+        optional: true
+        time_period: 3
+        type: form
+        name: entscheid_datenabgabe_digital_iho_nichteintrag
+        fields:
+        - name: entscheid_datenabgabe_digital_iho_nichteintrag_erfasst
+          type: bool
+          label:
+            de: Die Datenblätter wurden auch digital geschickt (inkl. unbelastete
+              und Vollzugsänderungen, spätestens 3 Tage nach Versand IHO)
+            fr: Les fiches de données ont également été envoyées sous forme numérique
+              (y compris les modifications non chargées et d'exécution, au plus tard
+              3 jours après l'envoi ODP)
+            it: Le schede tecniche sono state inviate anche in formato digitale (incluse
+              le modifiche complete e non vincolate, entro 3 giorni dall'invio di
+              ODP)
+      - key: 7397baa0-7a2e-48bd-8b04-a49d8eba55f5
+        title:
+          de: Eingang Stellungnahme Inhaber
+          fr: Réception de la Prise de position du propriétaire
+          it: Ricezione dell'estratto conto del proprietario
+        time_period: 30
+        type: form
+        name: entscheid_stellungnahme_iho_nichteintrag
+        fields:
+        - name: entscheid_stellungnahme_iho_nichteintrag_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb der Frist eingegangen
+              fr: Avis reçu dans le délai imparti
+              it: Dichiarazione ricevuta entro i termini
+            value: ja
+          - label:
+              de: Keine Stellungnahme innerhalb der Frist
+              fr: Absence d'avis dans le délai imparti
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+          - label:
+              de: Feststellungsverfügung direkt vom Inhaber verlangt
+              fr: Décision de constatation demandée directement par le propriétaire
+              it: Sentenza dichiarativa richiesta direttamente al proprietario
+            value: feststellungsverfuegung
+      links:
+      - task_ref: stellungnahme_inhaber_nichteintrag
+        condition: form.entscheid_stellungnahme_iho_nichteintrag.entscheid_stellungnahme_iho_nichteintrag_erfasst
+          == `ja`
+      - task_ref: nichteintrag
+        condition: form.entscheid_stellungnahme_iho_nichteintrag.entscheid_stellungnahme_iho_nichteintrag_erfasst
+          == `nein`
+      - task_ref: feststellungsverfuegung
+        condition: form.entscheid_stellungnahme_iho_nichteintrag.entscheid_stellungnahme_iho_nichteintrag_erfasst
+          == `feststellungsverfuegung`
+      time_period: 7
+    stellungnahme_inhaber_nichteintrag:
+      key: 65146630-dafd-40f5-b96f-008090c6e3dd
+      title:
+        de: Reaktion Stellungnahme Inhaber Nichteintrag
+        fr: Réaction Prise de position du propriétaire non-inscription
+        it: Proprietario della dichiarazione di reazione non inserito
+      steps:
+      - key: 4d2014a8-8b70-4c5b-a9a8-d0b27f8b9377
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 55a23844-8df0-40a7-910a-c62155bf5e9a
+        title:
+          de: Einfluss Stellungnahme Inhaber
+          fr: Influence Prise de position du propriétaire
+          it: Influenza proprietario della dichiarazione
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_inhaber_nichteintrag
+        fields:
+        - name: entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung
+              fr: Réévaluation
+              it: Rivalutazione
+            value: neu
+          - label:
+              de: Keine Neubeurteilung, Stellungnahme nicht berücksichtigt
+              fr: Pas de réévaluation, avis non pris en compte
+              it: Nessuna rivalutazione, opinione non presa in considerazione
+            value: ignoriert
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgewiesen
+          - label:
+              de: Mit Amt einverstanden (oder keine Antwort Kanton), keine Rückmeldung
+                notwendig
+              fr: D'accord avec l'office (ou pas de réponse du canton), pas de réponse
+                nécessaire
+              it: D'accordo con l'ufficio (o nessuna risposta da parte del cantone),
+                non è necessario alcun feedback
+            value: einverstanden
+          - label:
+              de: Nach negativer Antwort verlangt Inhaber Feststellungsverfügung
+              fr: Après une réponse négative, le propriétaire demande une décision
+                de constatation
+              it: A seguito di una risposta negativa, il proprietario chiede una sentenza
+                dichiarativa
+            value: feststellungsverfuegung
+      - key: 405cecc2-a5bd-4fe4-b5cc-bf28b39412b3
+        title:
+          de: Rückmeldung zur Stellungnahme
+          fr: Réaction à la prise de position
+          it: Commenti sulla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 3d82da31-04c6-4449-bbf5-f6391ff00730
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement de documents
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_rueckmeldung_stellungnahme_iho_nichteintrag
+        fields:
+        - name: entscheid_rueckmeldung_stellungnahme_iho_nichteintrag_erfasst
+          type: bool
+          label:
+            de: 'Die Dokumente zu dieser Aufgabe wurden vollständig aufgenommen (Zusatzdokumente:
+              über Popup-Symbol in Titelleiste der Aufgabe jetzt hinzufügen, ausserdem
+              Autor nicht vergessen!)'
+            fr: 'Les documents relatifs à cette tâche ont été entièrement intégrés
+              (Documents supplémentaires: via l''icône popup dans la barre de titre
+              de la tâche, ajouter maintenant l''auteur) ajouter, ne pas oublier l''auteur)'
+            it: 'I documenti per questa attività sono stati aggiunti per intero (documenti
+              aggiuntivi: aggiungere ora tramite il simbolo pop-up nella barra del
+              titolo dell''attività, senza dimenticare l''autore)'
+      links:
+      - task_ref: nichteintrag
+        condition: form.entscheid_stellungnahme_inhaber_nichteintrag.entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          == `ignoriert` || form.entscheid_stellungnahme_inhaber_nichteintrag.entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          == `einverstanden`
+      - task_ref: kontrolle_standortdaten
+        condition: form.entscheid_stellungnahme_inhaber_nichteintrag.entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          == `neu`
+      - task_ref: stellungnahme_inhaber_nichteintrag
+        condition: form.entscheid_stellungnahme_inhaber_nichteintrag.entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          == `abgewiesen`
+      - task_ref: feststellungsverfuegung
+        condition: form.entscheid_stellungnahme_inhaber_nichteintrag.entscheid_stellungnahme_inhaber_nichteintrag_erfasst
+          == `feststellungsverfuegung`
+      time_period: 7
+    nichteintrag:
+      key: 3a0dc964-86e4-49b6-858c-391265435f12
+      title:
+        de: Nichteintrag definitiv
+        fr: Non-inscription définitive
+        it: Non inserito definitivo
+      steps:
+      - key: c8556e5a-8189-43ba-b4a6-585e532888df
+        title:
+          de: Abschluss Erstbeurteilung
+          fr: Fin de l'évaluation initiale
+          it: Completamento della valutazione iniziale
+        optional: true
+        time_period: 7
+        type: form
+        name: abschluss_erstbeurteilung
+        fields:
+        - name: entscheid_abschluss_erstbeurteilung
+          type: bool
+          label:
+            de: Hiermit ist die Erstbeurteilung abgeschlossen, der Standort wird nicht
+              in den Kataster eingetragen.
+            fr: L'évaluation initiale est ainsi terminée, le site n'est pas inscrit
+              au cadastre.
+            it: Questo conclude la valutazione iniziale e il sito non viene inserito
+              nel catasto.
+      links:
+      - task_ref: END
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:BAV_108
+      time_period: 7
+    feststellungsverfuegung:
+      key: 397d43c6-def6-435e-bbc2-b84db7baea07
+      title:
+        de: Versand Feststellungsverfügung
+        fr: Envoi de la décision de constatation
+        it: Invio della sentenza dichiarativa
+      steps:
+      - key: d6b11e84-0374-445c-b931-5ec26d994ece
+        title:
+          de: Feststellungsverfügung
+          fr: Décision de constatation
+          it: Sentenza dichiarativa
+        optional: true
+        time_period: 7
+        type: document
+      - key: b4cb03e8-74ee-4678-bfcd-32b8ebf4024f
+        title:
+          de: Anfechtung Feststellungsverfügung
+          fr: Contestation de la décision de constatation
+          it: Impugnazione della sentenza dichiarativa
+        time_period: 7
+        type: form
+        name: entscheid_feststellungsverfuegung
+        fields:
+        - name: entscheid_feststellungsverfuegung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Inhaber reicht Anfechtung bei Bundeverwaltungsgericht ein
+              fr: Le titulaire dépose une contestation auprès du tribunal administratif
+                fédéral
+              it: Il proprietario presenta ricorso al Tribunale amministrativo federale
+            value: ja
+          - label:
+              de: keine Anfechtung innerhalb Frist
+              fr: pas de contestation dans le délai
+              it: Nessuna contestazione entro il termine
+            value: nein
+      links:
+      - task_ref: feststellungsverfuegung_anfechtung
+        condition: form.entscheid_feststellungsverfuegung.entscheid_feststellungsverfuegung_erfasst
+          == `ja`
+      - task_ref: ersteintrag
+        condition: form.entscheid_feststellungsverfuegung.entscheid_feststellungsverfuegung_erfasst
+          == `nein`
+      triggers:
+      - type: BearbeitungsstandSetzen
+        value: code:55:BAV_109
+      time_period: 7
+    feststellungsverfuegung_anfechtung:
+      key: 12a86cae-b6ae-4487-908d-fadf14d232b4
+      title:
+        de: Anfechtung Feststellungsverfügung
+        fr: Contestation de la décision de constatation
+        it: Impugnazione della sentenza dichiarativa
+      steps:
+      - key: eeb67eb4-a76e-4041-adab-9952fcb63ff9
+        title:
+          de: Anfechtung Feststellungsverfügung
+          fr: Contestation de la décision de constatation
+          it: Impugnazione della sentenza dichiarativa
+        optional: true
+        time_period: 7
+        type: document
+      - key: 2107b85f-ce23-42ca-a383-566cfb8cfc5f
+        title:
+          de: Entscheid zur Anfechtung Feststellungsverfügung
+          fr: Décision de contester la décision de constatation
+          it: Decisione di impugnare la sentenza dichiarativa
+        time_period: 7
+        type: form
+        name: entscheid_feststellungsverfuegung_anfechtung
+        fields:
+        - name: entscheid_feststellungsverfuegung_anfechtung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Änderung wird rechtskräftig
+              fr: La modification devient légale
+              it: L'emendamento diventa legalmente vincolante
+            value: ersteintrag
+          - label:
+              de: Neubeurteilung notwendig
+              fr: Réévaluation nécessaire
+              it: È necessaria una rivalutazione
+            value: neu
+      links:
+      - task_ref: ersteintrag
+        condition: form.entscheid_feststellungsverfuegung_anfechtung.entscheid_feststellungsverfuegung_anfechtung_erfasst
+          == `ersteintrag`
+      - task_ref: kontrolle_standortdaten
+        condition: form.entscheid_feststellungsverfuegung_anfechtung.entscheid_feststellungsverfuegung_anfechtung_erfasst
+          == `neu`
+      time_period: 7
+    END:
+      key: ffa70b83-9e2b-42ee-851f-d2bb522107bd
+      title: __END__
+      links: []
+      time_period: 7
+  time_period: 365

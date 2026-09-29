@@ -1,0 +1,84 @@
+{
+  "bemerkungDatenimport": {
+    "bem": "Test Bemerkung Datenimport für Schiessanlagenstandort"
+  },
+  "bemerkungStandort": { "bem": "Test Bemerkung für Schiessanlagenstandort" },
+  "bemerkungUmwelt": null,
+  "bezeichnung": "Schiessanlagenstandort",
+  "flugplatz": null,
+  "flurname": "SchiessFlurname",
+  "gemeinde": {
+    "hGemId": "4"
+  },
+  "ktu": null,
+  "lang": "DE",
+  "ort": "SchiessOrt",
+  "postleitzahl": "4567",
+  "strasse": "SchiessStrasse 123",
+  "inBetrieb": null,
+  "nachsorge": null,
+  "deponietyp": null,
+  "gwsBereich": null,
+  "gwsZone": null,
+  "durchlaessigkeit": null,
+  "karstgeb": null,
+  "ablagerungen": [],
+  "betriebe": [],
+  "schiessanlagen": [
+    {
+      "begruendungBewertung": {
+        "bem": "Test Begründung Bewertung Schiessanlage"
+      },
+      "bemerkung": { "bem": "Test Bemerkung für Schiessanlage" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung Datenimport für Schiessanlage"
+      },
+      "hatKugelfang": true,
+      "scheibenzahl": 12,
+      "schusszahl": 23,
+      "typ": "code:11410:01",
+      "intbId": "2",
+      "beurteilung": "code:103:01",
+      "brancheAsw": "code:25:9143",
+      "brancheNoga": null,
+      "eva": "123",
+      "firmaName": "SchiessanlageName",
+      "firmaOrt": "SchiessanlageOrt",
+      "firmaPlz": "1234",
+      "firmaStrasse": "SchiessanlageStrasse",
+      "groesse": 3,
+      "mobileStoffe": true,
+      "relevant": true,
+      "untersuchungsStand": "code:10023:01",
+      "zentroid": {
+        "type": "Point",
+        "crs": {
+          "type": "name",
+          "properties": {
+            "name": "EPSG:2056"
+          }
+        },
+        "coordinates": [2606757, 1228616]
+      },
+      "zeitraum": {
+        "von": "2012-01-01",
+        "vonjahr": false,
+        "bis": "2014-12-11",
+        "bisjahr": false,
+        "bisheute": false,
+        "genauigkeitVon": "code:90:01",
+        "genauigkeitBis": "code:90:03"
+      }
+    }
+  ],
+  "unfaelle": [],
+  "kinderspielplaetzeGruenflaechen": [],
+  "pfas": [],
+  "einzelereignisse": [],
+  "grundwasser": [],
+  "nutzungenBoden": [],
+  "oberflaechenGewaesser": [],
+  "umweltschaeden": [],
+  "umweltStoffe": [],
+  "vflzId": "4"
+}

@@ -1,0 +1,18 @@
+digraph {
+  graph [label=< <B>Rückerstattung</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> antrag_abwarten
+  antrag_abwarten [label=< {<B>Antrag auf Rückerstattung abwarten</B>|[F] Antrag auf Rückerstattung abwarten|[D] Antrag auf Rückerstattung erfassen|[F] Antrag auf Rückerstattung erfasst} >]
+  stellungnahme [label=< {<B>Stellungnahme Antrag Rückerstattung</B>|[F] Antrag auf Rückerstattung|[D] Brief Gesuchsteller} >]
+  brief_ablehnung [label=< {<B>Brief Ablehnung</B>|[F] Brief Ablehnung der Rückerstattung an Antragsteller versandt} >]
+  rechnung_bezahlen [label=< {<B>Rechnungen bezahlen</B>|[F] Brief Rechnung bezahlen verschickt} >]
+  END [label=< {<B>__END__</B>} >]
+
+  antrag_abwarten -> stellungnahme [label="" fontsize=10]
+  stellungnahme -> brief_ablehnung [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `nein`" fontsize=10]
+  stellungnahme -> rechnung_bezahlen [label="form\n.antrag_rueckerstattung\n.antrag_genehmigen == `ja`" fontsize=10]
+  brief_ablehnung -> END [label="" fontsize=10]
+  rechnung_bezahlen -> END [label="" fontsize=10]
+}

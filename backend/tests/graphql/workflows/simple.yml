@@ -1,0 +1,25 @@
+workflow:
+  key: b6395856-9556-48b4-828f-6610d153a3bc
+  title: Simple workflow with one task and one document
+  version: 1
+  start_task_ref: task_1
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    task_1:
+      title: Task-1
+      steps:
+        - title: Document-1
+          type: document
+        - title: Form-1
+          type: form
+          name: form-1
+          fields:
+            - name: field-1
+              type: bool
+      links:
+        - task_ref: END
+    END:
+      title: __END__
+      steps: []
+      links: []

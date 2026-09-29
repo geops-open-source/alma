@@ -1,0 +1,1 @@
+alter table alma.wf_node alter column document_ref type varchar(4000);

@@ -1,0 +1,11 @@
+digraph {
+  graph [label=< <B>Publier les modifications du site</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> standort_publizieren
+  standort_publizieren [label=< {<B>Publier les modifications du site dans le OEC</B>|[F] Informations sur le site} >]
+  END [label=< {<B>__END__</B>} >]
+
+  standort_publizieren -> END [label="" fontsize=10]
+}

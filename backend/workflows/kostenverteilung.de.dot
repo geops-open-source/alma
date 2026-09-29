@@ -1,0 +1,24 @@
+digraph {
+  graph [label=< <B>Kostenverteilung</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> antrag_erfassen
+  antrag_erfassen [label=< {<B>Antrag auf Kostenverteilung erfassen</B>|[D] Antrag auf Kostenverteilung|[F] Antrag erfasst} >]
+  entwurf_erstellen [label=< {<B>Entwurf zur Kostenverteilung erstellen</B>|[D] Entwurf zur Kostenverteilung|[F] Entwurf erstellt} >]
+  rueckmeldung [label=< {<B>Rückmeldung rechtliches Gehör abwarten</B>|[F] Rückmeldung rechtliches Gehör|[D] Rückmeldung erfassen|[F] Rückmeldung abgeschlossen} >]
+  kostenteilerverfuegung [label=< {<B>Kostenteilerverfügung erstellen</B>|[D] Kostenteilerverfügung|[F] Kostenteilerverfügung verschickt} >]
+  beschwerde [label=< {<B>Beschwerde eingegangen?</B>|[F] Beschwerde abwarten} >]
+  abschliessen [label=< {<B>Geschäft Kostenverteilung abschliessen</B>|[F] Prozess abschliessen} >]
+  bearbeiten [label=< {<B>Beschwerde bearbeiten</B>|[D] Beschwerde erfassen|[F] Prozess nach Beschwerde abschliessen} >]
+  END [label=< {<B>__END__</B>} >]
+
+  antrag_erfassen -> entwurf_erstellen [label="" fontsize=10]
+  entwurf_erstellen -> rueckmeldung [label="" fontsize=10]
+  rueckmeldung -> kostenteilerverfuegung [label="" fontsize=10]
+  kostenteilerverfuegung -> beschwerde [label="" fontsize=10]
+  beschwerde -> abschliessen [label="form\n.beschwerde_eingegangen\n.beschwerde_eingegangen == `nein`" fontsize=10]
+  beschwerde -> bearbeiten [label="form\n.beschwerde_eingegangen\n.beschwerde_eingegangen == `ja`" fontsize=10]
+  abschliessen -> END [label="" fontsize=10]
+  bearbeiten -> END [label="" fontsize=10]
+}

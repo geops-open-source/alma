@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 32 180" width="32px" height="180px" xmlns="http://www.w3.org/2000/svg">
+    <rect width="32" height="180"
+        style="paint-order: fill; stroke-width: 0px; fill: rgba(255, 255, 255, 0.85);" />
+    <line style="stroke: rgb(102, 112, 133); stroke-linecap: round; fill: none; stroke-width: 2px;"
+        x1="16" y1="12" x2="16" y2="168" />
+</svg>

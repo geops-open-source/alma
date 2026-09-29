@@ -1,0 +1,164 @@
+workflow:
+  key: 0df37752-848b-4778-8328-9c3811544d39
+  title: 
+    de: Rückerstattung
+    fr: Remboursement
+    it: Rimborso
+  version: 1
+  time_period: 30
+  start_task_ref: antrag_abwarten
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    antrag_abwarten:
+      key: b38fc168-2af7-4d7d-b6e2-5630927b4f95
+      time_period: 7
+      title: 
+        de: Antrag auf Rückerstattung abwarten
+        fr: Attendre la demande de remboursement
+        it: Attendere la domanda di rimborso
+      steps:
+      - key: c538667a-2d17-4646-a960-162b7ba630ec
+        time_period: 7
+        title:
+          de: Antrag auf Rückerstattung abwarten
+          fr: Attendre la demande de remboursement
+          it: Attendere la domanda di rimborso
+        type: form
+        optional: true
+        name: antrag_eingegangen
+        fields:
+        - name: antrag_eingegangen
+          type: bool
+          label: 
+            de: Antrag auf Rückerstattung eingegangen
+            fr: Demande de remboursement reçue
+            it: Richiesta di rimborso ricevuta
+      - key: 16312d48-a58f-4e51-8ac2-6ecbddd71933
+        time_period: 7
+        title: 
+          de: Antrag auf Rückerstattung erfassen
+          fr: Saisir la demande de remboursement
+          it: Inserire la richiesta di rimborso
+        type: document
+        optional: true
+      - key: 41524dde-0bbb-458b-9533-afc330b9506b
+        time_period: 7
+        title: 
+          de: Antrag auf Rückerstattung erfasst
+          fr: Demande de remboursement saisie
+          it: Domanda di rimborso registrata
+        type: form
+        optional: true
+        name: antrag_erfasst
+        fields:
+        - name: antrag_erfasst
+          type: bool
+          label: 
+            de: Ja
+            fr: Oui
+            it: Sí
+      links:
+      - task_ref: stellungnahme
+      start_task: true
+    stellungnahme:
+      key: 5462e1fd-c28a-4b28-8034-f64f506426da
+      time_period: 7
+      title: 
+        de: Stellungnahme Antrag Rückerstattung
+        fr: Prise de position Demande de remboursement
+        it: Dichiarazione Richiesta di rimborso
+      steps:
+      - key: 6ebf30e4-b407-44fe-845b-da8156847106
+        time_period: 7
+        title: 
+          de: Antrag auf Rückerstattung
+          fr: Demande de remboursement
+          it: Richiesta di rimborso
+        type: form
+        name: antrag_rueckerstattung
+        fields:
+        - name: antrag_genehmigen
+          type: str
+          choices:
+          - label: 
+              de: ablehnen
+              fr: rejeter
+              it: rifiuto
+            value: nein
+          - label: 
+              de: auszahlen
+              fr: décaisser
+              it: pagamento
+            value: ja
+      - key: 52f517db-d249-4707-a816-cc1b16c84930
+        time_period: 7
+        title: 
+          de: Brief Gesuchsteller
+          fr: Lettre du requérant
+          it: Lettera del richiedente
+        type: document
+        optional: true
+      links:
+      - task_ref: brief_ablehnung
+        condition: form.antrag_rueckerstattung.antrag_genehmigen == `nein`
+      - task_ref: rechnung_bezahlen
+        condition: form.antrag_rueckerstattung.antrag_genehmigen == `ja`
+    brief_ablehnung:
+      key: 793bb3f7-6ef5-4ccd-9449-97f611771e22
+      time_period: 7
+      title: 
+        de: Brief Ablehnung
+        fr: Lettre de rejet
+        it: Lettera di rifiuto
+      steps:
+      - key: 0889b65c-f81d-412c-898e-c0cc7adc7b0c
+        time_period: 7
+        title: 
+          de: Brief Ablehnung der Rückerstattung an Antragsteller versandt
+          fr: Lettre de rejet du remboursement envoyée au demandeur
+          it: Lettera di rifiuto del rimborso inviata al richiedente
+        type: form
+        optional: true
+        name: ablehnungsbrief_versandt
+        fields:
+        - name: brief_versandt
+          type: bool
+          label: 
+            de: Brief versandt
+            fr: Lettre envoyée
+            it: Lettera inviata
+      links:
+      - task_ref: END
+    rechnung_bezahlen:
+      key: 190d4858-de6c-4f82-b845-10bda0378d16
+      time_period: 7
+      title: 
+        de: Rechnungen bezahlen
+        fr: Payer les factures
+        it: Pagare le bollette
+      steps:
+      - key: 96bee6ed-cc88-43f8-9c06-5deffe7a93ae
+        time_period: 7
+        title: 
+          de: Brief Rechnung bezahlen verschickt
+          fr: Lettre payer facture envoyée
+          it: Lettera di pagamento della fattura inviata
+        type: form
+        optional: true
+        name: rechnung_verschickt
+        fields:
+        - name: rechnung_verschickt
+          type: bool
+          label: 
+            de: Ja
+            fr: Oui
+            it: Sí
+      links:
+      - task_ref: END
+    END:
+      key: c94cf578-65ad-4af0-ad0f-86f173155abf
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

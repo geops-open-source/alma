@@ -1,0 +1,241 @@
+{
+  "bbox": [
+    2589007.9809999987, 1196443.171, 2604334.3900000006, 1204343.6000000015
+  ],
+  "features": [
+    {
+      "bbox": [
+        2589007.9809999987, 1196443.171, 2604334.3900000006, 1204343.6000000015
+      ],
+      "geometry": {
+        "coordinates": [1200386.75, 2598633.75],
+        "type": "Point"
+      },
+      "id": 195,
+      "properties": {
+        "detail": "bern be",
+        "featureId": "351",
+        "geom_quadindex": "021",
+        "geom_st_box2d": "BOX(2589007.9809999987 1196443.171,2604334.3900000006 1204343.6000000015)",
+        "id": 195,
+        "label": "<b>Bern (BE)</b>",
+        "lat": 46.954559326171875,
+        "lon": 7.420684814453125,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 100,
+        "x": 1200386.75,
+        "y": 2598633.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2589007.9809999987, 1196443.171, 2604334.3900000006, 1204343.6000000015
+      ],
+      "geometry": {
+        "coordinates": [1200386.75, 2598633.75],
+        "type": "Point"
+      },
+      "id": 196,
+      "properties": {
+        "detail": "berna be",
+        "featureId": "351",
+        "geom_quadindex": "021",
+        "geom_st_box2d": "BOX(2589007.9809999987 1196443.171,2604334.3900000006 1204343.6000000015)",
+        "id": 196,
+        "label": "<b>Berna (BE)</b>",
+        "lat": 46.954559326171875,
+        "lon": 7.420684814453125,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1200386.75,
+        "y": 2598633.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2589007.9809999987, 1196443.171, 2604334.3900000006, 1204343.6000000015
+      ],
+      "geometry": {
+        "coordinates": [1200386.75, 2598633.75],
+        "type": "Point"
+      },
+      "id": 197,
+      "properties": {
+        "detail": "berne be",
+        "featureId": "351",
+        "geom_quadindex": "021",
+        "geom_st_box2d": "BOX(2589007.9809999987 1196443.171,2604334.3900000006 1204343.6000000015)",
+        "id": 197,
+        "label": "<b>Berne (BE)</b>",
+        "lat": 46.954559326171875,
+        "lon": 7.420684814453125,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1200386.75,
+        "y": 2598633.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2598815.284000002, 1201901.0899999999, 2600792.6039999984,
+        1204121.302000001
+      ],
+      "geometry": {
+        "coordinates": [1203014.125, 2599660.75],
+        "type": "Point"
+      },
+      "id": 199,
+      "properties": {
+        "detail": "bremgarten bei bern be",
+        "featureId": "353",
+        "geom_quadindex": "021",
+        "geom_st_box2d": "BOX(2598815.284000002 1201901.0899999999,2600792.6039999984 1204121.302000001)",
+        "id": 199,
+        "label": "<b>Bremgarten bei Bern (BE)</b>",
+        "lat": 46.97819519042969,
+        "lon": 7.43417501449585,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1203014.125,
+        "y": 2599660.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2602320.710000001, 1196070.7380000018, 2606561.147999998, 1199977.171
+      ],
+      "geometry": {
+        "coordinates": [1198039.5, 2604649.25],
+        "type": "Point"
+      },
+      "id": 202,
+      "properties": {
+        "detail": "muri bei bern be",
+        "featureId": "356",
+        "geom_quadindex": "0213002",
+        "geom_st_box2d": "BOX(2602320.710000001 1196070.7380000018,2606561.147999998 1199977.171)",
+        "id": 202,
+        "label": "<b>Muri bei Bern (BE)</b>",
+        "lat": 46.933433532714844,
+        "lon": 7.499686241149902,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1198039.5,
+        "y": 2604649.25,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2587831.1829999983, 1200975.0870000012, 2598245.085000001, 1205985.375
+      ],
+      "geometry": {
+        "coordinates": [1203457.625, 2593093.75],
+        "type": "Point"
+      },
+      "id": 206,
+      "properties": {
+        "detail": "wohlen bei bern be",
+        "featureId": "360",
+        "geom_quadindex": "021211",
+        "geom_st_box2d": "BOX(2587831.1829999983 1200975.0870000012,2598245.085000001 1205985.375)",
+        "id": 206,
+        "label": "<b>Wohlen bei Bern (BE)</b>",
+        "lat": 46.982147216796875,
+        "lon": 7.3478593826293945,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1203457.625,
+        "y": 2593093.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2762176.4990000017, 1253615.6640000008, 2765357.59, 1256543.7049999982
+      ],
+      "geometry": {
+        "coordinates": [1255076.625, 2763850.75],
+        "type": "Point"
+      },
+      "id": 1093,
+      "properties": {
+        "detail": "berneck sg",
+        "featureId": "3233",
+        "geom_quadindex": "03011",
+        "geom_st_box2d": "BOX(2762176.4990000017 1253615.6640000008,2765357.59 1256543.7049999982)",
+        "id": 1093,
+        "label": "<b>Berneck (SG)</b>",
+        "lat": 47.426082611083984,
+        "lon": 9.610477447509766,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1255076.625,
+        "y": 2763850.75,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2491851.7459999993, 1111796.5610000007, 2496216.59, 1118658.6059999987
+      ],
+      "geometry": {
+        "coordinates": [1115229, 2494319.25],
+        "type": "Point"
+      },
+      "id": 2101,
+      "properties": {
+        "detail": "bernex ge",
+        "featureId": "6607",
+        "geom_quadindex": "02212",
+        "geom_st_box2d": "BOX(2491851.7459999993 1111796.5610000007,2496216.59 1118658.6059999987)",
+        "id": 2101,
+        "label": "<b>Bernex (GE)</b>",
+        "lat": 46.180213928222656,
+        "lon": 6.0699896812438965,
+        "num": 1,
+        "objectclass": "",
+        "origin": "gg25",
+        "rank": 2,
+        "weight": 6,
+        "x": 1115229,
+        "y": 2494319.25,
+        "zoomlevel": 4294967295
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

@@ -1,0 +1,118 @@
+workflow:
+  key: f0971a7b-da82-4219-ba2a-b8bce9501352
+  title:
+    de: Baugesuch
+    fr: Demande de permis de construire
+    it: Domanda di pianificazione
+  version: 1
+  time_period: 21
+  start_task_ref: eingang
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    eingang:
+      key: 1ae9c73e-e6ec-4ea9-82ce-5bd55f53b4ad
+      time_period: 7
+      title:
+        de: Eingang Baugesuch
+        fr: Demande de permis de construire reçue
+        it: Ricezione della domanda di pianificazione
+      steps:
+      - key: 12ce8d86-83d6-47f0-ad5b-4ed404b2bac2
+        time_period: 7
+        title:
+          de: Eingang Baugesuch quittieren
+          fr: Accuser réception de la demande de permis de construire 
+          it: Conferma del ricevimento della domanda di pianificazione
+        type: form
+        name: eingang_quittieren
+        fields:
+        - name: eingang_quittieren
+          type: str
+          choices:
+          - label:
+              de: Eingang quittieren
+              fr: Acquitter l'entrée
+              it: Conferma di ricezione
+            value: ja
+      links:
+      - task_ref: vollstaendig
+        condition: form.eingang_quittieren.eingang_quittieren == `ja`
+      start_task: true
+    vollstaendig:
+      key: f8a59031-4e79-41a1-a4e3-72d7566e97c2
+      time_period: 7
+      title:
+        de: Baugesuch vollständig?
+        fr: Demande de permis de construire complète ?
+        it: La domanda di costruzione è completa?
+      steps:
+      - key: 5ccea8cf-71af-4ddc-a498-a8352363b5e2
+        time_period: 7
+        title:
+          de: Baugesuch vollständig?
+          fr: Demande de permis de construire complète ?
+          it: La domanda di costruzione è completa?
+        type: form
+        name: baugesuch_status
+        fields:
+        - name: baugesuch_vollstaendig
+          type: str
+          choices:
+          - label:
+              de: Vollständig
+              fr: Complètement
+              it: Completo
+            value: ja
+          - label:
+              de: Nachfordern
+              fr: Demande ultérieure
+              it: Richiesta successiva
+            value: nein
+      links:
+      - task_ref: stellungnahme
+        condition: form.baugesuch_status.baugesuch_vollstaendig == `ja`
+      - task_ref: nachfordern
+        condition: form.baugesuch_status.baugesuch_vollstaendig == `nein`
+    stellungnahme:
+      key: 39ae8473-d850-4693-8d94-df8b2e45bd96
+      time_period: 7
+      title:
+        de: Stellungnahme zum Baugesuch
+        fr: Avis sur la demande de permis de construire
+        it: Dichiarazione sulla domanda di pianificazione
+      steps:
+      - key: f6bef49c-441a-4439-b11f-c4d7b437a436
+        time_period: 7
+        title:
+          de: Stellungnahme zum Baugesuch
+          fr: Avis sur la demande de permis de construire
+          it: Dichiarazione sulla domanda di pianificazione
+        type: document
+        optional: true
+      links:
+      - task_ref: END
+    nachfordern:
+      key: 51cd2d70-eb45-4bcc-80d1-c92e8611e839
+      time_period: 7
+      title:
+        de: Nachforderung zum Baugesuch
+        fr: Demande complémentaire à la demande de permis de construire
+        it: Richiesta complementare alla domanda di pianificazione
+      steps:
+      - key: 06890687-4653-4f00-80d2-197b0ed21e6a
+        time_period: 7
+        title:
+          de: Stellungnahme zum Baugesuch
+          fr: Avis sur la demande de permis de construire
+          it: Dichiarazione sulla domanda di pianificazione
+        type: document
+        optional: true
+      links:
+      - task_ref: vollstaendig
+    END:
+      key: 57830fc4-e0e0-4c79-9d24-c249b60bd18b
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

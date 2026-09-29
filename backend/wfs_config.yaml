@@ -1,0 +1,80 @@
+ort_plz:
+  url: "https://units.geops.io/?map=units"
+  is_cache: True
+  is_proxy: False
+  layers:
+    - ms:ch_plz_ortschaft
+  field_mappings:
+    - wfs: plz
+      cache_table: postleitzahl
+    - wfs: name
+      cache_table: ort
+
+gemeinde:
+  url: "https://units.geops.io/?map=units"
+  is_cache: True
+  is_proxy: False
+  layers: 
+    - ms:ch_gemeinde
+  field_mappings:
+    - wfs: bfs_nummer
+      cache_table: h_gem_id
+    - wfs: name
+      cache_table: gemeinde_name
+
+gws_bereich:
+  url: "https://geodienste.ch/db/planerischer_gewaesserschutz/deu?VERSION=2.0.0"
+  is_cache: True
+  is_proxy: False
+  layers:
+    - ms:gewaesserschutzbereich_ao
+    - ms:gewaesserschutzbereich_au
+    - ms:zustroembereich_zo
+    - ms:zustroembereich_zu
+  field_mappings:
+    - wfs: typ
+      cache_table: gws_bereich
+      code_mappings:
+        Ao: code:10017:Ao
+        Au: code:10017:Au
+        Zu: code:10017:Zust
+        Zo: code:10017:Zust
+
+gws_zone:
+  url: "https://geodienste.ch/db/planerischer_gewaesserschutz/deu?VERSION=2.0.0"
+  is_cache: True
+  is_proxy: False
+  layers:
+    - ms:grundwasserschutzzone_sh_in_kraft
+    - ms:grundwasserschutzzone_sm_in_kraft
+    - ms:grundwasserschutzzone_s1_in_kraft
+    - ms:grundwasserschutzzone_s2_in_kraft
+    - ms:grundwasserschutzzone_s3_in_kraft
+  field_mappings:
+    - wfs: typ
+      cache_table: gws_zone
+      code_mappings:
+        SA: code:10018:SA
+        Sh: code:10018:Sh
+        Sm: code:10018:Sm
+        S1: code:10018:S1
+        S2: code:10018:S2
+        S3: code:10018:S3
+
+parzelle:
+  url: "https://geodienste.ch/db/av_0?"
+  is_cache: True
+  is_proxy: False
+  layers: 
+    - ms:RESF
+  field_mappings:
+    - wfs: BFSNr
+      cache_table: bfs_nummer
+    - wfs: NBIdent
+      cache_table: h_nb_id
+    - wfs: EGRIS_EGRID
+      cache_table: egrid
+    - wfs: Nummer
+      cache_table: gb_nummer
+    - wfs: BFSNr
+      cache_table: h_gem_id

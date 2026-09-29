@@ -1,0 +1,74 @@
+MAP
+    NAME "Flugplatz Map"
+    STATUS ON
+    SIZE 800 600
+    EXTENT 2485000 1070000 2834000 1296000
+    UNITS METERS
+    IMAGECOLOR 255 255 255
+    IMAGETYPE PNG
+    SIZE 2050 2050
+    MAXSIZE 4096
+
+    OUTPUTFORMAT
+      NAME png
+      DRIVER "AGG/PNG" # transparent PNGs require the AGG renderer
+      MIMETYPE "image/png" # on some systems (BS) mapserver can not correlate the format parameter to this specification. this fixes this issue
+      EXTENSION "png"
+      IMAGEMODE RGBA
+    END
+
+    PROJECTION
+        "init=epsg:2056"
+    END
+
+    WEB
+        METADATA
+            "wms_title" "KbS Intern WMS - Fluplatz"
+            "wms_onlineresource" "${MAPSERVER_URL}/?map=flugplatz&"
+            "wms_srs"            "EPSG:2056 "
+            "ows_enable_request" "*"
+            "ows_encoding"       "UTF-8"
+            "wfs_encoding"       "UTF-8"
+            "gml_encoding"       "UTF-8"
+            "wms_feature_info_mime_type" "application/json"
+            "wms_exceptions_format" "application/vnd.ogc.se_xml"
+            "wms_abstract"       "zivile Flugplaetze" 
+        END
+    END
+
+    LAYER
+        NAME "flugplaetze"
+        TYPE POLYGON
+        STATUS ON
+        CONNECTIONTYPE POSTGIS
+        CONNECTION "dbname='alma' host='db' port='5432' user='${MAPSERVER_POSTGRES_USER}' password='${MAPSERVER_POSTGRES_PASSWORD}'"
+        DATA "wkb_geometry FROM alma.flugplatz USING UNIQUE flugplatz_id USING SRID=2056"
+        
+        METADATA
+            'wms_title' 'Flugplaetze'
+        END
+
+        PROJECTION
+            "init=epsg:2056"
+        END
+
+        CLASS
+            NAME "Default"
+            STYLE
+                OUTLINECOLOR 255 0 0
+                OPACITY 50
+                WIDTH 4
+            END
+        END
+    END
+
+    OUTPUTFORMAT
+        NAME "AGGPNG"
+        DRIVER "AGG/PNG"
+        MIMETYPE "image/png"
+        IMAGEMODE RGB
+        EXTENSION "png"
+        FORMATOPTION "INTERLACE=OFF"
+    END
+
+END

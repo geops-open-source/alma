@@ -1,0 +1,55 @@
+workflow:
+  key: 750fb1fb-ad3b-4b9f-ac16-f5b1916eae1a
+  title: 
+    de: Standortänderungen publizieren
+    fr: Publier les modifications du site
+    it: Pubblicare le modifiche della posizione
+  version: 1
+  time_period: 7
+  start_task_ref: standort_publizieren
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    standort_publizieren:
+      key: a583ae34-e0f2-4641-b3b0-957155df6646
+      time_period: 7
+      title: 
+        de: Standortänderungen im KbS publizieren
+        fr: Publier les modifications du site dans le OEC
+        it: Pubblicare le modifiche della posizione in OrgVC
+      steps:
+      - key: 9ff1b3b2-3b08-4692-861a-d23a4259eae0
+        time_period: 7
+        title: 
+          de: Standort Informationen
+          fr: Informations sur le site
+          it: Informazioni sulla posizione
+        type: form
+        optional: true
+        name: standort_infos
+        fields:
+        - name: beurteilung
+          type: bool
+          label: 
+            de: Beurteilung geprüft
+            fr: Évaluation vérifiée
+            it: Valutazione verificata
+        - name: Eintrag im Kataster
+          type: bool
+          label:
+            de: Ja, Publikation der Änderungen im Kataster. 
+            fr: Oui, inscription dans le cadastre
+            it: Sì, pubblicazione delle modifiche nel catasto
+      links:
+      - task_ref: END
+      triggers:
+      - type: Publizieren
+        value: wf:750fb1fb-ad3b-4b9f-ac16-f5b1916eae1a:task:standort_publizieren:title
+      - type: StandortHistorisieren
+        value: wf:750fb1fb-ad3b-4b9f-ac16-f5b1916eae1a:task:standort_publizieren:title
+    END:
+      key: 1357fc3a-626a-4a5d-8a14-2dc6b9606260
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []

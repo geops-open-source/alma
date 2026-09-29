@@ -1,0 +1,129 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2", "wheel"]
+
+[project]
+name = "alma-backend"
+dynamic = ["version"]
+requires-python = ">=3.11"
+dependencies = [
+    "anyio",
+    "authlib>=1.6.3",
+    "click",
+    "httpx2", # for authlib oauth client unsed in starlette integration
+    "starlette",
+    "itsdangerous", # for starlette sessions
+    "pydantic-settings",
+    "gunicorn",
+    "sentry_sdk[fastapi]",
+    "psycopg2-binary",
+    "fastapi[standard]",
+    "strawberry-graphql[cli,fastapi]",
+    "sqlalchemy~=2.0",
+    "geoalchemy2",
+    "shapely",
+    "owslib",
+    "fiona",
+    "jinja2",
+    "boto",
+    # 70.0 reverted commit 150dec6 (Kozea/WeasyPrint#2843), which re-introduced the
+    # FontConfiguration memory leak of Kozea/WeasyPrint#2319: every write_pdf() builds a
+    # new FontConfiguration and leaks ~254kB (scales with the number of installed fonts).
+    "weasyprint>=69,<70",
+    "pyyaml",
+    "psycopg", # only used in scripts/import_processmaker_forms.py
+    "phpserialize", # only used in scripts/import_processmaker_forms.py
+    "procrastinate~=3.0.2",  # pin this, to avoid applying new migrations (TBD: Update to latest version)
+    "jmespath",
+    "preview-generator",
+    "openpyxl",
+    "jsonschema",
+    "business-workflow-manager",
+    "pandas",
+    "pydantic[email]"
+]
+
+[dependency-groups]
+dev = [
+    "coverage",
+    "pytest",
+    "pytest-asyncio",
+    "pre-commit",
+    "pip-tools",
+    "pyright<=1.1.368",  # during a major dependency update, pyright was updated as well. There were major changes in the type checker.
+    "freezegun",
+    "httpx2-pytest",
+]
+
+[project.scripts]
+alma = "alma.cli.__main__:main"
+alma-scheduler = "alma.scheduler:main"
+interlis-export = "alma.tools.interlis_export:main"
+
+[tool.setuptools.packages.find]
+include = ["alma*"]
+
+[tool.setuptools_scm]
+root = ".."
+fallback_version = "0.0"
+
+[tool.uv]
+no-binary-package = ["fiona","cronsim","phpserialize","preview-generator","pyexifinfo"]
+
+
+[tool.ruff.lint]
+select = [
+    "F",      # pyflakes
+    "E",      # pycodestyle
+    "W",      # pycodestyle
+    "UP",     # pyupgrade
+    "C901",   # mccape
+    "YTT",    # no sys.version tuple comperisons
+    "ASYNC",  # no obviously blocking io in corotine
+    "G",      #  flake8-logging-format
+    "PIE",    # unnecessary statements
+    "SLOT",   # str, tuple, namedtuple subclasses need __slots__
+    "FIX003", # XXX
+    "SIM",    # flake8-simplify
+    "I",      # isort
+    "T100",   # breakpoints
+]
+ignore = [
+    "E501", # line to long, handled by black
+    "C901", # too many if statements, omit this, since we will have lots of if statement in update mutations
+    "E731", # Allow using lambda expressions
+    "UP031",  # Allow using percent-formatting
+]
+
+
+[tool.ruff.lint.isort]
+known-first-party = ["alma"]
+section-order = ["future", "standard-library", "third-party", "first-party", "local-folder"]
+
+[tool.ruff.lint.per-file-ignores]
+"alma/__init__.py" = ["I001"]
+
+[tool.pyright]
+reportMissingTypeStubs = false
+reportUnnecessaryTypeIgnoreComment = true
+include = ["alma", "tests"]
+exclude = ["alma/tools/interlis_export.py"]
+strict = ["alma/**"]
+venvPath = "."
+venv = "venv"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests/"]
+addopts = ["--strict-markers"]
+markers = [
+    "run_as_admin",
+    "run_as_lesen_sachdaten",
+    "run_as_bearbeiten_sachdaten",
+    "run_as_lesen_geschaefte",
+    "run_as_bearbeiten_geschaefte",
+]
+verbosity_assertions = 2
+
+[tool.coverage.run]
+branch = true
+source = ["alma"]

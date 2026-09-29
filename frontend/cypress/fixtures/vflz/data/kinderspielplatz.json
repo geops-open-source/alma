@@ -1,0 +1,69 @@
+{
+  "bemerkungDatenimport": {
+    "bem": "Test Bemerkung Datenimport für Kinderspielplatz"
+  },
+  "bemerkungStandort": { "bem": "Test Bemerkung für Kinderspielplatz" },
+  "bemerkungUmwelt": null,
+  "bezeichnung": "Kinderspielplatz",
+  "flugplatz": null,
+  "flurname": "KinderspielplatzFlurname",
+  "ktu": null,
+  "lang": "FR",
+  "ort": "KinderspielplatzOrt",
+  "postleitzahl": "2345",
+  "strasse": "KinderspielplatzStrasse 123",
+  "inBetrieb": null,
+  "nachsorge": null,
+  "deponietyp": null,
+  "gwsBereich": null,
+  "gwsZone": null,
+  "durchlaessigkeit": null,
+  "karstgeb": null,
+  "ablagerungen": [],
+  "betriebe": [],
+  "kinderspielplaetzeGruenflaechen": [
+    {
+      "intkId": "1",
+      "altersstufenKinder": ["code:402:01"],
+      "belastungUeberSanierungswert": true,
+      "begruendungBewertung": {
+        "bem": "Test Begründung Bewertung Kinderspielplatz"
+      },
+      "bemerkung": { "bem": "Test Bemerkung für Kinderspielplatz" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung Datenimport für Kinderspielplatz"
+      },
+      "beurteilung": "code:103:BAV81",
+      "eigentumsform": null,
+      "eva": "1234",
+      "name": "TestSpielplatz",
+      "ort": "TestOrt",
+      "plz": "1234",
+      "strasse": "TestStrasse 123",
+      "kinderspielplatzGruenflacheTyp": null,
+      "relevant": true,
+      "untersuchungsStand": "code:10023:05",
+      "zeitraum": {
+        "von": "2010-01-01",
+        "vonjahr": true,
+        "bis": "2013-12-11",
+        "bisjahr": false,
+        "bisheute": false,
+        "genauigkeitVon": "code:90:02",
+        "genauigkeitBis": "code:90:01"
+      },
+      "zentroid": { "type": "Point", "coordinates": [2606757, 1228616] }
+    }
+  ],
+  "pfas": [],
+  "einzelereignisse": [],
+  "gemeinde": { "hGemId": "1" },
+  "grundwasser": [],
+  "nutzungenBoden": [],
+  "oberflaechenGewaesser": [],
+  "schiessanlagen": [],
+  "umweltschaeden": [],
+  "umweltStoffe": [],
+  "unfaelle": [],
+  "vflzId": "5"
+}

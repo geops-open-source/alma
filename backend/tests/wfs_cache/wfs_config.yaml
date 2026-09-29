@@ -1,0 +1,38 @@
+ort_plz:
+  url: "https://units.geops.io/?map=units"
+  is_cache: True
+  is_proxy: False
+  layers:
+    - ms:ch_plz_ortschaft
+  field_mappings:
+    - wfs: plz
+      cache_table: postleitzahl
+    - wfs: name
+      cache_table: ort
+gemeinde:
+  url: "https://units.geops.io/?map=units"
+  is_cache: True
+  is_proxy: True
+  layers: 
+    - ms:ch_gemeinde
+  field_mappings:
+    - wfs: bfs_nummer
+      cache_table: h_gem_id
+    - wfs: name
+      cache_table: gemeinde_name
+
+parzelle:
+  url: "https://geodienste.ch/db/av_0?"
+  is_cache: True
+  is_proxy: False
+  layers: 
+    - ms:RESF
+  field_mappings:
+    - wfs: BFSNr
+      cache_table: bfs_nummer
+    - wfs: NBIdent
+      cache_table: h_nb_id
+    - wfs: EGRIS_EGRID
+      cache_table: egrid
+    - wfs: Nummer
+      cache_table: gb_nummer

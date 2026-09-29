@@ -1,0 +1,200 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug öffentliche Standortsdaten</title>
+    <meta name="description" content="Standardreportauszug - öffentliche Standortsdaten" />
+</head>
+
+<body>
+    <section id="oeffentliche_daten">
+        <h3>{{ translations['report.standortsdaten.zeitraum.h3'] }}</h3>
+        <table id="Zeitraum">
+            <tbody>
+                <tr>
+                    {% if grunddaten[0].c_vflz_vftyp == "01" %}
+                        <th>{{ translations['report.standortsdaten.zeitraum.ablagerung'] }}</th>
+                        <td>{{ grunddaten[0].zeitraum }}</td>
+                    {% elif grunddaten[0].c_vflz_vftyp == "02" %}
+                        <th>{{ translations['report.standortsdaten.zeitraum.betrieb'] }}</th>
+                        <td>{{ grunddaten[0].zeitraum }}</td>
+                    {% elif grunddaten[0].c_vflz_vftyp == "03" %}
+                        <th>{{ translations['report.standortsdaten.zeitraum.unfall'] }}</th>
+                        <td>{{ grunddaten[0].zeitraum_von }}</td>
+                    {% elif grunddaten[0].c_vflz_vftyp == "04" %}
+                        <th>{{ translations['report.standortsdaten.zeitraum.betrieb'] }}</th>
+                        <td>{{ grunddaten[0].zeitraum }}</td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.standortsdaten.untersuchungen.h3'] }}</h3>
+        <table id="untersuchungen">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Vflz.untersuchungsStand'] }} {{ translations['report.kataster_auszug.gemaessAltlV'] }}</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ translations['fields.Vflz.untersuchungsStand'] }} {{ translations['report.kataster_auszug.gemaessAltlV'] }}</td>
+                    <td>{{ grunddaten[0].untersuchungsstand }}</td>
+                </tr>
+                <tr>
+                    <td>{{ translations['fields.Vflz.datRechtskraft'] }}</td>
+                    <td>{{ grunddaten[0].dat_rechtskraft }}</td>
+                </tr>
+                <tr>
+                    <td>{{ translations['report.standortsdaten.untersuchungen.letzteaenderung'] }}</td>
+                    <td>{{ grunddaten[0].dat_publizieren }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.standortsdaten.einwirkungen.h3'] }}</h3>
+        <table id="einwirkungen">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Umweltschaden.artSchaden'] }}</th>
+                    <th>{{ translations['fields.Umweltschaden.schaeden'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if vfus %}
+                    {% set seen = namespace(keys={}) %}
+                    {% for number in range(vfus|count) %}
+                        {% set key = vfus[number].vfus_art_schaden ~ vfus[number].vfus_schaeden %}
+                        {% if key not in seen.keys %}
+                            {% set _ = seen.keys.update({key: true}) %}
+                            <tr>
+                                <td>{{ vfus[number].vfus_art_schaden }}</td>
+                                <td>{{ vfus[number].vfus_schaeden }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.standortsdaten.gefaehrdungen.h3'] }}</h3>
+        <table id="gefährdungen">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Umweltschaden.artSchaden'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if vfus %}
+                    {% set seen = namespace(keys={}) %}
+                    {% for number in range(vfus|count) %}
+                        {% set key = vfus[number].vfus_art_schaden %}
+                        {% if key not in seen.keys %}
+                            {% set _ = seen.keys.update({key: true}) %}
+                            <tr>
+                                <td>{{ vfus[number].vfus_art_schaden }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>-</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.standortsdaten.vorkommnisse.h3'] }}</h3>
+        <table id="vorkommnisse">
+            <thead>
+                <tr>
+                    <th>{{ translations['fields.Einzelereignis.datum'] }}</th>
+                    <th>{{ translations['fields.Einzelereignis.einzelereignis'] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if veen %}
+                    {% set seen = namespace(keys={}) %}
+                    {% for number in range(veen|count) %}
+                        {% set key = veen[number].veen_datum ~ veen[number].veen_natuerlich %}
+                        {% if key not in seen.keys %}
+                            {% set _ = seen.keys.update({key: true}) %}
+                            <tr>
+                                <td>{{ veen[number].veen_datum }}</td>
+                                <td>{{ veen[number].veen_natuerlich }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+
+        <h3>{{ translations['report.standortsdaten.beurteilung.h3'] }}</h3>
+        <table id="beurteilung">
+            <tbody>
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.beurteilung'] }}</th>
+                    <td>
+                        {% if grunddaten[0].beurteilung.startswith('code:') %}
+                            <!-- leer lassen -->
+                        {% else %}
+                            {{ grunddaten[0].beurteilung }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.prioUntersuch'] }}</th>
+                    <td>
+                        {% if grunddaten[0].prio_untersuch.startswith('code:') %}
+                            <!-- leer lassen -->
+                        {% else %}
+                            {{ grunddaten[0].prio_untersuch }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.prioSanier'] }}</th>
+                    <td>
+                        {% if grunddaten[0].prio_sanier.startswith('code:') %}
+                            <!-- leer lassen -->
+                        {% else %}
+                            {{ grunddaten[0].prio_sanier }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.rechtlicherBezug'] }}</th>
+                    <td>
+                        {% if grunddaten[0].rechtlicher_bezug.startswith('code:') %}
+                            <!-- leer lassen -->
+                        {% else %}
+                            {{ grunddaten[0].rechtlicher_bezug }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{ translations['fields.Beurteilung.handlungsbedarf'] }}</th>
+                    <td>
+                        {% if grunddaten[0].handlungsbedarf.startswith('code:') %}
+                            <!-- leer lassen -->
+                        {% else %}
+                            {{ grunddaten[0].handlungsbedarf }}
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+#!/bin/bash -e
+
+# check if all required variables are set
+if [ -z "$MAPSERVER_POSTGRES_USER" ]; then
+  echo "MAPSERVER_POSTGRES_USER is not set. Exiting."
+  exit 1
+fi
+if [ -z "$MAPSERVER_POSTGRES_PASSWORD" ]; then
+  echo "MAPSERVER_POSTGRES_PASSWORD is not set. Exiting."
+  exit 1
+fi
+if [ -z "$MAPSERVER_URL" ]; then
+  echo "MAPSERVER_URL is not set. Exiting."
+  exit 1
+fi
+
+# Replace variables in mapserver configuration files
+find /etc/mapserver -type f -exec sed -i "s|\${MAPSERVER_POSTGRES_USER}|$MAPSERVER_POSTGRES_USER|g" {} +
+find /etc/mapserver -type f -exec sed -i "s|\${MAPSERVER_POSTGRES_PASSWORD}|$MAPSERVER_POSTGRES_PASSWORD|g" {} +
+find /etc/mapserver -type f -exec sed -i "s|\${MAPSERVER_URL}|$MAPSERVER_URL|g" {} +
+
+
+
+# save the environment to be able to restore it in the FCGI daemon (used
+# in /usr/local/bin/qgis_mapsev_wrapper) for the startup code.
+${GET_ENV} | sed -e 's/^\([^=]*\)=.*/PassEnv \1/' > /tmp/pass-env
+
+# Save the environment to be able to restore it in the FCGI daemon (used in /usr/local/bin/mapserv_wrapper)
+${GET_ENV} | sed -e 's/.\+/export "\0"/' > /tmp/init_env
+
+trap '' WINCH
+
+rm -f "${APACHE_PID_FILE}"
+
+exec apache2 -DFOREGROUND

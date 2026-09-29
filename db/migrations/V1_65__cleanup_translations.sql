@@ -1,0 +1,1 @@
+DELETE FROM "alma"."translations" WHERE "msgid" LIKE 'fields.CodeListEntry.bezeichnung.%';

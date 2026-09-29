@@ -1,0 +1,123 @@
+{
+  "bemerkungDatenimport": { "bem": "Test Bemerkung für Datenimport" },
+  "bemerkungStandort": { "bem": "Test Bemerkung für Ablagerungsstandort" },
+  "bezeichnung": "Ablagerungsstandort",
+  "flugplatz": "code:600:DXB",
+  "flurname": "AblagerungFlurname",
+  "gemeinde": {
+    "hGemId": "1"
+  },
+  "ktu": "code:210:BLS",
+  "lang": "DE",
+  "ort": "AblagerungOrt",
+  "postleitzahl": "1234",
+  "strasse": "AblagerungStrasse 123",
+  "inBetrieb": true,
+  "nachsorge": false,
+  "deponietyp": "code:12001:DepTypB",
+  "ablagerungen": [
+    {
+      "intaId": "1",
+      "tiefe": "102",
+      "volKompartiment": 101,
+      "bemerkung": { "bem": "Test Bemerkung für Ablagerung" },
+      "bemerkungDatenimport": {
+        "bem": "Test Bemerkung für Ablagerung Datenimport"
+      },
+      "kompartimentStoffklassen": [
+        {
+          "kkskId": "1",
+          "stoffklasse": "code:94:02",
+          "teilvol": 201,
+          "kompartimentStoffgruppen": [
+            {
+              "kksgId": "1",
+              "stoffgruppe": "code:115:01",
+              "teilvol": 301
+            }
+          ],
+          "zeitraum": {
+            "von": "1980-08-01",
+            "vonjahr": false,
+            "bis": "2010-02-01",
+            "bisjahr": false,
+            "bisheute": false,
+            "genauigkeitVon": "code:90:02",
+            "genauigkeitBis": "code:90:01"
+          }
+        }
+      ],
+      "zeitraum": {
+        "von": "1980-08-01",
+        "vonjahr": false,
+        "bis": "2010-02-01",
+        "bisjahr": false,
+        "bisheute": false
+      }
+    }
+  ],
+  "betriebe": [],
+  "schiessanlagen": [],
+  "bemerkungUmwelt": {
+    "bem": "Test Bemerkung für Umwelt von Ablagerungsstandort"
+  },
+  "durchlaessigkeit": "code:58:01",
+  "gwsBereich": "code:10017:A",
+  "gwsZone": "code:10018:S1",
+  "karstgeb": "code:80:01",
+  "grundwasser": [
+    {
+      "gwasId": "1",
+      "relativeLage": "code:71:01",
+      "flurabstand": 10,
+      "nutzung": "code:88:01",
+      "distanz": 10
+    }
+  ],
+  "kinderspielplaetzeGruenflaechen": [],
+  "pfas": [],
+  "oberflaechenGewaesser": [
+    {
+      "ogwId": "1",
+      "artGewaesser": "code:66:05",
+      "bauGewaesser": "code:67:04",
+      "relativeLage": "code:70:04",
+      "distanz": 10,
+      "name": "TestName"
+    }
+  ],
+  "unfaelle": [],
+  "umweltStoffe": [
+    {
+      "stoffeId": "1",
+      "beurteilung": "code:330:01",
+      "gefaehrdeteBereiche": "code:299:01",
+      "stoff": "code:301:01",
+      "stoffGruppe": "code:300:01"
+    }
+  ],
+  "nutzungenBoden": [
+    {
+      "nuboId": "1",
+      "nutzungsart": "code:87:01",
+      "aktuelleNutzung": "code:104:01"
+    }
+  ],
+  "umweltschaeden": [
+    {
+      "vfusId": "1",
+      "artSchaden": "code:101:02",
+      "schaeden": "code:102:BAVUSW01",
+      "bemerkung": { "bem": "Test Bemerkung Umweltschaden" }
+    }
+  ],
+  "einzelereignisse": [
+    {
+      "veenId": "1",
+      "einzelereignis": "code:61:01",
+      "datum": "2020-02-03",
+      "bemerkung": { "bem": "Test Bemerkung Einzelereignis" }
+    }
+  ],
+  "vflzId": "1"
+}

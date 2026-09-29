@@ -1,0 +1,422 @@
+{
+  "bbox": [2604138.7690000013, 1187428.875, 2604138.7690000013, 1187428.875],
+  "features": [
+    {
+      "bbox": [
+        2604138.7690000013, 1187428.875, 2604138.7690000013, 1187428.875
+      ],
+      "geometry": {
+        "coordinates": [1187428.875, 2604138.75],
+        "type": "Point"
+      },
+      "id": 989483,
+      "properties": {
+        "detail": "bern-thunstrasse 2a 3126 kaufdorf 869 kaufdorf ch be",
+        "featureId": "504025667_0",
+        "geom_quadindex": "021302210001121032023",
+        "geom_st_box2d": "BOX(2604138.7690000013 1187428.875,2604138.7690000013 1187428.875)",
+        "id": 989483,
+        "label": "Bern-Thunstrasse 2a <b>3126 Kaufdorf</b>",
+        "lat": 46.837989807128906,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102854094",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/504025667_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.492887496948242,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1187428.875,
+        "y": 2604138.75,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612909.971000001, 1219349.438000001, 2612909.971000001,
+        1219349.438000001
+      ],
+      "geometry": {
+        "coordinates": [1219349.5, 2612910],
+        "type": "Point"
+      },
+      "id": 1030898,
+      "properties": {
+        "detail": "bern-zuerichstrasse 2a 3425 koppigen 413 koppigen ch be",
+        "featureId": "502063903_0",
+        "geom_quadindex": "021122132111000323001",
+        "geom_st_box2d": "BOX(2612909.971000001 1219349.438000001,2612909.971000001 1219349.438000001)",
+        "id": 1030898,
+        "label": "Bern-Zürichstrasse 2a <b>3425 Koppigen</b>",
+        "lat": 47.12500762939453,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102838725",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/502063903_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.608767509460449,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219349.5,
+        "y": 2612910,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2604199.0089999996, 1187856.1000000015, 2604199.0089999996,
+        1187856.1000000015
+      ],
+      "geometry": {
+        "coordinates": [1187856.125, 2604199],
+        "type": "Point"
+      },
+      "id": 1048425,
+      "properties": {
+        "detail": "bern-thunstrasse 2b 3126 kaufdorf 869 kaufdorf ch be",
+        "featureId": "504025666_0",
+        "geom_quadindex": "021302032221133230302",
+        "geom_st_box2d": "BOX(2604199.0089999996 1187856.1000000015,2604199.0089999996 1187856.1000000015)",
+        "id": 1048425,
+        "label": "Bern-Thunstrasse 2b <b>3126 Kaufdorf</b>",
+        "lat": 46.84183120727539,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102854097",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/504025666_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.493680953979492,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1187856.125,
+        "y": 2604199,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612943.0040000007, 1219341.7789999992, 2612943.0040000007,
+        1219341.7789999992
+      ],
+      "geometry": {
+        "coordinates": [1219341.75, 2612943],
+        "type": "Point"
+      },
+      "id": 1391944,
+      "properties": {
+        "detail": "bern-zuerichstrasse 2d 3425 koppigen 413 koppigen ch be",
+        "featureId": "502063520_0",
+        "geom_quadindex": "021122132111003112003",
+        "geom_st_box2d": "BOX(2612943.0040000007 1219341.7789999992,2612943.0040000007 1219341.7789999992)",
+        "id": 1391944,
+        "label": "Bern-Zürichstrasse 2d <b>3425 Koppigen</b>",
+        "lat": 47.12493896484375,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102838821",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/502063520_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.609202861785889,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219341.75,
+        "y": 2612943,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612928.219999999, 1219356.6739999987, 2612928.219999999,
+        1219356.6739999987
+      ],
+      "geometry": {
+        "coordinates": [1219356.625, 2612928.25],
+        "type": "Point"
+      },
+      "id": 1633701,
+      "properties": {
+        "detail": "bern-zuerichstrasse 2b 3425 koppigen 413 koppigen ch be",
+        "featureId": "190188415_0",
+        "geom_quadindex": "021122132111001212001",
+        "geom_st_box2d": "BOX(2612928.219999999 1219356.6739999987,2612928.219999999 1219356.6739999987)",
+        "id": 1633701,
+        "label": "Bern-Zürichstrasse 2b <b>3425 Koppigen</b>",
+        "lat": 47.12507247924805,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/101598614",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/190188415_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.609008312225342,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219356.625,
+        "y": 2612928.25,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612901.0890000015, 1219359.811999999, 2612901.0890000015,
+        1219359.811999999
+      ],
+      "geometry": {
+        "coordinates": [1219359.75, 2612901],
+        "type": "Point"
+      },
+      "id": 1697263,
+      "properties": {
+        "detail": "bern-zuerichstrasse 2 3425 koppigen 413 koppigen ch be",
+        "featureId": "1312702_0",
+        "geom_quadindex": "021122132111000210112",
+        "geom_st_box2d": "BOX(2612901.0890000015 1219359.811999999,2612901.0890000015 1219359.811999999)",
+        "id": 1697263,
+        "label": "Bern-Zürichstrasse 2 <b>3425 Koppigen</b>",
+        "lat": 47.125099182128906,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/101958876",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/1312702_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.6086506843566895,
+        "num": 2,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219359.75,
+        "y": 2612901,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612964.278000001, 1219391.7969999984, 2612964.278000001,
+        1219391.7969999984
+      ],
+      "geometry": {
+        "coordinates": [1219391.75, 2612964.25],
+        "type": "Point"
+      },
+      "id": 813480,
+      "properties": {
+        "detail": "bern-zuerichstrasse 4 3425 koppigen 413 koppigen ch be",
+        "featureId": "191715515_0",
+        "geom_quadindex": "021122130333232122022",
+        "geom_st_box2d": "BOX(2612964.278000001 1219391.7969999984,2612964.278000001 1219391.7969999984)",
+        "id": 813480,
+        "label": "Bern-Zürichstrasse 4 <b>3425 Koppigen</b>",
+        "lat": 47.12538528442383,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102414160",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/191715515_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.609484672546387,
+        "num": 4,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219391.75,
+        "y": 2612964.25,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612970.642000001, 1219362.4340000004, 2612970.642000001,
+        1219362.4340000004
+      ],
+      "geometry": {
+        "coordinates": [1219362.375, 2612970.75],
+        "type": "Point"
+      },
+      "id": 1761514,
+      "properties": {
+        "detail": "bern-zuerichstrasse 4a 3425 koppigen 413 koppigen ch be",
+        "featureId": "191715531_0",
+        "geom_quadindex": "021122132111010123123",
+        "geom_st_box2d": "BOX(2612970.642000001 1219362.4340000004,2612970.642000001 1219362.4340000004)",
+        "id": 1761514,
+        "label": "Bern-Zürichstrasse 4a <b>3425 Koppigen</b>",
+        "lat": 47.1251220703125,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102414240",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/191715531_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.609567642211914,
+        "num": 4,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219362.375,
+        "y": 2612970.75,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [
+        2612994.664000001, 1219345.8669999987, 2612994.664000001,
+        1219345.8669999987
+      ],
+      "geometry": {
+        "coordinates": [1219345.875, 2612994.75],
+        "type": "Point"
+      },
+      "id": 3263336,
+      "properties": {
+        "detail": "bern-zuerichstrasse 4b 3425 koppigen 413 koppigen ch be",
+        "featureId": "192092020_0",
+        "geom_quadindex": "021122132111013100010",
+        "geom_st_box2d": "BOX(2612994.664000001 1219345.8669999987,2612994.664000001 1219345.8669999987)",
+        "id": 3263336,
+        "label": "Bern-Zürichstrasse 4b <b>3425 Koppigen</b>",
+        "lat": 47.12497329711914,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/103646200",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/192092020_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.609883785247803,
+        "num": 4,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219345.875,
+        "y": 2612994.75,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    },
+    {
+      "bbox": [2612950.833999999, 1219622.046, 2612950.833999999, 1219622.046],
+      "geometry": {
+        "coordinates": [1219622, 2612950.75],
+        "type": "Point"
+      },
+      "id": 1266862,
+      "properties": {
+        "detail": "bern-zuerichstrasse 5a 3425 koppigen 413 koppigen ch be",
+        "featureId": "502063885_0",
+        "geom_quadindex": "021122130331232200210",
+        "geom_st_box2d": "BOX(2612950.833999999 1219622.046,2612950.833999999 1219622.046)",
+        "id": 1266862,
+        "label": "Bern-Zürichstrasse 5a <b>3425 Koppigen</b>",
+        "lat": 47.12745666503906,
+        "links": [
+          {
+            "href": "/rest/services/ech/MapServer/ch.swisstopo.amtliches-gebaeudeadressverzeichnis/102838910",
+            "rel": "related",
+            "title": "ch.swisstopo.amtliches-gebaeudeadressverzeichnis"
+          },
+          {
+            "href": "/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/502063885_0",
+            "rel": "related",
+            "title": "ch.bfs.gebaeude_wohnungs_register"
+          }
+        ],
+        "lon": 7.60931396484375,
+        "num": 5,
+        "objectclass": "",
+        "origin": "address",
+        "rank": 7,
+        "weight": 1,
+        "x": 1219622,
+        "y": 2612950.75,
+        "zoomlevel": 10
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

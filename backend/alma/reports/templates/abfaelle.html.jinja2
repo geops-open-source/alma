@@ -1,0 +1,145 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Reportauszug öffentliche Standortsdaten - Abfälle</title>
+    <meta name="description" content="Standardreportauszug - öffentliche Standortsdaten Abfälle" />
+</head>
+
+<body>
+    <section id="oeffentliche_daten_abfaelle">
+        {% if grunddaten[0].c_vflz_vftyp == "01" %}
+            <h3>{{ translations['report.abfaelle.h3'] }}</h3>
+            {% set seen_ablagerung = namespace(ids={}) %}
+            {% for number in range(inta|count) %}
+                {% if inta[number].inta_id not in seen_ablagerung.ids %}
+                    {% set _ = seen_ablagerung.ids.update({inta[number].inta_id: true}) %}
+                    
+                    <h4>{{ translations['vflz.data.ablagerungen'] }}</h4>
+                    <table id="ablagerung">
+                        <tbody>
+                            <tr>
+                                <th>{{ translations['fields.Ablagerung.volKompartiment'] }}</th>
+                                {% if inta[number].inta_vol_kompartiment %}
+                                    <td>{{ "{:,.0f}".format(inta[number].inta_vol_kompartiment) | replace(",", "'") }} m&sup3;</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %}
+                            </tr>
+                            <tr>
+                                <th>{{ translations['report.abfaelle.ablagerung.zeitraum'] }}</th>
+                                <td>{{ inta[number].ablag_zeitraum }}</td>
+                            </tr>
+                            <tr><td></td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>{{ translations['report.abfaelle.ablagerung.inhalt'] }}</h4>
+                    <table id="ablagerung_stoffklasse">
+                        <thead>
+                            <tr>
+                                <th>{{ translations['fields.KompartimentStoffklasse.stoffklasse'] }}</th>
+                                <th>{{ translations['fields.KompartimentStoffklasse.teilvol'] }}</th>
+                                <th>{{ translations['zeitraum.von'] }}</th>
+                                <th>{{ translations['zeitraum.bis'] }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set seen = namespace(rows={}) %}
+                            {% if kksk %}
+                                {% for kksk_number in range(kksk|count) %}
+                                    {% if inta[number].inta_id == kksk[kksk_number].kksk_inta_id %}
+                                        {% set key = kksk[kksk_number].stoffklasse ~ kksk[kksk_number].kksk_teilvol ~ kksk[kksk_number].kksk_von ~ kksk[kksk_number].kksk_bis %}
+                                        {% if key not in seen.rows %}
+                                            {% set _ = seen.rows.update({key: true}) %}
+                                            <tr>
+                                                <td>{{ kksk[kksk_number].stoffklasse }}</td>
+                                                <td>{{ kksk[kksk_number].kksk_teilvol }} m&sup3;</td>
+                                                <td>{{ kksk[kksk_number].kksk_von }}</td>
+                                                <td>{{ kksk[kksk_number].kksk_bis }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}   
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if grunddaten[0].c_vflz_vftyp == "02" %}
+            <h3>{{ translations['report.abfaelle.h3'] }}</h3>
+            <table id="betriebe">
+                <tbody>
+                    {% set seen_map = namespace(names={}) %}
+                    {% for eintrag in intb %}
+                        {% if eintrag.intb_firma_name not in seen_map.names %}
+                            {% set _ = seen_map.names.update({eintrag.intb_firma_name: true}) %}
+                            <tr>
+                                <th>{{ translations['vflz.data.betriebe'] }}</th>
+                                <td>{{ eintrag.intb_firma_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ translations['fields.Betrieb.brancheAsw'] }}</th>
+                                <td>{{ eintrag.intb_bran_bezeichnung }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ translations['vflz.data.betriebe'] }} {{ translations['zeitraum.von'] }} / {{ translations['zeitraum.bis'] }}</th>
+                                <td>{{ eintrag.betrieb_zeitraum }}</td>
+                            </tr>
+                            <tr><td></td></tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% if grunddaten[0].c_vflz_vftyp == "03" %}
+            <h3>{{ translations['report.abfaelle.h3'] }}</h3>
+            {% set seen_unfall = namespace(ids={}) %}
+            {% for number in range(intu|count) %}
+                {% if intu[number].intu_id not in seen_unfall.ids %}
+                    {% set _ = seen_unfall.ids.update({intu[number].intu_id: true}) %}
+                    
+                    <h4>{{ translations['report.abfaelle.unfall'] }}: {{ intu[number].intu_name }}</h4>
+                    <table id="unfall_stoffe">
+                        <thead>
+                            <tr>
+                                <th>{{ translations['fields.Unfallstoff.stoff'] }}</th>
+                                <th>{{ translations['fields.Unfallstoff.ausgelaufen'] }}</th>
+                                <th>{{ translations['fields.Unfallstoff.zurueckgewonnen'] }}</th>
+                                <th>{{ translations['fields.Unfallstoff.stoffmng'] }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set seen = namespace(keys={}) %}
+                            {% for inum_number in range(inum|count) %}
+                                {% if intu[number].intu_id == inum[inum_number].inum_intu_id %}
+                                    {% set key = inum[inum_number].intu_stoffe ~ inum[inum_number].inum_intu_id %}
+                                    {% if key not in seen.keys %}
+                                        {% set _ = seen.keys.update({key: true}) %}
+                                        <tr>
+                                            <td>{{ inum[inum_number].intu_stoffe }}</td>
+                                            <td>{{ inum[inum_number].inum_ausgelaufen }} l</td>
+                                            <td>{{ inum[inum_number].inum_zurueckgewonnen }} l</td>
+                                            <td>{{ inum[inum_number].inum_stoffmng }} l</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </section>
+</body>
+</html>

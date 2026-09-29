@@ -1,0 +1,18 @@
+digraph {
+  graph [label=< <B>Demande de permis de construire</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> eingang
+  eingang [label=< {<B>Demande de permis de construire reçue</B>|[F] Accuser réception de la demande de permis de construire} >]
+  vollstaendig [label=< {<B>Demande de permis de construire complète ?</B>|[F] Demande de permis de construire complète ?} >]
+  stellungnahme [label=< {<B>Avis sur la demande de permis de construire</B>|[D] Avis sur la demande de permis de construire} >]
+  nachfordern [label=< {<B>Demande complémentaire à la demande de permis de construire</B>|[D] Avis sur la demande de permis de construire} >]
+  END [label=< {<B>__END__</B>} >]
+
+  eingang -> vollstaendig [label="form\n.eingang_quittieren\n.eingang_quittieren == `ja`" fontsize=10]
+  vollstaendig -> stellungnahme [label="form\n.baugesuch_status\n.baugesuch_vollstaendig == `ja`" fontsize=10]
+  vollstaendig -> nachfordern [label="form\n.baugesuch_status\n.baugesuch_vollstaendig == `nein`" fontsize=10]
+  stellungnahme -> END [label="" fontsize=10]
+  nachfordern -> vollstaendig [label="" fontsize=10]
+}

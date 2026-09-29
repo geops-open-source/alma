@@ -1,0 +1,79 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ translations['report.title.inhaberorientierung'] }}</title>
+    <meta name="description" content="Standardreport - Inhaberorientierung" />
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="alma_logo.png" alt="alma Logo" />
+        <p id="department">{{ translations['report.inhaberorientierung.department.1'] }}<br />
+            <strong>{{ translations['report.kataster_auszug.header.department.2'] }}</strong><br />
+            {{ translations['report.kataster_auszug.header.department.3'] }}<br />
+    </header>
+    
+    <!-- sets the footer content, is being displayed through CSS -->
+    <div class="no-print">
+        <h5>{{ translations['report.kataster_auszug.footer.1'] }}</h5>
+        {% set reportDate = query_params[0].date %}
+        <h6>{{ translations['report.inhaberorientierung.footer.2'] }}{{ reportDate.strftime("%d.%m.%Y") }}</h6>
+    </div>
+
+    <h1>{{ translations['report.kataster_auszug.h1.1'] }}<br />
+        {{ translations['report.inhaberorientierung.department.1'] }}</h1> 
+    <table id="allgemein">
+        <tr>
+            <th>{{ translations['fields.Vflz.standortNummer'] }}</th>
+            <td>{{ grunddaten[0].vflz_combined_id_kt }} {{ grunddaten[0].bezeichnung }}</td>
+        </tr>
+        <tr>
+            <th>{{ translations['fields.Vollzug.behoerde'] }}</th>
+            <td>{{ grunddaten[0].amt }}</td>
+        </tr>
+        <tr>
+            <th>{{ translations['report.inhaberorientierung.inhaberin'] }}</th>
+            <td>
+            {% for number in range(beteiligte|count) %}
+            {% if beteiligte[number].is_eigentuemer %}
+                {{ beteiligte[number].bet_name }}, {{ beteiligte[number].parzelle }} {{ beteiligte[number].gemeindename }}<br /> 
+            {% endif %}
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>{{ translations['fields.Beurteilung.beurteilung'] }}</th>
+            <td>{{ grunddaten[0].beurteilung }}</td>
+        </tr>
+    </table>
+    <h2>{{ translations['report.inhaberorientierung.table.header'] }}</h2>
+    <p>{{ translations['report.inhaberorientierung.table.info'] }}</p>
+    <table>
+        <tr>
+            <th>{{ translations['fields.Vollzug.combinedId'] }}</th>
+            <td>{{ grunddaten[0].vflz_combined_id_kt }}</td>
+        </tr>
+        <tr>
+            <th>{{ translations['fields.Vflz.bezeichnung'] }}</th>
+            <td>{{ grunddaten[0].bezeichnung }}</td>
+        </tr>
+        <tr>
+            <th>{{ translations['fields.Vflz.standortTyp'] }}</th>
+            <td>{{ grunddaten[0].standorttyp }}</td>
+        </tr>
+    </table>
+
+    {% include 'lage.html.jinja2' %}
+    {% include 'abfaelle.html.jinja2' %}
+    {% include 'oeffentliche_standortsdaten.html.jinja2' %}
+    {% include 'kartenauszug.html.jinja2' %}
+    {% include 'inhaberdaten.html.jinja2'%}
+    <section id="hinweis">
+        <h1>{{ translations['report.kataster_auszug.section.h1'] }}</h1> 
+        <p>{{ translations['report.kataster_auszug.section.text.1'] }}<br />
+                {{ translations['report.kataster_auszug.section.text.2'] }}<br />
+                {{ translations['report.kataster_auszug.section.text.3'] }}</u>
+    </section>
+</body>
+</html>

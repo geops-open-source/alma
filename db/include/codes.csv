@@ -1,0 +1,1432 @@
+c_cli_id;code;sort_key;bemerkungen;c_status;c_is_null_code;de;fr;it
+1031;sonstige;1;;t;f;Sonstige;;
+1031;01;2;;t;f;Unbelastet;;
+1031;02;3;;t;f;Beurteilung ausstehend / Information ungenügend;;
+1031;03;4;;t;f;Belastet - ohne Handlungsbedarf;;
+1031;04;5;;t;f;Belastet - mit Handlungsbedarf;;
+63;01;1;;t;f;Ablagerungsstandort;;
+63;02;2;;t;f;Betriebsstandort;;
+63;03;3;;t;f;Unfallstandort;;
+63;04;4;;t;f;Schiessanlagen;;
+63;05;5;;t;f;Kinderspielplatz/Grünfläche;;
+63;06;6;;t;f;PFAS-Feuerlösch-Standort;;
+15;BS;2;;t;f;BS;BS;BS
+15;BL;1;;t;f;BL;BL;BL
+15;ZH;3;;t;f;ZH;ZH;ZH
+78;01;1;;t;f;Ja;Oui;Sì
+78;02;2;;t;f;Nein;Non;No
+12001;DepTypB;1;;t;f;Deponietyp B;DepTypB;DepTypB
+12001;DepTypC;2;;t;f;Deponietyp C;DepTypC;DepTypC
+12001;DepTypD;3;;t;f;Deponietyp D;DepTypD;DepTypD
+12001;DepTypE;4;;t;f;Deponietyp E;DepTypE;DepTypE
+94;01;1;;t;f;Abgelagertes Material unbekannt;01;01
+94;02;2;;t;f;Leere Grube;02;02
+94;03;3;;t;f;Klasse I: ausschliesslich inertes Material (Aushub- und Ausbruchmaterial);03;03
+94;04;4;;t;f;Klasse II: weitgehend inertes Material (Bauschutt und inerte Industrieabfälle);04;04
+94;05;5;;t;f;Klasse III: reaktives Material (Siedlungsabfälle);05;05
+94;06;6;;t;f;Wasenplatz;06;06
+94;07;7;;t;f;Klasse IV: reaktives, stark schadstoffhaltiges Material (reaktiver Sondermüll);07;07
+115;01;1;;t;f;Stoffgruppe A1;01;01
+115;02;2;;t;f;Stoffgruppe B1;02;02
+115;03;3;;t;f;Stoffgruppe C;03;03
+115;04;4;;t;f;Stoffgruppe D;04;04
+25;0;0;;t;f;0 - LAND-, FORSTWIRTSCHAFT;0 - ;0 - 
+25;01;1;;t;f;01 - LANDWIRTSCHAFT;01 - ;01 - 
+25;1;1;;t;f;1 - ENERGIE-, WASSERVERSORGUNG,BERGBAU;1 - ;1 - 
+25;02;2;;t;f;02 - GARTENBAU;02 - ;02 - 
+25;2;2;;t;f;2 - VERARBEITENDE PRODUKTION;2 - ;2 - 
+25;03;3;;t;f;03 - FORSTWIRTSCHAFT;03 - ;03 - 
+25;3;3;;t;f;3 - VERARBEITENDE PRODUKTION;3 - ;3 - 
+25;04;4;;t;f;04 - FISCHEREI;04 - ;04 - 
+25;4;4;;t;f;4 - BAUGEWERBE;4 - ;4 - 
+25;5;5;;t;f;5 - HANDEL, GAST-, REPARATURGEWERBE;5 - ;5 - 
+25;6;6;;t;f;6 - VERKEHR, NACHRICHTENUEBERMITTLUNG;6 - ;6 - 
+25;7;7;;t;f;7 - BANKEN, VERSICHERUNG, BERATUNG;7 - ;7 - 
+25;8;8;;t;f;8 - SONSTIGE DIENSTLEISTUNGEN;8 - ;8 - 
+25;9;9;;t;f;9 - BRANCHENCODE KIGA FÜR VORLÄUFIG NICHT ZUORDBARE;9 - ;9 - 
+25;010;10;;t;f;010 - LANDWIRTSCHAFT;010 - ;010 - 
+25;11;11;;t;f;11 - ENERGIE- UND WASSERVERSORGUNG;11 - ;11 - 
+25;12;12;;t;f;12 - BERGBAU;12 - ;12 - 
+25;020;20;;t;f;020 - GARTENBAU;020 - ;020 - 
+25;21;21;;t;f;21 - NAHRUNGSMITTEL;21 - ;21 - 
+25;22;22;;t;f;22 - GETRAENKE;22 - ;22 - 
+25;23;23;;t;f;23 - TABAKWAREN;23 - ;23 - 
+25;24;24;;t;f;24 - TEXTILIEN;24 - ;24 - 
+25;25;25;;t;f;25 - BEKLEIDUNGEN UND WAESCHE;25 - ;25 - 
+25;26;26;;t;f;26 - HOLZBE- U. -VERARBEITUNG,MOEBEL;26 - ;26 - 
+25;27;27;;t;f;27 - PAPIER UND PAPIERWAREN;27 - ;27 - 
+25;28;28;;t;f;28 - GRAPHISCHE ERZEUGNISSE, VERLAGE;28 - ;28 - 
+25;29;29;;t;f;29 - LEDERWAREN UND SCHUHE;29 - ;29 - 
+25;030;30;;t;f;030 - FORSTWIRTSCHAFT;030 - ;030 - 
+25;31;31;;t;f;31 - CHEMISCHE ERZEUGNISSE;31 - ;31 - 
+25;32;32;;t;f;32 - KUNSTSTOFF- UND KAUTSCHUKWAREN;32 - ;32 - 
+25;33;33;;t;f;33 - ABBAU U. VERARB. STEINE UND ERDEN;33 - ;33 - 
+25;34;34;;t;f;34 - METALLBEARBEITUNG U. -VERARBEITUNG;34 - ;34 - 
+25;35;35;;t;f;35 - MASCHINEN- UND FAHRZEUGBAU;35 - ;35 - 
+25;36;36;;t;f;36 - ELEKTROTECHNIK, ELEKTRONIK, OPTIK;36 - ;36 - 
+25;37;37;;t;f;37 - UHREN, BIJOUTERIEWAREN;37 - ;37 - 
+25;38;38;;t;f;38 - SONSTIGES VERARBEITENDES GEWERBE;38 - ;38 - 
+25;040;40;;t;f;040 - FISCHEREI;040 - ;040 - 
+25;41;41;;t;f;41 - BAUHAUPTGEWERBE (O. STAHLBAU);41 - ;41 - 
+25;42;42;;t;f;42 - AUSBAUGEWERBE;42 - ;42 - 
+25;51;51;;t;f;51 - GROSSHANDEL;51 - ;51 - 
+25;52;52;;t;f;52 - GROSSHANDEL;52 - ;52 - 
+25;53;53;;t;f;53 - GROSSHANDEL;53 - ;53 - 
+25;54;54;;t;f;54 - HANDELSVERMITTLUNG;54 - ;54 - 
+25;55;55;;t;f;55 - EINZEL-, DETAILHANDEL;55 - ;55 - 
+25;56;56;;t;f;56 - EINZEL-, DETAILHANDEL;56 - ;56 - 
+25;57;57;;t;f;57 - GASTGEWERBE;57 - ;57 - 
+25;58;58;;t;f;58 - REPARATURGEWERBE;58 - ;58 - 
+25;61;61;;t;f;61 - BAHNEN;61 - ;61 - 
+25;62;62;;t;f;62 - STRASSENVERKEHR, ROHRLEITUNGEN;62 - ;62 - 
+25;63;63;;t;f;63 - SCHIFFAHRT;63 - ;63 - 
+25;64;64;;t;f;64 - LUFTFAHRT;64 - ;64 - 
+25;65;65;;t;f;65 - VERKEHRSVERMITTLUNG, SPEDITION;65 - ;65 - 
+25;66;66;;t;f;66 - NACHRICHTENUEBERMITTLUNG;66 - ;66 - 
+25;71;71;;t;f;71 - BANKEN, FINANZGESELLSCHAFTEN;71 - ;71 - 
+25;72;72;;t;f;72 - VERSICHERUNGEN;72 - ;72 - 
+25;73;73;;t;f;73 - IMMOBILIEN;73 - ;73 - 
+25;74;74;;t;f;74 - VERMIETUNG, LEASING;74 - ;74 - 
+25;75;75;;t;f;75 - BERATUNG, PLANUNG, KOMMERZ.DIENSTE;75 - ;75 - 
+25;76;76;;t;f;76 - PERSOENLICHE DIENSTLEISTUNGEN;76 - ;76 - 
+25;81;81;;t;f;81 - BILDUNGSWESEN;81 - ;81 - 
+25;82;82;;t;f;82 - FORSCHUNG U. ENTWICKLUNG, PRUEFUNG;82 - ;82 - 
+25;83;83;;t;f;83 - GESUNDHEITS- UND VETERINAERWESEN;83 - ;83 - 
+25;84;84;;t;f;84 - UMWELTSCHUTZ (PRIV. U. OEFF.);84 - ;84 - 
+25;85;85;;t;f;85 - HEIME, WOHLFAHRTSPFLEGE;85 - ;85 - 
+25;86;86;;t;f;86 - KIRCHL., RELIG., WELTANSCH.VEREINE;86 - ;86 - 
+25;87;87;;t;f;87 - INTERESSENVERTRETUNG;87 - ;87 - 
+25;88;88;;t;f;88 - KULTUR, SPORT, ERHOLUNG;88 - ;88 - 
+25;89;89;;t;f;89 - HAEUSLICHE DIENSTE;89 - ;89 - 
+25;91;91;;t;f;91 - OEFFENTLICHE VERWALTUNG I.E.S.;91 - ;91 - 
+25;92;92;;t;f;92 - SOZIALVERSICHERUNG;92 - ;92 - 
+25;93;93;;t;f;93 - AUSLAENDISCHE VERTRETUNGEN,INT. ORGANISATIONEN;93 - ;93 - 
+25;99;99;;t;f;99 - BRANCHENCODE KIGA FÜR VORLÄUFIG NICHT ZUORDBARE;99 - ;99 - 
+25;0100;100;;t;f;0100 - LANDWIRTSCHAFT;0100 - ;0100 - 
+25;100;100;;t;f;100 - (0) Landwirtschaft;100 - ;100 - 
+25;111;111;;t;f;111 - (2) Elektrizitätsversorgung;111 - ;111 - 
+25;112;112;;t;f;112 - (3) Gasversorgung;112 - ;112 - 
+25;113;113;;t;f;113 - (0) Wasserversorgung;113 - ;113 - 
+25;114;114;;t;f;114 - (0) Gemischte Elektrizitäts-, Gas- und Wasserversorgung;114 - ;114 - 
+25;115;115;;t;f;115 - (0) Fernwärmeversorgung;115 - ;115 - 
+25;121;121;;t;f;121 - (2) Salzgewinnung;121 - ;121 - 
+25;122;122;;t;f;122 - (2) Erdöl-, Erdgasgewinnung;122 - ;122 - 
+25;123;123;;t;f;123 - (0) Sonstiger Bergbau;123 - ;123 - 
+25;0200;200;;t;f;0200 - GARTENBAU;0200 - ;0200 - 
+25;200;200;;t;f;200 - (0) Gartenbau;200 - ;200 - 
+25;211;211;;t;f;211 - (1) Herstellung von Fleischwaren;211 - ;211 - 
+25;212;212;;t;f;212 - (1) Milchverwertung;212 - ;212 - 
+25;213;213;;t;f;213 - (0) Mühlen, Herstellung von Futtermitteln;213 - ;213 - 
+25;214;214;;t;f;214 - (0) Obst- und Gemüseverarbeitung;214 - ;214 - 
+25;215;215;;t;f;215 - (2) Herstellung von Zucker, Zucker- und Schokoladewaren;215 - ;215 - 
+25;216;216;;t;f;216 - (0) Herstellung von Backwaren;216 - ;216 - 
+25;217;217;;t;f;217 - (1) Herstellung von sonstigen Nahrungsmitteln;217 - ;217 - 
+25;218;218;;t;f;218 - (1) Herstellung von Nahrungsmitteln ohne allg. Spez.;218 - ;218 - 
+25;221;221;;t;f;221 - (1) Herstellung von Spirituosen;221 - ;221 - 
+25;222;222;;t;f;222 - (1) Herstellung von Trauben- und Obstweinen;222 - ;222 - 
+25;223;223;;t;f;223 - (1) Brauerei;223 - ;223 - 
+25;224;224;;t;f;224 - (1) Mineralwasserverwertung, Süssgetränke;224 - ;224 - 
+25;231;231;;t;f;231 - (1) Herstellung von Rauchtabak;231 - ;231 - 
+25;232;232;;t;f;232 - (1) Herstellung von Zigaretten;232 - ;232 - 
+25;233;233;;t;f;233 - (1) Herstellung von Zigarren;233 - ;233 - 
+25;241;241;;t;f;241 - (2) Herstellung von Garnen, Zwirnen;241 - ;241 - 
+25;242;242;;t;f;242 - (1) Weberei, Wirkerei;242 - ;242 - 
+25;243;243;;t;f;243 - (2) Spinnerei, Weberei ohne allg. Spez.;243 - ;243 - 
+25;244;244;;t;f;244 - (2) Leinen-, Hanf- und Juteindustrie;244 - ;244 - 
+25;245;245;;t;f;245 - (0) Stickerei;245 - ;245 - 
+25;246;246;;t;f;246 - (2) Textilveredelung;246 - ;246 - 
+25;247;247;;t;f;247 - (2) Sonstige Textilindustrie;247 - ;247 - 
+25;248;248;;t;f;248 - (2) Textilindustrie verschiedener Art ohne allg. Spez.;248 - ;248 - 
+25;251;251;;t;f;251 - (2) Herstellung von Bekleidungen und Wäsche;251 - ;251 - 
+25;252;252;;t;f;252 - (1) Herstellung von Maschenwaren (Wirkerei, Strickerei);252 - ;252 - 
+25;253;253;;t;f;253 - (1) Herstellung von Kleidern und Wäsche aus Web- und Wirkstoffen;253 - ;253 - 
+25;254;254;;t;f;254 - (1) Sonstige konfektionierte textile Artikel;254 - ;254 - 
+25;255;255;;t;f;255 - (1) Pelzgewerbe;255 - ;255 - 
+25;261;261;;t;f;261 - (3) Holzbearbeitung;261 - ;261 - 
+25;262;262;;t;f;262 - (2) Holzwarenfabrikation;262 - ;262 - 
+25;263;263;;t;f;263 - (2) Möbelfabrikation;263 - ;263 - 
+25;264;264;;t;f;264 - (1) Bauschreinerei, Innenausbau;264 - ;264 - 
+25;265;265;;t;f;265 - (1) Schreinerei ohne allg. Spez.;265 - ;265 - 
+25;266;266;;t;f;266 - (2) Herstellung von Kork-, Korb- und Flechtwaren;266 - ;266 - 
+25;271;271;;t;f;271 - (2) Herstellung von Holzstoff, Zellstoff, Papier und Karton;271 - ;271 - 
+25;272;272;;t;f;272 - (2) Verarbeitung von Papier und Karton;272 - ;272 - 
+25;281;281;;t;f;281 - (1) Satz- und Reproduktionsbetriebe;281 - ;281 - 
+25;282;282;;t;f;282 - (2) Druckereibetriebe;282 - ;282 - 
+25;283;283;;t;f;283 - (1) Buchbindereien (ohne Druckerei);283 - ;283 - 
+25;284;284;;t;f;284 - (1) Verlagsbetriebe (ohne Druckerei);284 - ;284 - 
+25;291;291;;t;f;291 - (3) Ledererzeugung;291 - ;291 - 
+25;292;292;;t;f;292 - (2) Lederverarbeitung;292 - ;292 - 
+25;293;293;;t;f;293 - (2) Herstellung von Schuhen;293 - ;293 - 
+25;0300;300;;t;f;0300 - FORSTWIRTSCHAFT;0300 - ;0300 - 
+25;300;300;;t;f;300 - (0) Forstwirtschaft;300 - ;300 - 
+25;311;311;;t;f;311 - (3) Herstellung von chemischen Grundstoffen und Zwischenprodukten;311 - ;311 - 
+25;312;312;;t;f;312 - (3) Herstellung von chemischen Endprodukten;312 - ;312 - 
+25;313;313;;t;f;313 - (3) Herstellung von chemischen Endprodukten;313 - ;313 - 
+25;314;314;;t;f;314 - (2) Mineralölindustrie;314 - ;314 - 
+25;321;321;;t;f;321 - (3) Industriebedarf aus Kunststoffwaren;321 - ;321 - 
+25;322;322;;t;f;322 - (3) Gummiwaren;322 - ;322 - 
+25;331;331;;t;f;331 - (1) Abbau und Bearbeitung von Natursteinen;331 - ;331 - 
+25;332;332;;t;f;332 - (1) Gewinnung von Sand, Kies, Ton und sonstigen Erden;332 - ;332 - 
+25;333;333;;t;f;333 - (1) Herstellung von Zement, Kalk, Gips und Zement- und Betonwaren;333 - ;333 - 
+25;334;334;;t;f;334 - (2) Sonstige Verarbeitung von Steinen und Erden;334 - ;334 - 
+25;335;335;;t;f;335 - (1) Herstellung von keramischen Erzeugnissen;335 - ;335 - 
+25;336;336;;t;f;336 - (2) Herstellung und Verarbeitung von Glas;336 - ;336 - 
+10023;01;1;;t;f;keine Untersuchung;;
+110;01;1;;t;f;Stoffgruppe A;;
+25;341;341;;t;f;341 - (2) Eisen-, Stahl- und Walzwerke;341 - ;341 - 
+25;342;342;;t;f;342 - (2) NE-Metallerzeugung und -verarbeitung;342 - ;342 - 
+25;343;343;;t;f;343 - (2) Giessereien und Umschmelzwerke;343 - ;343 - 
+25;344;344;;t;f;344 - (3) Metallverformung, -veredelung und -härtung;344 - ;344 - 
+25;345;345;;t;f;345 - (1) Stahl- und Leichtmetallbau;345 - ;345 - 
+25;346;346;;t;f;346 - (2) Herstellung von Eisen-, Blech- und Metallwaren;346 - ;346 - 
+25;347;347;;t;f;347 - (2) Gewerbliche Metallbearbeitung;347 - ;347 - 
+25;351;351;;t;f;351 - (3) Maschinenbau;351 - ;351 - 
+25;352;352;;t;f;352 - (3) Maschinenbau;352 - ;352 - 
+25;353;353;;t;f;353 - (2) Herstellung von Büromaschinen, EDV-Geräten und -Einrichtungen;353 - ;353 - 
+25;354;354;;t;f;354 - (2) Fahrzeugbau;354 - ;354 - 
+25;355;355;;t;f;355 - (2) Maschinen- und Fahrzeugbau ohne allg. Spez.;355 - ;355 - 
+25;361;361;;t;f;361 - (2) Elektrotechnik, Elektronik;361 - ;361 - 
+25;362;362;;t;f;362 - (2) Elektrotechnik, Elektronik;362 - ;362 - 
+25;363;363;;t;f;363 - (3) Feinmechanik, Optik;363 - ;363 - 
+25;371;371;;t;f;371 - (3) Uhrenindustrie;371 - ;371 - 
+25;372;372;;t;f;372 - (1) Bijouterie, Gravier- und Prägeanstalten;372 - ;372 - 
+25;381;381;;t;f;381 - (2) Herstellung von Musikinstrumenten;381 - ;381 - 
+25;382;382;;t;f;382 - (2) Herstellung von Spielwaren und Sportgeräten;382 - ;382 - 
+25;383;383;;t;f;383 - (2) Foto- und Filmlabors;383 - ;383 - 
+25;384;384;;t;f;384 - (1) Sonstige Verarbeitung von Werkstoffen verschiedener Art;384 - ;384 - 
+25;0400;400;;t;f;0400 - FISCHEREI;0400 - ;0400 - 
+25;400;400;;t;f;400 - (0) Fischerei;400 - ;400 - 
+25;411;411;;t;f;411 - (1) Tiefbau;411 - ;411 - 
+25;412;412;;t;f;412 - (1) Hochbau;412 - ;412 - 
+25;413;413;;t;f;413 - (1) Allgemeines Bauhauptgewerbe ohne allg. Spez.;413 - ;413 - 
+25;414;414;;t;f;414 - (0) Generalunternehmen;414 - ;414 - 
+25;421;421;;t;f;421 - (0) Haustechnische Anlagen;421 - ;421 - 
+25;422;422;;t;f;422 - (2) Übriges Ausbaugewerbe;422 - ;422 - 
+25;511;511;;t;f;511 - (1) Landesprodukte, Pflanzen, Tiere;511 - ;511 - 
+25;512;512;;t;f;512 - (0) Nahrungs- und Genussmittel ohne allg. Spez.;512 - ;512 - 
+25;513;513;;t;f;513 - (0) Nahrungs- und Genussmittel ohne allg. Spez.;513 - ;513 - 
+25;514;514;;t;f;514 - (0) Textilrohstoffe, Textilien, Leder, Felle;514 - ;514 - 
+25;515;515;;t;f;515 - (0) Bekleidung, Schuhwaren;515 - ;515 - 
+25;516;516;;t;f;516 - (0) Möbel, Bettwaren, Teppiche, Wohnbedarf;516 - ;516 - 
+25;517;517;;t;f;517 - (0) Papier, Papierwaren, Druckerzeugnisse;517 - ;517 - 
+25;518;518;;t;f;518 - (1) Technische Chemikalien, Kautschuk;518 - ;518 - 
+25;519;519;;t;f;519 - (2) Brenn- und Treibstoffe, Mineralölerzeugnisse;519 - ;519 - 
+25;521;521;;t;f;521 - (0) Baumaterialien, Holz, Installationsbedarf;521 - ;521 - 
+25;522;522;;t;f;522 - (1) Eisen, Stahl, NE-Metalle und -halbfabrikate;522 - ;522 - 
+25;523;523;;t;f;523 - (1) Eisen- und Metallwaren, Haushaltartikel;523 - ;523 - 
+25;524;524;;t;f;524 - (1) Maschinen, Fahrzeuge, techn. Bedarf;524 - ;524 - 
+25;525;525;;t;f;525 - (0) Feinmechanische und optische Erzeugnisse, Radio-, Fernseh- und phonotechnische Geräte;525 - ;525 - 
+25;526;526;;t;f;526 - (0) Büromaschinen, Büroorganisation, Datenverarbeitungsgeräte;526 - ;526 - 
+25;527;527;;t;f;527 - (0) Pharmazeutische, kosmetische, medizinische und Reinigungsartikel;527 - ;527 - 
+25;528;528;;t;f;528 - (0) Spielwaren, Sportartikel, Lederwaren, Kunstgegenstände;528 - ;528 - 
+25;529;529;;t;f;529 - (0) Sonstiger Fachgrosshandel;529 - ;529 - 
+25;531;531;;t;f;531 - (0) Fertigwaren verschiedener Art ohne allg. Spez.;531 - ;531 - 
+25;532;532;;t;f;532 - (2) Altmaterial, Reststoffe;532 - ;532 - 
+25;541;541;;t;f;541 - (0) Vermittlung von Grund-, Roh-, Bau-, Brenn- und Treibstoffen, Holz;541 - ;541 - 
+25;542;542;;t;f;542 - (0) Vermittlung von Textilien, Bekleidung, Schuh- und Lederwaren;542 - ;542 - 
+25;543;543;;t;f;543 - (0) Vermittlung von Nahrungs- und Genussmitteln;543 - ;543 - 
+25;544;544;;t;f;544 - (0) Vermittlung von Maschinen, Fahrzeugen, techn. Bedarf, Metallwaren;544 - ;544 - 
+25;545;545;;t;f;545 - (0) Vermittlung von Waren sonstiger oder verschiedener Art;545 - ;545 - 
+25;551;551;;t;f;551 - (0) Landesprodukte, Pflanzen, Tiere;551 - ;551 - 
+25;552;552;;t;f;552 - (0) Nahrungs- und Genussmittel;552 - ;552 - 
+25;553;553;;t;f;553 - (0) Textilien, Bekleidung, Schuhwaren;553 - ;553 - 
+25;554;554;;t;f;554 - (0) Textilien, Bekleidung, Schuhwaren;554 - ;554 - 
+25;555;555;;t;f;555 - (0) Möbel, Bettwaren, Teppiche, Wohnbedarf;555 - ;555 - 
+25;556;556;;t;f;556 - (0) Papierwaren, Druckerzeugnisse;556 - ;556 - 
+25;557;557;;t;f;557 - (2) Brenn- und Treibstoffe;557 - ;557 - 
+25;558;558;;t;f;558 - (1) Eisen- und Metallwaren, Haushaltartikel;558 - ;558 - 
+25;559;559;;t;f;559 - (1) Fahrzeuge, Maschinen;559 - ;559 - 
+25;561;561;;t;f;561 - (0) Feinmechanische und optische Erzeugnisse, Radio-, Fernseh- und phonotechnische Geräte;561 - ;561 - 
+25;562;562;;t;f;562 - (0) Büromaschinen, Büroorganisation;562 - ;562 - 
+25;563;563;;t;f;563 - (0) Pharmazeutische, kosmetische, medizinische Artikel;563 - ;563 - 
+25;564;564;;t;f;564 - (0) Sonstige Waren;564 - ;564 - 
+25;565;565;;t;f;565 - (0) Sonstiger Facheinzelhandel;565 - ;565 - 
+25;566;566;;t;f;566 - (0) Waren verschiedener Art;566 - ;566 - 
+25;571;571;;t;f;571 - (0) Beherbergungsgewerbe;571 - ;571 - 
+25;572;572;;t;f;572 - (0) Gaststättengewerbe;572 - ;572 - 
+25;573;573;;t;f;573 - (0) Sonstiges Gastgewerbe;573 - ;573 - 
+25;581;581;;t;f;581 - (1) Reparatur von Gebrauchsgütern;581 - ;581 - 
+25;582;582;;t;f;582 - (2) Reparatur von Fahrzeugen und Maschinen (auch mit Tankstelle);582 - ;582 - 
+25;611;611;;t;f;611 - (2) Eisenbahnen;611 - ;611 - 
+25;612;612;;t;f;612 - (2) Spezialbahnen (Bergbahnen, Seilbahnen etc.);612 - ;612 - 
+25;621;621;;t;f;621 - (2) Personen-Strassenverkehr;621 - ;621 - 
+25;622;622;;t;f;622 - (2) Güter-Strassenverkehr;622 - ;622 - 
+25;623;623;;t;f;623 - (2) Mit dem Strassenverkehr verbundene Tätigkeiten;623 - ;623 - 
+25;624;624;;t;f;624 - (2) Transport in Rohrleitungen;624 - ;624 - 
+25;631;631;;t;f;631 - (2) Schifffahrt;631 - ;631 - 
+10023;02;2;;t;f;Historische Untersuchung in Bearbeitung;;
+110;02;2;;t;f;Stoffgruppe B;;
+25;632;632;;t;f;632 - (2) Mit der Schifffahrt verbundene Tätigkeiten;632 - ;632 - 
+25;641;641;;t;f;641 - (2) Luftfahrt;641 - ;641 - 
+25;642;642;;t;f;642 - (2) Mit der Luftfahrt verbundene Tätigkeiten;642 - ;642 - 
+25;651;651;;t;f;651 - (2) Spedition, Verpackerei, Lagerhäuser, Kühlhäuser;651 - ;651 - 
+25;652;652;;t;f;652 - (0) Sonstige Verkehrsvermittlung, Reisebüro;652 - ;652 - 
+25;661;661;;t;f;661 - (0) PTT;661 - ;661 - 
+25;662;662;;t;f;662 - (0) Übrige Nachrichtenübermittlung;662 - ;662 - 
+25;711;711;;t;f;711 - (0) Banken i.e.s;711 - ;711 - 
+25;712;712;;t;f;712 - (0) Mit dem Bankgewerbe verbundene Tätigkeiten;712 - ;712 - 
+25;721;721;;t;f;721 - (0) Versicherungsgesellschaften, Krankenkassen, Pensionskassen;721 - ;721 - 
+25;722;722;;t;f;722 - (0) Vermittlung von Versicherungen, selbständige Versicherungsvertreter;722 - ;722 - 
+25;731;731;;t;f;731 - (0) Vermietung und Verkauf von eigenen Immobilien;731 - ;731 - 
+25;732;732;;t;f;732 - (0) Verwaltung und Vermittlung von Immobilien;732 - ;732 - 
+25;741;741;;t;f;741 - (1) Vermietung;741 - ;741 - 
+25;742;742;;t;f;742 - (0) Leasing;742 - ;742 - 
+25;751;751;;t;f;751 - (0) Rechts- und Wirtschaftsberatung;751 - ;751 - 
+25;752;752;;t;f;752 - (0) Technische Beratung und Planung;752 - ;752 - 
+25;753;753;;t;f;753 - (0) Technische Beratung und Planung;753 - ;753 - 
+25;754;754;;t;f;754 - (0) Sonstige kommerzielle Dienste;754 - ;754 - 
+25;755;755;;t;f;755 - (0) EDV, Informatik;755 - ;755 - 
+25;761;761;;t;f;761 - (3) Wäscherei;761 - ;761 - 
+25;762;762;;t;f;762 - (0) Coiffeur- und sonstige Körperpflegegewerbe;762 - ;762 - 
+25;763;763;;t;f;763 - (2) Reinigung von Gebäuden, Räumen, Inventar;763 - ;763 - 
+25;764;764;;t;f;764 - (0) Bestattungswesen;764 - ;764 - 
+25;765;765;;t;f;765 - (0) Tiersalons, Tierheime;765 - ;765 - 
+25;766;766;;t;f;766 - (1) Sonstige persönliche Dienstleistungen;766 - ;766 - 
+25;811;811;;t;f;811 - (0) Kindergarten;811 - ;811 - 
+25;812;812;;t;f;812 - (0) Obligatorische Schule;812 - ;812 - 
+25;813;813;;t;f;813 - (0) Schule: Sekundarstufe II, nach obligatorisch;813 - ;813 - 
+25;814;814;;t;f;814 - (0) Schule: Tertiärstufe (höhere Ausbildung);814 - ;814 - 
+25;815;815;;t;f;815 - (0) Schule: Quartärstufe (Erwachsenenbildung);815 - ;815 - 
+25;816;816;;t;f;816 - (0) Sonstige Schulen und Einrichtungen des Bildungswesens;816 - ;816 - 
+25;821;821;;t;f;821 - (2) Wissenschaftliche Einrichtungen;821 - ;821 - 
+25;822;822;;t;f;822 - (0) Selbständige Wissenschafter;822 - ;822 - 
+25;831;831;;t;f;831 - (0) Medizinische Praxen;831 - ;831 - 
+25;832;832;;t;f;832 - (0) Praxen des Pflegebereichs;832 - ;832 - 
+25;833;833;;t;f;833 - (0) Anstalten und Einrichtungen des Gesundheitswesens;833 - ;833 - 
+25;834;834;;t;f;834 - (2) Sonstige Einrichtungen des Gesundheitswesens;834 - ;834 - 
+25;835;835;;t;f;835 - (0) Veterinärwesen;835 - ;835 - 
+25;841;841;;t;f;841 - (3) Abfall- und Abwasserbeseitigung;841 - ;841 - 
+25;842;842;;t;f;842 - (0) Sonstige hygienische Einrichtungen;842 - ;842 - 
+25;851;851;;t;f;851 - (0) Wohnheime;851 - ;851 - 
+25;852;852;;t;f;852 - (0) Heime für Säuglinge, Kinder und Jugendliche, Erziehungsheime;852 - ;852 - 
+25;853;853;;t;f;853 - (0) Einrichtungen zur Eingliederung von Behinderten, Wohnheime für Behinderte;853 - ;853 - 
+25;854;854;;t;f;854 - (0) Tagesheime;854 - ;854 - 
+25;855;855;;t;f;855 - (0) Organisationen der Wohlfahrtspflege;855 - ;855 - 
+25;861;861;;t;f;861 - (0) Kirchlich konfessionelle Gemeinde;861 - ;861 - 
+25;862;862;;t;f;862 - (0) Kloster, Ordensgemeinschaft;862 - ;862 - 
+25;863;863;;t;f;863 - (0) Sonstige religiöse und weltanschauliche Vereinigungen;863 - ;863 - 
+25;871;871;;t;f;871 - (0) Arbeitgeber- und Wirtschaftsverbände;871 - ;871 - 
+25;872;872;;t;f;"872 - (0) Organisationen; nicht für Unternehmen tätig (Parteien, Verbände)";872 - ;872 - 
+25;873;873;;t;f;873 - (0) Sonstige Interessenwahrung, Dienstleistung für die Allgemeinheit;873 - ;873 - 
+25;881;881;;t;f;881 - (0) Literatur, Sprache: Bibliothek, Schriftsteller, freier Journalist;881 - ;881 - 
+25;882;882;;t;f;882 - (0) Theater, Tanz und ähnliches;882 - ;882 - 
+25;883;883;;t;f;883 - (0) Musik (Orchester, Kapellen, Chöre, freie Musiker);883 - ;883 - 
+25;884;884;;t;f;884 - (0) Film: Kino, Filmverleih, Filmstudio;884 - ;884 - 
+25;885;885;;t;f;885 - (0) Bildende Künstler, kunstgewerbliche Ateliers;885 - ;885 - 
+25;886;886;;t;f;886 - (0) Radio-, Fernsehstudio;886 - ;886 - 
+25;887;887;;t;f;887 - (0) Sonstige kulturelle Einrichtungen;887 - ;887 - 
+25;888;888;;t;f;888 - (0) Sport;888 - ;888 - 
+25;889;889;;t;f;889 - (0) Unterhaltung;889 - ;889 - 
+25;891;891;;t;f;891 - (0) Häusliche Dienste;891 - ;891 - 
+25;911;911;;t;f;911 - (0) Allgemeine Verwaltung, Behörden;911 - ;911 - 
+25;912;912;;t;f;912 - (0) Rechtspflege;912 - ;912 - 
+25;913;913;;t;f;913 - (2) Polizei, Feuerwehr;913 - ;913 - 
+25;914;914;;t;f;914 - (2) Landesverteidigung, Zivilschutz, Schiessanlagen;914 - ;914 - 
+25;921;921;;t;f;921 - (0) Unfallversicherung SUVA;921 - ;921 - 
+25;922;922;;t;f;922 - (0) AHV/IV, ALV;922 - ;922 - 
+25;931;931;;t;f;931 - (0) Botschaften, Konsulate;931 - ;931 - 
+25;932;932;;t;f;932 - (0) Internationale Organisationen;932 - ;932 - 
+25;999;999;;t;f;999 - (2) Nicht definiert;999 - ;999 - 
+25;1110;1110;;t;f;1110 - (2) Elektrizitätsversorgung;1110 - ;1110 - 
+25;1120;1120;;t;f;1120 - (3) Gasversorgung;1120 - ;1120 - 
+25;1130;1130;;t;f;1130 - (0) Wasserversorgung;1130 - ;1130 - 
+25;1140;1140;;t;f;1140 - (0) Gemischte Elektrizitäts-, Gas- und Wasserversorgung;1140 - ;1140 - 
+25;1150;1150;;t;f;1150 - (0) Fernwärmeversorgung;1150 - ;1150 - 
+25;1210;1210;;t;f;1210 - (2) Salzgewinnung;1210 - ;1210 - 
+25;1220;1220;;t;f;1220 - (2) Erdöl-, Erdgasgewinnung;1220 - ;1220 - 
+25;1230;1230;;t;f;1230 - (0) Sonstiger Bergbau;1230 - ;1230 - 
+25;2111;2111;;t;f;2111 - (1) Schlachthof;2111 - ;2111 - 
+25001;A2;;;t;f;A2 - Forstwirtschaft;A2 - ;A2 - 
+25;2112;2112;;t;f;2112 - (1) Fleischwarenindustrie;2112 - ;2112 - 
+25;2121;2121;;t;f;2121 - (1) Käserei;2121 - ;2121 - 
+25;2122;2122;;t;f;2122 - (1) Städtische Milchzentrale;2122 - ;2122 - 
+25;2123;2123;;t;f;2123 - (1) Herstellung von Frischprodukten;2123 - ;2123 - 
+25;2124;2124;;t;f;2124 - (1) Herstellung von Dauermilchprodukten;2124 - ;2124 - 
+25;2125;2125;;t;f;2125 - (1) Sonstige Milchverwertung;2125 - ;2125 - 
+25;2131;2131;;t;f;2131 - (0) Mahl- und Schälmühlen;2131 - ;2131 - 
+25;2132;2132;;t;f;2132 - (0) Herstellung von Futtermitteln;2132 - ;2132 - 
+25;2140;2140;;t;f;2140 - (0) Obst- und Gemüseverarbeitung;2140 - ;2140 - 
+25;2151;2151;;t;f;2151 - (2) Herstellung und Raffinierung von Zucker;2151 - ;2151 - 
+25;2152;2152;;t;f;2152 - (1) Herstellung von Zuckerwaren;2152 - ;2152 - 
+25;2153;2153;;t;f;2153 - (1) Herstellung von Kakao- und Schokoladeerzeugnissen;2153 - ;2153 - 
+25;2161;2161;;t;f;2161 - (0) Brot- und Backwarenindustrie;2161 - ;2161 - 
+25;2162;2162;;t;f;2162 - (0) Herstellung von Dauerbackwaren;2162 - ;2162 - 
+25;2171;2171;;t;f;2171 - (1) Verarbeitung von Kaffee, Tee;2171 - ;2171 - 
+25;2172;2172;;t;f;2172 - (1) Herstellung von Fertigmahlzeiten, Konserven;2172 - ;2172 - 
+25;2173;2173;;t;f;2173 - (1) Herstellung von Suppen, Essig, Senf, Gewürzen;2173 - ;2173 - 
+25;2174;2174;;t;f;2174 - (1) Herstellung von Speiseölen und -fetten;2174 - ;2174 - 
+25;2175;2175;;t;f;2175 - (1) Herstellung von Teigwaren;2175 - ;2175 - 
+25;2176;2176;;t;f;2176 - (1) Herstellung von übrigen Nahrungsmitteln;2176 - ;2176 - 
+25;2180;2180;;t;f;2180 - (1) Herstellung von Nahrungsmitteln;2180 - ;2180 - 
+25;2211;2211;;t;f;2211 - (1) Alkoholbrennerei;2211 - ;2211 - 
+25;2212;2212;;t;f;2212 - (1) Herstellung von Spirituosen;2212 - ;2212 - 
+25;2221;2221;;t;f;2221 - (1) Herstellung und Verarbeitung von Traubenwein;2221 - ;2221 - 
+25;2222;2222;;t;f;2222 - (1) Herstellung von Obst- und Fruchtweinen;2222 - ;2222 - 
+25;2230;2230;;t;f;2230 - (1) Brauerei;2230 - ;2230 - 
+25;2240;2240;;t;f;2240 - (1) Mineralwasserverwertung und Herstellung von Süssgetränken (o. Fruchts.);2240 - ;2240 - 
+25;2310;2310;;t;f;2310 - (1) Herstellung von Rauchtabak;2310 - ;2310 - 
+25;2320;2320;;t;f;2320 - (1) Herstellung von Zigaretten;2320 - ;2320 - 
+25;2330;2330;;t;f;2330 - (1) Herstellung von Zigarren;2330 - ;2330 - 
+25;2411;2411;;t;f;2411 - (2) Wollzwirnerei, -spinnerei;2411 - ;2411 - 
+25;2412;2412;;t;f;2412 - (2) Baumwollzwirnerei, -spinnerei;2412 - ;2412 - 
+25;2413;2413;;t;f;2413 - (2) Seidenzwirnerei, -spinnerei;2413 - ;2413 - 
+25;2414;2414;;t;f;2414 - (2) Chemiefaserherstellung;2414 - ;2414 - 
+25;2415;2415;;t;f;2415 - (2) Zwirnerei, Spinnerei ohne allg. Spez.;2415 - ;2415 - 
+25;2421;2421;;t;f;2421 - (1) Wollweberei, -wirkerei;2421 - ;2421 - 
+25;2422;2422;;t;f;2422 - (1) Baumwollweberei, -wirkerei;2422 - ;2422 - 
+25;2423;2423;;t;f;2423 - (1) Seidenweberei;2423 - ;2423 - 
+25;2424;2424;;t;f;2424 - (1) Weberei, Wirkerei ohne allg. Spez.;2424 - ;2424 - 
+25;2430;2430;;t;f;2430 - (2) Spinnerei, Weberei ohne allg. Spez.;2430 - ;2430 - 
+25;2440;2440;;t;f;2440 - (2) Leinen-, Hanf- und Juteindustrie;2440 - ;2440 - 
+25;2451;2451;;t;f;2451 - (0) Maschinenstickerei;2451 - ;2451 - 
+25;2452;2452;;t;f;2452 - (0) Hand-, Kunststickerei;2452 - ;2452 - 
+25;2453;2453;;t;f;2453 - (0) Stickerei verschiedener Art ohne allg. Spez.;2453 - ;2453 - 
+25;2460;2460;;t;f;2460 - (2) Textilveredelung;2460 - ;2460 - 
+25;2471;2471;;t;f;2471 - (2) Teppichherstellung;2471 - ;2471 - 
+25;2472;2472;;t;f;2472 - (2) Herstellung von Linoleum, Inlaid, Wachstuch und beschichtetem Gewebe;2472 - ;2472 - 
+25;2473;2473;;t;f;2473 - (2) Herstellung von Seilerwaren, Bindfaden, Schnüren;2473 - ;2473 - 
+25;2474;2474;;t;f;2474 - (2) Herstellung von Bändern, Gurten, Posamenten und Schläuchen;2474 - ;2474 - 
+25;2475;2475;;t;f;2475 - (2) Herstellung von gummielastischen Textilien;2475 - ;2475 - 
+25;2476;2476;;t;f;2476 - (2) Sonstiges Textilgewerbe;2476 - ;2476 - 
+25;2480;2480;;t;f;2480 - (2) Textilindustrie verschiedener Art ohne allg. Spez.;2480 - ;2480 - 
+25;2511;2511;;t;f;2511 - (2) Herstellung von Herren-Oberbekleidung;2511 - ;2511 - 
+25;2512;2512;;t;f;2512 - (2) Herstellung von Damen-Oberbekleidung;2512 - ;2512 - 
+25;2513;2513;;t;f;2513 - (2) Herstellung von Kinder-Oberbekleidung;2513 - ;2513 - 
+25;2514;2514;;t;f;2514 - (2) Herstellung von Oberbekleidung ohne allg. Spez.;2514 - ;2514 - 
+25;2515;2515;;t;f;2515 - (2) Herstellung von Unterbekleidung, Nachtbekleidung und Homewear;2515 - ;2515 - 
+25;2516;2516;;t;f;2516 - (2) Herstellung von Sport- und Freizeitbekleidung;2516 - ;2516 - 
+25;2517;2517;;t;f;2517 - (2) Herstellung von Arbeits- und Berufskleidung;2517 - ;2517 - 
+25;2518;2518;;t;f;2518 - (2) Herstellung von Kopfbedeckungen;2518 - ;2518 - 
+25;2519;2519;;t;f;2519 - (2) Herstellung von sonstigem Bekleidungszubehör;2519 - ;2519 - 
+25;2521;2521;;t;f;2521 - (1) Herstellung von Herren-Oberbekleidung;2521 - ;2521 - 
+25;2522;2522;;t;f;2522 - (1) Herstellung von Damen-Oberbekleidung;2522 - ;2522 - 
+25;2523;2523;;t;f;2523 - (1) Herstellung von Kinder-Oberbekleidung;2523 - ;2523 - 
+25;2524;2524;;t;f;2524 - (1) Herstellung von Unterbekleidung, Nachtbekleidung und Homewear;2524 - ;2524 - 
+25;2525;2525;;t;f;2525 - (1) Herstellung von Sport- und Freizeitbekleidung;2525 - ;2525 - 
+25;2526;2526;;t;f;2526 - (1) Herstellung von Strumpfwaren und Strümpfen;2526 - ;2526 - 
+25;2527;2527;;t;f;2527 - (1) Herstellung von sonstigen Wirk- und Strickwaren;2527 - ;2527 - 
+25;2530;2530;;t;f;2530 - (1) Herstellung von Kleidern und Wäsche aus Web- und Wirkstoffen ohne allg. Spez.;2530 - ;2530 - 
+25;2541;2541;;t;f;2541 - (1) Herstellung von Haus-, Bett- und Tischwäsche;2541 - ;2541 - 
+25;2542;2542;;t;f;2542 - (1) Herstellung von Bettwaren (ohne Matratzen);2542 - ;2542 - 
+25;2543;2543;;t;f;2543 - (1) Herstellung von sonstigen konfektionierten textilen Artikeln;2543 - ;2543 - 
+25;2550;2550;;t;f;2550 - (1) Pelzgewerbe;2550 - ;2550 - 
+25;2611;2611;;t;f;2611 - (3) Säge-, Hobel-, Furnier- und Imprägnierwerke;2611 - ;2611 - 
+25;2612;2612;;t;f;2612 - (2) Sperrholz-, Spanplatten- und Holzfaserplattenwerke;2612 - ;2612 - 
+25;2621;2621;;t;f;2621 - (2) Kisten-, Palettfabrikation;2621 - ;2621 - 
+25;2622;2622;;t;f;2622 - (1) Wagnerei, Drechslerei;2622 - ;2622 - 
+25;2623;2623;;t;f;2623 - (2) Herstellung von Kleinschreinereiwaren, Werkzeugen, Geräten;2623 - ;2623 - 
+25;2624;2624;;t;f;2624 - (2) Küferei;2624 - ;2624 - 
+25;2625;2625;;t;f;2625 - (1) Holzschnitzerei, Holzbildhauerei;2625 - ;2625 - 
+25;2626;2626;;t;f;2626 - (1) Modellschreinerei;2626 - ;2626 - 
+25001;A1;;;t;f;A1 - Landwirtschaft;A1 - ;A1 - 
+25;2627;2627;;t;f;2627 - (2) Fabrikation von Holzwaren verschiedener Art;2627 - ;2627 - 
+25;2631;2631;;t;f;2631 - (2) Grossmöbelfabrikation;2631 - ;2631 - 
+25;2632;2632;;t;f;2632 - (2) Tisch-, Stuhl- und Polstergestellfabrikation;2632 - ;2632 - 
+25;2633;2633;;t;f;2633 - (2) Polstermöbelfabrikation;2633 - ;2633 - 
+25;2634;2634;;t;f;2634 - (2) Büro-, Schulmöbelfabrikation;2634 - ;2634 - 
+25;2635;2635;;t;f;2635 - (2) Herstellung von Matratzen;2635 - ;2635 - 
+25;2636;2636;;t;f;2636 - (2) Fabrikation von Möbeln verschiedener Art, Möbelschreinerei;2636 - ;2636 - 
+25;2637;2637;;t;f;2637 - (2) Beiz- und Polierwerkstätten;2637 - ;2637 - 
+25;2641;2641;;t;f;2641 - (1) Fenster- und Türenfabrikation;2641 - ;2641 - 
+25;2642;2642;;t;f;2642 - (1) Einbauküchenmöbelfabrikation;2642 - ;2642 - 
+25;2643;2643;;t;f;2643 - (1) Parkettfabrikation, Parkettlegerei;2643 - ;2643 - 
+25;2644;2644;;t;f;2644 - (1) Bauschreinerei, Innenausbau;2644 - ;2644 - 
+25;2650;2650;;t;f;2650 - (1) Schreinerei ohne allg. Spez.;2650 - ;2650 - 
+25;2661;2661;;t;f;2661 - (2) Korkwarenfabrikation;2661 - ;2661 - 
+25;2662;2662;;t;f;2662 - (1) Korb- und Flechtwarenfabrikation;2662 - ;2662 - 
+25;2711;2711;;t;f;2711 - (2) Herstellung von Holz- und Zellstoffen;2711 - ;2711 - 
+25;2712;2712;;t;f;2712 - (2) Herstellung von Papier und Karton;2712 - ;2712 - 
+25;2721;2721;;t;f;2721 - (2) Herstellung von Tapeten;2721 - ;2721 - 
+25;2722;2722;;t;f;2722 - (2) Herstellung von Schreibwaren, Bürobedarf aus Papier;2722 - ;2722 - 
+25;2723;2723;;t;f;2723 - (2) Herstellung von Wellpappe und Wellpappverpackungen;2723 - ;2723 - 
+25;2724;2724;;t;f;2724 - (2) Herstellung von Verpackungsmaterialien;2724 - ;2724 - 
+25;2725;2725;;t;f;2725 - (2) Herstellung von sonstigen Waren aus Papier und Karton;2725 - ;2725 - 
+25;2811;2811;;t;f;2811 - (1) Satzatelier;2811 - ;2811 - 
+25;2812;2812;;t;f;2812 - (1) Reproduktionsbetrieb (Fotolitho- und Clichebetrieb);2812 - ;2812 - 
+25;2821;2821;;t;f;2821 - (2) Zeitungsdruckerei;2821 - ;2821 - 
+25;2822;2822;;t;f;2822 - (2) Andere Offset-, Tief- und Buchdruckbetriebe (auch mit Verlag);2822 - ;2822 - 
+25;2823;2823;;t;f;2823 - (2) Lichtpausbetrieb;2823 - ;2823 - 
+25;2824;2824;;t;f;2824 - (2) Schnelldruckservice und -betrieb (inkl. Vervielfältigung);2824 - ;2824 - 
+25;2825;2825;;t;f;2825 - (2) Siebdruckbetrieb;2825 - ;2825 - 
+25;2830;2830;;t;f;2830 - (1) Buchbindereien (ohne Druckerei);2830 - ;2830 - 
+25;2841;2841;;t;f;2841 - (1) Buchverlag;2841 - ;2841 - 
+25;2842;2842;;t;f;2842 - (1) Zeitungsverlag;2842 - ;2842 - 
+25;2843;2843;;t;f;2843 - (1) Zeitschriftenverlag;2843 - ;2843 - 
+25;2844;2844;;t;f;2844 - (1) Musikalienverlag;2844 - ;2844 - 
+25;2845;2845;;t;f;2845 - (1) Übrige Verlage;2845 - ;2845 - 
+25;2910;2910;;t;f;2910 - (3) Ledererzeugung;2910 - ;2910 - 
+25;2921;2921;;t;f;2921 - (2) Herstellung von Sattlerwaren und Reiseartikeln;2921 - ;2921 - 
+25;2922;2922;;t;f;2922 - (2) Herstellung von technischen Lederartikeln;2922 - ;2922 - 
+25;2930;2930;;t;f;2930 - (2) Herstellung von Schuhen;2930 - ;2930 - 
+25;3111;3111;;t;f;3111 - (3) Herstellung von organischen Erzeugnissen;3111 - ;3111 - 
+25;3112;3112;;t;f;3112 - (3) Herstellung von anorganischen Erzeugnissen;3112 - ;3112 - 
+25;3113;3113;;t;f;3113 - (3) Herstellung von ungeformten Kunststoffen;3113 - ;3113 - 
+25;3121;3121;;t;f;3121 - (3) Herstellung von Pharmazeutika;3121 - ;3121 - 
+25;3122;3122;;t;f;3122 - (3) Herstellung von Farbstoffen, Pigmenten, Textil-, Leder- und Papierhilfsmitteln;3122 - ;3122 - 
+25;3123;3123;;t;f;3123 - (3) Herstellung von Anstrichmitteln und Spachtelmassen;3123 - ;3123 - 
+25;3124;3124;;t;f;3124 - (3) Herstellung von Druck- und Abziehfarben;3124 - ;3124 - 
+25;3125;3125;;t;f;3125 - (3) Herstellung von Seifen, Wasch- und Reinigungsmitteln;3125 - ;3125 - 
+25;3126;3126;;t;f;3126 - (3) Herstellung von synthetischen und natürlichen Parfüms und Aromen;3126 - ;3126 - 
+25;3127;3127;;t;f;3127 - (3) Herstellung von kosmetischen Mitteln;3127 - ;3127 - 
+25;3128;3128;;t;f;3128 - (3) Herstellung von Düngemitteln;3128 - ;3128 - 
+25;3129;3129;;t;f;3129 - (3) Herstellung von Pflanzenschutzmitteln;3129 - ;3129 - 
+25;3131;3131;;t;f;3131 - (3) Herstellung von fotochemischen Produkten;3131 - ;3131 - 
+25;3132;3132;;t;f;3132 - (3) Herstellung von Sprengstoffen und pyrotechnischen Waren;3132 - ;3132 - 
+25;3133;3133;;t;f;3133 - (3) Herstellung von Kleb- und Dichtstoffen und Fugenkitten;3133 - ;3133 - 
+25;3134;3134;;t;f;3134 - (3) Herstellung von Kunststoff-Additiven;3134 - ;3134 - 
+25;3135;3135;;t;f;3135 - (3) Herstellung von sonstigen Chemikalien;3135 - ;3135 - 
+25;3136;3136;;t;f;3136 - (3) Herstellung von chemischen Erzeugnissen ohne allg. Spez.;3136 - ;3136 - 
+25;3140;3140;;t;f;3140 - (2) Mineralölindustrie;3140 - ;3140 - 
+25;3211;3211;;t;f;3211 - (3) Herstellung von Industriebedarf aus Kunststoff;3211 - ;3211 - 
+25;3212;3212;;t;f;3212 - (3) Herstellung von Baubedarf aus Kunststoff;3212 - ;3212 - 
+25;3213;3213;;t;f;3213 - (3) Herstellung von Verpackungen aus Kunststoff;3213 - ;3213 - 
+25;3214;3214;;t;f;3214 - (3) Herstellung von Konsumwaren aus Kunststoff;3214 - ;3214 - 
+25;3215;3215;;t;f;3215 - (3) Herstellung von Möbeln aus Kunststoff;3215 - ;3215 - 
+25;3216;3216;;t;f;3216 - (3) Herstellung von sonstigen Kunststoffwaren;3216 - ;3216 - 
+25;3220;3220;;t;f;3220 - (3) Herstellung von Gummiwaren;3220 - ;3220 - 
+25;3311;3311;;t;f;3311 - (1) Abbau und Bearbeitung von Natursteinen;3311 - ;3311 - 
+25;3312;3312;;t;f;3312 - (1) Bearbeitung von Natursteinen (ohne Abbau);3312 - ;3312 - 
+25;3313;3313;;t;f;3313 - (1) Steinbildhauerei, Steinmetzerei;3313 - ;3313 - 
+25;3320;3320;;t;f;3320 - (1) Gewinnung von Sand, Kies, Ton und sonstigen Erden;3320 - ;3320 - 
+25;3331;3331;;t;f;3331 - (1) Herstellung von Zement, Kalk und Gips;3331 - ;3331 - 
+25;3332;3332;;t;f;3332 - (1) Herstellung von Bauelementen aus Beton und Gips;3332 - ;3332 - 
+25;3333;3333;;t;f;3333 - (1) Herstellung von Beton und Transportbeton;3333 - ;3333 - 
+25;3334;3334;;t;f;3334 - (1) Herstellung von Zement-, Asbestzement- und Betonwaren;3334 - ;3334 - 
+25;3341;3341;;t;f;3341 - (2) Herstellung von Schleifmitteln;3341 - ;3341 - 
+25;3342;3342;;t;f;3342 - (1) Verarbeitung von Kunststeinen;3342 - ;3342 - 
+25;3343;3343;;t;f;"3343 - (2) Verarbeitung von Asphalt; Herstellung von bituminösen Produkten";3343 - ;3343 - 
+25;3344;3344;;t;f;3344 - (1) Übrige Verarbeitung von Steinen und Erden;3344 - ;3344 - 
+25;3351;3351;;t;f;3351 - (1) Ziegelei;3351 - ;3351 - 
+25;3352;3352;;t;f;3352 - (1) Herstellung von Grobkeramik;3352 - ;3352 - 
+25;3353;3353;;t;f;3353 - (1) Herstellung von Feinkeramik und Porzellan;3353 - ;3353 - 
+25;3361;3361;;t;f;3361 - (2) Herstellung von Flachglas;3361 - ;3361 - 
+103;02;;;t;f;Belastet, keine schädlichen oder lästigen Einwirkungen zu erwarten;02;02
+25;3362;3362;;t;f;3362 - (2) Herstellung von Verpackungsglas;3362 - ;3362 - 
+25;3363;3363;;t;f;3363 - (2) Herstellung von übrigem Hohlglas;3363 - ;3363 - 
+25;3364;3364;;t;f;3364 - (2) Sonstige Verarbeitung von Glas;3364 - ;3364 - 
+25;3410;3410;;t;f;3410 - (2) Eisen-, Stahl- und Walzwerke;3410 - ;3410 - 
+25;3421;3421;;t;f;3421 - (2) Herstellung von NE-Metallen;3421 - ;3421 - 
+25;3422;3422;;t;f;3422 - (2) Herstellung von NE-Metallhalbzeug;3422 - ;3422 - 
+25;3431;3431;;t;f;3431 - (2) Eisen- und Stahlgiesserei;3431 - ;3431 - 
+25;3432;3432;;t;f;3432 - (2) NE-Metallgiesserei;3432 - ;3432 - 
+25;3433;3433;;t;f;3433 - (2) Edelmetalle, Schmelzerei, Aufbereitung;3433 - ;3433 - 
+25;3441;3441;;t;f;3441 - (2) Herstellung von Schrauben-, Norm- und Fassondrehteilen;3441 - ;3441 - 
+25;3442;3442;;t;f;3442 - (2) Stahl- und NE-Metallverformung;3442 - ;3442 - 
+25;3443;3443;;t;f;3443 - (3) Oberflächenveredelung, Härtung;3443 - ;3443 - 
+25;3451;3451;;t;f;3451 - (1) Hoch-, Brücken- und Wasserbau aus Stahl und Leichtmetall;3451 - ;3451 - 
+25;3452;3452;;t;f;3452 - (1) Herstellung von Bauelementen aus Stahl und Leichtmetall;3452 - ;3452 - 
+25;3461;3461;;t;f;3461 - (2) Herstellung von Handwerkzeugen und Geräten für die Landwirtschaft;3461 - ;3461 - 
+25;3462;3462;;t;f;3462 - (2) Herstellung von Schneidwaren und Bestecken;3462 - ;3462 - 
+25;3463;3463;;t;f;3463 - (2) Herstellung von Schlössern und Beschlägen;3463 - ;3463 - 
+25;3464;3464;;t;f;3464 - (2) Herstellung von Stahl- und NE-Metallblechwaren;3464 - ;3464 - 
+25;3465;3465;;t;f;3465 - (2) Herstellung von Verpackungen aus Metall;3465 - ;3465 - 
+25;3466;3466;;t;f;3466 - (2) Herstellung von Möbeln aus Metall;3466 - ;3466 - 
+25;3467;3467;;t;f;3467 - (2) Herstellung von leichten Waffen und deren Munition;3467 - ;3467 - 
+25;3468;3468;;t;f;3468 - (2) Herstellung von sonstigen Metallwaren;3468 - ;3468 - 
+25;3471;3471;;t;f;3471 - (2) Schlosserei und mechanische Werkstätte;3471 - ;3471 - 
+25;3472;3472;;t;f;3472 - (2) Schlosserei und sanitäre Installationen;3472 - ;3472 - 
+25;3473;3473;;t;f;3473 - (2) Schmiede und sanitäre Installationen;3473 - ;3473 - 
+25;3474;3474;;t;f;3474 - (2) Spenglerei und sanitäre Installationen;3474 - ;3474 - 
+25;3475;3475;;t;f;3475 - (2) Beschlag-, Kunst- und Reparaturschmiede;3475 - ;3475 - 
+25;3476;3476;;t;f;3476 - (2) Schlosserei, Spenglerei;3476 - ;3476 - 
+25;3477;3477;;t;f;3477 - (2) Kessel-, Tank- und Behälterbau;3477 - ;3477 - 
+25;3478;3478;;t;f;3478 - (2) Metallbearbeitung ohne allg. Spez.;3478 - ;3478 - 
+25;3511;3511;;t;f;3511 - (2) Herstellung von landwirtschaftlichen Maschinen und Fahrzeugen;3511 - ;3511 - 
+25;3512;3512;;t;f;3512 - (2) Herstellung von Textilmaschinen und Nähmaschinen;3512 - ;3512 - 
+25;3513;3513;;t;f;3513 - (2) Herstellung von Metallbearbeitungsmaschinen;3513 - ;3513 - 
+25;3514;3514;;t;f;3514 - (3) Herstellung von Maschinen- und Präzisionswerkzeugen;3514 - ;3514 - 
+25;3515;3515;;t;f;3515 - (2) Herstellung von Maschinen: Nahrungs- und Genussmittelgewerbe, chemische und verwandte Industrien;3515 - ;3515 - 
+25;3516;3516;;t;f;3516 - (2) Herstellung von Holzbearbeitungsmaschinen;3516 - ;3516 - 
+25;3517;3517;;t;f;3517 - (2) Herstellung von Kunststoffverarbeitungsmaschinen;3517 - ;3517 - 
+25;3518;3518;;t;f;3518 - (2) Herstellung von Papiermaschinen und Maschinen für die graphische Industrie;3518 - ;3518 - 
+25;3519;3519;;t;f;3519 - (2) Herstellung von Baumaschinen;3519 - ;3519 - 
+25;3521;3521;;t;f;3521 - (2) Herstellung von Maschinen der Förder-, Hebe- und Lagertechnik;3521 - ;3521 - 
+25;3522;3522;;t;f;3522 - (2) Herstellung von Zahnrädern, Getrieben, Lagern und Antriebselementen;3522 - ;3522 - 
+25;3523;3523;;t;f;3523 - (2) Herstellung von Pumpen, pneumatischen und ölhydraulischen Geräten;3523 - ;3523 - 
+25;3524;3524;;t;f;3524 - (2) Herstellung von wehrtechnischen Geräten;3524 - ;3524 - 
+25;3525;3525;;t;f;3525 - (2) Herstellung von Geräten der Luft-, Kälte- und Wärmetechnik;3525 - ;3525 - 
+25;3526;3526;;t;f;3526 - (2) Sonstiger Maschinenbau;3526 - ;3526 - 
+25;3531;3531;;t;f;3531 - (2) Herstellung von Büromaschinen;3531 - ;3531 - 
+25;3532;3532;;t;f;3532 - (2) Herstellung von Geräten und Einrichtungen f. d. automatische Datenverarbeitung;3532 - ;3532 - 
+25;3541;3541;;t;f;3541 - (2) Herstellung von Automobilen und Automobilmotoren;3541 - ;3541 - 
+25;3542;3542;;t;f;3542 - (2) Herstellung von Karosserien, Aufbauten und Anhängern;3542 - ;3542 - 
+25;3543;3543;;t;f;3543 - (2) Herstellung von Fahr-, Motorfahr- und Motorrädern sowie Zubehör;3543 - ;3543 - 
+25;3544;3544;;t;f;3544 - (2) Herstellung von sonstigen Strassenfahrzeugen;3544 - ;3544 - 
+25;3545;3545;;t;f;3545 - (2) Herstellung von Schienenfahrzeugen;3545 - ;3545 - 
+25;3546;3546;;t;f;3546 - (2) Schiffs-, Boots- und Yachtbau;3546 - ;3546 - 
+25;3547;3547;;t;f;3547 - (2) Flugzeugbau;3547 - ;3547 - 
+25;3548;3548;;t;f;3548 - (2) Sonstiger Fahrzeugbau;3548 - ;3548 - 
+25;3550;3550;;t;f;3550 - (2) Maschinen- und Fahrzeugbau ohne allg. Spez.;3550 - ;3550 - 
+25;3611;3611;;t;f;3611 - (2) Herstellung von Elektromotoren, -generatoren und -transformatoren;3611 - ;3611 - 
+25;3612;3612;;t;f;3612 - (2) Herstellung von Schalt- und Installationsgeräten;3612 - ;3612 - 
+25;3613;3613;;t;f;3613 - (2) Herstellung von Elektrokabeln, -leitungen und -drähten;3613 - ;3613 - 
+25;3614;3614;;t;f;3614 - (2) Herstellung von gewerbl. Elektrogeräten, -einrichtungen und ausrüstungen;3614 - ;3614 - 
+25;3615;3615;;t;f;3615 - (2) Herstellung von Batterien und Akkumulatoren;3615 - ;3615 - 
+25;3616;3616;;t;f;3616 - (2) Herstellung von Mess-, Regel- und elektr. medizinischen Geräten und Zählern;3616 - ;3616 - 
+25;3617;3617;;t;f;3617 - (2) Herstellung von Geräten der Nachrichtentechnik;3617 - ;3617 - 
+25;3618;3618;;t;f;3618 - (2) Herstellung von Elektro-Haushaltgeräten;3618 - ;3618 - 
+25;3619;3619;;t;f;3619 - (2) Herstellung von Rundfunk-, Fernseh- und phonotechn. Geräten und Einrichtungen;3619 - ;3619 - 
+25;3621;3621;;t;f;3621 - (2) Herstellung von elektrischen Beleuchtungskörpern;3621 - ;3621 - 
+25;3622;3622;;t;f;3622 - (2) Herstellung von elektronischen Bauelementen;3622 - ;3622 - 
+25;3623;3623;;t;f;3623 - (2) Herstellung von elektrotechnischen Erzeugnissen;3623 - ;3623 - 
+25;3624;3624;;t;f;3624 - (1) Herstellung von elektrotechnischen Erzeugnissen (ohne Bauinstallation);3624 - ;3624 - 
+25;3631;3631;;t;f;3631 - (3) Herstellung von optischen Geräten;3631 - ;3631 - 
+25;3632;3632;;t;f;3632 - (3) Herstellung von Foto-, Projektions- und Kinogeräten;3632 - ;3632 - 
+25;3633;3633;;t;f;3633 - (3) Herstellung von Mess- und Regelgeräten (ohne elektrische);3633 - ;3633 - 
+25;3634;3634;;t;f;3634 - (3) Herstellung von medizin- und ortophädiemechanischen Erzeugnissen;3634 - ;3634 - 
+25;3635;3635;;t;f;3635 - (3) Herstellung von sonstigen feinmechanischen Erzeugnissen;3635 - ;3635 - 
+25;3711;3711;;t;f;3711 - (3) Herstellung von Uhrrohwerken;3711 - ;3711 - 
+25;3712;3712;;t;f;3712 - (3) Herstellung von Uhrenbestandteilen;3712 - ;3712 - 
+25;3713;3713;;t;f;3713 - (3) Herstellung und Zusammensetzung von Uhren;3713 - ;3713 - 
+25;3714;3714;;t;f;3714 - (3) Herstellung von Grossuhren;3714 - ;3714 - 
+25;3721;3721;;t;f;3721 - (1) Bearbeitung von Edel- und Schmucksteinen;3721 - ;3721 - 
+25;3722;3722;;t;f;3722 - (1) Herstellung von Gold- und Silberschmiedewaren, Schmuck;3722 - ;3722 - 
+25;3723;3723;;t;f;3723 - (1) Herstellung von Edelmetallwaren ohne Schmuck;3723 - ;3723 - 
+103;01;;;t;f;unbelastet;01;01
+25;3724;3724;;t;f;3724 - (1) Prägung von Münzen und Medaillen, Gravieranstalt;3724 - ;3724 - 
+25;3811;3811;;t;f;3811 - (2) Klavier- und Orgelbau;3811 - ;3811 - 
+25;3812;3812;;t;f;3812 - (2) Herstellung von sonstigen Musikinstrumenten;3812 - ;3812 - 
+25;3821;3821;;t;f;3821 - (2) Herstellung von Spielwaren;3821 - ;3821 - 
+25;3822;3822;;t;f;3822 - (2) Herstellung von Turn- und Sportgeräten;3822 - ;3822 - 
+25;3830;3830;;t;f;3830 - (2) Foto- und Filmlabors;3830 - ;3830 - 
+25;3841;3841;;t;f;3841 - (1) Herstellung von Architektur- und Giessereimodellen;3841 - ;3841 - 
+25;3842;3842;;t;f;3842 - (1) Herstellung von Sonnen- und Wetterschutzprodukten;3842 - ;3842 - 
+25;3843;3843;;t;f;3843 - (1) Innendekorationsatelier;3843 - ;3843 - 
+25;3844;3844;;t;f;3844 - (1) Herstellung von Bürsten, Besen und Pinsel;3844 - ;3844 - 
+25;3845;3845;;t;f;3845 - (1) Sonstige Verarbeitung von Werkstoffen verschiedener Art;3845 - ;3845 - 
+25;4111;4111;;t;f;4111 - (1) Allgemeiner Tiefbau;4111 - ;4111 - 
+25;4112;4112;;t;f;4112 - (1) Brücken-, Tunnelbau, Bohrungen;4112 - ;4112 - 
+25;4113;4113;;t;f;4113 - (1) Spezieller Tiefbau;4113 - ;4113 - 
+25;4114;4114;;t;f;4114 - (1) Unterhalt, Reparatur, Renovation;4114 - ;4114 - 
+25;4121;4121;;t;f;4121 - (1) Allgemeiner Hochbau;4121 - ;4121 - 
+25;4122;4122;;t;f;4122 - (1) Gerüstbau, Abbruch- und Sprenggewerbe;4122 - ;4122 - 
+25;4123;4123;;t;f;4123 - (1) Zimmerei, Ingenieurholzbau;4123 - ;4123 - 
+25;4124;4124;;t;f;4124 - (1) Unterhalt, Reparatur, Renovation;4124 - ;4124 - 
+25;4130;4130;;t;f;4130 - (1) Allgemeines Bauhauptgewerbe (Hoch- und Tiefbau ohne allg. Spez.);4130 - ;4130 - 
+25;4140;4140;;t;f;4140 - (0) Generalunternehmen;4140 - ;4140 - 
+25;4211;4211;;t;f;4211 - (0) Sanitär- und Gasinstallation;4211 - ;4211 - 
+25;4212;4212;;t;f;4212 - (0) Installation von Heizungs-, Lüftungs-, Klima-, Kälte- und gesundheitstechnischen Anlagen;4212 - ;4212 - 
+25;4213;4213;;t;f;4213 - (0) Sanitär- und Heizungsinstallation;4213 - ;4213 - 
+25;4214;4214;;t;f;4214 - (0) Sanitärinstallation, Bauspenglerei;4214 - ;4214 - 
+25;4215;4215;;t;f;4215 - (0) Elektroinstallation;4215 - ;4215 - 
+25;4221;4221;;t;f;4221 - (0) Gipser- und Verputzhandwerk, Stukkateurgewerbe;4221 - ;4221 - 
+25;4222;4222;;t;f;4222 - (0) Malerei und Gipserei;4222 - ;4222 - 
+25;4223;4223;;t;f;4223 - (0) Baumalerei, Malerei und Tapeziererei;4223 - ;4223 - 
+25;4224;4224;;t;f;4224 - (0) Dekorations- und Schriftenmalerei;4224 - ;4224 - 
+25;4225;4225;;t;f;4225 - (0) Plattengewerbe;4225 - ;4225 - 
+25;4226;4226;;t;f;4226 - (2) Kachelofen und Cheminéebau;4226 - ;4226 - 
+25;4227;4227;;t;f;4227 - (0) Bauisolierung;4227 - ;4227 - 
+25;4228;4228;;t;f;4228 - (1) Dachdeckerei;4228 - ;4228 - 
+25;4229;4229;;t;f;4229 - (0) Bauspenglerei;4229 - ;4229 - 
+25;5111;5111;;t;f;5111 - (1) Getreide, Futtermittel, Landesprodukte;5111 - ;5111 - 
+25;5112;5112;;t;f;5112 - (0) Blumen, Pflanzen, Blumenbindereibedarf;5112 - ;5112 - 
+25;5113;5113;;t;f;5113 - (0) Lebende Tiere, zoologischer Bedarf;5113 - ;5113 - 
+25;5121;5121;;t;f;5121 - (0) Fleisch, Fleischwaren, Wild, Geflügel;5121 - ;5121 - 
+25;5122;5122;;t;f;5122 - (0) Milcherzeugnisse, Eier, Fettwaren;5122 - ;5122 - 
+25;5123;5123;;t;f;5123 - (0) Gemüse, Obst;5123 - ;5123 - 
+25;5124;5124;;t;f;5124 - (0) Zucker, Süsswaren;5124 - ;5124 - 
+25;5125;5125;;t;f;5125 - (0) Kaffee, Tee, Rohkakao und Gewürze;5125 - ;5125 - 
+25;5126;5126;;t;f;5126 - (0) Wein, Spirituosen;5126 - ;5126 - 
+25;5127;5127;;t;f;5127 - (0) Bier, alkoholfreie Getränke;5127 - ;5127 - 
+25;5128;5128;;t;f;5128 - (0) Getränke verschiedener Art ohne allg. Spez.;5128 - ;5128 - 
+25;5129;5129;;t;f;5129 - (0) Rohtabak, Tabakprodukte;5129 - ;5129 - 
+25;5131;5131;;t;f;5131 - (0) Sonstige Nahrungs- und Genussmittel;5131 - ;5131 - 
+25;5132;5132;;t;f;5132 - (0) Nahrungs- und Genussmittel verschiedener Art ohne allg. Spez.;5132 - ;5132 - 
+25;5141;5141;;t;f;5141 - (0) Textilrohstoffe;5141 - ;5141 - 
+25;5142;5142;;t;f;5142 - (0) Textilgewebe und -gewirke;5142 - ;5142 - 
+25;5143;5143;;t;f;5143 - (0) Stickereien;5143 - ;5143 - 
+25;5144;5144;;t;f;5144 - (0) Leder, Häute und Felle;5144 - ;5144 - 
+25;5145;5145;;t;f;5145 - (0) Textilien verschiedener Art ohne allg. Spez.;5145 - ;5145 - 
+25;5151;5151;;t;f;5151 - (0) Oberbekleidung;5151 - ;5151 - 
+25;5152;5152;;t;f;5152 - (0) Wäsche, Wirk- und Strickwaren;5152 - ;5152 - 
+25;5153;5153;;t;f;5153 - (0) Bekleidungszubehör und Kopfbedeckungen;5153 - ;5153 - 
+25;5154;5154;;t;f;5154 - (0) Kürschnerwaren;5154 - ;5154 - 
+25;5155;5155;;t;f;5155 - (0) Schuhwaren;5155 - ;5155 - 
+25;5156;5156;;t;f;5156 - (0) Bekleidungsartikel verschiedener Art ohne allg. Spez.;5156 - ;5156 - 
+25;5161;5161;;t;f;5161 - (0) Möbel und Wohnbedarf verschiedener Art;5161 - ;5161 - 
+25;5162;5162;;t;f;5162 - (0) Bettwaren;5162 - ;5162 - 
+25;5163;5163;;t;f;5163 - (0) Teppiche, Wand- und Bodenbeläge;5163 - ;5163 - 
+25;5164;5164;;t;f;5164 - (0) Dekorationsstoffe, Heim- und Haustextilien;5164 - ;5164 - 
+25;5165;5165;;t;f;5165 - (0) Beleuchtungskörper;5165 - ;5165 - 
+25;5171;5171;;t;f;5171 - (0) Papier, Karton;5171 - ;5171 - 
+25;5172;5172;;t;f;5172 - (0) Schreibwaren, Papeteriebedarf;5172 - ;5172 - 
+25;5173;5173;;t;f;5173 - (0) Bücher, Zeitungen, Zeitschriften;5173 - ;5173 - 
+25;5181;5181;;t;f;5181 - (1) Farbstoffe, Pigmente, Hilfsmittel für Textil-, Leder und Papierindustrie;5181 - ;5181 - 
+25;5182;5182;;t;f;5182 - (1) Bauchemikalien;5182 - ;5182 - 
+25;5183;5183;;t;f;5183 - (1) Sonstige technische Chemikalien, Kunststoffe;5183 - ;5183 - 
+25;5184;5184;;t;f;5184 - (1) Rohe pflanzliche und tierische Fette und Oele, Kautschuk;5184 - ;5184 - 
+25;5191;5191;;t;f;5191 - (2) Feste Brennstoffe;5191 - ;5191 - 
+25;5192;5192;;t;f;5192 - (2) Flüssige Brenn- und Treibstoffe, Mineralölerzeugnisse;5192 - ;5192 - 
+25;5193;5193;;t;f;5193 - (2) Feste und flüssige Brenn- und Treibstoffe ohne allg. Spez.;5193 - ;5193 - 
+25;5211;5211;;t;f;5211 - (0) Nutz-, Bauholz;5211 - ;5211 - 
+25;5212;5212;;t;f;5212 - (0) Holzhalbwaren, Bauelemente aus Holz;5212 - ;5212 - 
+25;5213;5213;;t;f;5213 - (0) Baumaterialien;5213 - ;5213 - 
+25;5214;5214;;t;f;5214 - (0) Flachglas;5214 - ;5214 - 
+25;5215;5215;;t;f;5215 - (0) Installationsbedarf für Gas, Wasser, Heizung;5215 - ;5215 - 
+25;5221;5221;;t;f;5221 - (1) Eisen, Stahl, Eisen- und Stahlhalbfabrikate;5221 - ;5221 - 
+103;03;;;t;f;Belastet, untersuchungsbedürftig;03;03
+25;5222;5222;;t;f;5222 - (1) NE-Metalle, NE-Metallhalbfabrikate;5222 - ;5222 - 
+25;5223;5223;;t;f;5223 - (1) Metalle verschiedener Art ohne allg. Spez.;5223 - ;5223 - 
+25;5231;5231;;t;f;5231 - (1) Eisen-, Metall- und Kunststoffwaren, Werkzeuge;5231 - ;5231 - 
+25;5232;5232;;t;f;5232 - (1) Elektr. Haushaltgeräte;5232 - ;5232 - 
+25;5233;5233;;t;f;5233 - (1) Elektromaterial, Installationsbedarf;5233 - ;5233 - 
+25;5234;5234;;t;f;5234 - (0) Feinmechanik, Glaswaren;5234 - ;5234 - 
+25;5235;5235;;t;f;5235 - (0) Holz-, Korb-, Kork-, Flecht- und Bürstwaren;5235 - ;5235 - 
+25;5236;5236;;t;f;5236 - (1) Lacke, Farben;5236 - ;5236 - 
+25;5241;5241;;t;f;5241 - (1) Personenwagen, Nutzfahrzeuge, Ersatzteile, Zubehör;5241 - ;5241 - 
+25;5242;5242;;t;f;5242 - (1) Motorräder, -fahrräder, Fahrräder;5242 - ;5242 - 
+25;5243;5243;;t;f;5243 - (1) Landwirtschaftliche Maschinen und Fahrzeuge;5243 - ;5243 - 
+25;5244;5244;;t;f;5244 - (1) Baumaschinen und -geräte;5244 - ;5244 - 
+25;5245;5245;;t;f;5245 - (1) Sonstige Fahrzeuge;5245 - ;5245 - 
+25;5246;5246;;t;f;5246 - (1) Werkzeugmaschinen;5246 - ;5246 - 
+25;5247;5247;;t;f;5247 - (1) Textil- und Nähmaschinen;5247 - ;5247 - 
+25;5248;5248;;t;f;5248 - (1) Sonstige Maschinen, Material für Industrie und Gewerbe;5248 - ;5248 - 
+25;5249;5249;;t;f;5249 - (1) Technische Erzeugnisse, techn. Bedarf;5249 - ;5249 - 
+25;5251;5251;;t;f;5251 - (0) Foto-, Kinogeräte, fototechn. Material;5251 - ;5251 - 
+25;5252;5252;;t;f;5252 - (0) Unterhaltungselektronik, Radio-, TV-, Videoapparate;5252 - ;5252 - 
+25;5253;5253;;t;f;5253 - (0) Übrige feinmechanische und optische Erzeugnisse;5253 - ;5253 - 
+25;5254;5254;;t;f;5254 - (0) Uhren;5254 - ;5254 - 
+25;5255;5255;;t;f;5255 - (0) Schmuck, Edelmetallwaren, Edelsteine;5255 - ;5255 - 
+25;5256;5256;;t;f;5256 - (0) Ton- und Bildträger;5256 - ;5256 - 
+25;5257;5257;;t;f;5257 - (0) Musikinstrumente;5257 - ;5257 - 
+25;5261;5261;;t;f;5261 - (0) Büromöbel;5261 - ;5261 - 
+25;5262;5262;;t;f;5262 - (0) Büromaschinen;5262 - ;5262 - 
+25;5263;5263;;t;f;5263 - (0) Datenverarbeitungsgeräte und -einrichtungen;5263 - ;5263 - 
+25;5264;5264;;t;f;5264 - (0) Datenservice, Software;5264 - ;5264 - 
+25;5265;5265;;t;f;5265 - (0) Bürobedarf ohne allg. Spez.;5265 - ;5265 - 
+25;5271;5271;;t;f;5271 - (0) Pharmazeutische Erzeugnisse;5271 - ;5271 - 
+25;5272;5272;;t;f;5272 - (0) Kosmetische Erzeugnisse, Körperpflegemittel;5272 - ;5272 - 
+25;5273;5273;;t;f;5273 - (0) Reinigungsmittel, Waschmittel;5273 - ;5273 - 
+25;5274;5274;;t;f;5274 - (0) Laborbedarf, Dentalbedarf, sonstige medizinische und orthopädische Artikel;5274 - ;5274 - 
+25;5275;5275;;t;f;5275 - (0) Pharmazeutische und kosmetische Erzeugnisse ohne allg. Spez.;5275 - ;5275 - 
+25;5281;5281;;t;f;5281 - (0) Spielwaren;5281 - ;5281 - 
+25;5282;5282;;t;f;5282 - (0) Sportartikel;5282 - ;5282 - 
+25;5283;5283;;t;f;5283 - (0) Lederwaren, Reiseartikel;5283 - ;5283 - 
+25;5284;5284;;t;f;5284 - (0) Antiquitäten;5284 - ;5284 - 
+25;5285;5285;;t;f;5285 - (0) Briefmarken;5285 - ;5285 - 
+25;5286;5286;;t;f;5286 - (0) Geschenkartikel, Souvenirs;5286 - ;5286 - 
+25;5287;5287;;t;f;5287 - (0) Waffen, Munition, Jagdartikel;5287 - ;5287 - 
+25;5290;5290;;t;f;5290 - (0) Sonstiger Fachgrosshandel;5290 - ;5290 - 
+25;5311;5311;;t;f;5311 - (0) Rohstoffe, Halb- und Fertigwaren verschiedener Art ohne allg. Spez.;5311 - ;5311 - 
+25;5312;5312;;t;f;5312 - (0) Fertigwaren verschiedener Art ohne allg. Spez.;5312 - ;5312 - 
+25;5320;5320;;t;f;5320 - (2) Altmaterial, Reststoffe;5320 - ;5320 - 
+25;5410;5410;;t;f;5410 - (0) Vermittlung von Grund-, Roh-, Bau-, Brenn- und Treibstoffen, Holz;5410 - ;5410 - 
+25;5420;5420;;t;f;5420 - (0) Vermittlung von Textilien, Bekleidung, Schuh-, Leder- und Kunststoffwaren;5420 - ;5420 - 
+25;5430;5430;;t;f;5430 - (0) Vermittlung von Nahrungs- und Genussmitteln;5430 - ;5430 - 
+25;5440;5440;;t;f;5440 - (0) Vermittlung von Maschinen, Fahrzeugen, techn. Bedarf, Metallwaren;5440 - ;5440 - 
+25;5450;5450;;t;f;5450 - (0) Vermittlung von Waren sonstiger oder verschiedener Art;5450 - ;5450 - 
+25;5511;5511;;t;f;5511 - (0) Getreide, Futtermittel, Landesprodukte;5511 - ;5511 - 
+25;5512;5512;;t;f;5512 - (0) Blumen, Pflanzen, Handelsgärtnerei;5512 - ;5512 - 
+25;5513;5513;;t;f;5513 - (0) Lebende Tiere, zoologischer Bedarf;5513 - ;5513 - 
+25;5521;5521;;t;f;5521 - (0) Metzgerei, Wild, Geflügel;5521 - ;5521 - 
+25;5522;5522;;t;f;5522 - (0) Milcherzeugnisse, Eier;5522 - ;5522 - 
+25;5523;5523;;t;f;5523 - (0) Gemüse Obst;5523 - ;5523 - 
+25;5524;5524;;t;f;5524 - (0) Bäckerei, Konditorei;5524 - ;5524 - 
+25;5525;5525;;t;f;5525 - (0) Delikatessen, Spezereien;5525 - ;5525 - 
+25;5526;5526;;t;f;5526 - (0) Getränke;5526 - ;5526 - 
+25;5527;5527;;t;f;5527 - (0) Tabakprodukte;5527 - ;5527 - 
+25;5528;5528;;t;f;5528 - (0) Nahrungs- und Genussmittel verschiedener Art ohne allg. Spez.;5528 - ;5528 - 
+25;5531;5531;;t;f;5531 - (0) Meterware für Bekleidung und Wäsche;5531 - ;5531 - 
+25;5532;5532;;t;f;5532 - (0) Oberbekleidung für Herren;5532 - ;5532 - 
+25;5533;5533;;t;f;5533 - (0) Oberbekleidung für Damen;5533 - ;5533 - 
+25;5534;5534;;t;f;5534 - (0) Bekleidung für Kinder;5534 - ;5534 - 
+25;5535;5535;;t;f;5535 - (0) Oberbekleidung ohne allg. Spez.;5535 - ;5535 - 
+25;5536;5536;;t;f;5536 - (0) Wäsche, Bekleidungszubehör für Damen und Herren;5536 - ;5536 - 
+25;5537;5537;;t;f;5537 - (0) Mercerie, Bonneterie, Handarbeitsbedarf;5537 - ;5537 - 
+25;5538;5538;;t;f;5538 - (0) Pelze, Pelzwaren;5538 - ;5538 - 
+25;5539;5539;;t;f;5539 - (0) Schuhwaren;5539 - ;5539 - 
+25;5541;5541;;t;f;5541 - (0) Textilien, Bekleidungsartikel versch. Art ohne allg. Spez.;5541 - ;5541 - 
+25;5551;5551;;t;f;5551 - (0) Möbel und Wohnbedarf verschiedener Art;5551 - ;5551 - 
+25;5552;5552;;t;f;5552 - (0) Bettwaren;5552 - ;5552 - 
+25;5553;5553;;t;f;5553 - (0) Teppiche, Wand- und Bodenbeläge;5553 - ;5553 - 
+25;5554;5554;;t;f;5554 - (0) Dekorationsstoffe, Heim- und Haustextilien;5554 - ;5554 - 
+25;5555;5555;;t;f;5555 - (0) Beleuchtungskörper;5555 - ;5555 - 
+25;5561;5561;;t;f;5561 - (0) Schreibwaren, Papeteriewaren;5561 - ;5561 - 
+25;5562;5562;;t;f;5562 - (0) Bücher;5562 - ;5562 - 
+25;5563;5563;;t;f;5563 - (0) Zeitschriften, Zeitungen;5563 - ;5563 - 
+25;5564;5564;;t;f;5564 - (0) Kiosk (auch mit Süss- und Raucherwaren);5564 - ;5564 - 
+25;5571;5571;;t;f;5571 - (2) Brennstoffe, Heizmaterialien;5571 - ;5571 - 
+25001;A3;;;t;f;A3 - Wasserwirtschaft;A3 - ;A3 - 
+25;5572;5572;;t;f;5572 - (2) Tankstellen (ohne Reparatur);5572 - ;5572 - 
+25;5581;5581;;t;f;5581 - (0) Eisen- und Metallwaren, Werkzeuge;5581 - ;5581 - 
+25;5582;5582;;t;f;5582 - (0) Elektrische Haushaltgeräte, Haushaltartikel;5582 - ;5582 - 
+25;5583;5583;;t;f;5583 - (0) Feinkeramik, Glaswaren;5583 - ;5583 - 
+25;5584;5584;;t;f;5584 - (0) Holz-, Korb-, Kork-, Flecht- und Bürstenwaren;5584 - ;5584 - 
+25;5585;5585;;t;f;5585 - (1) Lacke, Farben, Tapeten;5585 - ;5585 - 
+25;5586;5586;;t;f;5586 - (0) Näh- und Strickmaschinen;5586 - ;5586 - 
+25;5587;5587;;t;f;5587 - (0) Einrichtungs- und Haushaltartikel ohne allg. Spez.;5587 - ;5587 - 
+25;5591;5591;;t;f;5591 - (1) Personenwagen, Nutzfahrzeuge, Ersatzteile, Zubehör;5591 - ;5591 - 
+25;5592;5592;;t;f;5592 - (1) Motorräder, Mofas, Fahrräder, Zubehör;5592 - ;5592 - 
+25;5593;5593;;t;f;5593 - (1) Sonstige Fahrzeuge;5593 - ;5593 - 
+25;5594;5594;;t;f;5594 - (1) Fahrzeuge verschiedener Art ohne allg. Spez.;5594 - ;5594 - 
+25;5595;5595;;t;f;5595 - (0) Sonstige Maschinen und Maschinen ohne allg. Spez.;5595 - ;5595 - 
+25;5611;5611;;t;f;5611 - (0) Optische und fotographische Artikel und Apparate;5611 - ;5611 - 
+25;5612;5612;;t;f;5612 - (0) Unterhaltungselektronik, Radio-, TV- und Videoapparate;5612 - ;5612 - 
+25;5613;5613;;t;f;5613 - (0) Uhren, Bijouterie;5613 - ;5613 - 
+25;5614;5614;;t;f;5614 - (0) Ton- und Bildträger;5614 - ;5614 - 
+25;5615;5615;;t;f;5615 - (0) Musikinstrumente;5615 - ;5615 - 
+25;5616;5616;;t;f;5616 - (0) Optische Erzeugnisse, Radio-, Fernseh- und phonotechnische Erzeugnisse;5616 - ;5616 - 
+25;5621;5621;;t;f;5621 - (0) Büromöbel;5621 - ;5621 - 
+25;5622;5622;;t;f;5622 - (0) Büromaschinen;5622 - ;5622 - 
+25;5623;5623;;t;f;5623 - (0) Datenverarbeitungsgeräte und -einrichtungen;5623 - ;5623 - 
+25;5624;5624;;t;f;5624 - (0) Bürobedarf ohne allg. Spez.;5624 - ;5624 - 
+25;5631;5631;;t;f;5631 - (0) Apotheke;5631 - ;5631 - 
+25;5632;5632;;t;f;5632 - (0) Drogerie, Parfümerie;5632 - ;5632 - 
+25;5633;5633;;t;f;5633 - (0) Sanitätsartikel, Laborbedarf, med. und orthopädische Artikel;5633 - ;5633 - 
+25;5641;5641;;t;f;5641 - (0) Spielwaren;5641 - ;5641 - 
+25;5642;5642;;t;f;5642 - (0) Sportartikel;5642 - ;5642 - 
+25;5643;5643;;t;f;5643 - (0) Lederwaren, Reiseartikel;5643 - ;5643 - 
+25;5644;5644;;t;f;5644 - (0) Antiquitäten;5644 - ;5644 - 
+25;5645;5645;;t;f;5645 - (0) Briefmarken;5645 - ;5645 - 
+25;5646;5646;;t;f;5646 - (0) Geschenkartikel, Souvenirs;5646 - ;5646 - 
+25;5647;5647;;t;f;5647 - (0) Waffen, Munition, Jagdartikel;5647 - ;5647 - 
+25;5648;5648;;t;f;5648 - (0) Galerien, Kunsthandel;5648 - ;5648 - 
+25;5649;5649;;t;f;5649 - (0) Gebrauchtwaren;5649 - ;5649 - 
+25;5650;5650;;t;f;5650 - (0) Sonstiger Facheinzelhandel;5650 - ;5650 - 
+25;5661;5661;;t;f;5661 - (0) Waren verschiedener Art (ohne Nahrungs- und Genussmittel);5661 - ;5661 - 
+25;5662;5662;;t;f;5662 - (0) Waren verschiedener Art (Hauptrichtung Nahrungs- und Genussmittel);5662 - ;5662 - 
+25;5663;5663;;t;f;5663 - (0) Waren verschiedener Art (Hauptrichtung Nicht-Nahrungsmiittel);5663 - ;5663 - 
+25;5664;5664;;t;f;5664 - (0) Waren verschiedener Art ohne allg. Spez.;5664 - ;5664 - 
+25;5711;5711;;t;f;5711 - (0) Hotel, Gasthaus, Motel;5711 - ;5711 - 
+25;5712;5712;;t;f;5712 - (0) Kurbetrieb;5712 - ;5712 - 
+25;5713;5713;;t;f;5713 - (0) Ferienheim, -zentrum und -haus;5713 - ;5713 - 
+25;5714;5714;;t;f;5714 - (0) Jugendherberge;5714 - ;5714 - 
+25;5715;5715;;t;f;5715 - (0) Zelt- und Wohnwagenplatz;5715 - ;5715 - 
+25;5716;5716;;t;f;5716 - (0) Sonstige Unterkünfte;5716 - ;5716 - 
+25;5721;5721;;t;f;5721 - (0) Restaurant, Café, Tea Room;5721 - ;5721 - 
+25;5722;5722;;t;f;5722 - (0) Dancing, Vergnügungslokal;5722 - ;5722 - 
+25;5723;5723;;t;f;5723 - (0) Sonstige Bewirtungsstätten;5723 - ;5723 - 
+25;5731;5731;;t;f;5731 - (0) Kantine, Caterer;5731 - ;5731 - 
+25;5732;5732;;t;f;5732 - (0) Privatpension;5732 - ;5732 - 
+25;5733;5733;;t;f;5733 - (0) Sonstiges Gastgewerbe;5733 - ;5733 - 
+25;5811;5811;;t;f;5811 - (1) Reparatur von elektrischen Haushaltgeräten;5811 - ;5811 - 
+25;5812;5812;;t;f;5812 - (1) Reparatur von Uhren, Bijouteriewaren, Optikwaren (o. Verkauf);5812 - ;5812 - 
+25;5813;5813;;t;f;5813 - (1) Reparatur von Foto- und Elektronikgeräten;5813 - ;5813 - 
+25;5814;5814;;t;f;5814 - (1) Reparatur von Schuhen (o. Verkauf);5814 - ;5814 - 
+25;5815;5815;;t;f;5815 - (1) Reparaturen von sonstigen Gebrauchsgütern;5815 - ;5815 - 
+25;5816;5816;;t;f;5816 - (1) Restaurierung von Kunstgegenständen;5816 - ;5816 - 
+25;5821;5821;;t;f;5821 - (2) Reparatur von Automobilen (auch mit Tankstelle und Handel);5821 - ;5821 - 
+25;5822;5822;;t;f;5822 - (2) Reparatur von Motoren und Fahrzeugen (auch mit Handel);5822 - ;5822 - 
+25;5823;5823;;t;f;5823 - (2) Reparatur von landwirtschaftlichen Maschinen und Fahrzeugen (auch mit Handel);5823 - ;5823 - 
+25;5824;5824;;t;f;5824 - (2) Reparatur von sonstigen Fahrzeugen und Maschinen;5824 - ;5824 - 
+25;6110;6110;;t;f;6110 - (2) Eisenbahnen;6110 - ;6110 - 
+25;6121;6121;;t;f;6121 - (2) Zahnradbahn;6121 - ;6121 - 
+25;6122;6122;;t;f;6122 - (2) Standseilbahn;6122 - ;6122 - 
+25;6123;6123;;t;f;6123 - (2) Luftseilbahn, Skilift;6123 - ;6123 - 
+25;6211;6211;;t;f;6211 - (2) Öffentlicher Nahverkehr;6211 - ;6211 - 
+25;6212;6212;;t;f;6212 - (2) Konzessionierte Autobusunternehmen;6212 - ;6212 - 
+25;6213;6213;;t;f;6213 - (2) Postautohalter (o. PTT);6213 - ;6213 - 
+25;6214;6214;;t;f;6214 - (2) Carreisebetrieb;6214 - ;6214 - 
+25;6215;6215;;t;f;6215 - (2) Taxigewerbe;6215 - ;6215 - 
+25;6220;6220;;t;f;6220 - (2) Güter-Strassenverkehr;6220 - ;6220 - 
+25;6230;6230;;t;f;6230 - (2) Mit dem Strassenverkehr verbundene Tätigkeiten;6230 - ;6230 - 
+25;6241;6241;;t;f;6241 - (2) Oelleitung;6241 - ;6241 - 
+25;6242;6242;;t;f;6242 - (1) Gasleitung;6242 - ;6242 - 
+25;6311;6311;;t;f;6311 - (2) Personentransport;6311 - ;6311 - 
+25;6312;6312;;t;f;6312 - (2) Gütertransport;6312 - ;6312 - 
+25;6320;6320;;t;f;6320 - (2) Mit der Schifffahrt verbundene Tätigkeiten;6320 - ;6320 - 
+25;6410;6410;;t;f;6410 - (2) Luftfahrt;6410 - ;6410 - 
+25;6420;6420;;t;f;6420 - (2) Mit der Luftfahrt verbundene Tätigkeiten;6420 - ;6420 - 
+25;6510;6510;;t;f;6510 - (2) Spedition ohne Fuhrpark;6510 - ;6510 - 
+25;6511;6511;;t;f;6511 - (2) Spedition mit Fuhrpark;6511 - ;6511 - 
+10023;03;3;;t;f;Historische Untersuchung abgeschlossen;;
+25;6512;6512;;t;f;6512 - (2) Verpackerei;6512 - ;6512 - 
+25;6513;6513;;t;f;6513 - (2) Lagerhäuser mit Fuhrpark;6513 - ;6513 - 
+25;6514;6514;;t;f;6514 - (2) Kühlhäuser mit Fuhrpark;6514 - ;6514 - 
+25;6515;6515;;t;f;6515 - (2) Lagerhäuser ohne Fuhrpark;6515 - ;6515 - 
+25;6516;6516;;t;f;6516 - (2) Kühlhäuser ohne Fuhrpark;6516 - ;6516 - 
+25;6521;6521;;t;f;6521 - (0) Reisebüro;6521 - ;6521 - 
+25;6522;6522;;t;f;6522 - (0) Sonstige Verkehrsvermittlung;6522 - ;6522 - 
+25;6611;6611;;t;f;6611 - (0) Post, Postcheck, Autoreisepost;6611 - ;6611 - 
+25;6612;6612;;t;f;6612 - (0) Fernmeldebetrieb;6612 - ;6612 - 
+25;6620;6620;;t;f;6620 - (0) Übrige Nachrichtenübermittlung;6620 - ;6620 - 
+25;7111;7111;;t;f;7111 - (0) Nationalbank, Bank mit besonderem Geschäftskreis;7111 - ;7111 - 
+25;7112;7112;;t;f;7112 - (0) Kantonalbank;7112 - ;7112 - 
+25;7113;7113;;t;f;7113 - (0) Grossbank;7113 - ;7113 - 
+25;7114;7114;;t;f;7114 - (0) Regionalbank, Sparkasse;7114 - ;7114 - 
+25;7115;7115;;t;f;7115 - (0) Darlehens- und Raiffeisenkasse;7115 - ;7115 - 
+25;7116;7116;;t;f;7116 - (0) Handels- und Spezialbank;7116 - ;7116 - 
+25;7117;7117;;t;f;7117 - (0) Ausländisch beherrschte Bank, Filiale einer ausländischen Bank;7117 - ;7117 - 
+25;7118;7118;;t;f;7118 - (0) Privatbankier;7118 - ;7118 - 
+25;7121;7121;;t;f;7121 - (0) Bankähnliche Finanzgesellschaft;7121 - ;7121 - 
+25;7122;7122;;t;f;7122 - (0) Holdinggesellschaft, Beteiligungsgesellschaft;7122 - ;7122 - 
+25;7123;7123;;t;f;7123 - (0) Wechselstube, Change;7123 - ;7123 - 
+25;7124;7124;;t;f;7124 - (0) Pfandleihanstalt;7124 - ;7124 - 
+25;7125;7125;;t;f;7125 - (0) Bürgschaftsgenossenschaft;7125 - ;7125 - 
+25;7126;7126;;t;f;7126 - (0) Börse, Börsenagentur und -makler;7126 - ;7126 - 
+25;7127;7127;;t;f;7127 - (0) Sonstige mit dem Bankgewerbe verbundene Tätigkeiten;7127 - ;7127 - 
+25;7211;7211;;t;f;7211 - (0) Lebensversicherung;7211 - ;7211 - 
+25;7212;7212;;t;f;7212 - (0) Unfall-, Schadensversicherung;7212 - ;7212 - 
+25;7213;7213;;t;f;7213 - (0) Rückversicherung;7213 - ;7213 - 
+25;7214;7214;;t;f;7214 - (0) Krankenkasse;7214 - ;7214 - 
+25;7215;7215;;t;f;7215 - (0) Pensionskasse, Fürsorgestiftung;7215 - ;7215 - 
+25;7216;7216;;t;f;7216 - (0) Versicherung ohne allg. Spez.;7216 - ;7216 - 
+25;7220;7220;;t;f;7220 - (0) Vermittlung von Versicherungen, selbständige Versicherungsvertreter u.ä.;7220 - ;7220 - 
+25;7310;7310;;t;f;7310 - (0) Vermietung und Verkauf von eigenen Immobilien;7310 - ;7310 - 
+25;7320;7320;;t;f;7320 - (0) Verwaltung und Vermittlung von Grundstücken, Wohnungen und Geschäftshäusern;7320 - ;7320 - 
+25;7411;7411;;t;f;7411 - (1) Vermietung von landwirtschaftlichen Maschinen und Geräten;7411 - ;7411 - 
+25;7412;7412;;t;f;7412 - (1) Vermietung von sonstigen Maschinen;7412 - ;7412 - 
+25;7413;7413;;t;f;7413 - (1) Vermietung von Fahrzeugen;7413 - ;7413 - 
+25;7414;7414;;t;f;7414 - (0) Vermietung von Kleidern, Hausrat und sonstigen Gebrauchsgütern;7414 - ;7414 - 
+25;7415;7415;;t;f;7415 - (0) Vermietung sonstiger beweglicher Sachen;7415 - ;7415 - 
+25;7421;7421;;t;f;7421 - (0) Leasing von industriellen Gütern;7421 - ;7421 - 
+25;7422;7422;;t;f;7422 - (0) Leasing von Immobilien;7422 - ;7422 - 
+25;7511;7511;;t;f;7511 - (0) Treuhandbüro, Revisionsgesellschaft;7511 - ;7511 - 
+25;7512;7512;;t;f;7512 - (0) Unternehmensberatung;7512 - ;7512 - 
+25;7513;7513;;t;f;7513 - (0) Advokatur-, Notariatsbüro;7513 - ;7513 - 
+25;7514;7514;;t;f;7514 - (0) Patentanwaltsbüro, Patentverwertung;7514 - ;7514 - 
+25;7515;7515;;t;f;7515 - (0) Sonstige Rechts- und Wirtschaftsberatung;7515 - ;7515 - 
+25;7521;7521;;t;f;7521 - (0) Architekturbüro, Generalplanung;7521 - ;7521 - 
+25;7522;7522;;t;f;7522 - (0) Bauingenieurbüro;7522 - ;7522 - 
+25;7523;7523;;t;f;7523 - (0) Maschineningenieurbüro, Elektrotechnik;7523 - ;7523 - 
+25;7524;7524;;t;f;7524 - (0) Ingenieurgesellschaft, Generalplanung;7524 - ;7524 - 
+25;7525;7525;;t;f;7525 - (0) Kulturingenieur-, Geometer- und Vermessungsbüro;7525 - ;7525 - 
+25;7526;7526;;t;f;7526 - (0) Raumplanungsbüro;7526 - ;7526 - 
+25;7527;7527;;t;f;7527 - (0) Landschaftsplanungs- und Gartenarchitekturbüro;7527 - ;7527 - 
+25;7528;7528;;t;f;7528 - (0) Innenarchitekturbüro;7528 - ;7528 - 
+25;7529;7529;;t;f;7529 - (0) Büro für Verfahrens- und Chemieingenieurtechnik;7529 - ;7529 - 
+25;7531;7531;;t;f;7531 - (0) Sonstige technische Beratung und Planung;7531 - ;7531 - 
+25;7541;7541;;t;f;7541 - (0) Markt- und Meinungsforschung;7541 - ;7541 - 
+25;7542;7542;;t;f;7542 - (0) Korrespondenz- und Nachrichtenbüro;7542 - ;7542 - 
+25;7543;7543;;t;f;7543 - (0) Ausstellungs-, Messe-, Warenmarkteinrichtung;7543 - ;7543 - 
+25;7544;7544;;t;f;7544 - (0) Bewachung, Auskunfts- und Detektivbüro;7544 - ;7544 - 
+25;7545;7545;;t;f;7545 - (0) Übersetzungsbüro;7545 - ;7545 - 
+25;7546;7546;;t;f;7546 - (0) Stellenvermittlung, Künstleragenturen;7546 - ;7546 - 
+25;7547;7547;;t;f;7547 - (0) Werbeberatung und -gestaltung;7547 - ;7547 - 
+25;7548;7548;;t;f;7548 - (0) Werbevermittlung;7548 - ;7548 - 
+25;7549;7549;;t;f;7549 - (0) Sonstige kommerzielle Dienste;7549 - ;7549 - 
+25;7551;7551;;t;f;7551 - (0) Rechenzentrum, Datenverarbeitung;7551 - ;7551 - 
+25;7552;7552;;t;f;7552 - (0) EDV-Beratung;7552 - ;7552 - 
+25;7553;7553;;t;f;7553 - (0) Entwicklung von Software;7553 - ;7553 - 
+25;7554;7554;;t;f;7554 - (0) Wartung von EDV-Anlagen und -geräten;7554 - ;7554 - 
+25;7611;7611;;t;f;7611 - (2) Wäscherei, Glätterei;7611 - ;7611 - 
+25;7612;7612;;t;f;7612 - (3) Chemische Reinigung, Färberei;7612 - ;7612 - 
+25;7621;7621;;t;f;7621 - (0) Coiffeursalon;7621 - ;7621 - 
+25;7622;7622;;t;f;7622 - (0) Kosmetikinstitut, Pedicure;7622 - ;7622 - 
+25;7623;7623;;t;f;7623 - (0) Sauna, Massage;7623 - ;7623 - 
+25;7631;7631;;t;f;7631 - (1) Kamin- und Schornsteinfeger;7631 - ;7631 - 
+25;7632;7632;;t;f;7632 - (1) Bau-, Gebäude-, Fensterreinigung;7632 - ;7632 - 
+25;7633;7633;;t;f;7633 - (1) Tankreinigung;7633 - ;7633 - 
+25;7634;7634;;t;f;7634 - (1) Autowaschanlage;7634 - ;7634 - 
+25;7635;7635;;t;f;7635 - (1) Sonstige Reinigung von Gebäuden, Räumen, Inventar;7635 - ;7635 - 
+25;7641;7641;;t;f;7641 - (0) Friedhof;7641 - ;7641 - 
+25;7642;7642;;t;f;7642 - (0) Bestattungsinstitut;7642 - ;7642 - 
+25;7651;7651;;t;f;7651 - (0) Tiersalon;7651 - ;7651 - 
+25;7652;7652;;t;f;7652 - (0) Tierheim;7652 - ;7652 - 
+25;7661;7661;;t;f;7661 - (1) Fotostudio, -atelier;7661 - ;7661 - 
+25;7662;7662;;t;f;7662 - (0) Versteigerungsgewerbe;7662 - ;7662 - 
+25;7663;7663;;t;f;7663 - (0) Ehevermittlung;7663 - ;7663 - 
+25;7664;7664;;t;f;7664 - (0) Sonstige persönliche Dienstleistungen;7664 - ;7664 - 
+25;8110;8110;;t;f;8110 - (0) Kindergarten;8110 - ;8110 - 
+25;8121;8121;;t;f;8121 - (0) Primarschule;8121 - ;8121 - 
+25;8122;8122;;t;f;8122 - (0) Sekundarstufe I;8122 - ;8122 - 
+25;8123;8123;;t;f;8123 - (0) Schule mit besonderem Lehrplan (Sonderschule);8123 - ;8123 - 
+25;8124;8124;;t;f;8124 - (0) Obligatorische Schule ohne allg. Spez.;8124 - ;8124 - 
+25;8131;8131;;t;f;8131 - (0) Maturitätsschule;8131 - ;8131 - 
+25;8132;8132;;t;f;8132 - (0) Lehrer/-innen-Seminar, Kindergärtner/-innen-Seminar;8132 - ;8132 - 
+25;8133;8133;;t;f;8133 - (0) Diplommittelschule, Verkehrsschule;8133 - ;8133 - 
+25;8134;8134;;t;f;8134 - (0) Lehrwerkstätte, Schule für Gestaltung u.ä.;8134 - ;8134 - 
+25;8135;8135;;t;f;8135 - (0) Landwirtschaftliche Berufsschule;8135 - ;8135 - 
+25;8136;8136;;t;f;8136 - (0) Gewerblich-Industrielle Berufsschule;8136 - ;8136 - 
+25;8137;8137;;t;f;8137 - (0) Kaufmännische Berufsschule;8137 - ;8137 - 
+25;8138;8138;;t;f;8138 - (0) Berufsschule für Pflegeberufe und medizinische Hilfskräfte;8138 - ;8138 - 
+25;8139;8139;;t;f;8139 - (0) Andere Berufs- und Fachschule ohne allg. Spez.;8139 - ;8139 - 
+25;8141;8141;;t;f;8141 - (0) Universität, Hochschule;8141 - ;8141 - 
+25;8142;8142;;t;f;8142 - (0) Schule für Unterrichtsberufe (HPL);8142 - ;8142 - 
+25;8143;8143;;t;f;8143 - (0) Ingenieur- und Technikerschule (HTL, TS);8143 - ;8143 - 
+25;8144;8144;;t;f;8144 - (0) Höhere Wirtschafts- und Verwaltungsschule (HWV u.ä.);8144 - ;8144 - 
+25;8145;8145;;t;f;8145 - (0) Schule für Sozialarbeit;8145 - ;8145 - 
+25;8146;8146;;t;f;8146 - (0) Andere höhere Fachschule;8146 - ;8146 - 
+25;8151;8151;;t;f;8151 - (0) Allgemeinbildende Programme oder Kurse;8151 - ;8151 - 
+25;8152;8152;;t;f;8152 - (0) Künstlerischer oder Kunstgewerblicher Kurs;8152 - ;8152 - 
+25;8153;8153;;t;f;8153 - (0) Kurs für Sprachen, Geschichte etc.;8153 - ;8153 - 
+25;8154;8154;;t;f;8154 - (0) Kurs für gewerblich-industrielle Tätigkeiten;8154 - ;8154 - 
+25;8155;8155;;t;f;8155 - (0) Kurs für Bürotätigkeiten, Informatik;8155 - ;8155 - 
+25;8156;8156;;t;f;8156 - (0) Kurs für Haushalt, Ernährung, Handarbeit;8156 - ;8156 - 
+25;8157;8157;;t;f;8157 - (0) Land-, Garten- und forstwirtschaftlicher Kurs;8157 - ;8157 - 
+25;8158;8158;;t;f;8158 - (0) Medizinischer und pflegerischer Kurs;8158 - ;8158 - 
+25;8159;8159;;t;f;8159 - (0) Sonstige Programme oder Kurse der Erwachsenenbildung ohne allg. Spez.;8159 - ;8159 - 
+25;8161;8161;;t;f;8161 - (0) Schulen und Ausbildung ohne allg. Spez.;8161 - ;8161 - 
+25;8162;8162;;t;f;8162 - (0) Autofahrschule, Flugschule;8162 - ;8162 - 
+25;8163;8163;;t;f;8163 - (0) Ausbildungs- und Tagungszentrum;8163 - ;8163 - 
+25;8164;8164;;t;f;8164 - (0) Berufs- und Studienberatung;8164 - ;8164 - 
+25;8211;8211;;t;f;8211 - (1) Landwirtschaftliche Forschungs- und Versuchsanstalt;8211 - ;8211 - 
+25;8212;8212;;t;f;8212 - (2) Chemische, chemotechnische, physikalische Labors, Forschungsanstalten;8212 - ;8212 - 
+25;8213;8213;;t;f;8213 - (1) Prüfungs- und Eichstätten;8213 - ;8213 - 
+25;8214;8214;;t;f;8214 - (0) Übrige wissenschaftliche Institute und Forschungsanstalten;8214 - ;8214 - 
+25;8220;8220;;t;f;8220 - (0) Selbständige Wissenschafter;8220 - ;8220 - 
+25;8311;8311;;t;f;8311 - (0) Arzt-Praxis;8311 - ;8311 - 
+25;8312;8312;;t;f;8312 - (0) Zahnarzt-Praxis;8312 - ;8312 - 
+25;8321;8321;;t;f;8321 - (0) Psychotherapie;8321 - ;8321 - 
+25;8322;8322;;t;f;8322 - (0) Heil- und Chiropraxis;8322 - ;8322 - 
+25;8323;8323;;t;f;8323 - (0) Physiotherapie, Ergotherapie u.ä.;8323 - ;8323 - 
+25;8324;8324;;t;f;8324 - (0) Krankenschwester, -pfleger, Hebamme, Logopäde u.ä. Praxen des Pflegebereichs;8324 - ;8324 - 
+25;8331;8331;;t;f;8331 - (0) Spital zur kurzfristigen Behandlung;8331 - ;8331 - 
+25;8332;8332;;t;f;8332 - (0) Spital zur langfristigen Behandlung;8332 - ;8332 - 
+25;8333;8333;;t;f;8333 - (0) Psychiatrische Klinik;8333 - ;8333 - 
+25;8334;8334;;t;f;8334 - (0) Übrige Krankenanstalten;8334 - ;8334 - 
+25;8341;8341;;t;f;8341 - (1) Zahntechnisches Atelier;8341 - ;8341 - 
+25;8342;8342;;t;f;8342 - (2) Medizinisches Labor;8342 - ;8342 - 
+25;8343;8343;;t;f;8343 - (0) Ambulatorium;8343 - ;8343 - 
+25;8344;8344;;t;f;8344 - (0) Sonstige Einrichtungen des Gesundheitswesens;8344 - ;8344 - 
+25;8351;8351;;t;f;8351 - (0) Tierarzt-Praxis, Tierklinik;8351 - ;8351 - 
+25;8352;8352;;t;f;8352 - (0) Sonstige Einrichtungen des Veterinärwesens;8352 - ;8352 - 
+25;8411;8411;;t;f;8411 - (3) Abfallbeseitigung;8411 - ;8411 - 
+25;8412;8412;;t;f;8412 - (2) Abwasserbeseitigung;8412 - ;8412 - 
+25;8420;8420;;t;f;8420 - SONSTIGE HYGIENISCHE EINRICHTUNG;8420 - ;8420 - 
+25;8511;8511;;t;f;8511 - (0) Jugend-, Studenten- und Berufstätigenwohnheim;8511 - ;8511 - 
+25;8512;8512;;t;f;8512 - (0) Alterswohnheim, Altersheim;8512 - ;8512 - 
+25;8513;8513;;t;f;8513 - (0) Sonstige Wohnheime;8513 - ;8513 - 
+25;8521;8521;;t;f;8521 - (0) Heim für Säuglinge, Kinder und Jugendliche;8521 - ;8521 - 
+25;8522;8522;;t;f;8522 - (0) Erziehungsheim;8522 - ;8522 - 
+25;8530;8530;;t;f;8530 - (0) Einrichtungen zur Eingliederung von Behinderten, Wohnheime für Behinderte;8530 - ;8530 - 
+25;8540;8540;;t;f;8540 - (0) Tagesheime;8540 - ;8540 - 
+25;8550;8550;;t;f;8550 - (0) Organisation der Wohlfahrtspflege;8550 - ;8550 - 
+25;8610;8610;;t;f;8610 - (0) Kirchlich konfessionelle Gemeinde;8610 - ;8610 - 
+25;8620;8620;;t;f;8620 - (0) Kloster, Ordensgemeinschaft;8620 - ;8620 - 
+25;8630;8630;;t;f;8630 - (0) Sonstige religiöse und weltanschauliche Vereinigung;8630 - ;8630 - 
+25;8710;8710;;t;f;8710 - (0) Arbeitgeberverband, Wirtschaftsverbände;8710 - ;8710 - 
+25;8721;8721;;t;f;8721 - (0) Politische Partei;8721 - ;8721 - 
+25;8722;8722;;t;f;8722 - (0) Arbeitnehmerverband;8722 - ;8722 - 
+25;8723;8723;;t;f;8723 - (0) Organisation der Kultur, Bildung, Wissenschaft, Forschung;8723 - ;8723 - 
+25;8724;8724;;t;f;8724 - (0) Organisation des Sports und Gesundheitswesens;8724 - ;8724 - 
+25;8725;8725;;t;f;8725 - (0) Jugendorganisation;8725 - ;8725 - 
+117;111;;;t;f;Antimon;Antimoine;antimonio
+25;8730;8730;;t;f;8730 - (0) Sonstige Interessenwahrung, Dienstleistung für die Allgemeinheit;8730 - ;8730 - 
+25;8811;8811;;t;f;8811 - (0) Bibliothek;8811 - ;8811 - 
+25;8812;8812;;t;f;8812 - (0) Schriftsteller, freie Journalisten;8812 - ;8812 - 
+25;8821;8821;;t;f;8821 - (0) Theater, Oper, Kleintheater, Ballett;8821 - ;8821 - 
+25;8822;8822;;t;f;8822 - (0) Tanz, Bewegungskunst, Folklore;8822 - ;8822 - 
+25;8823;8823;;t;f;8823 - (0) Theaterverwandtes, Schaustellung, Zirkus, Vergnügungspark;8823 - ;8823 - 
+25;8830;8830;;t;f;8830 - (0) Musik (Orchester, Kapellen, Chöre, freie Musiker);8830 - ;8830 - 
+25;8841;8841;;t;f;8841 - (0) Kino;8841 - ;8841 - 
+25;8842;8842;;t;f;8842 - (0) Filmverleih;8842 - ;8842 - 
+25;8843;8843;;t;f;8843 - (0) Filmproduktion, -studio;8843 - ;8843 - 
+25;8851;8851;;t;f;8851 - (0) Bildende Künstler;8851 - ;8851 - 
+25;8852;8852;;t;f;8852 - (0) Kunstgewerbliches Atelier;8852 - ;8852 - 
+25;8861;8861;;t;f;8861 - (0) Radiostudio;8861 - ;8861 - 
+25;8862;8862;;t;f;8862 - (0) Fernsehstudio;8862 - ;8862 - 
+25;8871;8871;;t;f;8871 - (0) Museum;8871 - ;8871 - 
+25;8872;8872;;t;f;8872 - (0) Zoologische und Botanische Gärten;8872 - ;8872 - 
+25;8873;8873;;t;f;8873 - (0) Kultur- und Freizeitzentrum;8873 - ;8873 - 
+25;8874;8874;;t;f;8874 - (0) Animation, sonstige sozio-kulturelle Aktivitäten;8874 - ;8874 - 
+25;8881;8881;;t;f;8881 - (0) Sporteinrichtung;8881 - ;8881 - 
+25;8882;8882;;t;f;8882 - (0) Gymnastik- und Fitnessinstitut;8882 - ;8882 - 
+25;8883;8883;;t;f;8883 - (0) Selbständiger Sportler, Sportlehrer;8883 - ;8883 - 
+25;8891;8891;;t;f;8891 - (0) Wett- und Lotteriewesen;8891 - ;8891 - 
+25;8892;8892;;t;f;8892 - (0) Spielsalon;8892 - ;8892 - 
+25;8893;8893;;t;f;8893 - (0) Sonstige Unterhaltung;8893 - ;8893 - 
+25;8910;8910;;t;f;8910 - (0) Häusliche Dienste;8910 - ;8910 - 
+25;9111;9111;;t;f;9111 - (0) Verwaltung der Rechtspflege;9111 - ;9111 - 
+25;9112;9112;;t;f;9112 - (0) Verwaltung des Polizei- und Feuerwehrwesens;9112 - ;9112 - 
+25;9113;9113;;t;f;9113 - (0) Verwaltung der Landesverteidigung;9113 - ;9113 - 
+25;9114;9114;;t;f;9114 - (0) Verwaltung der sozialen Wohlfahrt;9114 - ;9114 - 
+25;9115;9115;;t;f;9115 - (0) Verwaltung von Unterricht, Forschung, Kultur, Sport;9115 - ;9115 - 
+25;9116;9116;;t;f;9116 - (0) Verwaltung des Gesundheitswesens, der Hygiene und der Umwelt;9116 - ;9116 - 
+25;9117;9117;;t;f;9117 - (0) Verwaltung der Volkswirtschaft;9117 - ;9117 - 
+25;9118;9118;;t;f;9118 - (0) Sonstige allgemeine Verwaltung, Behörden;9118 - ;9118 - 
+25;9121;9121;;t;f;9121 - (0) Gericht, Anwaltschaft;9121 - ;9121 - 
+25;9122;9122;;t;f;9122 - (0) Strafvollzug;9122 - ;9122 - 
+25;9131;9131;;t;f;9131 - (0) Polizei;9131 - ;9131 - 
+25;9132;9132;;t;f;9132 - (0) Strassenverkehrsamt, Motorfahrzeugkontrolle;9132 - ;9132 - 
+25;9133;9133;;t;f;9133 - (0) Feuerwehr;9133 - ;9133 - 
+25;9141;9141;;t;f;9141 - (1) Ausbildung, Kasernen, Zeughäuser;9141 - ;9141 - 
+25;9142;9142;;t;f;9142 - (1) Zivilschutz;9142 - ;9142 - 
+25;9143;9143;;t;f;9143 - Schiessanlagen;9143 - ;9143 - 
+25;9210;9210;;t;f;9210 - (0) Unfallversicherung SUVA;9210 - ;9210 - 
+25;9220;9220;;t;f;9220 - (0) AHV/IV, ALV;9220 - ;9220 - 
+25;9311;9311;;t;f;9311 - (0) Konsulate;9311 - ;9311 - 
+25;9312;9312;;t;f;9312 - (0) Botschaften;9312 - ;9312 - 
+25;9320;9320;;t;f;9320 - (0) Internationale Organisationen mit Behördencharakter;9320 - ;9320 - 
+25;9999;9999;;t;f;9999 - (2) Nicht definiert;9999 - ;9999 - 
+90;01;1;;t;f;gut bekannt;;
+90;02;2;;t;f;schlecht bekannt;;
+90;03;3;;t;f;geschätzt;;
+90;04;4;;t;f;+/- 5 Jahre;;
+90;05;5;;t;f;+/- 15 Jahre;;
+90;06;6;;t;f;+/- > 15 Jahre;;
+90;07;7;;t;f;<;;
+90;08;8;;t;f;<=;;
+90;09;9;;t;f;ca;;
+90;10;10;;t;f;>;;
+90;11;11;;t;f;>=;;
+90;12;12;;t;f;höchstens 10 m;;
+90;13;13;;t;f;mindestens 10 m;;
+117;112;;;t;f;Arsen;Arsenic;arsenico
+117;113;;;t;f;Blei;Plomb;piombo
+117;211;;;t;f;Benzin;Essence;benzina
+117;212;;;t;f;Dieselöl;olio diesel;Diesel
+117;213;;;t;f;Heizöl;Huile de chauffage;olio da riscaldamento
+117;311;;;t;f;Benzol;Benzène;benzene
+117;312;;;t;f;Ethylbenzol;Ethylbenzène;etilbenzene
+117;313;;;t;f;Toluol;Toluène;toluene
+117;0;;;t;f;unbekannt;inconnu;non noto
+11410;01;;;t;f;Typ A;;
+11410;02;;;t;f;Typ B;;
+87;01;1;;t;f;Wald;Forêt;Bosco
+87;02;2;;t;f;Landwirtschaftlich genutzte Flächen;surface agricoles;agricoltura
+87;03;3;;t;f;Ungenutzte Flächen (Brachland, unproduktives Areal); terrain non utilisé (friches, surfaces improductives);terreno inutilizzato (terreno novale, area inproduttiva)
+87;04;4;;t;f;Siedlungsgebiet;zones d'habitations;abitato
+87;05;5;;t;f;andere Nutzung;autre utilisation;altra utilizzazione
+87;06;6;;t;f;keine Angabe;pas d'information;non nota
+104;01;1;;t;f;geschlossener Wald;;
+104;02;2;;t;f;aufgelöster Wald;;
+104;03;3;;t;f;Gebüschwald;forêt buisssonnante;foresta cespugliosa
+104;04;4;;t;f;Gehölz;bosquet;boschetto 
+83;BAVL02;3;;t;f;Obstbauflächen, Gartenbauflächen;Surfaces de vergers / jardins;
+83;BAVL04;1;;t;f;Wies- und Ackerland;Prés et terres arables;
+83;BAVL05;5;;t;f;Dauerwiesen, Dauerweiden;Paturâges permanents;
+92;BAVS01;3;;t;f;Wohn- / Schulanlage;habitat et écoles;edifici residenziali e scuole
+92;BAVS02;24;;f;f;Umschwung von Wohn- und Schulgebäuden;proximité d'habitations et  d'écoles;
+92;BAVS03;27;;f;f;Gewerbebauten mit Wohnen;constructions commerciales avec logements;
+92;BAVS04;21;;f;f;Umschwung von Gewerbebauten mit Wohnen;proximité de construction commerciales avec logements;
+92;BAVS05;11;;t;f;Industrie- und Gewerbebauten (ohne Wohnen);constructions commerciales  et industrielles (sans logements);edifici industriali
+92;BAVS06;35;;f;f;Umschw. von Industrie- und Gewerbebauten (ohne Wohnen);proximité de construction commerciales  et industrielles (sans logements);
+92;BAVS07;5;;t;f;Kinderspielplätze und Spielwiesen;place de jeux pour les enfants;
+92;BAVS08;8;;t;f;Erholungs- Sport- und Grünanlagen (ohne Spielplätze);centre de détente,  installations sportives , espace vert (sans place de jeux);
+92;BAVS09;9;;t;f;Strassenareal, Parkplätze (vorwiegend versiegelt);rues, places de parc (essentiellement avec revêtement étanche);
+92;BAVS11;32;;f;f;Flugplatzareal;aéroport;
+92;BAVS12;7;;t;f;Familien- und Hausgärten;jardins familiaux;giardini
+66;01;1;;t;f;stehendes Gewässer: See, Teich, Biotop;Eaux stagnantes: lac, étang, biotope;Acque stagnanti: lago, stagno, biotopo
+66;02;2;;t;f;Fliessgewässer mit ständiger Wasserführung;Eaux courantes à débit permanent;Corsi d'acqua con flusso permanente
+66;03;3;;t;f;Fliessgewässer mit periodischer Wasserführung;Eaux courantes à débit intermittant;Corsi d'acqua con flusso periodico
+66;04;4;;t;f;kein Oberflächengewässer;Pas d'eau de surface à proximité;Non vi sono acque superficiali
+66;05;5;;t;f;unbekannt;Inconnu;Non noto
+67;01;1;;t;f;natürlich;Naturel;Naturale
+67;02;2;;t;f;verbaut;Construit;Rdificato
+67;03;3;;t;f;eingedolt;Canalisé sous-terre;Canalizzazione sotterranea
+67;04;4;;t;f;unbekannt;Inconnu;Non noto
+70;01;1;;t;f;Gewässerlage unbekannt;Situation hydrologique inconnue;Situazione idrologica non nota
+70;02;2;;t;f;Gewässer durch das Areal oder direkt angrenzend ans Areal;Cours d'eau sur le site ou avoisinant le site;Il corso d'acqua passa sul sito o nelle immediate vicinanze
+70;03;3;;t;f;Direkte hydraulische Verbindung zum Gewässer (Graben, Drainage o.ä.);Connection hydraulique directe avec les eaux (p.ex. fossé, drainage);Collegamento idraulico diretto con le acque (fosso, drenaggio o sim.) 
+70;04;4;;t;f;Gewässer unterhalb des Standorts;Eaux situées en aval du site;Acque situate sotto la superficie potenzialmente inquinata
+70;05;5;;t;f;Standort nicht in direkter Verbindung mit Oberflächengewässer;Site sans connection directe avec les eaux de surface;Sito senza collegamento diretto con le acque superficiali
+70;06;6;;t;f;nicht relevant;Non relevant;Non importante
+88;01;1;;t;f;Brauchwasser;eaux industrielles;acque industriali
+88;02;2;;t;f;Brauchwasser mit Trinkwasserqualität;eaux industrielles avec une qualité d'eau potable;acque industriali con qualità di acque potabili
+88;03;3;;t;f;Landwirtschaft;AGRICULTURE, ELEVAGE;Agricoltura
+88;04;4;;t;f;Trinkwasser;eau potable;acqua potabile
+71;01;1;;t;f;Standort liegt über GW;site situé au-dessus d'une nappe phréatique;sito situato al di sopra della falda freatica
+71;02;2;;t;f;Standort liegt am Rande eines GW;site avoisinant une nappe phréatique;sito confinante con una falda freatica
+71;03;3;;t;f;Standort liegt ausserhalb, aber im direkten Zuströmbereich eines GW-Vorkommens;site situé en dehors d'une nappe phréatique, mais directement dans son aire d'alimentation;sito situato al di fuori di una falda freatica, ma direttamente nel suo settore di alimentazione
+71;04;4;;t;f;Standort liegt ausserhalb und nicht im direkten Zuströmbereich eines GW-Vorkommens;site situé en dehors d'une nappe phréatique et de son aire d'alimentation;sito situato al di fuori di una falda freatica e del suo settore di alimentazione
+71;05;5;;t;f;unbekannt;inconnue;Non noto
+58;01;1;;t;f;erhöhte Durchlässigkeit durch technische Eingriffe;perméabilité accrue par des interventions techniques;permeabilità aumentata da interventi tecnici
+58;02;2;;t;f;Fels mit geringer Durchlässigkeit;roches à faible perméabilité;roccia con scarsa permeabilità
+58;03;3;;t;f;Fels mit grosser Durchlässigkeit;roches à forte perméabilité;roccia con forte permeabilità
+58;04;4;;t;f;Fels mit uneinheitlicher Durchlässigkeit;roches à perméabilité inhomogène;roccia con permeabilità eterogenea
+58;05;5;;t;f;Lockergesteine mit geringer Durchlässigkeit;terrains meubles à faible perméabilité;roccia incoerente con scarsa permeabilità
+80;01;1;;t;f;Ja;Oui;Sì
+80;02;2;;t;f;vermutlich Ja;Probablement oui;Probabilmente sì
+80;03;3;;t;f;unbekannt;inconnu;Non noto
+80;04;4;;t;f;vermutlich Nein;Probablement non;Probabilmente no
+80;05;5;;t;f;Nein;Non;No
+10017;A;20;;f;f;Gewässerschutzbereich A (alt);Secteur de protection A (ancien);
+10017;Ao;3;;t;f;Gewässerschutzbereich Ao;secteur de protection Ao;settore di protezione Ao
+10017;Au;2;;t;f;Gewässerschutzbereich Au;secteur de protection Au;settore di protezione Au
+10017;B;21;;f;f;Gewässerschutzbereich B (alt);Secteur de protection B (ancien);
+10018;S1;24;;t;f;Schutzzone S1;zone de protection S1;zona di protezione S1
+10018;S2;25;;t;f;Schutzzone S2;zone de protection S2;zona di protezione S2
+10018;S3;26;;t;f;Schutzzone S3;zone de protection S3;zona di protezione S3
+10018;SA;28;;t;f;Schutzareal SA;périmètre de protecion des eaux (SA);
+299;01;;;t;f;Untergrund;Sous-sol;
+299;02;;;t;f;Boden;Sol;
+299;03;;;t;f;Luft;Air;
+299;04;;;t;f;Grundwasser;Eaux souterraines;
+299;05;;;t;f;Oberflächengewässer;Eaux de surface;
+300;01;;;t;f;CKW;HCC;
+300;02;;;t;f;Schwermetalle;Métaux lourds;
+300;03;;;t;f;Mineralölartige Kohlenwasserstoffe;Hydrocarbures de type huile minérale;
+300;04;;;t;f;BTEX;BTEX;
+300;05;;;t;f;PAK;HAP;
+300;06;;;t;f;Dioxine;Dioxines;
+300;07;;;t;f;PCB;PCB;
+300;08;;;t;f;PFAS;PFAS;
+300;09;;;t;f;Benzinartige Kohlenwasserstoffe;Hydrocarbures de type essence;
+300;10;;;t;f;Nichtmetalle, anorganische Verbindungen;Non-métaux, composés inorganiques;Non metalli, composti inorganici
+300;11;;;t;f;Halogenierte Kohlenwasserstoffe;Hydrocarbures halogénés;Idrocarburi alogenati
+300;12;;;t;f;Freone;Fréons;Freon
+300;13;;;t;f;Sonstige;Autres;Altri
+300;14;;;t;f;Phenole;Phénols;Fenoli
+301;01;;;t;f;Vinylchlorid;Chlorure de vinyle;
+301;02;;;t;f;Dichlorethen;Dichloréthène;
+301;03;;;t;f;Trichlorethen;Trichloréthène;
+301;04;;;t;f;Tetrachlorethen;Tétrachloréthène;
+302;01;;;t;f;Antimon;Antimoine;
+302;02;;;t;f;Arsen;Arsenic;
+302;03;;;t;f;Blei;Plomb;
+302;04;;;t;f;Cadmium;Cadmium;
+302;05;;;t;f;Chrom;Chrome;
+302;06;;;t;f;Chrom (VI);Chrome (VI);
+302;07;;;t;f;Cobalt;Cobalt;
+302;08;;;t;f;Kupfer;Cuivre;
+302;09;;;t;f;Nickel;Nickel;
+302;10;;;t;f;Quecksilber;Mercure;
+302;11;;;t;f;Zink;Zinc;
+304;01;;;t;f;Benzol;Benzène;
+304;02;;;t;f;Toluol;Toluène;
+304;03;;;t;f;Ethylbenzol;Éthylbenzène;
+304;04;;;t;f;Xylole;Xylènes;
+308;01;;;t;f;PFBA;PFBA;
+308;02;;;t;f;PFPeA;PFPeA;
+308;03;;;t;f;PFHxA;PFHxA;
+308;04;;;t;f;PFHpA;PFHpA;
+308;05;;;t;f;PFOA;PFOA;
+308;06;;;t;f;PFNA;PFNA;
+308;07;;;t;f;PFBS;PFBS;
+308;08;;;t;f;PFHxS;PFHxS;
+308;09;;;t;f;PFOS;PFOS;
+330;01;;;t;f;Überwachungsbedarf;Besoin de surveillance;
+330;02;;;t;f;Sanierungsbedarf;Besoin d'assainissement;
+330;03;;;t;f;keine Massnahme erforderlich;Aucune mesure nécessaire;
+61;01;2;;t;f;Ablagerung: Geländeinstabilität (Sackung, Rutschung, Senkung, Setzung);Instabilités de terrain (affaissements, glissements, tassements);
+61;02;5;;t;f;Überschwemmungen;Innondations;
+61;03;3;;t;f;Staubemissionen;Emissions de poussières;Emissioni di polvere
+61;04;3;;t;f;Ablagerung: Brand / Explosion/ Rauchentwicklung;Dépôt: incendie / explosion / dégagement de fumée;Deposito: incendio / esplosione  / sviluppo di fumo
+61;05;5;;t;f;Bergsturz / Steinschlag / Murgang / Lawine;Instabilité de falaise / chutes de pierres / laves torrentielles;
+61;06;10;;t;f;keine besonderen Vorkommnisse bekannt;aucun événement connu;nessun evento noto
+61;07;1;;t;f;Altlastenrelevanter Unfall;accident;accidente
+99;BAVUSB01;2;;t;f;Vegetationsschäden;dommages à la végétation;
+99;BAVUSB02;5;;t;f;Bodenverfärbung;coloration des sols;
+99;BAVUSB03;1;;t;f;Schadstoffe analytisch nachgewiesen;pollution prouvée par des analyses;
+99;BAVUSB04;7;;t;f;andere;autres;
+100;01;1;;t;f;Geruchsbelästigung;;
+100;02;2;;t;f;Ätzung;Corrosion;Corrosione 
+100;03;3;;t;f;Schadstoffe analytisch nachgewiesen *;Pollution prouvée par analyses *;Inquinamento accertato con analisi
+100;04;4;;t;f;Rauchentwicklung (kontinuierlich);;
+101;01;1;;t;f;kein Umweltbereich gefährdet;aucun domaine de l’environnement menacé;nessun settore ambientale minacciato
+101;02;2;;t;f;Grundwasser;eaux souterraines;acque sotterranee 
+101;03;3;;t;f;Oberflächengewässer;eaux de surface;acque superficiali 
+101;04;4;;t;f;Luft;air;aria 
+101;05;5;;t;f;Boden;sol;suolo 
+101;06;6;;t;f;nicht bekannt;inconnu;non noto
+102;BAVUSW01;1;;t;f;Trübung;Turbidité;Torbidità
+102;BAVUSW02;2;;t;f;Verfärbung;coloration;
+102;BAVUSW03;6;;t;f;Geruch;odeur;
+102;BAVUSW04;3;;t;f;Oelfilm;film d'hydrocarbures;pellicola idrocarburi
+102;BAVUSW05;1;;t;f;Schadstoffe analytisch nachgewiesen **;pollution prouvée par des analyses **;inquinanti rilevati
+102;BAVUSW06;8;;t;f;andere **;autres **;altre **
+100;05;5;;t;f;andere *;Autres *;Altre *
+55;BAV_101;2;;t;f;Beurteilung BAV in Bearbeitung;;
+55;BAV_100;3;;t;f;Beurteilung BAV abgeschlossen;;
+55;BAV_102;4;;t;f;Anhörung Kanton läuft;;
+55;BAV_107;7;;t;f;Inhaberorientierung abgeschlossen;;
+55;BAV_105;6;;t;f;Inhaberorientierung läuft;;
+55;BAV_108;8;;t;f;Inhaberorientierung abgeschlossen, kein Eintrag;;
+55;BAV_115;13;;t;f;Mutation: Beurteilung BAV abgeschlossen;;
+55;BAV_121;21;;t;f;Löschung aus Kataster rechtskräftig;;
+55;BAV_109;9;;t;f;Feststellungsverfügung versendet;;
+55;BAV_111;11;;t;f;Nachführung: Beurteilung BAV in Bearbeitung;;
+55;BAV_113;13;;t;f;Mutation: Anhörung Kanton läuft;;
+55;BAV_116;16;;t;f;Mutation: Inhaberorientierung läuft;;
+55;BAV_120;20;;t;f;Nachführung Kataster rechtskräftig;;
+55;BAV_112;12;;t;f;Löschung: Beurteilung BAV in Bearbeitung;;
+55;BAV_110;10;;t;f;Definitiver Katastereintrag rechtskräftig;;
+55;01;1;;t;f;Erhebung in Bearbeitung;;
+55;BAV_103;5;;t;f;Anhörung Kanton abgeschlossen;;
+55;BAV_119;19;;t;f;Mutation: Feststellungsverfügung versendet;;
+55;BAV_114;14;;t;f;Mutation: Anhörung Kanton abgeschlossen;;
+10023;15;15;;t;f;Sanierungsprojekt in Bearbeitung;;
+10023;26;26;;t;f;Sanierung abgeschlossen *;;
+10023;16;16;;t;f;Sanierungsprojekt abgeschlossen;;
+10023;21;21;;t;f;Sanierung (Bauphase) abgeschlossen;;
+10023;04;4;;t;f;Technische Untersuchung in Bearbeitung;;
+10023;05;5;;t;f;Technische Untersuchung abgeschlossen;;
+10023;20;20;;t;f;Sanierung (Baumassnahme) läuft;;
+10023;14;8;;t;f;Überwachung abgeschlossen *;;
+10023;07;10;;t;f;Detailuntersuchung abgeschlossen;;
+10023;06;9;;t;f;Detailuntersuchung in Bearbeitung;;
+10023;08;6;;t;f;Überwachungskonzept in Bearbeitung;;
+10023;13;7;;t;f;Überwachung läuft;;
+10023;30;1;;t;f;keine Untersuchung nach AltlV;;
+10023;25;25;;t;f;Erfolgskontrolle in Bearbeitung;;
+10021;TOTALDEK;1;Totaldekontamination;t;f;Totaldekontamination;;
+10021;TEILDEK;2;Teildekontamination;t;f;Teildekontamination;;
+10021;OBFDECK;3;Oberflächenabdeckung;t;f;Oberflächenabdeckung;;
+10021;NUTZVRBT;13;Nutzungseinschränkung (Nutzungsverbot);t;f;Nutzungseinschränkung (Nutzungsverbot);;
+10021;DICHTBAS;6;Einbau Basisabdichtung;t;f;Einbau Basisabdichtung;;
+10021;AHYDSICH;7;Aktive hydraulische Sicherung (GW-Aufbereitung);t;f;Aktive hydraulische Sicherung (GW-Aufbereitung);;
+10021;PHYDSICH;8;Passive hydraulische Sicherung (Reaktive Wand);t;f;Passive hydraulische Sicherung (Reaktive Wand);;
+10021;SICKFASS;10;Sickerwasserfassung / -behandlung;t;f;Sickerwasserfassung / -behandlung;;
+10021;GASFASS;9;Gasfassung / -behandlung;t;f;Gasfassung / -behandlung;;
+10021;NUTZLNDW;14;Landwirtschaftliche Nutzungseinschränkung;t;f;Landwirtschaftliche Nutzungseinschränkung;;
+10021;NUTZZAUN;12;Nutzungseinschränkung (Umzäunung);t;f;Nutzungseinschränkung (Umzäunung);;
+10021;ENTWASS;11;Entwässerung;t;f;Entwässerung;;
+10021;DICHTWND;5;Einbau vertikale Abdichtung (Dichtwand);t;f;Einbau vertikale Abdichtung (Dichtwand);;
+10021;OBFDICHT;4;Oberflächenabdichtung;t;f;Oberflächenabdichtung;;
+10021;20;20;;t;f;Noch keine Massnahmen festgelegt;;
+10021;21;21;;t;f;Grundwasserüberwachung;;
+10020;ANDERE;5;Andere;t;f;Andere;;
+10020;NUTZUNG;4;Einschränkung der Nutzung;t;f;Einschränkung der Nutzung;;
+10020;SICHERNG;3;Sicherung (Unterbindung der Emissionspfade);t;f;Sicherung (Unterbindung der Emissionspfade);;
+10020;SPAETER;10;;t;f;Noch keine Ziele festgelegt;;
+10020;TEILDEK;2;Teildekontamination;t;f;Teildekontamination;;
+10020;TOTALDEK;1;Totaldekontamination;t;f;Totaldekontamination;;
+103;00;25;;t;f;Datensatz gelöscht;;
+103;BAV60;14;;t;f;Belastet, Untersuchungsbedürftigkeit noch nicht definiert;;
+103;BAV70;7;;t;f;Belastet, weder überwachungs- noch sanierungsbedürftig;;
+103;BAV71;11;;t;f;Belastet, überwachungsbedürftig;;
+103;BAV81;13;;t;f;Belastet, sanierungsbedürftig;;
+103;BAV91;17;;t;f;nicht beurteilt: Vollzug nicht BAV;;
+103;BAV92;19;;t;f;nicht beurteilt: Drittstandort;;
+103;BAV93;21;;t;f;integriert in anderen Standort;;
+103;BAV94;23;;t;f;Informationen ungenügend;;
+10104;00;190;Datensatz gelöscht;f;f;Standort wurde noch nicht gemäss AltlV beurteilt;;
+10104;50;160;;f;f;;;
+10104;51;150;Unbelastet, Archivierung aufgrund Formblatt;f;f;;;
+10104;BLKR01;2;unbelastet;f;f;;;
+10104;BLKR05;3;belastet;f;f;;;
+10104;BLKR06;6;belastet ohne Überwachungs- und Sanierungsbedarf;f;f;;;
+10104;BLKR07;7;belastet mit Überwachungsbedarf;f;f;;;
+10104;BLKR08;8;belastet mit Sanierungsbedarf;f;f;;;
+10104;BLKR10;9;archiviert, nur für internen Gebrauch;f;f;;;
+10104;BLKR12;10;Koordination der Vollzugszuständigkeit;f;f;;;
+10104;BLKR13;5;belastet mit Untersuchungsbedarf;f;f;;;
+10104;BLKR14;4;belastet ohne Untersuchungsbedarf;f;f;;;
+10104;01;50;unbelastet;f;f;Unbelasteter Standort: keine Belastungen festgestellt und mit grosser Wahrscheinlichkeit keine Belastungen zu erwarten. Kein Eintrag in Kataster.;;
+10104;02;60;belastet, nicht untersuchungsbedürftig;f;f;Belasteter Standort: Belastungen festgestellt oder mit grosser Wahrscheinlichkeit zu erwarten (Eintrag in Kataster gemäss Art. 5 Abs. 3 AltlV). Keine schädlichen oder lästigen Einwirkungen zu erwarten (gemäss Art. 5 Abs. 4 Bst. a AltlV).;;
+10104;52;170;prov. Katastereintrag aufgrund fehlenden Angaben;f;f;;;
+10104;53;130;Katastereintrag aufgrund Standortdaten;f;f;;;
+10104;BAV03a;80;belastet, untersuchungsbedürftig (Priorität A);f;f;;;
+10104;BAV03b;90;belastet, untersuchungsbedürftig (Priorität B);f;f;;;
+10104;BAV03c;100;belastet, untersuchungsbedürftig (Priorität C);f;f;;;
+10104;BAV03s;110;belastet, untersuchungsbedürftig (Priorität S);f;f;;;
+10104;BAV03sp;120;belastet, untersuchungsbedürftig (Priorität S+);f;f;;;
+10104;BAV91;30;nicht beurteilt;f;f;Die Vollzugszuständigkeit liegt nicht beim BAV.;;
+10104;BAV92;20;nicht beurteilt: Drittstandort;f;f;Standort wurde noch nicht gemäss AltlV beurteilt *;;
+10104;BAV93;10;integriert in anderen Standort;f;f;Der Standort wird mit einem anderen Standort beurteilt.;;
+10104;BAV94;40;;f;f;Standort wurde noch nicht gemäss AltlV beurteilt **;;
+10104;BAV70;130;belastet, weder überwachungs- noch sanierungsbedürftig;f;f;Belasteter Standort: aufgrund der Resultate der Voruntersuchung als weder überwachungs- noch sanierungsbedürftig eingestuft (Art. 8 Abs. 2 Bst. c AltlV);;
+10104;BLKR09;1;in Bearbeitung;f;f;;;
+10104;BAV71;140;belastet, überwachungsbedürftig;f;f;Belasteter Standort: aufgrund der Resultate der Voruntersuchung als überwachungsbedürftig eingestuft (Art. 8 Abs. 2 Bst. a AltlV);;
+10104;03;70;belastet, untersuchungsbedürftig;f;f;Belasteter Standort, bei dem mittels einer Voruntersuchung untersucht werden muss, ob er überwachungs- oder sanierungsbedürftig ist (Art. 5 Abs. 4 Bst. b AltlV);;
+10104;BAV60;0;belastet, Untersuchungsbedürftigkeit nicht definiert;t;f;Belasteter Standort: Entscheid bezüglich der Untersuchungsbedürftigkeit (gemäss Art. 5 Abs. 4 AltlV) noch nicht gefällt;;
+10104;BAV81;150;belastet, sanierungsbedürftig;f;f;Belasteter Standort: aufgrund der Untersuchungsresultate als sanierungsbedürftig eingestuft (Art. 8 Abs. 2 Bst. b AltlV);;
+10105;03;70;belastet, untersuchungsbedürftig;t;f;Inhaber hat innerhalb der vorgegebenen Frist nach Eintrag in den Kataster eine Voruntersuchung gemäss Art. 7 AltlV durchzuführen (in Absprache mit dem BAV).;;
+10105;BAV91;30;nicht beurteilt;t;f;Kein Handlungsbedarf seitens BAV;;
+10105;BLKR01;2;unbelastet;t;f;;;
+10105;BLKR05;3;belastet;t;f;;;
+10105;BLKR06;6;belastet ohne Überwachungs- und Sanierungsbedarf;t;f;;;
+10105;BLKR07;7;belastet mit Überwachungsbedarf;t;f;;;
+10105;BLKR08;8;belastet mit Sanierungsbedarf;t;f;;;
+10105;BLKR10;9;archiviert, nur für internen Gebrauch;t;f;;;
+10105;BLKR12;10;Koordination der Vollzugszuständigkeit;t;f;;;
+10105;BLKR13;5;belastet mit Untersuchungsbedarf;t;f;;;
+10105;BLKR09;1;in Bearbeitung;t;f;;;
+10105;BAV93;10;integriert in anderen Standort;t;f;Kein Handlungsbedarf seitens BAV **;;
+10105;BAV92;20;nicht beurteilt: Drittstandort;t;f;Kein Handlungsbedarf seitens BAV *;;
+10105;BAV94;40;;t;f;Zusätzliche Informationen liefern;;
+10105;01;50;unbelastet;t;f;Kein weiterer Handlungsbedarf;;
+10105;BAV71;140;belastet, überwachungsbedürftig;t;f;Durchführung von Arbeiten gemäss Art. 13 AltlV (in Absprache mit BAV);;
+10105;00;190;Datensatz gelöscht;t;f;Weitere Untersuchungen nicht nötig;;
+10105;BAV81;150;belastet, sanierungsbedürftig;t;f;Durchführung von Arbeiten gemäss Art. 14ff AltlV (in Absprache mit BAV);;
+10105;BLKR14;4;belastet ohne Untersuchungsbedarf;t;f;;;
+10105;02;60;belastet, nicht untersuchungsbedürftig;t;f;Kein aktueller Handlungsbedarf. Bei Bauvorhaben: Beachtung von Art. 3 AltlV und fachgerechte Entsorgung des belasteten Aushubs.;;
+10105;BAV70;130;belastet, weder überwachungs- noch sanierungsbedürftig;t;f;Kein aktueller Handlungsbedarf. Bei Bauvorhaben: Beachtung von Art. 3 AltlV und fachgerechte Entsorgung des belasteten Aushubs. *;;
+10105;BAV60;0;belastet, Untersuchungsbedürftigkeit nicht definiert;t;f;Kein aktueller Handlungsbedarf. Bei Bauvorhaben: Absprache mit BAV notwendig.;;
+26020;2014;;;t;f;2014;;
+26020;2015;;;t;f;2015;;
+26020;2016;;;t;f;2016;;
+26020;2017;;;t;f;2017;;
+26020;2018;;;t;f;2018;;
+26020;2019;;;t;f;2019;;
+26020;2020;;;t;f;2020;;
+26020;2021;;;t;f;2021;;
+26020;2022;;;t;f;2022;;
+26020;2023;;;t;f;2023;;
+26020;2024;;;t;f;2024;;
+26020;2025;;;t;f;2025;;
+26020;2026;;;t;f;2026;;
+26020;2027;;;t;f;2027;;
+26020;2028;;;t;f;2028;;
+26020;2029;;;t;f;2029;;
+26020;2030;;;t;f;2030;;
+26020;2031;;;t;f;2031;;
+26020;2032;;;t;f;2032;;
+26020;2033;;;t;f;2033;;
+26020;2034;;;t;f;2034;;
+26020;2035;;;t;f;2035;;
+26020;2036;;;t;f;2036;;
+26020;2037;;;t;f;2037;;
+26020;2038;;;t;f;2038;;
+26020;2039;;;t;f;2039;;
+26020;2040;;;t;f;2040;;
+26021;2014;;;t;f;2014;;
+26021;2015;;;t;f;2015;;
+26021;2016;;;t;f;2016;;
+26021;2017;;;t;f;2017;;
+26021;2018;;;t;f;2018;;
+26021;2019;;;t;f;2019;;
+26021;2020;;;t;f;2020;;
+26021;2021;;;t;f;2021;;
+26021;2022;;;t;f;2022;;
+26021;2023;;;t;f;2023;;
+26021;2024;;;t;f;2024;;
+26021;2025;;;t;f;2025;;
+26021;2026;;;t;f;2026;;
+26021;2027;;;t;f;2027;;
+26021;2028;;;t;f;2028;;
+26021;2029;;;t;f;2029;;
+26021;2030;;;t;f;2030;;
+26021;2031;;;t;f;2031;;
+26021;2032;;;t;f;2032;;
+26021;2033;;;t;f;2033;;
+26021;2034;;;t;f;2034;;
+26021;2035;;;t;f;2035;;
+26021;2036;;;t;f;2036;;
+26021;2037;;;t;f;2037;;
+26021;2038;;;t;f;2038;;
+26021;2039;;;t;f;2039;;
+26021;2040;;;t;f;2040;;
+26010;person;;;t;f;;;
+26010;unternehmen;;;t;f;;;
+2202;sachbearbeitung;;;t;f;;;
+10018;keine;;;t;t;keine;;
+10017;keine;;;t;t;keine;;
+2200;eigentum;;;t;f;Eigentum;;
+26000;1;;;t;f;;;
+26000;0;;;t;f;;;
+10022;01;1;;t;f;Task-Kategorie;;
+210;BLS;;;t;f;Basel-Landschaft;Basel-Landschaft-FR;Basel-Landschaft-IT
+210;SBB;;;t;f;SBB;CFF;FFS
+402;01;1;;t;f;Kleinkinder 1-3 Jahre;;
+402;02;2;;t;f;Kinder 4-12 Jahre;;
+600;ZRH;;;t;f;Zürich;;
+600;DXB;;;t;f;Dubai;;
+25002;6455;;Werkstatt für Feuerlöscher;t;f;Werkstatt für Feuerlöscher;Atelier de réparation d'extincteurs;Officina per estintori
+25002;9133;;Feuerwehr;t;f;Feuerwehr;Pompiers;Vigili del fuoco
+25002;9134;;Übungsanlage für Brandbekämpfung;t;f;Übungsanlage für Brandbekämpfung;Centre d'entraînement à la lutte contre l'incendie;Centro di addestramento per la lotta antincendio
+25002;9142;;Zivilschutz;t;f;Zivilschutz;Protection civile;Protezione civile
+25002;9811;;Verkehrsunfall;t;f;Verkehrsunfall;Accident de la circulation;Incidente stradale
+25002;9812;;Betriebsunfall;t;f;Betriebsunfall;Accident d'exploitation;Incidente sul lavoro
+500;magazin;;Magazin;t;f;Magazin;Magasin;Magazzino
+500;ua;;Übungsanlage für Brandbekämpfung;t;f;Übungsanlage für Brandbekämpfung;Centre d'entraînement à la lutte contre l'incendie;Centro di addestramento per la lotta antincendio
+500;us;;Übungsplatz für Brandbekämpfung;t;f;Übungsplatz für Brandbekämpfung;Place d'entraînement à la lutte contre l'incendie;Area di addestramento per la lotta antincendio
+500;brand;;Brandereignis;t;f;Brandereignis;Événement d'incendie;Evento di incendio
+500;schaum;;Löschschaumanlage;t;f;Löschschaumanlage;Installation de mousse extinctrice;Impianto di schiuma estinguente
+501;fffp;;FFFP;t;f;FFFP;FFFP;FFFP
+501;fps;;FPS;t;f;FPS;FPS;FPS
+501;afff;;AFFF;t;f;AFFF;AFFF;AFFF
+501;afff-ar;;AFFF/AR;t;f;AFFF/AR;AFFF/AR;AFFF/AR
+501;fp;;FP;t;f;FP;FP;FP
+501;fp-ar;;FP/AR;t;f;FP/AR;FP/AR;FP/AR
+502;a;;Class A;t;f;Class A;Classe A;Classe A
+502;mbs;;MBS;t;f;MBS;MBS;MBS
+502;p;;P;t;f;P;P;P
+502;fff;;FFF;t;f;FFF;FFF;FFF
+502;fff-ar;;FFF/AR;t;f;FFF/AR;FFF/AR;FFF/AR
+503;hand;;Handfeuerlöscher;t;f;Handfeuerlöscher;Extincteurs à main;Estintore portatile
+503;bei;;Beimischer;t;f;Beimischer;Mélangeur;Miscelatore
+503;tank;;Tanklöschfahrzeug;t;f;Tanklöschfahrzeug;Véhicule-citerne d’extinction;Veicolo di spegnimento
+504;nie;;Nie;t;f;Nie;Jamais;Mai
+504;einmal;;einmal;t;f;Einmal in diesem Nutzungszeitraum;Une fois pendant cette période d'utilisation;Una volta in questo periodo di utilizzo
+504;wenig;;wenige Male;t;f;Wenige Male (weniger als 5 Mal in diesem Nutzungszeitraum);Quelques fois (moins de 5 fois pendant cette période d'utilisation);Poche volte (meno di 5 volte in questo periodo di utilizzo)
+504;regel;;regelmässig;t;f;Regelmässig (5 Mal oder mehr in diesem Nutzungszeitraum);Régulièrement (5 fois ou plus pendant cette période d'utilisation);Regolarmente (5 volte o più in questo periodo di utilizzo)
+505;nie;;Nie;t;f;Nie;Jamais;Mai
+505;einmal;;einmal;t;f;Einmal in diesem Nutzungszeitraum;Une fois pendant cette période d'utilisation;Una volta in questo periodo di utilizzo
+505;wenig;;wenige Male;t;f;Wenige Male (weniger als 5 Mal in diesem Nutzungszeitraum);Quelques fois (moins de 5 fois pendant cette période d'utilisation);Poche volte (meno di 5 volte in questo periodo di utilizzo)
+505;regel;;regelmässig;t;f;Regelmässig (5 Mal oder mehr in diesem Nutzungszeitraum);Régulièrement (5 fois ou plus pendant cette période d'utilisation);Regolarmente (5 volte o più in questo periodo di utilizzo)
+506;nie;;Nie;t;f;Nie;Jamais;Mai
+506;einmal;;einmal;t;f;Einmal in diesem Nutzungszeitraum;Une fois pendant cette période d'utilisation;Una volta in questo periodo di utilizzo
+506;wenig;;wenige Male;t;f;Wenige Male (weniger als 5 Mal in diesem Nutzungszeitraum);Quelques fois (moins de 5 fois pendant cette période d'utilisation);Poche volte (meno di 5 volte in questo periodo di utilizzo)
+506;regel;;regelmässig;t;f;Regelmässig (5 Mal oder mehr in diesem Nutzungszeitraum);Régulièrement (5 fois ou plus pendant cette période d'utilisation);Regolarmente (5 volte o più in questo periodo di utilizzo)

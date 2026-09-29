@@ -1,0 +1,1517 @@
+workflow:
+  key: f870cb79-3903-4dd8-b289-b26a81938a08
+  title:
+    de: Überwachung
+    fr: Surveillance
+    it: Monitoraggio
+  version: 1
+  start_task_ref: start_ueberwachung
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    start_ueberwachung:
+      key: 269a3e2c-79d7-4c8c-b873-de3b6a9e4ffe
+      title:
+        de: Überwachung Pflichtenheft separat?
+        fr: Surveillance Cahier des charges séparé?
+        it: Monitorare le specifiche separatamente?
+      steps:
+      - key: ce232d6c-d240-42fb-8ae8-1c5b7a3e01d2
+        title:
+          de: Separate Einreichung des Pflichtenheftes (Konzept)?
+          fr: Soumission séparée du cahier des charges (concept)?
+          it: Presentazione separata delle specifiche (concetto)?
+        time_period: 7
+        type: form
+        name: entscheid_konzept_separat
+        fields:
+        - name: entscheid_konzept_separat_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, das Konzept wurde / wird separat eingereicht
+              fr: Oui, le concept a été / sera soumis séparément
+              it: Sì, il concetto è stato / sarà presentato separatamente.
+            value: ja
+          - label:
+              de: Nein, Inhaber reicht direkt Zwischenbericht / Schlussbericht ein
+              fr: Non, le propriétaire soumet directement le rapport intermédiaire
+                / final
+              it: No, il proprietario presenta direttamente il rapporto intermedio/il
+                rapporto finale
+            value: nein
+      - key: 59fcca96-d39b-4341-b398-60c058972fbd
+        title:
+          de: Inhaber bereits zu Einreichung Bericht aufgefordert? (zum Beispiel bei
+            TU)
+          fr: Propriétaire déjà invité à soumettre un rapport ? (par exemple pour
+            ET)
+          it: Il proprietario ha già richiesto di presentare un rapporto? (per esempio
+            al IT)
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_inhaber_bericht
+        fields:
+        - name: entscheid_inhaber_bericht_erfasst
+          type: str
+          choices:
+          - label:
+              de: Inhaber schon früher zur Einreichung Bericht aufgefordert
+              fr: Propriétaire déjà invité à soumettre un rapport
+              it: Al proprietario è stato precedentemente richiesto di presentare
+                una relazione
+            value: ja
+          - label:
+              de: 'neu aufnehmen: Brief mit Aufforderung an Inhaber'
+              fr: 'nouvel enregistrement: Lettre d''invitation au propriétaire'
+              it: 'nuovo record: Lettera con richiesta al proprietario'
+            value: nein
+      - key: 6441993a-1b28-474e-9997-859d5bce2833
+        title:
+          de: Aufforderung an Inhaber
+          fr: Demande au propriétaire
+          it: Richiesta al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 71d0f5c8-2903-4ab4-8ad3-211177fa066f
+        title:
+          de: Angeforderter Bericht eingegangen?
+          fr: Rapport demandé reçu ?
+          it: Ricevuto il rapporto richiesto?
+        time_period: 7
+        type: form
+        name: entscheid_bericht
+        fields:
+        - name: entscheid_bericht_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, Bericht innerhalb Frist eingegangen
+              fr: Oui, rapport reçu dans les délais
+              it: Sì, rapporto ricevuto entro la scadenza
+            value: ja
+          - label:
+              de: nein, nicht innerhalb Frist eingegangen
+              fr: non, pas reçu dans les délais
+              it: no, non ricevuto entro la scadenza
+            value: nein
+      links:
+      - task_ref: beurteilung_uekonzept
+        condition: form.entscheid_bericht.entscheid_bericht_erfasst == `ja`
+      - task_ref: mahnung_uekonzept
+        condition: form.entscheid_bericht.entscheid_bericht_erfasst == `nein`
+      - task_ref: ueberwachung_freigabe
+        condition: form.entscheid_konzept_separat.entscheid_konzept_separat_erfasst
+          == `ja`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      start_task: true
+      time_period: 7
+    mahnung_uekonzept:
+      key: fb692695-60e4-465f-8762-a05084743106
+      title:
+        de: Mahnung zur Einreichung Überwachungskonzept
+        fr: Rappel pour la présentation du concept de surveillance
+        it: Promemoria per la presentazione del concetto di monitoraggio
+      steps:
+      - key: a7b9c645-b77f-41a9-8857-d2d57dde93f6
+        title:
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: e6a8e6ad-3578-4042-8c44-ece7ab8364ea
+        title:
+          de: Angeforderter Bericht nach Mahnung eingegangen?
+          fr: Rapport demandé reçu après rappel ?
+          it: Il rapporto richiesto è stato ricevuto dopo il sollecito?
+        time_period: 7
+        type: form
+        name: entscheid_bericht_mahnung_uekonzept
+        fields:
+        - name: entscheid_bericht_mahnung_uekonzept_erfasst
+          type: str
+          choices:
+          - label:
+              de: ja, Einreichung innerhalb Mahnungsfrist
+              fr: oui, dépôt dans le délai de rappel
+              it: sì, presentazione entro il periodo di sollecito
+            value: ja
+          - label:
+              de: nein, keine Einreichung innerhalb Mahnungsfrist
+              fr: non, pas de dépôt dans le délai de rappel
+              it: no, nessuna presentazione entro il periodo di sollecito
+            value: nein
+      links:
+      - task_ref: beurteilung_uekonzept
+        condition: form.entscheid_bericht_mahnung_uekonzept.entscheid_bericht_mahnung_uekonzept_erfasst
+          == `ja`
+      - task_ref: mahnung_uekonzept
+        condition: form.entscheid_bericht_mahnung_uekonzept.entscheid_bericht_mahnung_uekonzept_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    beurteilung_uekonzept:
+      key: b19fb53f-6c49-4029-b98b-791b28646b9d
+      title:
+        de: Beurteilung Überwachungskonzept
+        fr: Évaluation du concept de surveillance
+        it: Valutazione del concetto di monitoraggio
+      steps:
+      - key: e69777df-68a9-45dc-97f4-71cffb9cd17c
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: a637d80c-b021-49b6-8a57-9b3ea27b2b32
+        title:
+          de: Ist der eingereichte Bericht unvollständig, sind Nachforderugnen nötig?
+          fr: Le rapport soumis est-il incomplet, des demandes supplémentaires sont-elles
+            nécessaires?
+          it: Se il rapporto presentato è incompleto, sono necessarie ulteriori richieste?
+        time_period: 7
+        type: form
+        name: entscheid_bericht_uekonzept_vollstaendig
+        fields:
+        - name: entscheid_bericht_uekonzept_vollstaendig_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, es sind Nachforderungen nötig, Bericht ist unvollständig
+              fr: Oui, des demandes supplémentaires sont nécessaires, le rapport est
+                incomplet
+              it: Sì, sono necessarie ulteriori richieste di risarcimento, il rapporto
+                è incompleto
+            value: nachforderung
+          - label:
+              de: Nein, keine Nachforderung, der Bericht ist ok
+              fr: Non, pas de demande supplémentaire, le rapport est ok
+              it: No, nessun reclamo aggiuntivo, il rapporto è ok
+            value: ok
+      - key: 3438eadd-bf64-475f-85ad-322e60ada4e7
+        title:
+          de: Ist der eingereichte Bericht unvollständig, sind Nachforderugnen nötig?
+          fr: Le rapport soumis est-il incomplet, des demandes supplémentaires sont-elles
+            nécessaires?
+          it: Se il rapporto presentato è incompleto, sono necessarie ulteriori richieste?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_kontrolle_standortsdaten
+        fields:
+        - name: entscheid_kontrolle_standortsdaten_erfasst
+          type: bool
+          label:
+            de: 'Kontrolle: Standortdaten aufgrund neuer Erkenntnisse nachgetragen,
+              relevante Dokumente aufgenommen?'
+            fr: 'Contrôle : données de localisation ajoutées sur la base de nouvelles
+              connaissances, documents pertinents inclus?'
+            it: 'Verifica: aggiunta di dati sulla posizione in base a nuove scoperte,
+              inclusione di documenti rilevanti?'
+      links:
+      - task_ref: uekonzept_anhoerung_kanton
+        condition: form.entscheid_bericht_uekonzept_vollstaendig.entscheid_bericht_uekonzept_vollstaendig_erfasst
+          == `ok`
+      - task_ref: uekonzept_nachforderung
+        condition: form.entscheid_bericht_uekonzept_vollstaendig.entscheid_bericht_uekonzept_vollstaendig_erfasst
+          == `nachforderung`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    uekonzept_nachforderung:
+      key: ca2b6f96-d01e-40df-b603-9e6e80f61d4f
+      title:
+        de: Nachforderung Überwachungskonzept
+        fr: Demande de concept de surveillance
+        it: Richiesta di follow-up per il concetto di monitoraggio
+      steps:
+      - key: f9bfe081-54df-4319-8987-b536d752b33d
+        title:
+          de: Aufforderung an Inhaber
+          fr: Demande au propriétaire
+          it: Richiesta al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: b776dae8-7cca-4ce3-b9de-49a6f63e91c0
+        title:
+          de: Hat der Inhaber die nachgeforderten Unterlagen eingereicht?
+          fr: Le propriétaire a-t-il fourni les documents demandés ultérieurement
+            ?
+          it: Il proprietario ha presentato i documenti richiesti?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_nachforderungen_vollstaendig
+        fields:
+        - name: entscheid_nachforderungen_vollstaendig_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, die Unterlagen sind jetzt vollständig
+              fr: Oui, le dossier est maintenant complet
+              it: Sì, i documenti sono ora completi
+            value: ja
+          - label:
+              de: Nein, es fehlen nach wie vor Informationen
+              fr: Non, il manque toujours des informations
+              it: No, mancano ancora informazioni
+            value: nein
+          - label:
+              de: Der Inhaber hat sich noch nicht gemeldet
+              fr: Le propriétaire ne s'est pas encore manifesté
+              it: Il proprietario non ci ha ancora contattato
+            value: keine
+          - label:
+              de: Nach Rücksprache mit Inhaber wird auf Nachforderungen verzichtet
+              fr: Après concertation avec le propriétaire, il est renoncé à toute
+                demande de remboursement
+              it: Dopo aver consultato il proprietario, si rinuncia a ulteriori richieste
+                di risarcimento
+            value: verzicht
+      - key: 5cbf18c3-eb15-4a8c-a211-73ce1882814d
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 76a9eda0-4594-4803-a4e8-51ab07fba2b1
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_nachforderungen_abschluss
+        fields:
+        - name: entscheid_nachforderungen_abschluss_erfasst
+          type: bool
+          label:
+            de: 'Kontrolle: Standortdaten aufgrund neuer Erkenntnisse nachgetragen,
+              relevante Dokumente aufgenommen?'
+            fr: 'Contrôle : données de localisation ajoutées sur la base de nouvelles
+              connaissances, documents pertinents inclus?'
+            it: 'Verifica: aggiunta di dati sulla posizione in base a nuove scoperte,
+              inclusione di documenti rilevanti?'
+      links:
+      - task_ref: mahnung_uekonzept
+        condition: form.entscheid_nachforderungen_vollstaendig.entscheid_nachforderungen_vollstaendig_erfasst
+          == `keine`
+      - task_ref: uekonzept_nachforderung
+        condition: form.entscheid_nachforderungen_vollstaendig.entscheid_nachforderungen_vollstaendig_erfasst
+          == `nein`
+      - task_ref: uekonzept_anhoerung_kanton
+        condition: form.entscheid_nachforderungen_vollstaendig.entscheid_nachforderungen_vollstaendig_erfasst
+          == `ja` || form.entscheid_nachforderungen_vollstaendig.entscheid_nachforderungen_vollstaendig_erfasst
+          == `verzicht'
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    uekonzept_anhoerung_kanton:
+      key: d7669ed9-2fb3-4ecf-b7cb-c0871a1adb1e
+      title:
+        de: Überwachungskonzept Anhörung Kanton
+        fr: Concept de surveillance Audition du canton
+        it: Concetto di monitoraggio Consultazione cantonale
+      steps:
+      - key: ae06cec7-ebf1-41a9-8e0c-d29e9c3800be
+        title:
+          de: Begleitbrief Anhörung
+          fr: Lettre d'accompagnement audition
+          it: Lettera di presentazione Audizione
+        optional: true
+        time_period: 7
+        type: document
+      - key: cc74b548-e388-45d0-bc52-5103f76717d2
+        title:
+          de: Stellungnahme abwarten
+          fr: Attendre la prise de position
+          it: Attendere la dichiarazione
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_uekonzept
+        fields:
+        - name: entscheid_stellungnahme_uekonzept_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+          - label:
+              de: keine Stellungnahme innerhalb Frist eingetroffen
+              fr: aucune prise de position n'a été reçue dans les délais
+              it: Nessuna dichiarazione ricevuta entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_uekonzept
+        condition: form.entscheid_stellungnahme_uekonzept.entscheid_stellungnahme_uekonzept_erfasst
+          == `ja`
+      - task_ref: uekonzept_anhoerung_inhaber
+        condition: form.entscheid_stellungnahme_uekonzept.entscheid_stellungnahme_uekonzept_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    stellungnahme_uekonzept:
+      key: fde376f0-90d6-43bd-a3e4-29d811f6f9eb
+      title:
+        de: Reaktion Anhörung Kanton
+        fr: Réaction audition canton
+        it: Risposta alla consultazione cantonale
+      steps:
+      - key: 6b6ceb1d-db79-4f51-9699-13bcd0582357
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1de112fc-8cad-4538-9942-f1b12e7b0348
+        title:
+          de: Einfluss Stellungnahme Kanton zum Überwachungskonzept
+          fr: Influence de la prise de position du canton sur le concept de surveillance
+          it: Influenza della dichiarazione del Cantone sul concetto di monitoraggio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_einfluss_stellungnahme_uekonzept
+        fields:
+        - name: entscheid_einfluss_stellungnahme_uekonzept_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung gemäss Antrag
+              fr: Réévaluation selon la demande
+              it: Rivalutazione in base all'applicazione
+            value: neubeurteilung
+          - label:
+              de: keine Neubeurteilung; Antrag nicht berücksichtigt
+              fr: pas de réévaluation ; demande non prise en compte
+              it: Nessuna rivalutazione; domanda non presa in considerazione
+            value: keine
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label:
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: f422dbba-349a-409c-96f3-c7e0dc97665d
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Risposta alla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 24870514-325b-4af1-be55-7c45ab0f47c1
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        time_period: 7
+        type: form
+        name: entscheid_dokumente_uekonzept_stellungnahme
+        fields:
+        - name: entscheid_dokumente_uekonzept_stellungnahme_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'Kontrolle: (Alle)Dokument(e) sind vollständig und korrekt aufgenommen
+                (Autor nicht vergessen!)'
+              fr: 'Contrôle: le(s) document(s) est/sont complet(s) et correctement
+                enregistré(s) (ne pas oublier l''auteur !)'
+              it: 'Controllo: (Tutti) i documenti sono completi e registrati correttamente
+                (non dimenticare l''autore!)'
+            value: ja
+      links:
+      - task_ref: beurteilung_uekonzept
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme.entscheid_dokumente_uekonzept_stellungnahme_erfasst
+          == `neubeurteilung`
+      - task_ref: stellungnahme_uekonzept
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme.entscheid_dokumente_uekonzept_stellungnahme_erfasst
+          == `keine`
+      - task_ref: uekonzept_anhoerung_inhaber
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme.entscheid_dokumente_uekonzept_stellungnahme_erfasst
+          == `abgelehnt` || form.entscheid_dokumente_uekonzept_stellungnahme.entscheid_dokumente_uekonzept_stellungnahme_erfasst
+          == `einverstanden`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    uekonzept_anhoerung_inhaber:
+      key: b9fe719a-9f27-4ba6-87c7-fc0d2b000c9b
+      title:
+        de: Überwachungskonzept Anhörung Inhaber
+        fr: Concept de surveillance Audition du propriétaire
+        it: Concetto di monitoraggio Consultazione con il proprietario
+      steps:
+      - key: d0646e31-3c22-4047-bb9f-eee1b1b0c8c4
+        title:
+          de: Stellungnahme definitiv
+          fr: Prise de position définitive
+          it: Dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: 6adb2127-4d46-4141-ba15-21c1aaba35c1
+        title:
+          de: Stellungnahme abwarten
+          fr: Attendre la prise de position
+          it: Attendere la dichiarazione
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_uekonzept_inhaber
+        fields:
+        - name: entscheid_stellungnahme_uekonzept_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+          - label:
+              de: keine Stellungnahme innerhalb Frist eingetroffen
+              fr: aucune prise de position n'a été reçue dans les délais
+              it: Nessuna dichiarazione ricevuta entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_uekonzept_inhaber
+        condition: form.entscheid_stellungnahme_uekonzept_inhaber.entscheid_stellungnahme_uekonzept_inhaber_erfasst
+          == `ja`
+      - task_ref: ueberwachung_freigabe
+        condition: form.entscheid_stellungnahme_uekonzept_inhaber.entscheid_stellungnahme_uekonzept_inhaber_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    stellungnahme_uekonzept_inhaber:
+      key: 1b346184-30d5-43e9-97bf-11577fd59a1a
+      title:
+        de: Reaktion Inhaber
+        fr: Réaction du propriétaire
+        it: Risposta del proprietario
+      steps:
+      - key: 12b5bee1-2fe2-4494-a638-3e9a029514a9
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: cbf84408-f7ec-4a84-81c4-12f82e8e8da9
+        title:
+          de: Einfluss Stellungnahme Inhaber zum Überwachungskonzept
+          fr: Influence Prise de position du propriétaire sur le concept de surveillance
+          it: Influenza Dichiarazione del proprietario sul concetto di monitoraggio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_einfluss_stellungnahme_inhaber_uekonzept
+        fields:
+        - name: entscheid_einfluss_stellungnahme_inhaber_uekonzept_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung gemäss Antrag
+              fr: Réévaluation selon la demande
+              it: Rivalutazione in base all'applicazione
+            value: neubeurteilung
+          - label:
+              de: keine Neubeurteilung; Antrag nicht berücksichtigt
+              fr: pas de réévaluation ; demande non prise en compte
+              it: Nessuna rivalutazione; domanda non presa in considerazione
+            value: keine
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label:
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: fc065702-f504-4b5b-bf6f-c8b56ec882ba
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Risposta alla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: fd0c306c-f728-4be8-afa9-7abe72ca558a
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        time_period: 7
+        type: form
+        name: entscheid_dokumente_uekonzept_stellungnahme_inhaber
+        fields:
+        - name: entscheid_dokumente_uekonzept_stellungnahme_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'Kontrolle: (Alle)Dokument(e) sind vollständig und korrekt aufgenommen
+                (Autor nicht vergessen!)'
+              fr: 'Contrôle: le(s) document(s) est/sont complet(s) et correctement
+                enregistré(s) (ne pas oublier l''auteur !)'
+              it: 'Controllo: (Tutti) i documenti sono completi e registrati correttamente
+                (non dimenticare l''autore!)'
+            value: ja
+      links:
+      - task_ref: ueberwachung_freigabe
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme_inhaber.entscheid_dokumente_uekonzept_stellungnahme_inhaber_erfasst
+          == `abgelehnt` || form.entscheid_dokumente_uekonzept_stellungnahme_inhaber.entscheid_dokumente_uekonzept_stellungnahme_inhaber_erfasst
+          == `einverstanden`
+      - task_ref: beurteilung_uekonzept
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme_inhaber.entscheid_dokumente_uekonzept_stellungnahme_inhaber_erfasst
+          == `neubeurteilung`
+      - task_ref: stellungnahme_uekonzept_inhaber
+        condition: form.entscheid_dokumente_uekonzept_stellungnahme_inhaber.entscheid_dokumente_uekonzept_stellungnahme_inhaber_erfasst
+          == `keine`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:08
+      time_period: 7
+    ueberwachung_freigabe:
+      key: e3f9f24b-81d6-4100-a6b5-78e91816da13
+      title:
+        de: Freigabe Überwachung
+        fr: Validation Surveillance
+        it: Monitoraggio del rilascio
+      steps:
+      - key: 9651dda5-00f0-4de4-91e2-2ba3dfd6b75d
+        title:
+          de: 'Falls sich aus den Untersuchungen/Probenahmen im Rahmen der Überwachung
+            neue Erkenntnisse ergeben: Weiterer Verlauf?'
+          fr: 'Si les examens/prélèvements effectués dans le cadre de la surveillance
+            révèlent de nouvelles informations : Suivi?'
+          it: 'Se emergono nuovi risultati dalle indagini/campionamenti nell''ambito
+            del monitoraggio: Cosa succede dopo?'
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_untersuchung
+        fields:
+        - name: entscheid_untersuchung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Die Überwachung wird fortgesetzt
+              fr: La surveillance se poursuit
+              it: Il monitoraggio continua
+            value: weiter
+          - label:
+              de: Die Überwachung wird abgebrochen, Neubeurteilung des Standortes
+              fr: La surveillance est interrompue, réévaluation du site
+              it: Il monitoraggio viene annullato, rivalutazione del sito
+            value: abbruch
+      - key: e506461c-bb1c-4186-af10-caa753890acf
+        title:
+          de: Konzept hiermit bewiligt?
+          fr: Concept approuvé?
+          it: Il concetto è approvato?
+        time_period: 7
+        type: form
+        name: entscheid_konzept_freigabe
+        fields:
+        - name: entscheid_konzept_freigabe_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, Inhaber kann Überwachung starten
+              fr: Oui, le propriétaire peut commencer la surveillance
+              it: Sì, il proprietario può avviare il monitoraggio
+            value: ja
+          - label:
+              de: Keine Überwachung, Neubeurteilung aufgrund neuer Erkenntnisse
+              fr: Pas de surveillance, réévaluation sur la base de nouvelles connaissances
+              it: Nessun monitoraggio, rivalutazione in base alle nuove scoperte
+            value: nein
+      links:
+      - task_ref: ueberwachung_zwischenbericht
+        condition: form.entscheid_konzept_freigabe.entscheid_konzept_freigabe_erfasst
+          == `ja`
+      - task_ref: END
+        condition: form.entscheid_konzept_freigabe.entscheid_konzept_freigabe_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    ueberwachung_zwischenbericht:
+      key: c3402f58-d6a3-4416-85c8-f460f588c7d6
+      title:
+        de: Überwachung Zwischenberichte
+        fr: Suivi des rapports intermédiaires
+        it: Monitoraggio delle relazioni intermedie
+      steps:
+      - key: 5cfb9f57-5f81-4299-b4da-d0fde8911ba1
+        title:
+          de: Muss der Inhaber Zwischenberichte zum Monitoring einreichen?
+          fr: Le propriétaire doit-il soumettre des rapports intermédiaires de suivi?
+          it: Il proprietario deve presentare relazioni di monitoraggio intermedie?
+        time_period: 7
+        type: form
+        name: entscheid_zwischenberichte
+        fields:
+        - name: entscheid_zwischenberichte_erfasst
+          type: str
+          choices:
+          - label:
+              de: Nein, der Inhaber reicht direkt Schlussbericht ein
+              fr: Non, le propriétaire soumet directement le rapport final
+              it: No, il proprietario presenta direttamente un rapporto finale.
+            value: nein
+          - label:
+              de: Ja, der Inhaber hat Zwischenbericht(e) eingereicht
+              fr: Oui, le propriétaire a soumis un ou des rapports intermédiaires
+              it: Sì, il proprietario ha presentato una o più relazioni intermedie
+            value: ja
+          - label:
+              de: Ja, aber der verlangte Zwischenbericht ist noch nicht gekommen
+              fr: Oui, mais le rapport intermédiaire demandé n'est pas encore arrivé.
+              it: Sì, ma la relazione intermedia richiesta non è ancora arrivata.
+            value: ausstehend
+      - key: 897923c5-a8c2-42f6-b2a1-7f03e203533b
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1bbd5a3d-37f5-49a4-8764-0a38d9972206
+        title:
+          de: 'Beurteilung des Standortes nach Überwachung:'
+          fr: 'Évaluation du site après surveillance:'
+          it: 'Valutazione del sito dopo il monitoraggio:'
+        time_period: 7
+        type: form
+        name: entscheid_zwischenbericht_beurteilung
+        fields:
+        - name: entscheid_zwischenbericht_beurteilung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Weiter überwachen
+              fr: Continuer à surveiller
+              it: Continuare a monitorare
+            value: weiter
+          - label:
+              de: Überwachung nicht mehr notwendig
+              fr: La surveillance n'est plus nécessaire
+              it: Il monitoraggio non è più necessario
+            value: ende
+      - key: 854a04ea-8b49-4715-8e36-0101b59fb90e
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_dokumente_zwischenbericht
+        fields:
+        - name: entscheid_dokumente_zwischenbericht_erfasst
+          type: bool
+          label:
+            de: 'Kontrolle: (Alle)Dokument(e) sind vollständig und korrekt aufgenommen
+              (Autor nicht vergessen!)'
+            fr: 'Contrôle: le(s) document(s) est/sont complet(s) et correctement enregistré(s)
+              (ne pas oublier l''auteur !)'
+            it: 'Controllo: (Tutti) i documenti sono completi e registrati correttamente
+              (non dimenticare l''autore!)'
+      links:
+      - task_ref: uebericht
+        condition: form.entscheid_zwischenberichte.entscheid_zwischenberichte_erfasst
+          != `ausstehend` && form.entscheid_zwischenbericht_beurteilung.entscheid_zwischenbericht_beurteilung_erfasst
+          == `weiter`
+      - task_ref: zwischenbericht_mahnung
+        condition: form.entscheid_zwischenberichte.entscheid_zwischenberichte_erfasst
+          == `ausstehend` && form.entscheid_zwischenbericht_beurteilung.entscheid_zwischenbericht_beurteilung_erfasst
+          == `weiter`
+      - task_ref: END
+        condition: form.entscheid_zwischenbericht_beurteilung.entscheid_zwischenbericht_beurteilung_erfasst
+          == `ende`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    zwischenbericht_mahnung:
+      key: 7cb9acda-c170-40b7-acbd-3672aa05d812
+      title:
+        de: Mahnung zur Einreichung Zwischenberichte
+        fr: Rappel pour la soumission de rapports intermédiaires
+        it: Promemoria per la presentazione delle relazioni intermedie
+      steps:
+      - key: 6c03f958-6d93-4c3b-8aa7-e126bb1a420d
+        title:
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: e414f20e-79bb-442f-9a59-9fc496062c97
+        title:
+          de: 'Bericht: Einreichung nach Mahnung erfolgt?'
+          fr: 'Rapport: Dépôt effectué après rappel?'
+          it: 'Rapporto: presentazione effettuata dopo il sollecito?'
+        time_period: 7
+        type: form
+        name: entscheid_bericht_mahnung
+        fields:
+        - name: entscheid_bericht_mahnung_erfasst
+          type: str
+          choices:
+          - label:
+              de: ja, Einreichung innerhalb Mahnungsfrist
+              fr: oui, dépôt dans le délai de rappel
+              it: sì, presentazione entro il periodo di sollecito
+            value: ja
+          - label:
+              de: nein, keine Einreichung innerhalb Mahnungsfrist
+              fr: non, pas de dépôt dans le délai de rappel
+              it: no, nessuna presentazione entro il periodo di sollecito
+            value: nein
+      links:
+      - task_ref: ueberwachung_zwischenbericht
+        condition: form.entscheid_bericht_mahnung.entscheid_bericht_mahnung_erfasst
+          == `ja`
+      - task_ref: zwischenbericht_mahnung
+        condition: form.entscheid_bericht_mahnung.entscheid_bericht_mahnung_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht:
+      key: b84f3b24-92e7-4d39-b92a-7cfb9c81f85b
+      title:
+        de: Überwachungsbericht
+        fr: Rapport de surveillance
+        it: Rapporto di monitoraggio
+      steps:
+      - key: 7f80f4fa-7b35-4a79-b69e-3805386f19a4
+        title:
+          de: Inhaber bereits zu Einreichung Bericht aufgefordert? (zum Beispiel bei
+            TU)
+          fr: Propriétaire déjà invité à soumettre un rapport ? (par exemple pour
+            ET)
+          it: Il proprietario ha già richiesto di presentare un rapporto? (per esempio
+            al IT)
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_uebericht_inhaber
+        fields:
+        - name: entscheid_uebericht_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'neu aufnehmen: Brief mit Aufforderung an Inhaber'
+              fr: 'nouvel enregistrement: Lettre d''invitation au propriétaire'
+              it: 'nuovo record: Lettera con richiesta al proprietario'
+            value: nein
+          - label:
+              de: Inhaber schon früher zur Einreichung Bericht aufgefordert
+              fr: Propriétaire déjà invité à soumettre un rapport
+              it: Al proprietario è stato precedentemente richiesto di presentare
+                una relazione
+            value: ja
+      - key: 793a6016-8c95-42f9-b9dc-a61fdba42ae9
+        title:
+          de: Aufforderung an Inhaber
+          fr: Demande au propriétaire
+          it: Richiesta al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 5f2949e3-212b-42ab-a697-434a7bd35994
+        title:
+          de: 'Angeforderter Bericht eingegangen:'
+          fr: 'Rapport demandé reçu:'
+          it: 'Rapporto richiesto ricevuto:'
+        time_period: 7
+        type: form
+        name: entscheid_uebericht_erhalten
+        fields:
+        - name: entscheid_uebericht_erhalten_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, Bericht innerhalb Frist eingegangen
+              fr: Oui, rapport reçu dans les délais
+              it: Sì, rapporto ricevuto entro la scadenza
+            value: ja
+          - label:
+              de: Nein, kein Bericht innerhalb Frist eingegangen
+              fr: Non, aucun rapport reçu dans les délais
+              it: No, nessun rapporto ricevuto entro la scadenza
+            value: nein
+      links:
+      - task_ref: uebericht_beurteilung
+        condition: form.entscheid_uebericht_erhalten.entscheid_uebericht_erhalten_erfasst
+          == `ja`
+      - task_ref: uebericht_mahnung
+        condition: form.entscheid_uebericht_erhalten.entscheid_uebericht_erhalten_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht_mahnung:
+      key: d328f770-26d1-4e54-9081-9aed18b4b202
+      title:
+        de: Mahnung zur Einreichung Überwachungsbericht
+        fr: Rappel pour la remise du rapport de surveillance
+        it: Promemoria per la presentazione del rapporto di monitoraggio
+      steps:
+      - key: 90ad8345-4ead-4496-b19e-ddc204777d08
+        title:
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 9afecdd5-0394-43b2-a7fc-a235690d03cc
+        title:
+          de: Angeforderter Bericht nach Mahnung eingegangen?
+          fr: Rapport demandé reçu après rappel ?
+          it: Il rapporto richiesto è stato ricevuto dopo il sollecito?
+        time_period: 7
+        type: form
+        name: entscheid_uebericht_mahnung
+        fields:
+        - name: entscheid_uebericht_mahnung_erfasst
+          type: str
+          choices:
+          - label:
+              de: ja, Einreichung innerhalb Mahnungsfrist
+              fr: oui, dépôt dans le délai de rappel
+              it: sì, presentazione entro il periodo di sollecito
+            value: ja
+          - label:
+              de: nein, keine Einreichung innerhalb Mahnungsfrist
+              fr: non, pas de dépôt dans le délai de rappel
+              it: no, nessuna presentazione entro il periodo di sollecito
+            value: nein
+      links:
+      - task_ref: uebericht_beurteilung
+        condition: form.entscheid_uebericht_mahnung.entscheid_uebericht_mahnung_erfasst
+          == `ja`
+      - task_ref: uebericht_mahnung
+        condition: form.entscheid_uebericht_mahnung.entscheid_uebericht_mahnung_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht_beurteilung:
+      key: 3197683d-6202-4d14-a0b0-a0ad64e93890
+      title:
+        de: Beurteilung Überwachungsbericht
+        fr: Évaluation Rapport de surveillance
+        it: Valutazione del rapporto di monitoraggio
+      steps:
+      - key: d2911533-00fd-46c4-bc1d-3743c41f20e1
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 0452468b-375f-4d73-aad8-c410a078990b
+        title:
+          de: Beurteilung Kanton vorhanden?
+          fr: Evaluation du canton disponible?
+          it: È disponibile una valutazione cantonale?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_beurteilung_kanton
+        fields:
+        - name: entscheid_beurteilung_kanton_erfasst
+          type: str
+          choices:
+          - label:
+              de: Beurteilung vorhanden
+              fr: Évaluation disponible
+              it: Valutazione disponibile
+            value: ja
+          - label:
+              de: keine Beurteilung vorhanden
+              fr: Aucune évaluation disponible
+              it: Nessuna valutazione disponibile
+            value: nein
+      - key: 7d90a65b-795a-4f8b-be8f-bbdcd9f804d2
+        title:
+          de: Stellungnahme Kanton Überwachungsbericht
+          fr: Prise de position du canton Rapport de suivi
+          it: Dichiarazione cantonale Rapporto di monitoraggio
+        optional: true
+        time_period: 7
+        type: document
+      - key: 726278ce-e9d0-4752-a1de-eda69b555f62
+        title:
+          de: Wird das Amt zum eingereichten Bericht Stellung nehmen?
+          fr: L'Office prendra-t-il position sur le rapport déposé?
+          it: L'Ufficio commenterà la relazione presentata?
+        time_period: 7
+        type: form
+        name: entscheid_bericht_vollstaendig
+        fields:
+        - name: entscheid_bericht_vollstaendig_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, Stellungnahme zu Bericht separat, Neubeurteilung später
+              fr: Oui, prise de position sur le rapport séparément, réévaluation ultérieure
+              it: Sì, parere sul rapporto separatamente, rivalutazione successiva
+            value: jetzt
+          - label:
+              de: Nein, Stellungnahme zum Bericht zusammen mit Neubeurteilung
+              fr: Non, prise de position sur le rapport accompagnée d'une réévaluation
+              it: No, dichiarazione sul rapporto insieme alla rivalutazione
+            value: spaeter
+      - key: 01750432-2ae3-4998-80a7-939b04d46974
+        title:
+          de: Ist der eingereichte Bericht unvollständig, sind Nachforderugnen nötig?
+          fr: Le rapport soumis est-il incomplet, des demandes supplémentaires sont-elles
+            nécessaires?
+          it: Se il rapporto presentato è incompleto, sono necessarie ulteriori richieste?
+        time_period: 7
+        type: form
+        name: entscheid_bericht_nachforderung
+        fields:
+        - name: entscheid_bericht_nachforderung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, es sind Nachforderungen nötig, Bericht ist unvollständig
+              fr: Oui, des demandes supplémentaires sont nécessaires, le rapport est
+                incomplet
+              it: Sì, sono necessarie ulteriori richieste di risarcimento, il rapporto
+                è incompleto
+            value: ja
+          - label:
+              de: Nein, keine Nachforderung, der Bericht ist ok
+              fr: Non, pas de demande supplémentaire, le rapport est ok
+              it: No, nessun reclamo aggiuntivo, il rapporto è ok
+            value: nein
+      - key: 8b09d51e-ab6c-49f1-9c17-a667bf38a9db
+        title:
+          de: Beurteilung vollständig?
+          fr: Évaluation complète?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_beurteilung_komplett
+        fields:
+        - name: entscheid_beurteilung_komplett_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'Kontrolle: Standortdaten aufgrund neuer Erkenntnisse nachgetragen,
+                relevante Dokumente aufgenommen?'
+              fr: 'Contrôle : données de localisation ajoutées sur la base de nouvelles
+                connaissances, documents pertinents inclus?'
+              it: 'Verifica: aggiunta di dati sulla posizione in base a nuove scoperte,
+                inclusione di documenti rilevanti?'
+            value: ja
+      links:
+      - task_ref: uebericht_nachforderung
+        condition: form.entscheid_bericht_nachforderung.entscheid_bericht_nachforderung_erfasst
+          == `ja`
+      - task_ref: uebericht_anhoerung_kanton
+        condition: form.entscheid_bericht_vollstaendig.entscheid_bericht_vollstaendig_erfasst
+          == `jetzt`
+      - task_ref: neubeurteilung
+        condition: form.entscheid_bericht_vollstaendig.entscheid_bericht_vollstaendig_erfasst
+          == `spaeter`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht_nachforderung:
+      key: fe672eb3-ab56-425e-8f5a-95fb548caee1
+      title:
+        de: Nachforderung Überwachungsbericht
+        fr: Demande de rapport de surveillance
+        it: Richiesta di follow-up per la relazione di monitoraggio
+      steps:
+      - key: 9763eb3e-b21e-4d84-9abd-88a016bfa24c
+        title:
+          de: Aufforderung an Inhaber
+          fr: Demande au propriétaire
+          it: Richiesta al proprietario
+        optional: true
+        time_period: 7
+        type: document
+      - key: 9cf6febf-113a-4b60-9555-85cd58a0c25c
+        title:
+          de: Hat der Inhaber die nachgeforderten Unterlagen eingereicht?
+          fr: Le propriétaire a-t-il fourni les documents demandés ultérieurement
+            ?
+          it: Il proprietario ha presentato i documenti richiesti?
+        time_period: 7
+        type: form
+        name: entscheid_nachforderungen_uebericht_vollstaendig
+        fields:
+        - name: entscheid_nachforderungen_uebericht_vollstaendig_erfasst
+          type: str
+          choices:
+          - label:
+              de: Ja, die Unterlagen sind jetzt vollständig
+              fr: Oui, le dossier est maintenant complet
+              it: Sì, i documenti sono ora completi
+            value: ja
+          - label:
+              de: Nein, es fehlen nach wie vor Informationen
+              fr: Non, il manque toujours des informations
+              it: No, mancano ancora informazioni
+            value: nein
+          - label:
+              de: Der Inhaber hat sich noch nicht gemeldet
+              fr: Le propriétaire ne s'est pas encore manifesté
+              it: Il proprietario non ci ha ancora contattato
+            value: keine
+          - label:
+              de: Nach Rücksprache mit Inhaber wird auf Nachforderungen verzichtet
+              fr: Après concertation avec le propriétaire, il est renoncé à toute
+                demande de remboursement
+              it: Dopo aver consultato il proprietario, si rinuncia a ulteriori richieste
+                di risarcimento
+            value: verzicht
+      - key: 8007b478-551d-4cec-9616-0aa2bc6b1e36
+        title:
+          de: Bericht Inhaber
+          fr: Rapport du propriétaire
+          it: Proprietario del rapporto
+        optional: true
+        time_period: 7
+        type: document
+      - key: 86b01d78-aca0-466b-bbcc-0e423b066b1d
+        title:
+          de: Beurteilung abgeschlossen?
+          fr: Évaluation terminée?
+          it: Valutazione completata?
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_nachforderungen_uebericht_abschluss
+        fields:
+        - name: entscheid_nachforderungen_uebericht_abschluss_erfasst
+          type: bool
+          label:
+            de: 'Kontrolle: Standortdaten aufgrund neuer Erkenntnisse nachgetragen,
+              relevante Dokumente aufgenommen?'
+            fr: 'Contrôle : données de localisation ajoutées sur la base de nouvelles
+              connaissances, documents pertinents inclus?'
+            it: 'Verifica: aggiunta di dati sulla posizione in base a nuove scoperte,
+              inclusione di documenti rilevanti?'
+      links:
+      - task_ref: uebericht_mahnung
+        condition: form.entscheid_nachforderungen_uebericht_vollstaendig.entscheid_nachforderungen_uebericht_vollstaendig_erfasst
+          == `keine`
+      - task_ref: uebericht_nachforderung
+        condition: form.entscheid_nachforderungen_uebericht_vollstaendig.entscheid_nachforderungen_uebericht_vollstaendig_erfasst
+          == `nein`
+      - task_ref: uebericht_anhoerung_kanton
+        condition: form.entscheid_nachforderungen_uebericht_vollstaendig.entscheid_nachforderungen_uebericht_vollstaendig_erfasst
+          == `ja` || form.entscheid_nachforderungen_uebericht_vollstaendig.entscheid_nachforderungen_uebericht_vollstaendig_erfasst
+          == `verzicht'
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht_anhoerung_kanton:
+      key: 5c5fafb5-5fb1-4a1a-96ff-b2d733958b4a
+      title:
+        de: Überwachungsbericht Anhörung Kanton
+        fr: Rapport de surveillance Audition du canton
+        it: Rapporto di monitoraggio Cantone di consultazione
+      steps:
+      - key: cee7413a-be86-4dba-a22e-89d9520fd858
+        title:
+          de: Begleitbrief Anhörung
+          fr: Lettre d'accompagnement audition
+          it: Lettera di presentazione Audizione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 5dd1058d-0447-4775-bd79-4dea70b8c43f
+        title:
+          de: Stellungnahme abwarten
+          fr: Attendre la prise de position
+          it: Attendere la dichiarazione
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_uebericht
+        fields:
+        - name: entscheid_stellungnahme_uebericht_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+          - label:
+              de: keine Stellungnahme innerhalb Frist eingetroffen
+              fr: aucune prise de position n'a été reçue dans les délais
+              it: Nessuna dichiarazione ricevuta entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_uebericht
+        condition: form.entscheid_stellungnahme_uebericht.entscheid_stellungnahme_uebericht_erfasst
+          == `ja`
+      - task_ref: uebericht_anhoerung_inhaber
+        condition: form.entscheid_stellungnahme_uebericht.entscheid_stellungnahme_uebericht_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    stellungnahme_uebericht:
+      key: d5509445-f563-4663-8be3-d1693472a5e4
+      title:
+        de: Reaktion Anhörung Kanton
+        fr: Réaction audition canton
+        it: Risposta alla consultazione cantonale
+      steps:
+      - key: 55c7b912-330f-4674-8332-7b7a0de9184f
+        title:
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        optional: true
+        time_period: 7
+        type: document
+      - key: 56cf1ac9-1934-4ead-83d9-5c83182b8a87
+        title:
+          de: Einfluss Stellungnahme Kanton zum Überwachungskonzept
+          fr: Influence de la prise de position du canton sur le concept de surveillance
+          it: Influenza della dichiarazione del Cantone sul concetto di monitoraggio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_einfluss_stellungnahme_uebericht
+        fields:
+        - name: entscheid_einfluss_stellungnahme_uebericht_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung gemäss Antrag
+              fr: Réévaluation selon la demande
+              it: Rivalutazione in base all'applicazione
+            value: neubeurteilung
+          - label:
+              de: keine Neubeurteilung; Antrag nicht berücksichtigt
+              fr: pas de réévaluation ; demande non prise en compte
+              it: Nessuna rivalutazione; domanda non presa in considerazione
+            value: keine
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label:
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: 874d6f1e-76b5-49b2-bdca-e57d17d8e8be
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Risposta alla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 1866161c-4d34-4e5d-903f-33b72c6c7c69
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        time_period: 7
+        type: form
+        name: entscheid_dokumente_stellungnahme
+        fields:
+        - name: entscheid_dokumente_stellungnahme_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'Kontrolle: (Alle)Dokument(e) sind vollständig und korrekt aufgenommen
+                (Autor nicht vergessen!)'
+              fr: 'Contrôle: le(s) document(s) est/sont complet(s) et correctement
+                enregistré(s) (ne pas oublier l''auteur !)'
+              it: 'Controllo: (Tutti) i documenti sono completi e registrati correttamente
+                (non dimenticare l''autore!)'
+            value: ja
+      links:
+      - task_ref: stellungnahme_uebericht
+        condition: form.entscheid_dokumente_stellungnahme.entscheid_dokumente_stellungnahme_erfasst
+          == `keine`
+      - task_ref: uebericht_anhoerung_inhaber
+        condition: form.entscheid_dokumente_stellungnahme.entscheid_dokumente_stellungnahme_erfasst
+          == `abgelehnt` || form.entscheid_dokumente_stellungnahme.entscheid_dokumente_stellungnahme_erfasst
+          == `einverstanden`
+      - task_ref: uebericht_beurteilung
+        condition: form.entscheid_dokumente_stellungnahme.entscheid_dokumente_stellungnahme_erfasst
+          == `neubeurteilung`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    uebericht_anhoerung_inhaber:
+      key: d78685c4-7064-4504-98ac-f9b5460005ed
+      title:
+        de: Überwachungskonzept Anhörung Inhaber
+        fr: Concept de surveillance Audition du propriétaire
+        it: Concetto di monitoraggio Consultazione con il proprietario
+      steps:
+      - key: df047dce-1006-4910-bd0b-88f8a49629d5
+        title:
+          de: Stellungnahme definitiv
+          fr: Prise de position définitive
+          it: Dichiarazione definitiva
+        optional: true
+        time_period: 7
+        type: document
+      - key: c505e141-58d6-4578-8150-fb66bce94c5e
+        title:
+          de: Stellungnahme abwarten
+          fr: Attendre la prise de position
+          it: Attendere la dichiarazione
+        time_period: 7
+        type: form
+        name: entscheid_stellungnahme_uebericht_inhaber
+        fields:
+        - name: entscheid_stellungnahme_uebericht_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: Stellungnahme innerhalb Frist eingetroffen
+              fr: Prise de position reçue dans les délais
+              it: Dichiarazione ricevuta entro la scadenza
+            value: ja
+          - label:
+              de: keine Stellungnahme innerhalb Frist eingetroffen
+              fr: aucune prise de position n'a été reçue dans les délais
+              it: Nessuna dichiarazione ricevuta entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_uebericht_inhaber
+        condition: form.entscheid_stellungnahme_uebericht_inhaber.entscheid_stellungnahme_uebericht_inhaber_erfasst
+          == `ja`
+      - task_ref: neubeurteilung
+        condition: form.entscheid_stellungnahme_uebericht_inhaber.entscheid_stellungnahme_uebericht_inhaber_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    stellungnahme_uebericht_inhaber:
+      key: 9ae22363-d25e-4f91-95e4-993d70b6b38f
+      title:
+        de: Reaktion Inhaber
+        fr: Réaction du propriétaire
+        it: Risposta del proprietario
+      steps:
+      - key: 5913ecd4-0941-480d-96e7-934263772bfc
+        title:
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 2e548a68-f684-4a2c-88e0-e9e262941531
+        title:
+          de: Einfluss Stellungnahme Inhaber zum Überwachungskonzept
+          fr: Influence Prise de position du propriétaire sur le concept de surveillance
+          it: Influenza Dichiarazione del proprietario sul concetto di monitoraggio
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_einfluss_stellungnahme_inhaber_uebericht
+        fields:
+        - name: entscheid_einfluss_stellungnahme_inhaber_uebericht_erfasst
+          type: str
+          choices:
+          - label:
+              de: Neubeurteilung gemäss Antrag
+              fr: Réévaluation selon la demande
+              it: Rivalutazione in base all'applicazione
+            value: neubeurteilung
+          - label:
+              de: keine Neubeurteilung; Antrag nicht berücksichtigt
+              fr: pas de réévaluation ; demande non prise en compte
+              it: Nessuna rivalutazione; domanda non presa in considerazione
+            value: keine
+          - label:
+              de: Immer noch keine Neubeurteilung, Antrag definitiv abgewiesen
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label:
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: 8b9a246a-3f48-40ea-9a3d-8d0047cff927
+        title:
+          de: Rückmeldung auf Stellungnahme
+          fr: Réponse à la prise de position
+          it: Risposta alla dichiarazione
+        optional: true
+        time_period: 7
+        type: document
+      - key: 8b11aade-7b4e-459c-9cd5-842f3b4ac275
+        title:
+          de: Dokumentenaufnahme
+          fr: Enregistrement des documents
+          it: Registrazione dei documenti
+        time_period: 7
+        type: form
+        name: entscheid_dokumente_stellungnahme_inhaber
+        fields:
+        - name: entscheid_dokumente_stellungnahme_inhaber_erfasst
+          type: str
+          choices:
+          - label:
+              de: 'Kontrolle: (Alle)Dokument(e) sind vollständig und korrekt aufgenommen
+                (Autor nicht vergessen!)'
+              fr: 'Contrôle: le(s) document(s) est/sont complet(s) et correctement
+                enregistré(s) (ne pas oublier l''auteur !)'
+              it: 'Controllo: (Tutti) i documenti sono completi e registrati correttamente
+                (non dimenticare l''autore!)'
+            value: ja
+      links:
+      - task_ref: neubeurteilung
+        condition: form.entscheid_dokumente_stellungnahme_inhaber.entscheid_dokumente_stellungnahme_inhaber_erfasst
+          == `abgelehnt` || form.entscheid_dokumente_stellungnahme_inhaber.entscheid_dokumente_stellungnahme_inhaber_erfasst
+          == `einverstanden`
+      - task_ref: uebericht_beurteilung
+        condition: form.entscheid_dokumente_stellungnahme_inhaber.entscheid_dokumente_stellungnahme_inhaber_erfasst
+          == `neubeurteilung`
+      - task_ref: stellungnahme_uebericht_inhaber
+        condition: form.entscheid_dokumente_stellungnahme_inhaber.entscheid_dokumente_stellungnahme_inhaber_erfasst
+          == `keine`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:13
+      time_period: 7
+    neubeurteilung:
+      key: 0f19d1cf-9453-460d-868c-f642823184ea
+      title:
+        de: Neubeurteilung aufgrund Überwachung
+        fr: Réévaluation sur la base de la surveillance
+        it: Rivalutazione dovuta al monitoraggio
+      steps:
+      - key: da1a533b-c564-4d46-8a02-d31eda1b7655
+        title:
+          de: 'Beurteilung des Standortes nach Überwachung:'
+          fr: 'Évaluation du site après surveillance:'
+          it: 'Valutazione del sito dopo il monitoraggio:'
+        time_period: 7
+        type: form
+        name: entscheid_beurteilung
+        fields:
+        - name: entscheid_beurteilung_erfasst
+          type: str
+          choices:
+          - label:
+              de: Weiter überwachen, neues Konzept anfordern
+              fr: Continuer la surveillance, demander un nouveau concept
+              it: Continuare a monitorare, richiedere un nuovo concetto
+            value: konzept
+          - label:
+              de: Weiter überwachen, kein neues Konzept erforderlich
+              fr: Continuer la surveillance, pas de nouveau concept nécessaire
+              it: Continuare il monitoraggio, non è necessario un nuovo concetto
+            value: weiter
+          - label:
+              de: Überwachung nicht mehr notwendig
+              fr: La surveillance n'est plus nécessaire
+              it: Il monitoraggio non è più necessario
+            value: abschluss
+      links:
+      - task_ref: start_ueberwachung
+        condition: form.entscheid_beurteilung.entscheid_beurteilung_erfasst == `konzept`
+      - task_ref: ueberwachung_freigabe
+        condition: form.entscheid_beurteilung.entscheid_beurteilung_erfasst == `weiter`
+      - task_ref: abschluss_ueberwachung
+        condition: form.entscheid_beurteilung.entscheid_beurteilung_erfasst == `abschluss`
+      time_period: 7
+    abschluss_ueberwachung:
+      key: 69793967-31b6-433b-9c4e-4d391a31f84e
+      title:
+        de: Abschluss Überwachung
+        fr: Achèvement Surveillance
+        it: Finalizzazione Monitoraggio
+      steps:
+      - key: 1bfde6b5-2d3a-464a-987c-918ca1c3197b
+        title:
+          de: 'Standort muss nicht mehr überwacht werden: '
+          fr: 'Le site ne doit plus être surveillé: '
+          it: 'La posizione non deve più essere monitorata: '
+        optional: true
+        time_period: 7
+        type: form
+        name: entscheid_abschluss
+        fields:
+        - name: entscheid_abschluss_erfasst
+          type: bool
+          label:
+            de: Hiermit ist die Überwachung des Standortes abgeschlossen
+            fr: Ceci termine la surveillance du site
+            it: Si conclude così il monitoraggio della posizione
+      links:
+      - task_ref: END
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:14
+      time_period: 7
+    END:
+      key: be05b7fe-2efd-4f1a-be6a-11740b8cd05d
+      title: __END__
+      links: []
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:14
+      time_period: 7
+  time_period: 365

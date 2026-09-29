@@ -1,0 +1,163 @@
+INTERLIS 2.3;
+
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+MODEL KbS_V1_5_BE_V1 (de)
+AT "https://test.de"
+VERSION "2026-04-21"  =
+  IMPORTS LocalisationCH_V1,GeometryCHLV95_V1,InternationalCodes_V1, INTERLIS;
+
+  DOMAIN
+
+    Deponietyp = (
+      DepTypB,
+      DepTypC,
+      DepTypD,
+      DepTypE
+    );
+
+    EGRID = TEXT;
+
+    Standorttyp = (
+      StaoTyp1,
+      StaoTyp2,
+      StaoTyp3,
+      StaoTyp4
+    );
+
+    StatusAltlV = (
+      StatusAltlV1,
+      StatusAltlV2,
+      StatusAltlV3,
+      StatusAltlV4,
+      StatusAltlV5,
+      StatusAltlV6
+    );
+
+    UntersMassn = (
+      UntMassn1,
+      UntMassn2,
+      UntMassn3,
+      UntMassn4,
+      UntMassn5,
+      UntMassn6
+    );
+
+  STRUCTURE Deponietyp_ = value : MANDATORY Deponietyp; END Deponietyp_;
+  STRUCTURE EGRID_ = value : MANDATORY EGRID; END EGRID_;
+  STRUCTURE UntersMassn_ = value : MANDATORY UntersMassn; END UntersMassn_;
+
+  STRUCTURE Unfall = 
+  	Unfalldatum : TEXT;
+  	END Unfall;
+
+  STRUCTURE Parzellenidentifikation =
+    NBIdent : MANDATORY TEXT;
+    Parzellennummer : MANDATORY TEXT;
+  END Parzellenidentifikation;
+
+  !!@ limitedTo = "ch.admin.bafu.kbs_codetexte_V1_5"
+  TOPIC Codelisten =
+
+    CLASS Deponietyp_Definition =
+      Code : MANDATORY KbS_V1_5_BE_V1.Deponietyp;
+      Definition : MANDATORY LocalisationCH_V1.MultilingualText;
+      UNIQUE Code;
+    END Deponietyp_Definition;
+
+    CLASS Standorttyp_Definition =
+      Code : MANDATORY KbS_V1_5_BE_V1.Standorttyp;
+      Definition : MANDATORY LocalisationCH_V1.MultilingualText;
+      UNIQUE Code;
+    END Standorttyp_Definition;
+
+    CLASS StatusAltlV_Definition =
+      Code : MANDATORY KbS_V1_5_BE_V1.StatusAltlV;
+      Definition : MANDATORY LocalisationCH_V1.MultilingualText;
+      Symbol_Punkt : MANDATORY BLACKBOX BINARY;
+      Symbol_Flaeche : MANDATORY BLACKBOX BINARY;
+      UNIQUE Code;
+    END StatusAltlV_Definition;
+
+    CLASS Untersuchungsmassnahmen_Definition =
+      Code : MANDATORY KbS_V1_5_BE_V1.UntersMassn;
+      Definition : MANDATORY LocalisationCH_V1.MultilingualText;
+      UNIQUE Code;
+    END Untersuchungsmassnahmen_Definition;
+
+  END Codelisten;
+
+  TOPIC Belastete_Standorte =
+
+    DOMAIN
+
+      Polygon = SURFACE WITH (STRAIGHTS) VERTEX GeometryCHLV95_V1.Coord2 WITHOUT OVERLAPS > 0.001;
+
+    STRUCTURE PolygonStructure =
+      Polygon: Polygon;
+    END PolygonStructure;
+
+    STRUCTURE MultiPolygon =
+      Polygones: BAG {1..*} OF PolygonStructure;
+    END MultiPolygon;
+
+    STRUCTURE LocalisedUri =
+      Language : InternationalCodes_V1.LanguageCode_ISO639_1;
+      Text : MANDATORY URI;
+    END LocalisedUri;
+
+    STRUCTURE MultilingualUri =
+      LocalisedText : BAG {1..*} OF LocalisedUri;
+      UNIQUE (LOCAL) LocalisedText: Language;
+    END MultilingualUri;
+
+    CLASS ZustaendigkeitKataster =
+      Zustaendige_Behoerde : MANDATORY LocalisationCH_V1.MultilingualText;
+      URL_Behoerde : MANDATORY MultilingualUri;
+      UID : TEXT*12;
+      Katastername : MANDATORY LocalisationCH_V1.MultilingualText;
+      URL_Kataster : MANDATORY MultilingualUri;
+    END ZustaendigkeitKataster;
+
+    CLASS Belasteter_Standort =
+      Katasternummer : MANDATORY TEXT;
+      Standortbezeichnung : MANDATORY TEXT;
+      URL_Standort : MultilingualUri;
+      Geo_Lage_Polygon : MultiPolygon;
+      Geo_Lage_Punkt : GeometryCHLV95_V1.Coord2;
+      Parzellenverweis : BAG {0..*} OF KbS_V1_5_BE_V1.Parzellenidentifikation;
+      EGRID : BAG {0..*} OF KbS_V1_5_BE_V1.EGRID_;
+      Standorttyp : KbS_V1_5_BE_V1.Standorttyp;
+      InBetrieb : BOOLEAN;
+      Deponietyp : BAG {0..*} OF KbS_V1_5_BE_V1.Deponietyp_;
+      Nachsorge : BOOLEAN;
+      Untersuchungsstand : LocalisationCH_V1.MultilingualText;
+      StatusAltlV : KbS_V1_5_BE_V1.StatusAltlV;
+      Ersteintrag : INTERLIS.XMLDate;
+      LetzteAnpassung : INTERLIS.XMLDate;
+      URL_KbS_Auszug : MultilingualUri;
+      Bemerkung : LocalisationCH_V1.MultilingualText;
+      Hauptgemeinde: TEXT;
+      KOORD_X: MANDATORY 2460000.000 .. 2690000.000;
+      KOORD_Y: MANDATORY 1060000.000 .. 1260000.000;
+      Statusbezeichnung: TEXT;
+      Handlungsbedarf: LocalisationCH_V1.MultilingualText;
+      RechtlicherBezug: LocalisationCH_V1.MultilingualText;
+      UngefaehreFlaeche: 0.000 .. 9999999999.999;
+      Unfaelle: BAG {0..*} OF KbS_V1_5_BE_V1.Unfall;
+      Kbs_Info_GRE: TEXT;
+      Info: TEXT;
+      URL_alma: TEXT;
+      MANDATORY CONSTRAINT NOT ((Standorttyp == #StaoTyp1) AND NOT (DEFINED (InBetrieb)));
+      MANDATORY CONSTRAINT NOT ((Standorttyp == #StaoTyp1) AND (InBetrieb) AND NOT (DEFINED (Deponietyp)));
+      MANDATORY CONSTRAINT DEFINED (Geo_Lage_Punkt) OR DEFINED (Geo_Lage_Polygon);
+      MANDATORY CONSTRAINT NOT ((Standorttyp == #StaoTyp1) AND (NOT (InBetrieb)) AND NOT (DEFINED (Nachsorge)));
+    END Belasteter_Standort;
+
+    ASSOCIATION ZustaendigkeitKatasterBelasteter_Standort =
+      ZustaendigkeitKataster -- {1} ZustaendigkeitKataster;
+      Belasteter_Standort -<> {0..*} Belasteter_Standort;
+    END ZustaendigkeitKatasterBelasteter_Standort;
+
+  END Belastete_Standorte;
+
+END KbS_V1_5_BE_V1.

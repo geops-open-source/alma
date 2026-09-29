@@ -1,0 +1,11 @@
+digraph {
+  graph [label=< <B>Saisie</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> erfassung
+  erfassung [label=< {<B>Saisie des données relatives au site lors d'une nouvelle installation</B>|[F] Toutes les données relatives au site ont-elles été saisies?} >]
+  END [label=< {<B>__END__</B>} >]
+
+  erfassung -> END [label="" fontsize=10]
+}

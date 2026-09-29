@@ -1,0 +1,1732 @@
+<WFS_Capabilities xmlns="http://www.opengis.net/wfs" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0.0" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-capabilities.xsd" updateSequence="0">
+ <Service>
+  <Name>WFS</Name>
+  <Title>OWS Kanton Glarus</Title>
+  <Abstract>OWS Kanton Glarus: Web Map Service, Web Feature Service. Publicly accessible spatial datasets from SDI Kanton Glarus, Switzerland. All cantonal, communal and swisstopo data are Open Data. Source: Kanton Glarus, swisstopo</Abstract>
+  <Keywords>WMS, WFS, OWS, WebService, Spatial Data, Open Data Glarus</Keywords>
+  <OnlineResource />
+  <Fees>Open Data / Kanton Glarus, swisstopo</Fees>
+  <AccessConstraints>public</AccessConstraints>
+ </Service>
+ <Capability>
+  <Request>
+   <GetCapabilities>
+    <DCPType>
+     <HTTP>
+      <Get onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+    <DCPType>
+     <HTTP>
+      <Post onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+   </GetCapabilities>
+   <DescribeFeatureType>
+    <SchemaDescriptionLanguage>
+     <XMLSCHEMA />
+    </SchemaDescriptionLanguage>
+    <DCPType>
+     <HTTP>
+      <Get onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+    <DCPType>
+     <HTTP>
+      <Post onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+   </DescribeFeatureType>
+   <GetFeature>
+    <ResultFormat>
+     <GML2 />
+     <GML3 />
+     <GeoJSON />
+    </ResultFormat>
+    <DCPType>
+     <HTTP>
+      <Get onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+    <DCPType>
+     <HTTP>
+      <Post onlineResource="https://map.geo.gl.ch/ows/mainmap" />
+     </HTTP>
+    </DCPType>
+   </GetFeature>
+   </Request>
+ </Capability>
+ <FeatureTypeList>
+  <Operations>
+   <Query />
+  </Operations>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.perimeter-gefahrenkartierung</Name>
+   <Title>Naturgefahren Perimeter Gefahrenkartierung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.662" minx="2711050.298" miny="1192636.989" maxx="2733458.716" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.gefahrenkarte-synoptisch</Name>
+   <Title>Naturgefahren Gefahrenstufen alle Prozesse</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2711050.25" miny="1192636.875" maxx="2733459.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.av_fixpunkte</Name>
+   <Title>Fixpunkte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1232990" minx="2709273.5" miny="1184307.75" maxx="2742556.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.earthcover.av_projektierte-bbflaechen</Name>
+   <Title>Projektierte Bodenbedeckungsflächen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223703" minx="2717292.75" miny="1193167.875" maxx="2733224.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.earthcover.av_bbflaechen-sw</Name>
+   <Title>Bodenbedeckungsflächen schwarz-weiss amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.earthcover.av_bbflaechen-farbig</Name>
+   <Title>Bodenbedeckungsflächen farbig amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.earthcover.av_bb-namen</Name>
+   <Title>Bodenbedeckung Namen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225538.375" minx="2710110.5" miny="1185441" maxx="2736301.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.av_eoflaechen-sw</Name>
+   <Title>Einzelobjektflächen schwarz-weiss amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225869.25" minx="2711182.5" miny="1186459.375" maxx="2736073.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.av_eoflaechen-farbig</Name>
+   <Title>Einzelobjektflächen farbig amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225869.25" minx="2711182.5" miny="1186459.375" maxx="2736073.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.av_eolinien</Name>
+   <Title>Einzelobjektlinien amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225937.875" minx="2710013.75" miny="1185467.75" maxx="2737734" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.av_eopunkte</Name>
+   <Title>Einzelobjektpunkte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224714.295" minx="2718080.836" miny="1197574.652" maxx="2732412.438" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.av_eo-namen</Name>
+   <Title>Einzelobjektnamen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223035.625" minx="2713290" miny="1187113.625" maxx="2736829.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.av_nomenklatur</Name>
+   <Title>Nomenklatur Flurnamen Ortsnamen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_grenzpunkte</Name>
+   <Title>Grenzpunkte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225877.125" minx="2710580" miny="1186194" maxx="2737969" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_sdr</Name>
+   <Title>Selbstständige und dauernde Rechte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223300.875" minx="2712921.75" miny="1188569" maxx="2732607.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_grundstuecksnummern</Name>
+   <Title>Grundstücksnummern amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225728.375" minx="2710583.25" miny="1185686.75" maxx="2737381.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.boundaries.av_hoheitsgrenzpunkte</Name>
+   <Title>Hoheitsgrenzpunkte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.boundaries.av_hoheitsgrenzabschnitte</Name>
+   <Title>Hoheitsgrenzabschnitte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2709273.64" miny="1183890.43" maxx="2738138.46" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.av_lokalisationen</Name>
+   <Title>Lokalisationen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225225.875" minx="2710050.5" miny="1185446" maxx="2737076.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.av_gebaeudeadressen</Name>
+   <Title>Gebäudeadressen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225768" minx="2710012.75" miny="1185466.125" maxx="2737022" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_velo</Name>
+   <Title>SchweizMobil-Radrouten Velo Fahrrad</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1268919.428" minx="2554120.436" miny="1129537.997" maxx="2767995.525" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.eigentum-gemeinden</Name>
+   <Title>Eigentum Gemeinden</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225683.125" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.eigentum-kanton</Name>
+   <Title>Eigentum Kanton</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225205.75" minx="2711178.25" miny="1196146.75" maxx="2732876" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.alpnamen</Name>
+   <Title>Landwirtschaft Sömmerungsgebiet Alpen Namen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223197.625" minx="2711106.25" miny="1186386.25" maxx="2737657.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.boundaries.grundbuecher</Name>
+   <Title>Grundbücher amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.592" minx="2709273.64" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.utilities.erdsondenausschlussbereich</Name>
+   <Title>Gewässerschutz Erdsondenausschlussbereich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225965.513" minx="2712526.474" miny="1192610.335" maxx="2732836.252" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.gsareal</Name>
+   <Title>Gewässerschutz Grundwasserschutzareal</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224725.142" minx="2717987.551" miny="1203226.006" maxx="2723527.063" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.wanderwege</Name>
+   <Title>Wanderwege</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225940.75" minx="2710009.25" miny="1185461.25" maxx="2737541.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.utilities.grundwasser-quellfassungen</Name>
+   <Title>Grundwasser- und Quellfassungen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224989.875" minx="2711270.5" miny="1188029.5" maxx="2736990.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.eigentum-bund</Name>
+   <Title>Eigentum Bund</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225916.625" minx="2713865" miny="1192412" maxx="2732835.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.eigentum-technischebetriebe</Name>
+   <Title>Eigentum Technische Betriebe</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224699.5" minx="2712053" miny="1195738.5" maxx="2732681.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.soemmerungsgebiet</Name>
+   <Title>Landwirtschaft Sömmerungsgebiet Alpen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223192.875" minx="2711116" miny="1186386.25" maxx="2737657.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.gsbereich</Name>
+   <Title>Gewässerschutzbereich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225960.886" minx="2709270.64" miny="1184819.358" maxx="2737759.141" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.gszonen</Name>
+   <Title>Gewässerschutz Grundwasser-Quellschutzzonen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223738.625" minx="2710469.75" miny="1192852.875" maxx="2733811.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.radrouten-kantonal</Name>
+   <Title>Kantonale Radrouten</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223457.151" minx="2718830.159" miny="1198417.701" maxx="2725294.038" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.grundwasservorkommen</Name>
+   <Title>Grundwasservorkommen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225964.397" minx="2713635.636" miny="1192661.427" maxx="2735956.602" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.basemaps.kantonsmaske</Name>
+   <Title>Kantonsmaske</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1351000" minx="2419000" miny="1026000" maxx="2917000" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.boundaries.av_gemeindegrenzen</Name>
+   <Title>Gemeindegrenzen amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2709273.64" miny="1183890.43" maxx="2738138.46" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.boundaries.gemeinden</Name>
+   <Title>Gemeinden GL</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.592" minx="2709273.64" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.ortschaften</Name>
+   <Title>Ortschaften</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223280.221" minx="2718828.985" miny="1197876.63" maxx="2732004.199" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.soils.bodeneignung-bodentyp</Name>
+   <Title>Bodeneignung - Bodentyp</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2718204" miny="1202790.375" maxx="2726446.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.soils.bodeneignung-gruendigkeit</Name>
+   <Title>Bodeneignung - Gründigkeit</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2718204" miny="1202790.375" maxx="2726446.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.soils.bodeneignung-nutzung-fff</Name>
+   <Title>Bodeneignung - Nutzungseignung Fruchtfolgeflächen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2718204" miny="1202790.375" maxx="2726446.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.soils.bodeneignung-wasserhaushalt</Name>
+   <Title>Bodeneignung - Wasserhaushalt</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2718204" miny="1202790.375" maxx="2726446.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.schutzwald</Name>
+   <Title>Schutzwald</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224256.25" minx="2710558.5" miny="1189037.75" maxx="2736351.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.biota.waldbestand</Name>
+   <Title>Waldbestand</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225930.25" minx="2710558.5" miny="1186886.875" maxx="2737077.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.biota.waldgesellschaften</Name>
+   <Title>Waldgesellschaften</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225930.25" minx="2710558.5" miny="1186886.875" maxx="2737077.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.waldreservate</Name>
+   <Title>Waldreservate Vertragsflächen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225884.5" minx="2712215" miny="1188450" maxx="2737077.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.revitalisierung-strategische-planung-flaechen</Name>
+   <Title>Gewässerrevitalisierung - strategische Planung (Flächen)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1214367.736" minx="2719220.412" miny="1198777.938" maxx="2725281.794" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.revitalisierung-strategische-planung-linien</Name>
+   <Title>Gewässerrevitalisierung - strategische Planung (Linien)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221497.081" minx="2719394.756" miny="1197614.25" maxx="2733081.684" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.oekomorphologie</Name>
+   <Title>Gewässerschutz Gewässer-Ökomorphologie</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.375" minx="2711112" miny="1192583.75" maxx="2733193.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.fischereigewaesser</Name>
+   <Title>Fischereigewässer</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225307.625" minx="2711176.25" miny="1186854.875" maxx="2736320.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.fischereigewaesser-abschnitte</Name>
+   <Title>Fischereigewässer - Abschnitte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1218023.079" minx="2717543.921" miny="1191682.036" maxx="2731891.76" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.environmentalprotection.kbs</Name>
+   <Title>Kataster der belasteten Standorte - Altlasten</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225735.125" minx="2713946" miny="1189484.875" maxx="2732853.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.unesco-welterbe</Name>
+   <Title>Naturschutz UNESCO-Welterbe Tektonikarena Sardona</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1218389.203" minx="2724484.531" miny="1190240.713" maxx="2752687.611" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.landschaftsverzeichnis</Name>
+   <Title>Landschaftsverzeichnis</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221524.711" minx="2709301.64" miny="1183999.626" maxx="2738131.482" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.nsg-perimeter</Name>
+   <Title>Naturschutzgebiete Perimeter</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2713274.724" miny="1198354.814" maxx="2732426.444" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.nsg-zonen</Name>
+   <Title>Naturschutzgebiete Zonen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225443" minx="2713274.5" miny="1198354.75" maxx="2732426.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.nhg-vertraege</Name>
+   <Title>Naturschutz NHG-Verträge</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225954" minx="2712106.25" miny="1188086.25" maxx="2735800.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.biotope-national</Name>
+   <Title>Naturschutz Biotope von nationaler Bedeutung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225947.75" minx="2710963" miny="1188090.25" maxx="2735897.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.biotope-linien</Name>
+   <Title>Naturschutz Biotope (Linien)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1220999.75" minx="2712399" miny="1194002.625" maxx="2733505.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.biotope-flaechen</Name>
+   <Title>Naturschutz Biotope (Flächen)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225954.125" minx="2710591.25" miny="1188030.125" maxx="2736117.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.ersatzmassnahmen</Name>
+   <Title>Naturschutz Landschaftsschutz: Ersatzmassnahmen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225954" minx="2718681" miny="1186711.625" maxx="2727739.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.wildruhezonen</Name>
+   <Title>Wildruhezonen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224492.785" minx="2715649.892" miny="1193306.296" maxx="2735807.435" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.wildruhezonen-routennetz</Name>
+   <Title>Routennetz in Wildruhezonen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224479.625" minx="2715763.5" miny="1193305.75" maxx="2735239.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.isos-ortsbilder</Name>
+   <Title>ISOS Ortsbilder</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223887.5" minx="2718167" miny="1196299.25" maxx="2732586.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.isos-einzelobjekte</Name>
+   <Title>ISOS Einzelobjekte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223586.875" minx="2718602" miny="1196630.5" maxx="2732097.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.kgs-objekte_lokal</Name>
+   <Title>Kulturgüterschutz-Objekte lokal</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224699.75" minx="2714680.5" miny="1185459.5" maxx="2732670.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.kgs-objekte_national-regional</Name>
+   <Title>Kulturgüterschutz-Objekte national und regional</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224699.75" minx="2714680.5" miny="1185459.5" maxx="2732670.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.denkmalschutzobjekte_punkte</Name>
+   <Title>Denkmalschutz Einzelobjekte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223000" minx="2717654" miny="1192018" maxx="2732549" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.denkmalschutzobjekte_flaechen</Name>
+   <Title>Denkmalschutz: Flächenobjekte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223613.125" minx="2710010.75" miny="1185462.125" maxx="2733588.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene7</Name>
+   <Title>Stromversorgungssicherheit Netzebene 7</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.592" minx="2709273.64" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene5b</Name>
+   <Title>Stromversorgungssicherheit Netzebene 5b</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.592" minx="2709273.64" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene5a</Name>
+   <Title>Stromversorgungssicherheit Netzebene 5a</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2709273.64" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene7-ausnahmen</Name>
+   <Title>Stromversorgungssicherheit Ausnahmen Netzebene 7</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1212812.541" minx="2714436.998" miny="1209330.081" maxx="2722288.835" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene5b-ausnahmen</Name>
+   <Title>Stromversorgungssicherheit Ausnahmen Netzebene 5b</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1203319.719" minx="2719308.067" miny="1198183.549" maxx="2721510.321" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene5a-ausnahmen</Name>
+   <Title>Stromversorgungssicherheit Ausnahmen Netzebene 5a</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1220630.42" minx="2721777.055" miny="1202548.044" maxx="2725345.257" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.baugrundklassen</Name>
+   <Title>Naturgefahren Seism. Mikrozonierung - Baugrundklassen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225965.125" minx="2716531.5" miny="1192556.5" maxx="2733466" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.prozessquellen-lawine</Name>
+   <Title>Naturgefahren Prozessquellen HPA Lawine</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221865.125" minx="2711017" miny="1191825.25" maxx="2734402.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.prozessquellen-sturz</Name>
+   <Title>Naturgefahren Prozessquellen HPA Sturz</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224164.875" minx="2710694.5" miny="1192273" maxx="2733626.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.prozessquellen-rutschung</Name>
+   <Title>Naturgefahren Prozessquellen HPA Rutschung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224184.75" minx="2710965.75" miny="1194174.25" maxx="2733460" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.prozessquellen-wasser</Name>
+   <Title>Naturgefahren Prozessquellen HPA Wasser</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225967" minx="2710705.5" miny="1191468.125" maxx="2737734" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.gefahrenstufen-lawine</Name>
+   <Title>Naturgefahren Gefahrenstufen HPA Lawine</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1222706.375" minx="2711084" miny="1192636.875" maxx="2733422" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.gefahrenstufen-rutschung</Name>
+   <Title>Naturgefahren Gefahrenstufen HPA Rutschung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224095.75" minx="2711050.25" miny="1194211.875" maxx="2733459.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.gefahrenstufen-sturz</Name>
+   <Title>Naturgefahren Gefahrenstufen HPA Sturz</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224257.375" minx="2711050.25" miny="1192636.875" maxx="2733459.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.gefahrenstufen-wasser</Name>
+   <Title>Naturgefahren Gefahrenstufen HPA Wasser</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2711063.75" miny="1192636.875" maxx="2733422" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.intensitaeten-fliesstiefen-030j</Name>
+   <Title>Naturgefahren Intensitäten Fliesstiefen 30-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221439" minx="2717421.5" miny="1192757.5" maxx="2725105.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.intensitaeten-fliesstiefen-100j</Name>
+   <Title>Naturgefahren Intensitäten Fliesstiefen 100-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221528.875" minx="2717420.5" miny="1192756.125" maxx="2727699.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.intensitaeten-fliesstiefen-300j</Name>
+   <Title>Naturgefahren Intensitäten Fliesstiefen 300-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221528.875" minx="2717420.25" miny="1192757.5" maxx="2727699.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.wfs-intensitaeten-030j</Name>
+   <Title>Naturgefahren WFS Intensitäten 30-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2711050.25" miny="1192636.875" maxx="2733449.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.wfs-intensitaeten-100j</Name>
+   <Title>Naturgefahren WFS Intensitäten 100-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2711050.25" miny="1192636.875" maxx="2733459.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.wfs-intensitaeten-300j</Name>
+   <Title>Naturgefahren WFS Intensitäten 300-jährlich</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2711050.25" miny="1192636.875" maxx="2733459.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.gebaeudeinformation</Name>
+   <Title>Gebäudeinformation</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225782.5" minx="2710006.75" miny="1185462.125" maxx="2737031.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.adr_hausnummern</Name>
+   <Title>Adressierung Hausnummern</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225768" minx="2710012.75" miny="1185466.125" maxx="2737022" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.adr_strassenstuecke</Name>
+   <Title>Adressierung Strassenstücke</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225235.875" minx="2711184.5" miny="1192985.125" maxx="2736128.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.adr_hausnr-zu-strassen</Name>
+   <Title>Adressierung Zuordnung Haus-Nr. zu Strassen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225048.375" minx="2711357.25" miny="1191959.125" maxx="2736100.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.adr_benannte-gebiete</Name>
+   <Title>Adressierung benannte Gebiete</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2709933.75" miny="1185415.75" maxx="2737222.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.flurnamen</Name>
+   <Title>Flurnamen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.bienenstandorte</Name>
+   <Title>Landwirtschaft Bienenstandorte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225645" minx="2712260" miny="1194150" maxx="2735740" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.landschaftsqualitaet-punkte</Name>
+   <Title>Landwirtschaft Landschaftsqualität Punkte</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225636.75" minx="2710982" miny="1188317.375" maxx="2736926" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.landschaftsqualitaet-linien</Name>
+   <Title>Landwirtschaft Landschaftsqualität Linien</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225663.625" minx="2710832" miny="1188160.375" maxx="2736806" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.landschaftsqualitaet-flaechen</Name>
+   <Title>Landwirtschaft Landschaftsqualität Flächen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225210.375" minx="2710848" miny="1187095.5" maxx="2737002" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gwn_fliessgewaesser-ohne-breite-aus-av</Name>
+   <Title>provisorischer Gewässerraum: Fliessgewässer (ohne Breite gem. AV)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225651.625" minx="2710552.5" miny="1185497.125" maxx="2737734" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gwn_fliessgewaesser-bearbeitet-nach-av</Name>
+   <Title>provisorischer Gewässerraum: Fliessgewässer (bearbeitet nach AV)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.375" minx="2710552.5" miny="1185497.125" maxx="2737734" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gwn_stehende-gewaesser</Name>
+   <Title>provisorischer Gewässerraum: stehende Gewässer</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225722.25" minx="2712392.5" miny="1186186.375" maxx="2736616" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_schutzgebiete-2013</Name>
+   <Title>provisorischer Gewässerraum: Schutzgebiete 2013</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225986.625" minx="2711297.25" miny="1188070.25" maxx="2735786.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_fliessgewaesser-schutzgebiete</Name>
+   <Title>provisorischer Gewässerraum: GewR für Fliessgewässer in Schutzgebieten</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225986.587" minx="2711297.346" miny="1188070.35" maxx="2735730.176" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_fliessgewaesser-schutzgebiete-ohne-breite-aus-av</Name>
+   <Title>provisorischer Gewässerraum: GewR für Fliessgewässer in Schutzgebieten (ohne Breite gem. AV)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225657" minx="2712715.25" miny="1188189" maxx="2735732.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_fliessgewaesser</Name>
+   <Title>provisorischer Gewässerraum: GewR für Fliessgewässer</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1226000.875" minx="2710790.5" miny="1186443.75" maxx="2736228.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_fliessgewaesser-ohne-breite-aus-av</Name>
+   <Title>provisorischer Gewässerraum: GewR für Fliessgewässer (ohne Breite gem. AV)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225656.966" minx="2710547.022" miny="1185491.789" maxx="2737739.283" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.gewr_stehende-gewaesser</Name>
+   <Title>provisorischer Gewässerraum: GewR für stehende Gewässer</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225737.125" minx="2712377.5" miny="1186171.375" maxx="2736631" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.alt-glarus_poi</Name>
+   <Title>Glarus vor dem Brand 1861: Points-of-Interest</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1211890.528" minx="2723384.998" miny="1210751.715" maxx="2724145.739" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.alt-glarus_av-gebaeude</Name>
+   <Title>Gebäudegrundrisse amtliche Vermessung Glarus</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1213540.125" minx="2711176.5" miny="1205330" maxx="2724333" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1632_grundnutzung-zonenflaeche</Name>
+   <Title>Nutzungsplanung Glarus Grundnutzung Zonenfläche</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215822.375" minx="2710558.5" miny="1202888" maxx="2728846.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1632_ueberlagernde-festlegung</Name>
+   <Title>Nutzungsplanung Glarus überlagernde Festlegung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215822.375" minx="2710848" miny="1208134.75" maxx="2728013.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1632_linienbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus linienbezogene Festlegung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215435.375" minx="2711480" miny="1208305" maxx="2725716.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1632_objektbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus objektbezogene Festlegungen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215115.5" minx="2711037.5" miny="1208619.25" maxx="2725991.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1632_laermempfindlichkeitsstufen</Name>
+   <Title>Nutzungsplanung Glarus Lärmempfindlichkeitsstufen LES</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215822.375" minx="2710558.5" miny="1202888" maxx="2728846.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.biota.waldgrenzen-1632</Name>
+   <Title>Statische Waldgrenzen Glarus</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215332.98" minx="2714465.404" miny="1209127.963" maxx="2724418.452" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.barrierefreier-zugang</Name>
+   <Title>Barrierefreier Zugang, Rollstuhlgängigkeit</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224686.125" minx="2711987.25" miny="1193249.625" maxx="2732106.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.rollstuhlparkplaetze</Name>
+   <Title>Barrierefreiheit Rollstuhlparkplätze</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223550.75" minx="2717567.25" miny="1193249.625" maxx="2732106.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.waldstrassen</Name>
+   <Title>Waldstrassen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225842.375" minx="2712858" miny="1194282.625" maxx="2735447" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.rollstuhl-wc</Name>
+   <Title>Barrierefreiheit Rollstuhl-WC</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224686.125" minx="2711987.25" miny="1193249.625" maxx="2732106.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.barrierefreiheit-angebote</Name>
+   <Title>Barrierefreiheit Angebote Anlagen Einrichtungen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1219930.223" minx="2718195.496" miny="1197388.144" maxx="2731877.925" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.waldperlen</Name>
+   <Title>Waldreservate Waldperlen «Toggi»</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1220840.146" minx="2714375.982" miny="1191115.346" maxx="2731737.84" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_grundnutzung-zonenflaeche</Name>
+   <Title>Nutzungsplanung Glarus Nord Grundnutzung Zonenfläche</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2714690.25" miny="1211186.625" maxx="2733164" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_ueberlagernde-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Nord überlagernde Festlegung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2714690.25" miny="1211186.625" maxx="2733164" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_linienbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Nord linienbezogene Festlegung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="-inf" minx="inf" miny="inf" maxx="-inf" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_objektbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Nord objektbezogene Festlegung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="-inf" minx="inf" miny="inf" maxx="-inf" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_laermempfindlichkeitsstufen</Name>
+   <Title>Nutzungsplanung Glarus Nord Lärmempfindlichkeitsstufen (LES)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2714690.25" miny="1211186.625" maxx="2733083" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.biota.waldgrenzen-1630</Name>
+   <Title>Statische Waldgrenzen Glarus Nord</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224744.375" minx="2718135.25" miny="1215028.75" maxx="2732847.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1630_waldabstandslinien</Name>
+   <Title>Nutzungsplanung Glarus Nord Waldabstandslinien</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1219435.581" minx="2722621.376" miny="1217159.916" maxx="2724705.118" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.nicht-barrierefreier-zugang</Name>
+   <Title>Nicht barrierefreier Zugang, Rollstuhlgängigkeit</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224686.125" minx="2711987.25" miny="1193249.625" maxx="2732106.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.kantonsstrassen</Name>
+   <Title>Strassenverzeichnis Kantonsstrassen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224842.009" minx="2711183.896" miny="1196150.723" maxx="2732830.424" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_projektierte-liegenschaften</Name>
+   <Title>Projektierte Liegenschaften amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2712810.75" miny="1195939.875" maxx="2733246" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_projektierte-sdr</Name>
+   <Title>Projektierte selbständige und dauernde Rechte amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221270.545" minx="2722174.02" miny="1198159.192" maxx="2732607.161" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_projektierte-grundstuecksnummern</Name>
+   <Title>Projektierte Grundstücksnummern amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225201" minx="2712907.25" miny="1195971" maxx="2733148.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.cadastre.av_liegenschaften</Name>
+   <Title>Liegenschaften amtliche Vermessung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_mtb</Name>
+   <Title>SchweizMobil-Mountainbikerouten MTB</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1260738.597" minx="2559287.633" miny="1142100.938" maxx="2758373.751" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_wandern</Name>
+   <Title>SchweizMobil-Wanderrouten</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1260719.239" minx="2498365.6" miny="1118095.48" maxx="2760010.459" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_wandern</Name>
+   <Title>SchweizMobil-Wanderrouten</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1260719.239" minx="2498365.6" miny="1118095.48" maxx="2760010.459" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_velo</Name>
+   <Title>SchweizMobil-Radrouten Velo Fahrrad</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1268919.428" minx="2554120.436" miny="1129537.997" maxx="2767995.525" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.schweizmobil_mtb</Name>
+   <Title>SchweizMobil-Mountainbikerouten MTB</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1260738.597" minx="2559287.633" miny="1142100.938" maxx="2758373.751" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.sondernutzungsplaene_1632</Name>
+   <Title>Sondernutzungsplan Baulinienplan Überbauungsplan Gemeinde Glarus</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1213698.261" minx="2722450.594" miny="1210795.864" maxx="2724101.628" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.landesfussweg</Name>
+   <Title>Landesfussweg</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224836.125" minx="2710481.5" miny="1185812.5" maxx="2737541.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.oereb_sondernutzungsplaene</Name>
+   <Title>ÖREB-Kataster: Sondernutzungspläne</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221629" minx="2722181.25" miny="1210795.75" maxx="2730115.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transporation.ausnahmetransport_route</Name>
+   <Title>Ausnahmetransportrouten Routen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224982.06" minx="2717532.697" miny="1193520.098" maxx="2732831.011" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.transportation.ausnahmetransport_hindernis</Name>
+   <Title>Ausnahmetransportrouten Hindernis</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223573.665" minx="2718581.43" miny="1197363.633" maxx="2725832.27" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.fruchtfolgeflaechen</Name>
+   <Title>Fruchtfolgeflächen (FFF)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225683.089" minx="2718551.469" miny="1205404.917" maxx="2725652.964" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.hochlagenbiotopkartierung</Name>
+   <Title>Naturschutz Hochlagenbiotopkartierung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215765" minx="2709273.5" miny="1183890.375" maxx="2737757.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.landschaftstypologie</Name>
+   <Title>Landschaftstypologie</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.inlandwaters.grundwasser-isohypsen</Name>
+   <Title>Grundwasser-Mittelstand Isohypsen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225757.625" minx="2718568.75" miny="1201522.375" maxx="2732257.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.natureprotection.landschaftstypologie-ueberlagerungen</Name>
+   <Title>Landschaftstypologie Überlagerungen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221764.134" minx="2715789.777" miny="1196072.343" maxx="2733952.632" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>kstv_nest_grundstuecke_zonen</Name>
+   <Title>Grundstücke mit Zonenflächen-Anteilen NEST Steuerverwaltung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.625" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.videoueberwachungsanlagen</Name>
+   <Title>Videoüberwachungsanlagen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1220653" minx="2718804" miny="1197874" maxx="2732706" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1631_grundnutzung-zonenflaeche</Name>
+   <Title>Nutzungsplanung Glarus Süd Grundnutzung Zonenfläche (rechtskräftig)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1211271.75" minx="2709273.5" miny="1183890.375" maxx="2738138.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.denkmalschutz_schutzobjekte_flaechen</Name>
+   <Title>Denkmalschutz: Schutzobjekte (Flächenobjekte)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223613.125" minx="2710010.75" miny="1185462.125" maxx="2733588.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1631_laermempfindlichkeitsstufen</Name>
+   <Title>Nutzungsplanung Glarus Süd Lärmempfindlichkeitsstufen LES (rechtskräftig)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1211271.75" minx="2709273.5" miny="1183890.375" maxx="2737757.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.society.denkmalschutz_schutzobjekte_punkte</Name>
+   <Title>Denkmalschutz: Schutzobjekte (Punktobjekte)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1223000" minx="2717654" miny="1192018" maxx="2732549" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1631_linienbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Süd linienbezogene Festlegung (rechtskräftig)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1207830.375" minx="2718183.5" miny="1197335" maxx="2733138.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.naturalhazards.perimeter-gefahrenkartierung-revision</Name>
+   <Title>Naturgefahren Perimeter Gefahrenkartierung Revision</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1211129.108" minx="2711050.298" miny="1205626.877" maxx="2725056.259" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1631_objektbezogene-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Süd objektbezogene Festlegung (rechtskräftig)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1210170.625" minx="2716084" miny="1194112.125" maxx="2732062.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.np-1631_ueberlagernde-festlegung</Name>
+   <Title>Nutzungsplanung Glarus Süd überlagernde Festlegung (rechtskräftig)</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1210177.375" minx="2715478.75" miny="1191619.875" maxx="2737530.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.schleppschlauchobligatorium</Name>
+   <Title>Landwirtschaft Schleppschlauchobligatorium</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1237725.25" minx="2708780.75" miny="1192700.25" maxx="2734549" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.schutzraumstandorte</Name>
+   <Title>Schutzraumstandorte Zivilschutz</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224745.875" minx="2713542.5" miny="1195657.125" maxx="2733051.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.flurnamenkarte-glarus_lokalnamen</Name>
+   <Title>Flurnamenkarte Glarus Lokalnamen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1215660" minx="2710641.5" miny="1202888.875" maxx="2728758.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.structure.lagerbuchnummern</Name>
+   <Title>Lagerbuchnummern Gebäudenummern glarnerSach</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1210597248" minx="9.072" miny="47.091" maxx="2737033.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.energy.stromversorgungssicherheit-netzebene3</Name>
+   <Title>Stromversorgungssicherheit Netzebene 3</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2709273.64" miny="1183890.43" maxx="2738138.46" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.adr_plz-gebiete</Name>
+   <Title>Postleitzahl-Gebiete PLZ</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.664" minx="2707457.05" miny="1183890.431" maxx="2738138.46" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.perimeter-ln-soemmerung</Name>
+   <Title>Perimeter LN Sömmerungsgebiet</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225827.5" minx="2710848" miny="1192604.5" maxx="2735148.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.betriebsstandort</Name>
+   <Title>Landwirtschaft Betriebsstandort</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1237643" minx="2460000" miny="1045000" maxx="2733200" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.bewirtschaftungseinheit</Name>
+   <Title>Landwirtschaft Bewirtschaftungseinheit</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1240480.875" minx="2708114.25" miny="1186386.25" maxx="2768816.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.biodiversitaetsfoerderflaechen_qualitaetsstufe-ii</Name>
+   <Title>Landwirtschaft Biodiversitätsförderflächen Qualitätsstufe II</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1238091.125" minx="2710472.75" miny="1192604.5" maxx="2734977.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.biota.forstreviere</Name>
+   <Title>Forstreviere</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.662" minx="2709273.639" miny="1183890.429" maxx="2738138.461" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.biodiversitaetsfoerderflaechen_vernetzung</Name>
+   <Title>Landwirtschaft Biodiversitätsförderflächen Vernetzung</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1238091.125" minx="2708268" miny="1192604.5" maxx="2735148.25" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.nutzungsflaechen</Name>
+   <Title>Landwirtschaft Nutzungsflächen</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1240480.875" minx="2708114.25" miny="1189059.125" maxx="2768816.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.planning.sondernutzungsplaene_1630</Name>
+   <Title>Sondernutzungsplan Baulinienplan Überbauungsplan Gemeinde Glarus Nord</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1221628.972" minx="2722181.334" miny="1216388.184" maxx="2730115.144" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.nutzungsflaechen_bff-qi</Name>
+   <Title>Landwirtschaft Nutzungsflächen Biodiv.-ffl. QS I</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1240480.875" minx="2708114.25" miny="1189059.125" maxx="2768816.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.elevation.hoehenkurven-1m</Name>
+   <Title>Höhenkurven 1m im Talgebiet</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1226000" minx="2711000" miny="1190000" maxx="2734000" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.farming.nutzungsflaechen_hauptkategorien</Name>
+   <Title>Landwirtschaft Nutzungsflächen Hauptkategorien</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1240480.875" minx="2708114.25" miny="1189059.125" maxx="2768816.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.elevation.hoehenkurven-5m</Name>
+   <Title>Höhenkurven 5m im Berggebiet</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224000" minx="2709173.5" miny="1183790.5" maxx="2738238.5" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.location.extrempunkte</Name>
+   <Title>Extrempunkte Schwerpunkte Kantonshöhepunkt</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1225966.591" minx="2709273.64" miny="1183890.43" maxx="2738138.46" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+  <FeatureType>
+   <Name>ch.gl.elevation.hoehenkurven-100m-vereinfacht</Name>
+   <Title>vereinfachte Höhenkurven 100m</Title>
+   <SRS>EPSG:2056</SRS>
+   <LatLongBoundingBox maxy="1224508.625" minx="2709178.75" miny="1183795.375" maxx="2738230.75" />
+   <Operations>
+    <Query />
+   </Operations>
+  </FeatureType>
+ </FeatureTypeList>
+ <ogc:Filter_Capabilities>
+  <ogc:Spatial_Capabilities>
+   <ogc:Spatial_Operators>
+    <ogc:BBOX />
+    <ogc:Disjoint />
+    <ogc:Intersect />
+    <ogc:Touches />
+    <ogc:Crosses />
+    <ogc:Contains />
+    <ogc:Overlaps />
+    <ogc:Within />
+   </ogc:Spatial_Operators>
+  </ogc:Spatial_Capabilities>
+  <ogc:Scalar_Capabilities>
+   <ogc:Comparison_Operators>
+    <ogc:Simple_Comparisons />
+    <ogc:Between />
+    <ogc:Like />
+   </ogc:Comparison_Operators>
+  </ogc:Scalar_Capabilities>
+ </ogc:Filter_Capabilities>
+</WFS_Capabilities>

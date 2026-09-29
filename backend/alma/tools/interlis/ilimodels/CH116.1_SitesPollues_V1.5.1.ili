@@ -1,0 +1,107 @@
+INTERLIS 2.3;
+
+/** 116.1 Cadastre des sites pollués
+ */
+!!@ technicalContact=mailto:info.icdg@vd.ch
+MODEL SitesPollues (fr)
+AT "https://www.vd.ch"
+VERSION "1.5.1"  =
+  IMPORTS KbS_V1_5,Units;
+
+  TOPIC SitesPollues =
+    DEPENDS ON KbS_V1_5.Belastete_Standorte;
+
+    /** Sites pollués suite à un accident
+     */
+    CLASS Accident
+    EXTENDS KbS_V1_5.Belastete_Standorte.Belasteter_Standort =
+      /** Désignation
+       */
+      designation : MANDATORY TEXT*250;
+      /** Date effective de l'accident
+       */
+      date : MANDATORY INTERLIS.XMLDate;
+      /** Priorisation du besoin d'investigation
+       */
+      anneeInvestigation : INTERLIS.GregorianYear;
+    END Accident;
+
+    /** Sites pollués liés à une activité économique
+     */
+    CLASS AireExploitation
+    EXTENDS KbS_V1_5.Belastete_Standorte.Belasteter_Standort =
+      /** Raison sociale de l'exploitant
+       */
+      designation : MANDATORY TEXT*250;
+      /** Priorisation du besoin d'investigation
+       */
+      anneeInvestigation : INTERLIS.GregorianYear;
+    END AireExploitation;
+
+    /** Sites pollués de type décharge ou remblai
+     */
+    CLASS DechargeRemblai
+    EXTENDS KbS_V1_5.Belastete_Standorte.Belasteter_Standort =
+      /** Nom du site
+       */
+      designation : MANDATORY TEXT*250;
+      /** Volume réel
+       */
+      volume : 0 .. 9999999 [Units.m3];
+      debutActivite : INTERLIS.XMLDate;
+      finActivite : INTERLIS.XMLDate;
+      /** Priorisation du besoin d'investigation
+       */
+      anneeInvestigation : INTERLIS.GregorianYear;
+    END DechargeRemblai;
+
+    /** Sites pollués relatifs à une installation de tir
+     */
+    CLASS InstallationTir
+    EXTENDS KbS_V1_5.Belastete_Standorte.Belasteter_Standort =
+      /** Désignation
+       */
+      designation : MANDATORY TEXT*250;
+      /** Priorisation du besoin d'investigation
+       */
+      anneeInvestigation : INTERLIS.GregorianYear;
+    END InstallationTir;
+
+    STRUCTURE TypeActiviteEconomique =
+      /** Code de l'activité
+       */
+      code : MANDATORY TEXT*8;
+      /** Libellé de l'activité
+       */
+      libelle : MANDATORY TEXT*250;
+    END TypeActiviteEconomique;
+
+    /** Historique des activités des aires d'exploitation
+     */
+    CLASS ActiviteAireExploitation =
+      debutActivite : INTERLIS.XMLDate;
+      finActivite : INTERLIS.XMLDate;
+      type : MANDATORY SitesPollues.SitesPollues.TypeActiviteEconomique;
+    END ActiviteAireExploitation;
+
+    /** Historique des activités des installation de tir
+     */
+    CLASS ActiviteInstallationTir =
+      debutActivite : INTERLIS.XMLDate;
+      finActivite : INTERLIS.XMLDate;
+      type : MANDATORY SitesPollues.SitesPollues.TypeActiviteEconomique;
+    END ActiviteInstallationTir;
+
+    ASSOCIATION AireExploitationActivite =
+      activiteAireExploitation -- {0..*} ActiviteAireExploitation;
+      aireExploitation -<#> {1} AireExploitation;
+    END AireExploitationActivite;
+
+    ASSOCIATION InstallationTirActiviteInstallationTir =
+      activiteInstallationTir -- {0..*} ActiviteInstallationTir;
+      installationTir -<#> {1} InstallationTir;
+    END InstallationTirActiviteInstallationTir;
+
+  END SitesPollues;
+
+END SitesPollues.

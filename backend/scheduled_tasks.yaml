@@ -1,0 +1,10 @@
+# Example config for scheduled tasks
+---
+#- name: update_wfs_cache
+#  schedule: "0 1 * * *"
+- name: debug
+  schedule: "* * * * *"
+# - name: interlis_export
+#   schedule: "* * * * *"
+# - name: update_all_reports
+#   schedule: "*/1 * * * *"

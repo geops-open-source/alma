@@ -1,0 +1,320 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-*: initial;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  /* Blue */
+  --color-blue-1: #f0f8ff;
+  --color-blue-2: #dff1fb;
+  --color-blue-3: #bce1f5;
+  --color-blue-4: #79c7ec;
+  --color-blue-5: #1ba5e4;
+  --color-blue-6: #0086c9;
+  --color-blue-7: #005f8f;
+  --color-blue-8: #003d5c;
+  /* Gray */
+  --color-gray-1: #fcfcfd;
+  --color-gray-2: #f9fafb;
+  --color-gray-3: #f2f4f7;
+  --color-gray-4: #eaecf0;
+  --color-gray-5: #d0d5dd;
+  --color-gray-6: #667085;
+  --color-gray-7: #475467;
+  --color-gray-8: #182230;
+  --color-gray-9: #101828;
+  /* Green */
+  --color-green-1: #ecfdf3;
+  --color-green-3: #abefc6;
+  --color-green-4: #47cd89;
+  --color-green-9: #067647;
+  /* Orange */
+  --color-orange-1: #fffaeb;
+  --color-orange-3: #fedf89;
+  --color-orange-5: #f79009;
+  --color-orange-6: #d97706;
+  --color-orange-7: #b54708;
+  /* Red */
+  --color-red-1: #fffbfa;
+  --color-red-2: #fef3f2;
+  --color-red-3: #fda29b;
+  --color-red-4: #f04438;
+  --color-red-5: #d92d20;
+  --color-red-6: #b42318;
+  --color-red-7: #912018;
+  /* Yellow */
+  --color-yellow-4: #f5f500;
+  --color-yellow-5: #ffff00;
+  --color-yellow-9: #ffffe2;
+
+  --color-brown-5: #d2886b;
+  --color-olive-5: #c9c05e;
+  --color-purple-5: #9b7ed8;
+
+  /* Fonts */
+  --font-blokk: var(--font-blokk);
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+  html {
+    @apply bg-gray-1 text-gray-9;
+  }
+}
+
+@utility alma-map-container {
+  container-type: size;
+  container-name: map;
+}
+
+@utility alma-map-widget {
+  @apply rounded-xl bg-white/30 shadow-lg backdrop-blur-sm;
+}
+
+.alma-map-base-layer {
+  @apply alma-map-widget absolute bottom-4 left-4 z-10 flex h-16 w-16 flex-col-reverse gap-1.5 overflow-hidden p-1 transition-all;
+  > button {
+    @apply text-gray-7 relative shrink-0 overflow-hidden rounded-lg bg-white/85 p-1 text-xs font-medium hover:bg-white;
+    > img {
+      @apply h-12 w-28 rounded-sm object-cover;
+    }
+    > span {
+      @apply hidden;
+    }
+    > svg {
+      @apply text-blue-7 absolute h-6 w-6 rounded-full bg-white p-1 shadow-lg;
+      top: calc(50% - 0.75rem);
+      left: calc(50% - 0.75rem);
+    }
+  }
+  &.alma-map-base-layer-open {
+    height: calc(3.5rem * var(--alma-map-base-layer-count, 1) + 3.2rem);
+    .alma-map-base-layer-toggle {
+      @apply flex h-6 items-center justify-center;
+      > svg {
+        @apply bg-gray-7 static h-4 w-4 rotate-180 rounded-full p-1 text-white;
+      }
+    }
+  }
+}
+
+.expand-click-area {
+  &:focus {
+    outline: none;
+
+    &::after {
+      outline-width: var(--focus-outline-width, 3px);
+      outline-offset: var(--focus-outline-offset, 2px);
+      outline-color: var(--focus-outline-color, currentColor);
+      outline-style: var(--focus-outline-style, dotted);
+    }
+  }
+  &:focus:not(:focus-visible) {
+    &::after {
+      outline: none !important;
+    }
+  }
+}
+
+.expand-click-area::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.font-sans {
+  font-family: var(--font-inter);
+}
+
+.ol-control.ol-zoom {
+  height: 110px;
+  padding-bottom: 41px;
+  @apply alma-map-widget absolute top-4 right-4 flex flex-col justify-between px-1 pt-1;
+  > button {
+    @apply text-gray-7 h-8 w-8 bg-white/85 text-xl hover:bg-white;
+    &.ol-zoom-in {
+      @apply rounded-t-lg;
+    }
+    &.ol-zoom-out {
+      @apply rounded-b-lg;
+    }
+  }
+}
+
+.ol-control.ol-zoom-extent {
+  top: 90px;
+  @apply absolute right-4 px-1;
+  > button {
+    background-image: url(/map/maximize-icon.svg);
+    @apply h-8 w-8 rounded-lg bg-white/85 bg-center bg-no-repeat hover:bg-white;
+  }
+}
+
+.ol-control.ol-zoomslider {
+  @apply hidden;
+}
+
+.ol-scale-bar {
+  @apply alma-map-widget absolute right-4 bottom-4 bg-white/50 px-4 py-3;
+}
+
+.ol-scale-bar-inner {
+  @apply relative flex;
+  > .ol-scale-step-marker {
+    @apply top-0!;
+  }
+  > .ol-scale-step-text {
+    @apply -translate-x-3;
+  }
+}
+
+.ol-scale-step-marker {
+  @apply bg-gray-8 float-right h-4 w-px;
+}
+
+.ol-scale-step-text {
+  @apply text-gray-9 absolute -bottom-2 text-sm;
+}
+
+.ol-scale-singlebar {
+  @apply border-gray-8 h-2.5 border border-l-0;
+}
+
+.ol-scale-singlebar-even {
+  @apply bg-gray-1;
+}
+
+.ol-scale-singlebar-odd {
+  @apply bg-gray-6;
+}
+
+.ole-toolbar {
+  @apply alma-map-widget absolute top-4 left-32 z-20 flex p-1;
+  > div {
+    @apply mr-px bg-white/85 hover:bg-white;
+    > button {
+      mask: var(--svg) no-repeat center;
+      @apply bg-gray-7 flex h-11 w-11 bg-center bg-no-repeat;
+    }
+  }
+  > .active {
+    background-color: white;
+    > button {
+      background-color: var(--color-blue-7);
+    }
+  }
+  > .disabled {
+    pointer-events: none !important;
+    opacity: 0.5;
+  }
+  > div:first-of-type {
+    @apply rounded-l-lg;
+  }
+  > div:last-of-type {
+    @apply mr-0 rounded-r-lg;
+  }
+  .alma-map-x-circle-icon-placeholder {
+    @apply h-11 w-11 bg-center bg-no-repeat;
+  }
+  .ole-draw-Point > button {
+    --svg: url(/map/draw-point.svg);
+  }
+  .ole-draw-Polygon {
+    @apply rounded-r-lg;
+    > button {
+      --svg: url(/map/draw-polygon.svg);
+    }
+  }
+  .ole-make-valid {
+    @apply rounded-r-lg;
+    > button {
+      --svg: url(/map/make-valid.svg);
+    }
+  }
+  .ole-modify > button {
+    --svg: url(/map/modify.svg);
+  }
+  .ole-operation-difference {
+    > button {
+      --svg: url(/map/difference.svg);
+    }
+  }
+  .ole-operation-intersection {
+    > button {
+      --svg: url(/map/intersection.svg);
+    }
+  }
+  .ole-operation-union {
+    @apply ml-1 rounded-l-lg;
+    > button {
+      --svg: url(/map/union.svg);
+    }
+  }
+  .ole-split {
+    @apply ml-1 rounded-l-lg;
+    > button {
+      --svg: url(/map/split.svg);
+    }
+  }
+}
+
+.ol-viewport {
+  @apply overflow-hidden rounded-lg;
+}
+
+@container map (min-width: 768px) and (min-height: 512px) {
+  .alma-map-base-layer {
+    @apply w-32 flex-row;
+    height: unset;
+    > button {
+      &.alma-map-base-layer-active {
+        @apply text-blue-7 bg-white;
+      }
+      > img {
+        @apply mb-1;
+      }
+      > span {
+        @apply block;
+      }
+    }
+    &.alma-map-base-layer-open {
+      height: unset;
+      width: calc(8.375rem * var(--alma-map-base-layer-count, 1) + 0.5rem);
+      > button {
+        > svg {
+          top: 1rem;
+        }
+      }
+      .alma-map-base-layer-toggle {
+        height: unset;
+        > svg {
+          @apply -rotate-90;
+        }
+      }
+    }
+  }
+
+  .ol-control.ol-zoom {
+    height: 291px;
+  }
+
+  .ol-control.ol-zoom-extent {
+    top: 271px;
+  }
+
+  .ol-control.ol-zoomslider {
+    background-image: url(/map/zoom-slider-bg.svg);
+    height: 180px !important;
+    right: 20px;
+    top: 53px;
+    @apply absolute z-10 flex w-8;
+    > .ol-zoomslider-thumb {
+      @apply bg-gray-7 absolute right-2.5 h-3 w-3 rounded-full;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+INTERLIS 2.3;
+
+!!@ furtherInformation=https://www.geo.bl.ch/index.php
+!!@ technicalContact=mailto:support.gis@bl.ch
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+MODEL KbS_LV95_V1_4_GR_V1 (de)
+AT "https://test.de"
+VERSION "2019-12-05"  =
+  IMPORTS KbS_LV95_V1_4;
+
+  TOPIC Belastete_Standorte EXTENDS KbS_LV95_V1_4.Belastete_Standorte =
+
+    CLASS Belasteter_Standort (EXTENDED) =
+      Bezeichnung: TEXT;
+    END Belasteter_Standort;
+
+  END Belastete_Standorte;
+
+END KbS_LV95_V1_4_GR_V1.

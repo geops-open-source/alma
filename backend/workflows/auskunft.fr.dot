@@ -1,0 +1,16 @@
+digraph {
+  graph [label=< <B>Renseignements CSP</B><BR/><BR/> > labelloc=t]
+  node [shape=record]
+
+  __START__ [label=< <B>START</B> >]
+  __START__ -> hinweis_oereb
+  hinweis_oereb [label=< {<B>Remarque sur le cadastre RDPPF et l'obligation de payer des émoluments</B>|[D] Demande de renseignements cadastraux|[D] Remarque sur le cadastre RDPPF|[F] Décision Renseignements écrits} >]
+  __START__schriftliche_auskunft [label="START"]
+  __START__schriftliche_auskunft -> schriftliche_auskunft
+  schriftliche_auskunft [label=< {<B>Renseignements écrits</B>|[D] Renseignements écrits} >]
+  END [label=< {<B>__END__</B>} >]
+
+  hinweis_oereb -> schriftliche_auskunft [label="form\n.entscheid_schriftliche_auskunft\n.auskunft_erwuenscht == `ja`" fontsize=10]
+  hinweis_oereb -> END [label="" fontsize=10]
+  schriftliche_auskunft -> END [label="" fontsize=10]
+}

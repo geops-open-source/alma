@@ -1,0 +1,102 @@
+{
+  "data": {
+    "vflz": {
+      "geschaefte": {
+        "numPages": 1,
+        "page": 1,
+        "results": [
+          {
+            "deletable": false,
+            "sachbearbeitung": [],
+            "endDatum": null,
+            "faelligkeitsDatum": "2025-03-28T10:59:44.642000",
+            "faelligkeitsStatus": "UEBERFAELLIG",
+            "notiz": null,
+            "parentId": "2",
+            "startDatum": "2025-03-21T17:14:23.019000",
+            "status": "OFFEN",
+            "taskId": "1",
+            "title": "Test Task",
+            "type": "AUFGABE",
+            "vflz": {
+              "vflzId": "1",
+              "combinedId": "A1"
+            }
+          },
+          {
+            "deletable": false,
+            "sachbearbeitung": [],
+            "endDatum": null,
+            "faelligkeitsDatum": "2025-03-29T10:59:44.642000",
+            "faelligkeitsStatus": "UEBERFAELLIG",
+            "notiz": null,
+            "parentId": null,
+            "startDatum": "2025-03-19T10:59:44.642000",
+            "status": "OFFEN",
+            "taskId": "2",
+            "title": "Test Workflow",
+            "type": "PROZESS",
+            "vflz": {
+              "vflzId": "1",
+              "combinedId": "A1"
+            }
+          },
+          {
+            "deletable": false,
+            "sachbearbeitung": [],
+            "endDatum": null,
+            "faelligkeitsDatum": null,
+            "faelligkeitsStatus": "FAELLIG_SPAETER",
+            "notiz": null,
+            "parentId": "2",
+            "startDatum": "2025-03-25T11:01:03.294087",
+            "status": "OFFEN",
+            "taskId": "3",
+            "title": "Test Form",
+            "type": "FORMULAR",
+            "vflz": {
+              "vflzId": "1",
+              "combinedId": "A1"
+            }
+          },
+          {
+            "deletable": false,
+            "sachbearbeitung": [],
+            "endDatum": null,
+            "faelligkeitsDatum": null,
+            "faelligkeitsStatus": "FAELLIG_SPAETER",
+            "notiz": null,
+            "parentId": null,
+            "startDatum": "2025-03-18T11:01:03.296000",
+            "status": "OFFEN",
+            "taskId": "4",
+            "title": "Test Document",
+            "type": "DOKUMENT",
+            "vflz": {
+              "vflzId": "1",
+              "combinedId": "A1"
+            }
+          },
+          {
+            "deletable": false,
+            "sachbearbeitung": [],
+            "endDatum": null,
+            "faelligkeitsDatum": null,
+            "faelligkeitsStatus": "FAELLIG_SPAETER",
+            "notiz": null,
+            "parentId": null,
+            "startDatum": "2025-03-24T11:01:03.297000",
+            "status": "OFFEN",
+            "taskId": "5",
+            "title": "Test Note",
+            "type": "NOTIZ",
+            "vflz": {
+              "vflzId": "1",
+              "combinedId": "A1"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

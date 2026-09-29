@@ -1,0 +1,1088 @@
+workflow:
+  key: c5cfcd93-5d44-488a-8e79-a41721b1e352
+  title: 
+    de: Voruntersuchung
+    fr: Enquête préliminaire
+    it: Esame preliminare
+  version: 1
+  time_period: 365
+  start_task_ref: start_hu
+  min_per_entity: 0
+  max_per_entity: null
+  tasks:
+    start_hu:
+      key: 188760b8-ac0c-4b53-99ce-9c5dc6badc74
+      time_period: 7
+      title: 
+        de: Einreichung Bericht HU
+        fr: Soumission du rapport EP
+        it: Presentazione del rapporto EP
+      steps:
+      - key: 452b6bb2-d56f-4ee6-ac22-5d8cc1d82404
+        time_period: 7
+        title: 
+          de: Wurde der Inhaber zur Einreichung eines Berichtes aufgefordert?
+          fr: Le propriétaire a-t-il été invité à soumettre un rapport ?
+          it: Al proprietario è stato chiesto di presentare una relazione?
+        type: form
+        name: entscheid_aufforderung_hu
+        fields:
+        - name: entscheid_aufforderung_hu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Der Inhaber aufgefordert
+              fr: Le propriétaire a été invité à
+              it: Il proprietario ha richiesto
+            value: ja
+          - label: 
+              de: Nein, der Inhaber hat den Bericht ohne Aufforderung eingereicht
+              fr: Non, le propriétaire a soumis le rapport sans y être invité
+              it: No, il proprietario ha presentato il rapporto senza che gli venisse richiesto
+            value: nein
+        optional: true
+      - key: 8ead7e21-884b-45c0-881a-055a084a9334
+        time_period: 7
+        title: 
+          de: Aufforderung Voruntersuchung
+          fr: Invitation à une enquête préliminaire
+          it: Richiesta di esame preliminare
+        type: document
+        optional: true
+      - key: f2eef5c7-acbb-4ca0-b198-33711cad81b9
+        title: 
+          de: Bericht eingegangen?
+          fr: Rapport reçu?
+          it: Rapporto ricevuto?
+        time_period: 95
+        type: form
+        name: entscheid_bericht_hu
+        fields:
+        - name: entscheid_bericht_hu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Frist eingegangen / Bericht eingegangen ohne Frist
+              fr: oui, reçu dans le délai / rapport reçu sans délai
+              it: sì, ricevuto entro la scadenza / rapporto ricevuto senza scadenza
+            value: ja
+          - label: 
+              de: nein, nicht innerhalb Frist eingegangen
+              fr: non, pas reçu dans les délais
+              it: no, non ricevuto entro la scadenza
+            value: nein
+      links:
+      - task_ref: beurteilung_hu
+        condition: form.entscheid_bericht_hu.entscheid_bericht_hu_erfasst == `ja`
+      - task_ref: mahnung_bericht_hu
+        condition: form.entscheid_bericht_hu.entscheid_bericht_hu_erfasst == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+      start_task: true
+    mahnung_bericht_hu:
+      key: c862f19c-85fd-481e-97cb-848a9c2a1459
+      time_period: 7
+      title: 
+        de: Mahnung zur Einreichung Bericht
+        fr: Rappel pour la remise du rapport
+        it: Promemoria per la presentazione del rapporto
+      steps:
+      - key: 2d31cc69-95e8-4c91-b237-590c0a48b792
+        time_period: 7
+        title: 
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        type: document
+        optional: true
+      - key: 1432eb27-c27d-4f50-97e6-fc693cedba8c
+        title: 
+          de: Einreichung des Berichts nach Mahnung
+          fr: Remise du rapport après rappel
+          it: Presentazione del rapporto dopo il sollecito
+        time_period: 95
+        type: form
+        name: entscheid_bericht_hu_mahnung
+        fields:
+        - name: entscheid_bericht_hu_mahnung_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Mahnungsfrist eingegangen
+              fr: oui, reçu dans le délai de rappel
+              it: sì, ricevuto entro il periodo di sollecito
+            value: ja
+          - label: 
+              de: nein, neue Mahnung notwendig
+              fr: non, nouveau rappel nécessaire
+              it: no, è necessario un nuovo promemoria
+            value: nein
+      links:
+      - task_ref: beurteilung_hu
+        condition: form.entscheid_bericht_hu_mahnung.entscheid_bericht_hu_mahnung_erfasst
+          == `ja`
+      - task_ref: mahnung_bericht_hu
+        condition: form.entscheid_bericht_hu_mahnung.entscheid_bericht_hu_mahnung_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+    beurteilung_hu:
+      key: d0ea8e1c-de9e-4de5-acae-0521e0947e9f
+      time_period: 7
+      title: 
+        de: Beurteilung HU Amt
+        fr: Évaluation EP Office
+        it: Ufficio Valutazione EP
+      steps:
+      - key: 57cd139d-3524-4250-bd11-7530fe40eecf
+        time_period: 7
+        title: 
+          de: Eingegangener Bericht
+          fr: Rapport reçu
+          it: Rapporto ricevuto
+        type: document
+        optional: true
+      - key: d03d1671-6d54-4b18-8f77-f62144720d8f
+        time_period: 7
+        title: 
+          de: Beurteilung HU Kanton vorhanden?
+          fr: Évaluation EP canton disponible ?
+          it: Valutazione EP Canton disponibile?
+        type: form
+        optional: true
+        name: entscheid_beurteilung_hu_kanton_vorhanden
+        fields:
+        - name: entscheid_beurteilung_hu_kanton_vorhanden_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Beurteilung HU vorhanden
+              fr: Évaluation Examen principal disponible
+              it: Valutazione dell'ispezione principale disponibile
+            value: ja
+          - label: 
+              de: keine Beurteilung HU vorhanden
+              fr: Aucune évaluation Examen principal disponible
+              it: Non è disponibile la valutazione dell'ispezione principale
+            value: nein
+      - key: b5bd2658-71bb-4a14-8c5e-a58edda2a217
+        time_period: 7
+        title: 
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        type: document
+        optional: true
+      - key: 30a5b2d6-0644-480a-b3ba-0ffbea810da8
+        time_period: 7
+        title: 
+          de: Beurteilung HU abgeschlossen
+          fr: Évaluation EP terminée
+          it: Valutazione EP completata
+        type: form
+        optional: true
+        name: entscheid_beurteilung_hu_kanton
+        fields:
+        - name: entscheid_beurteilung_hu_kanton_erfasst
+          type: bool
+          label: 
+            de: Die Beurteilung HU des Berichtes ist abgeschlossen, Standortdaten sind (falls notwendig) nachgetragen. Allfällige Stellungnahme zum Bericht ist bereit zum Versand.
+            fr: L'évaluation de l'examen principal du rapport est terminée, les données de localisation ont été ajoutées (si nécessaire). Les éventuelles prises de position sur le rapport sont prêtes à être envoyées.
+            it: La valutazione principale del rapporto è stata completata, i dati di localizzazione sono stati aggiunti (se necessario). Eventuali commenti sul rapporto sono pronti per l'invio.
+      - key: db00a226-0a59-4470-ae99-39b7bae4a405
+        time_period: 7
+        title: 
+          de: Stellungnahme zur Untersuchung direkt mit einer IHO oder separat?
+          fr: Prise de position sur l'enquête directement avec une OVP ou séparément ?
+          it: Dichiarazione sull'indagine direttamente con un OP o separatamente?
+        type: form
+        name: entscheid_beurteilung_hu_iho
+        fields:
+        - name: entscheid_beurteilung_hu_iho_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Ja, Stellungnahme zum Bericht wird in IHO integriert
+              fr: Oui, la prise de position sur le rapport est intégrée dans l'OVP
+              it: Sì, la dichiarazione sul rapporto sarà integrata in OP.
+            value: ja
+          - label: 
+              de: Nein, separate Stellungnahme
+              fr: Non, prise de position séparée
+              it: No, dichiarazione separata
+            value: nein
+      links:
+      - task_ref: anhoerung_inhaber_hu
+        condition: form.entscheid_beurteilung_hu_iho.entscheid_beurteilung_hu_iho_erfasst
+          == `ja`
+      - task_ref: ergaenzung_hu
+        condition: form.entscheid_beurteilung_hu_iho.entscheid_beurteilung_hu_iho_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+    anhoerung_inhaber_hu:
+      key: 7ba3ceeb-8de7-439f-b559-41e1106ff5e3
+      time_period: 7
+      title: 
+        de: Anhörung Inhaber zur HU
+        fr: Audition des propriétaires pour l'unité de manutention
+        it: Audizione dei titolari di EP
+      steps:
+      - key: 82a94d45-c8c2-4221-8a01-3f68c2f35531
+        time_period: 7
+        title: 
+          de: Stellungnahme
+          fr: Prise de position
+          it: Dichiarazione
+        type: document
+        optional: true
+      - key: 2badebad-3b47-40b9-9e0b-a515c93b8ab7
+        time_period: 7
+        title: 
+          de: Entschied Stellungnahme Inhaber zur HU?
+          fr: Le titulaire de l'avis a-t-il décidé de se rendre à l'unité de manutention ?
+          it: Opinione decisa dal proprietario all'EP?
+        type: form
+        name: entscheid_stellungnahme_inhaber_hu
+        fields:
+        - name: entscheid_stellungnahme_inhaber_hu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Ja, Stellungnahme eingetroffen
+              fr: Oui, prise de position reçue
+              it: Sì, dichiarazione ricevuta
+            value: ja
+          - label: 
+              de: keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_anhoerung_inhaber_hu
+        condition: form.entscheid_stellungnahme_inhaber_hu.entscheid_stellungnahme_inhaber_hu_erfasst
+          == `ja`
+      - task_ref: ergaenzung_hu
+        condition: form.entscheid_stellungnahme_inhaber_hu.entscheid_stellungnahme_inhaber_hu_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+    stellungnahme_anhoerung_inhaber_hu:
+      key: b5e8b904-c3d1-489c-92e9-e10cb8bccf32
+      time_period: 7
+      title: 
+        de: Reaktion Anhörung Inhaber zur HU
+        fr: Réaction Audition du titulaire pour l'enquête principale
+        it: Supporto per il cuscinetto di reazione per l'indagine principale
+      steps:
+      - key: 3c8a141f-1ecf-4d22-899b-2d816a25caf3
+        time_period: 7
+        title: 
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        type: document
+        optional: true
+      - key: b07df0b6-60d9-4864-9bbe-e97b978d1475
+        time_period: 7
+        title: 
+          de: Einfluss Stellungnahme Inhaber zur HU
+          fr: Influence prise de position du propriétaire sur l'examen principal
+          it: Proprietario della dichiarazione di influenza sull'ispezione principale
+        type: form
+        name: entscheid_einfluss_stellungnahme_inhaber_hu
+        fields:
+        - name: entscheid_einfluss_stellungnahme_inhaber_hu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Antrag angenommen, Neubeurteilung
+              fr: Demande acceptée, réévaluation
+              it: Domanda accettata, rivalutazione
+            value: neubeurteilung
+          - label: 
+              de: keine Neubeurteilung
+              fr: pas de réévaluation
+              it: Nessuna rivalutazione
+            value: keine
+          - label: 
+              de: Noch immer keine Neubeurteilung, Antrag definitiv abgelehnt
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label: 
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: Risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: 3c4d4e00-5f26-4fc4-9507-5343b342e126
+        time_period: 7
+        title: 
+          de: Stellungnahme Amt auf Stellungnahme Inhaber
+          fr: Prise de position de l'Office sur Prise de position du titulaire
+          it: Ufficio dichiarazioni su Titolare della dichiarazione
+        type: document
+        optional: true
+      links:
+      - task_ref: ergaenzung_hu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_hu.entscheid_einfluss_stellungnahme_inhaber_hu_erfasst
+          == `einverstanden` || form.entscheid_einfluss_stellungnahme_inhaber_hu.entscheid_einfluss_stellungnahme_inhaber_hu_erfasst
+          == 'keine'
+      - task_ref: stellungnahme_anhoerung_inhaber_hu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_hu.entscheid_einfluss_stellungnahme_inhaber_hu_erfasst
+          == `abgelehnt`
+      - task_ref: beurteilung_hu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_hu.entscheid_einfluss_stellungnahme_inhaber_hu_erfasst
+          == `neubeurteilung`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+    ergaenzung_hu:
+      key: 216df8f8-e262-402b-a2f7-d76bc2de2815
+      time_period: 7
+      title: 
+        de: Ergänzende HU?
+        fr: EP complémentaire ?
+        it: IP supplementare?
+      steps:
+      - key: b51628fd-80e9-4e37-906b-fcfcc960e2e6
+        time_period: 7
+        title: 
+          de: Verlauf nach HU
+          fr: Déroulement après l'EP
+          it: Progressione dopo l'IP
+        type: form
+        name: entscheid_verlauf_nach_hu
+        fields:
+        - name: entscheid_verlauf_nach_hu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: TU nicht nötig, Standort abschl. beurteilbar
+              fr: ET non nécessaire, site évaluable de manière définitive
+              it: IT non necessario, l'ubicazione può essere valutata in modo definitivo
+            value: abschluss
+          - label: 
+              de: TU nötig, Pflichtenheft in HU bereits vorhanden
+              fr: ET nécessaire, cahier des charges déjà présent dans l'enquête principale
+              it: IT richiesto, specifiche già disponibili nell'ispezione principale
+            value: tu
+          - label: 
+              de: TU nötig, Pflichtenheft muss nachgereicht werden
+              fr: ET nécessaire, le cahier des charges doit être fourni ultérieurement
+              it: IT richiesto, le specifiche devono essere presentate successivamente
+            value: tu_pflichtenheft
+          - label: 
+              de: Es braucht eine ergänzende HU
+              fr: Il faut une enquête principale complémentaire
+              it: È necessario un HU supplementare
+            value: hu
+      links:
+      - task_ref: abschluss
+        condition: form.entscheid_verlauf_nach_hu.entscheid_verlauf_nach_hu_erfasst
+          == `abschluss`
+      - task_ref: tu_pflichtenheft
+        condition: form.entscheid_verlauf_nach_hu.entscheid_verlauf_nach_hu_erfasst
+          == `tu_pflichtenheft`
+      - task_ref: tu_bericht
+        condition: form.entscheid_verlauf_nach_hu.entscheid_verlauf_nach_hu_erfasst
+          == `tu`
+      - task_ref: start_hu
+        condition: form.entscheid_verlauf_nach_hu.entscheid_verlauf_nach_hu_erfasst
+          == `hu`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:02
+    tu_pflichtenheft:
+      key: c62ac804-5061-468a-a8eb-2a42a0eb5046
+      time_period: 7
+      title: 
+        de: Bericht TU Pflichtenheft
+        fr: Rapport ET Cahier des charges
+        it: Rapporto Specifiche IT
+      steps:
+      - key: 11060428-ca33-455e-9c77-9c63a4f6948c
+        time_period: 7
+        title: 
+          de: Bericht eingegangen?
+          fr: Rapport reçu?
+          it: Rapporto ricevuto?
+        type: form
+        name: entscheid_bericht_tu_ph
+        fields:
+        - name: entscheid_bericht_tu_ph_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Frist eingegangen / Bericht eingegangen ohne Frist
+              fr: oui, reçu dans le délai / rapport reçu sans délai
+              it: sì, ricevuto entro la scadenza / rapporto ricevuto senza scadenza
+            value: ja
+          - label: 
+              de: nein, nicht innerhalb Frist eingegangen
+              fr: non, pas reçu dans les délais
+              it: no, non ricevuto entro la scadenza
+            value: nein
+      links:
+      - task_ref: beurteilung_tu_pflichtenheft
+        condition: form.entscheid_bericht_tu_ph.entscheid_bericht_tu_ph_erfasst ==
+          `ja`
+      - task_ref: mahnung_tu_Pflichtenheft_bericht
+        condition: form.entscheid_bericht_tu_ph.entscheid_bericht_tu_ph_erfasst ==
+          `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    mahnung_tu_Pflichtenheft_bericht:
+      key: 003313d5-b80d-462f-8df9-b07ee4ce2a99
+      time_period: 7
+      title: 
+        de: Mahnung zur Einreichung Bericht TU Pflichtenheft
+        fr: Rappel pour la remise du rapport ET Cahier des charges
+        it: Promemoria per la presentazione delle specifiche del IT
+      steps:
+      - key: d4ec808f-76da-4d9e-805d-15d7f039ff4c
+        time_period: 7
+        title: 
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        type: document
+        optional: true
+      - key: 0c4967bd-7ac7-43c9-90cd-857263a8a12f
+        time_period: 7
+        title: 
+          de: Einreichung nach Mahnung?
+          fr: Dépôt après rappel?
+          it: Presentazione dopo il sollecito?
+        type: form
+        name: entscheid_mahnung_tu_ph
+        fields:
+        - name: entscheid_mahnung_tu_ph_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Mahnungsfrist eingegangen
+              fr: oui, reçu dans le délai de rappel
+              it: sì, ricevuto entro il periodo di sollecito
+            value: ja
+          - label: 
+              de: nein, neue Mahnung notwendig
+              fr: non, nouveau rappel nécessaire
+              it: no, è necessario un nuovo promemoria
+            value: nein
+      links:
+      - task_ref: beurteilung_tu_pflichtenheft
+        condition: form.entscheid_mahnung_tu_ph.entscheid_mahnung_tu_ph_erfasst ==
+          `ja`
+      - task_ref: mahnung_tu_Pflichtenheft_bericht
+        condition: form.entscheid_mahnung_tu_ph.entscheid_mahnung_tu_ph_erfasst ==
+          `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    beurteilung_tu_pflichtenheft:
+      key: dfb12c53-f19c-427c-a00d-80e14d57b6d3
+      time_period: 7
+      title: 
+        de: Beurteilung TU Pflichtenheft Amt
+        fr: Évaluation ET Cahier des charges Office
+        it: Valutazione Specifiche dell'Ufficio IT
+      steps:
+      - key: 2e896df7-af09-4263-9ed8-7cf204aa8ac1
+        time_period: 7
+        title: 
+          de: Eingegangener Bericht
+          fr: Rapport reçu
+          it: Rapporto ricevuto
+        type: document
+        optional: true
+      - key: 6c2df435-ba6b-4ba3-9a49-33c8d228b3cf
+        time_period: 7
+        title: 
+          de: Beurteilung TU Kanton vorhanden?
+          fr: Évaluation ET canton disponible ?
+          it: Valutazione IT Canton disponibile?
+        type: form
+        optional: true
+        name: entscheid_beurteilung_tu_ph_kanton_vorhanden
+        fields:
+        - name: entscheid_beurteilung_tu_ph_kanton_vorhanden_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Beurteilung TU vorhanden
+              fr: Évaluation ET disponible
+              it: Valutazione IT disponibile
+            value: ja
+          - label: 
+              de: keine Beurteilung TU vorhanden
+              fr: pas d'évaluation ET disponible
+              it: Nessuna valutazione IT disponibile
+            value: nein
+      - key: a981b6da-6ed6-49f4-90ef-1bb149d0f342
+        time_period: 7
+        title: 
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        type: document
+        optional: true
+      - key: f4bfb57d-f39f-4196-8041-794627bd5069
+        time_period: 7
+        title: 
+          de: Beurteilung TU abgeschlossen
+          fr: Évaluation ET terminée
+          it: Valutazione IT completata
+        type: form
+        optional: true
+        name: entscheid_beurteilung_tu_ph_kanton
+        fields:
+        - name: entscheid_beurteilung_tu_ph_kanton_erfasst
+          type: bool
+          label: 
+            de: Die Beurteilung TU des Berichtes ist abgeschlossen, Standortdaten sind (falls notwendig) nachgetragen. Allfällige Stellungnahme zum Bericht ist bereit zum Versand.
+            fr: L'évaluation ET du rapport est terminée, les données de localisation sont ajoutées (si nécessaire). Les éventuelles prises de position sur le rapport sont prêtes à être envoyées.
+            it: La valutazione del rapporto da parte del IT è stata completata, i dati di localizzazione sono stati aggiunti (se necessario). Eventuali commenti sul rapporto sono pronti per l'invio.
+      links:
+      - task_ref: anhoerung_inhaber_tu_pflichtenheft
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    anhoerung_inhaber_tu_pflichtenheft:
+      key: f6e97c17-365d-4bee-a8f5-414ce5e5d2d6
+      time_period: 7
+      title: 
+        de: Anhörung Inhaber zur TU Pflichtenheft
+        fr: Consultation des titulaires sur le ET Cahier des charges
+        it: Consultazione con i proprietari sulle specifiche del IT
+      steps:
+      - key: 97347464-0b7b-43a6-9c47-f948029f9f8c
+        time_period: 7
+        title: 
+          de: Stellungnahme
+          fr: Prise de position
+          it: Dichiarazione
+        type: document
+        optional: true
+      - key: 75bc54c0-9b10-4e4d-bc06-1e722b639f42
+        time_period: 7
+        title: 
+          de: Entschied Stellungnahme Inhaber zur TU Pflichtenheft?
+          fr: Prise de position du propriétaire sur le cahier des charges de ET?
+          it: Opinione decisa proprietario alle specifiche IT?
+        type: form
+        optional: true
+        name: entscheid_stellungnahme_inhaber_tu_pflichtenheft
+        fields:
+        - name: entscheid_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Ja, Stellungnahme eingetroffen
+              fr: Oui, prise de position reçue
+              it: Sì, dichiarazione ricevuta
+            value: ja
+          - label: 
+              de: keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_anhoerung_inhaber_tu_pflichtenheft
+        condition: form.entscheid_stellungnahme_inhaber_tu_pflichtenheft.entscheid_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == `ja`
+      - task_ref: tu_bericht
+        condition: form.entscheid_stellungnahme_inhaber_tu_pflichtenheft.entscheid_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    stellungnahme_anhoerung_inhaber_tu_pflichtenheft:
+      key: 7529ed11-62c7-4684-bbb0-d02b8b0ecb6f
+      time_period: 7
+      title: 
+        de: Anhörung Inhaber zur TU Pflichtenheft
+        fr: Consultation des titulaires sur le ET Cahier des charges
+        it: Consultazione con i proprietari sulle specifiche del IT
+      steps:
+      - key: c6ac3684-2346-4667-885a-26bea708370f
+        time_period: 7
+        title: 
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        type: document
+        optional: true
+      - key: f6a487c9-6584-4819-a2c4-7a572605b5f8
+        time_period: 7
+        title: 
+          de: Einfluss Stellungnahme Inhaber zur TU Pflichtenheft
+          fr: Influence Prise de position du propriétaire sur le cahier des charges ET
+          it: Dichiarazione di influenza del proprietario sulle specifiche del IT
+        type: form
+        name: entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft
+        fields:
+        - name: entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Antrag angenommen, Neubeurteilung
+              fr: Demande acceptée, réévaluation
+              it: Domanda accettata, rivalutazione
+            value: neubeurteilung
+          - label: 
+              de: keine Neubeurteilung
+              fr: pas de réévaluation
+              it: Nessuna rivalutazione
+            value: keine
+          - label: 
+              de: Noch immer keine Neubeurteilung, Antrag definitiv abgelehnt
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label: 
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: Risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: 84c4db6c-0acf-4720-9581-e06917d4882b
+        time_period: 7
+        title: 
+          de: Stellungnahme Amt auf Stellungnahme Inhaber
+          fr: Prise de position de l'Office sur Prise de position du titulaire
+          it: Ufficio dichiarazioni su Titolare della dichiarazione
+        type: document
+        optional: true
+      links:
+      - task_ref: tu_bericht
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == `einverstanden` || form.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == 'keine'
+      - task_ref: stellungnahme_anhoerung_inhaber_tu_pflichtenheft
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == `abgelehnt`
+      - task_ref: beurteilung_tu_pflichtenheft
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft.entscheid_einfluss_stellungnahme_inhaber_tu_pflichtenheft_erfasst
+          == `neubeurteilung`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    tu_bericht:
+      key: 3ca9e73d-f725-4ed1-817e-a1fac33e8637
+      time_period: 7
+      title: 
+        de: Bericht TU
+        fr: Rapport ET
+        it: Rapporto IT
+      steps:
+      - key: 02d0ad70-b8a4-429e-a59e-ed6e9d14f301
+        time_period: 7
+        title: 
+          de: Bericht eingegangen?
+          fr: Rapport reçu?
+          it: Rapporto ricevuto?
+        type: form
+        name: entscheid_bericht_tu
+        fields:
+        - name: entscheid_bericht_tu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Frist eingegangen / Bericht eingegangen ohne Frist
+              fr: oui, reçu dans le délai / rapport reçu sans délai
+              it: sì, ricevuto entro la scadenza / rapporto ricevuto senza scadenza
+            value: ja
+          - label: 
+              de: nein, nicht innerhalb Frist eingegangen
+              fr: non, pas reçu dans les délais
+              it: no, non ricevuto entro la scadenza
+            value: nein
+      links:
+      - task_ref: beurteilung_tu
+        condition: form.entscheid_bericht_tu.entscheid_bericht_tu_erfasst == `ja`
+      - task_ref: mahnung_tu_bericht
+        condition: form.entscheid_bericht_tu.entscheid_bericht_tu_erfasst == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    mahnung_tu_bericht:
+      key: a398c4cf-ad6b-452c-9aba-b739fa050577
+      time_period: 7
+      title: 
+        de: Mahnung zur Einreichung Bericht TU
+        fr: Rappel pour la soumission du rapport et
+        it: Promemoria per la presentazione del rapporto IT
+      steps:
+      - key: 9f58e49c-8b43-4c12-84d8-ef13f5f97e2f
+        time_period: 7
+        title: 
+          de: Mahnung an Inhaber
+          fr: Rappel au propriétaire
+          it: Promemoria per il proprietario
+        type: document
+        optional: true
+      - key: 6cf2194f-0b23-45fe-bd42-260f9a07ee07
+        time_period: 7
+        title: 
+          de: Einreichung nach Mahnung?
+          fr: Dépôt après rappel?
+          it: Presentazione dopo il sollecito?
+        type: form
+        name: entscheid_mahnung_tu
+        fields:
+        - name: entscheid_mahnung_tu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: ja, innerhalb Mahnungsfrist eingegangen
+              fr: oui, reçu dans le délai de rappel
+              it: sì, ricevuto entro il periodo di sollecito
+            value: ja
+          - label: 
+              de: nein, neue Mahnung notwendig
+              fr: non, nouveau rappel nécessaire
+              it: no, è necessario un nuovo promemoria
+            value: nein
+      links:
+      - task_ref: beurteilung_tu
+        condition: form.entscheid_mahnung_tu.entscheid_mahnung_tu_erfasst == `ja`
+      - task_ref: mahnung_tu_bericht
+        condition: form.entscheid_mahnung_tu.entscheid_mahnung_tu_erfasst == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    beurteilung_tu:
+      key: ebf0a47d-b566-4dd6-879a-b4384be33e05
+      time_period: 7
+      title: 
+        de: Beurteilung TU
+        fr: Évaluation ET
+        it: Valutazione IT
+      steps:
+      - key: 54f76a4f-efc3-4f09-aa15-205d6856730f
+        time_period: 7
+        title: 
+          de: Eingegangener Bericht
+          fr: Rapport reçu
+          it: Rapporto ricevuto
+        type: document
+        optional: true
+      - key: 8a1df8bd-0903-4d75-8002-b05a3f2541a9
+        time_period: 7
+        title: 
+          de: Beurteilung TU Kanton vorhanden?
+          fr: Évaluation ET canton disponible ?
+          it: Valutazione IT Canton disponibile?
+        type: form
+        optional: true
+        name: entscheid_beurteilung_tu_kanton_vorhanden
+        fields:
+        - name: entscheid_beurteilung_tu_kanton_vorhanden_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Beurteilung TU vorhanden
+              fr: Évaluation ET disponible
+              it: Valutazione IT disponibile
+            value: ja
+          - label: 
+              de: keine Beurteilung TU vorhanden
+              fr: pas d'évaluation ET disponible
+              it: Nessuna valutazione IT disponibile
+            value: nein
+      - key: af53c170-9f4a-485e-aba5-19805e4f8577
+        time_period: 7
+        title: 
+          de: Stellungnahme Kanton
+          fr: Prise de position du canton
+          it: Dichiarazione cantonale
+        type: document
+        optional: true
+      - key: 6664ea81-150c-4bf9-bfe6-5bff17513407
+        time_period: 7
+        title: 
+          de: Beurteilung TU abgeschlossen
+          fr: Évaluation ET terminée
+          it: Valutazione IT completata
+        type: form
+        optional: true
+        name: entscheid_beurteilung_tu_kanton
+        fields:
+        - name: entscheid_beurteilung_tu_kanton_erfasst
+          type: bool
+          label: 
+            de: Die Beurteilung TU des Berichtes ist abgeschlossen, Standortdaten sind (falls notwendig) nachgetragen. Allfällige Stellungnahme zum Bericht ist bereit zum Versand.
+            fr: L'évaluation ET du rapport est terminée, les données de localisation sont ajoutées (si nécessaire). Les éventuelles prises de position sur le rapport sont prêtes à être envoyées.
+            it: La valutazione del rapporto da parte del IT è stata completata, i dati di localizzazione sono stati aggiunti (se necessario). Eventuali commenti sul rapporto sono pronti per l'invio.
+      - key: 7193d639-9f34-45d6-8bd7-ef425bda96c7
+        time_period: 7
+        title: 
+          de: Stellungnahme zur Untersuchung direkt mit einer IHO oder separat?
+          fr: Prise de position sur l'enquête directement avec une OVP ou séparément ?
+          it: Dichiarazione sull'indagine direttamente con un OP o separatamente?
+        type: form
+        optional: true
+        name: entscheid_beurteilung_tu_iho
+        fields:
+        - name: entscheid_beurteilung_tu_iho_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Ja, Stellungnahme zum Bericht wird in IHO integriert
+              fr: Oui, la prise de position sur le rapport est intégrée dans l'OVP
+              it: Sì, la dichiarazione sul rapporto sarà integrata in OP.
+            value: ja
+          - label: 
+              de: Nein, separate Stellungnahme
+              fr: Non, prise de position séparée
+              it: No, dichiarazione separata
+            value: nein
+      links:
+      - task_ref: anhoerung_inhaber_tu
+        condition: form.entscheid_beurteilung_tu_iho.entscheid_beurteilung_tu_iho_erfasst
+          == `ja`
+      - task_ref: ergaenzung_tu
+        condition: form.entscheid_beurteilung_tu_iho.entscheid_beurteilung_tu_iho_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    anhoerung_inhaber_tu:
+      key: 966c8ba1-b53e-454a-9c43-152ef43db28d
+      time_period: 7
+      title: 
+        de: Anhörung Inhaber zur TU
+        fr: Audition des propriétaires de ET
+        it: Consultazione Proprietario su IT
+      steps:
+      - key: 192172a9-5347-45dd-a0d6-f0a2275d331c
+        time_period: 7
+        title: 
+          de: Stellungnahme
+          fr: Prise de position
+          it: Dichiarazione
+        type: document
+        optional: true
+      - key: 3262219b-e776-41c1-9dfb-9ed6b5b341a8
+        time_period: 7
+        title: 
+          de: Entschied Stellungnahme Inhaber zur TU?
+          fr: Prise de position du propriétaire à la ET?
+          it: Opinione decisa proprietario a IT?
+        type: form
+        optional: true
+        name: entscheid_stellungnahme_inhaber_tu
+        fields:
+        - name: entscheid_stellungnahme_inhaber_tu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Ja, Stellungnahme eingetroffen
+              fr: Oui, prise de position reçue
+              it: Sì, dichiarazione ricevuta
+            value: ja
+          - label: 
+              de: keine Stellungnahme innerhalb Frist
+              fr: Pas de prise de position dans les délais
+              it: Nessuna dichiarazione entro la scadenza
+            value: nein
+      links:
+      - task_ref: stellungnahme_anhoerung_inhaber_tu
+        condition: form.entscheid_stellungnahme_inhaber_tu.entscheid_stellungnahme_inhaber_tu_erfasst
+          == `ja`
+      - task_ref: ergaenzung_tu
+        condition: form.entscheid_stellungnahme_inhaber_tu.entscheid_stellungnahme_inhaber_tu_erfasst
+          == `nein`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    stellungnahme_anhoerung_inhaber_tu:
+      key: b9288f21-32e8-4f4f-980d-16e285f181b3
+      time_period: 7
+      title:
+        de: Reaktion Anhörung Inhaber zur TU
+        fr: Réaction Audition propriétaire à ET
+        it: Proprietario dell'audizione di reazione a IT
+      steps:
+      - key: f038e7f3-5ef2-4bad-bfcb-71163fafb479
+        time_period: 7
+        title: 
+          de: Stellungnahme Inhaber
+          fr: Prise de position du propriétaire
+          it: Proprietario della dichiarazione
+        type: document
+        optional: true
+      - key: 146d1d5e-3b1a-4089-a5cf-988a6db7b42c
+        time_period: 7
+        title:
+          de: Einfluss Stellungnahme Inhaber zur TU
+          fr: Influence Prise de position Propriétaire à ET
+          it: Dichiarazione di influenza del proprietario su IT
+        type: form
+        name: entscheid_einfluss_stellungnahme_inhaber_tu
+        fields:
+        - name: entscheid_einfluss_stellungnahme_inhaber_tu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Antrag angenommen, Neubeurteilung
+              fr: Demande acceptée, réévaluation
+              it: Domanda accettata, rivalutazione
+            value: neubeurteilung
+          - label: 
+              de: keine Neubeurteilung
+              fr: pas de réévaluation
+              it: Nessuna rivalutazione
+            value: keine
+          - label: 
+              de: Noch immer keine Neubeurteilung, Antrag definitiv abgelehnt
+              fr: Toujours pas de réévaluation, demande définitivement rejetée
+              it: Ancora nessuna rivalutazione, domanda definitivamente respinta
+            value: abgelehnt
+          - label: 
+              de: einverstanden oder keine Antwort, keine Anpassung nötig
+              fr: d'accord ou pas de réponse, pas d'adaptation nécessaire
+              it: Risposta affermativa o negativa, non è necessario alcun adeguamento
+            value: einverstanden
+      - key: d0dac49f-1bd8-49a6-8497-de25679fb4f8
+        time_period: 7
+        title: 
+          de: Stellungnahme Amt auf Stellungnahme Inhaber
+          fr: Prise de position de l'Office sur Prise de position du titulaire
+          it: Ufficio dichiarazioni su Titolare della dichiarazione
+        type: document
+        optional: true
+      links:
+      - task_ref: ergaenzung_tu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu.entscheid_einfluss_stellungnahme_inhaber_tu_erfasst
+          == `einverstanden` || form.entscheid_einfluss_stellungnahme_inhaber_tu.entscheid_einfluss_stellungnahme_inhaber_tu_erfasst
+          == 'keine'
+      - task_ref: stellungnahme_anhoerung_inhaber_tu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu.entscheid_einfluss_stellungnahme_inhaber_tu_erfasst
+          == `abgelehnt`
+      - task_ref: beurteilung_tu
+        condition: form.entscheid_einfluss_stellungnahme_inhaber_tu.entscheid_einfluss_stellungnahme_inhaber_tu_erfasst
+          == `neubeurteilung`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    ergaenzung_tu:
+      key: 11d75d9f-9779-4c78-a09a-09e0c84d9a82
+      time_period: 7
+      title:
+        de: Verlauf nach TU
+        fr: Déroulement par ET
+        it: Progressione secondo il IT
+      steps:
+      - key: 616cf445-c516-48d0-816d-d68d7a0f9b9f
+        time_period: 7
+        title:
+          de: Ergänzende TU notwendig?
+          fr: ET complémentaire nécessaire ?
+          it: È necessario un IT supplementare?
+        type: form
+        name: entscheid_verlauf_nach_tu
+        fields:
+        - name: entscheid_verlauf_nach_tu_erfasst
+          type: str
+          choices:
+          - label: 
+              de: Nein, Untersuchungen reichen aus
+              fr: Non, des examens suffisent
+              it: No, gli esami sono sufficienti
+            value: nein
+          - label: 
+              de: Ergänzende TU erforderlich, Pflichtenheft schon vorhanden
+              fr: ET complémentaire nécessaire, cahier des charges déjà disponible
+              it: È necessario un IT supplementare, le specifiche sono già disponibili
+            value: ja
+          - label: 
+              de: Ergänzende TU erforderlich, Pflichtenheft noch nachzureichen
+              fr: ET complémentaire nécessaire, cahier des charges à fournir
+              it: Richiesto un IT integrativo, le specifiche devono ancora essere presentate
+            value: tu_pflichtenheft
+      links:
+      - task_ref: abschluss_tu
+        condition: form.entscheid_verlauf_nach_tu.entscheid_verlauf_nach_tu_erfasst
+          == `nein`
+      - task_ref: beurteilung_tu
+        condition: form.entscheid_verlauf_nach_tu.entscheid_verlauf_nach_tu_erfasst
+          == `ja`
+      - task_ref: beurteilung_tu_pflichtenheft
+        condition: form.entscheid_verlauf_nach_tu.entscheid_verlauf_nach_tu_erfasst
+          == `tu_pflichtenheft`
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:04
+    abschluss_tu:
+      key: 70560151-2bbf-421c-b081-360b0c4c0654
+      time_period: 7
+      title:
+        de: TU abgeschlossen
+        fr: ET terminé
+        it: IT completato
+      steps:
+      - key: cfd89c7d-b7e2-4f8d-a91f-0f6b9401e011
+        time_period: 7
+        title:
+          de: TU abgeschlossen
+          fr: ET terminé
+          it: IT completato
+        type: form
+        optional: true
+        name: entscheid_abschluss_tu
+        fields:
+        - name: entscheid_abschluss_tu_erfasst
+          type: bool
+          label: 
+            de: Die technische Untersuchung ist hiermit abgeschlossen
+            fr: L'enquête technique est terminée
+            it: L'inchiesta tecnica è conclusa
+      links:
+      - task_ref: abschluss
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:05
+    abschluss:
+      key: 2c13b653-70a6-4874-8139-2a86ed86ef9d
+      time_period: 7
+      title:
+        de: Voruntersuchung abgeschlossen
+        fr: Enquête préliminaire terminée
+        it: Completata l'indagine preliminare
+      steps:
+      - key: 85c9566a-f391-4589-9519-58233ab5e3b8
+        time_period: 7
+        title:
+          de: TU abgeschlossen
+          fr: ET terminé
+          it: IT completato
+        type: form
+        optional: true
+        name: entscheid_abschluss
+        fields:
+        - name: entscheid_abschluss_erfasst
+          type: bool
+          label: 
+            de: 'Die Voruntersuchungen sind hiermit abgeschlossen. Achtung: Falls aufgrund Voruntersuchung die Bewertung oder andere relevanten Informationen angepasst werden, braucht es eine neue Inhaberorientierung. Bitte Geschäft bzw. Aufgabe ''Kataster: Nachführung'' eröffnen !'
+            fr: "Les examens préliminaires sont terminés. Attention : si l'évaluation ou d'autres informations pertinentes sur la base de l'enquête préliminaire. doivent être adaptées, une nouvelle orientation du titulaire est nécessaire. Veuillez ouvrir une affaire ou ouvrir la tâche ''Cadastre : mise à jour'' !"
+            it: "Le indagini preliminari sono concluse. Attenzione: se la valutazione o altre informazioni rilevanti vengono modificate in seguito alle indagini preliminari, è necessario un nuovo orientamento del proprietario. Aprire l'attività o il compito ''Catasto: aggiornamento''!"
+      links:
+      - task_ref: END
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:05
+    END:
+      key: d7f4a3f9-e96e-4989-bf72-5a25ac183831
+      time_period: 7
+      title: __END__
+      steps: []
+      links: []
+      triggers:
+      - type: UntersuchungsStandSetzen
+        value: code:10023:05

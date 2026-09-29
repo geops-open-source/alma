@@ -1,0 +1,1351 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<WMS_Capabilities version="1.3.0"  xmlns="http://www.opengis.net/wms"   xmlns:sld="http://www.opengis.net/sld"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"   xsi:schemaLocation="http://www.opengis.net/wms https://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd  http://www.opengis.net/sld https://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd  http://mapserver.gis.umn.edu/mapserver https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?service=WMS&amp;version=1.3.0&amp;request=GetSchemaExtension">
+<Service>
+  <Name>WMS</Name>
+  <Title>geodienste.ch WMS Planerischer Gewässerschutz</Title>
+  <Abstract>Schweizweit harmonisierter Geodienst der Kantone zum planerischen Gewässerschutz. Im planerischen Gewässerschutz werden die Gewässerschutzbereiche, die Grundwasserschutzzonen und -areale und die Zuströmbereiche abgebildet. Die Daten entsprechen dem MGDM Planerischer Gewässerschutz (ID 130,131,132).</Abstract>
+  <KeywordList>
+      <Keyword>geodienste.ch</Keyword>
+      <Keyword>Planerischer Gewässerschutz</Keyword>
+      <Keyword>MGDM Planerischer Gewässerschutz</Keyword>
+      <Keyword>ID 130</Keyword>
+      <Keyword>ID 131</Keyword>
+      <Keyword>ID 132</Keyword>
+  </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/>
+  <ContactInformation>
+    <ContactPersonPrimary>
+      <ContactPerson>Bei Fragen oder Problemen wenden Sie sich bitte an den Support unter support@geodienste.kgk-cgc.ch</ContactPerson>
+      <ContactOrganization>geodienste.ch</ContactOrganization>
+    </ContactPersonPrimary>
+  </ContactInformation>
+  <Fees>Für den Bezug des Geodienstes können Kosten anfallen. Die Gebühren werden durch die Kantone erhoben.</Fees>
+  <AccessConstraints>https://geodienste.ch/terms-of-use</AccessConstraints>
+  <MaxWidth>10000</MaxWidth>
+  <MaxHeight>10000</MaxHeight>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/png</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>image/jpeg</Format>
+      <Format>image/vnd.jpeg-png</Format>
+      <Format>image/vnd.jpeg-png8</Format>
+      <Format>application/x-pdf</Format>
+      <Format>image/svg+xml</Format>
+      <Format>image/tiff</Format>
+      <Format>application/vnd.google-earth.kml+xml</Format>
+      <Format>application/vnd.google-earth.kmz</Format>
+      <Format>application/vnd.mapbox-vector-tile</Format>
+      <Format>application/x-protobuf</Format>
+      <Format>application/json</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/html</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <Format>text/plain</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+    <sld:DescribeLayer>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:DescribeLayer>
+    <sld:GetLegendGraphic>
+      <Format>image/png</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>image/jpeg</Format>
+      <Format>image/vnd.jpeg-png</Format>
+      <Format>image/vnd.jpeg-png8</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:GetLegendGraphic>
+    <ms:GetStyles>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?"/></Post>
+        </HTTP>
+      </DCPType>
+    </ms:GetStyles>
+  </Request>
+  <Exception>
+    <Format>XML</Format>
+    <Format>INIMAGE</Format>
+    <Format>BLANK</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="1" RemoteWFS="0" InlineFeature="0" RemoteWCS="0"/>
+  <Layer queryable="1">
+    <Name>planerischer_gewaesserschutz</Name>
+    <Title>geodienste.ch WMS Planerischer Gewässerschutz</Title>
+    <Abstract>Schweizweit harmonisierter Geodienst der Kantone zum planerischen Gewässerschutz. Im planerischen Gewässerschutz werden die Gewässerschutzbereiche, die Grundwasserschutzzonen und -areale und die Zuströmbereiche abgebildet. Die Daten entsprechen dem MGDM Planerischer Gewässerschutz (ID 130,131,132).</Abstract>
+    <KeywordList>
+        <Keyword>geodienste.ch</Keyword>
+        <Keyword>Planerischer Gewässerschutz</Keyword>
+        <Keyword>MGDM Planerischer Gewässerschutz</Keyword>
+        <Keyword>ID 130</Keyword>
+        <Keyword>ID 131</Keyword>
+        <Keyword>ID 132</Keyword>
+    </KeywordList>
+    <CRS>EPSG:2056</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>5.702107</westBoundLongitude>
+        <eastBoundLongitude>10.643213</eastBoundLongitude>
+        <southBoundLatitude>45.739229</southBoundLatitude>
+        <northBoundLatitude>47.850492</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <Layer queryable="1">
+      <Name>daten</Name>
+      <Title>daten</Title>
+      <Layer queryable="1">
+        <Name>gewaesserschutzkarte</Name>
+        <Title>gewaesserschutzkarte</Title>
+        <Layer queryable="1">
+          <Name>gewaesserschutzbereiche</Name>
+          <Title>gewaesserschutzbereiche</Title>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>gewaesserschutzbereich_ao</Name>
+        <Title>Gewässerschutzbereich Ao</Title>
+        <Abstract>Gewässerschutzbereich Ao</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=gewaesserschutzbereich_ao"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="144" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=gewaesserschutzbereich_ao&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>gewaesserschutzbereich_au</Name>
+        <Title>Gewässerschutzbereich Au</Title>
+        <Abstract>Gewässerschutzbereich Au</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=gewaesserschutzbereich_au"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="145" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=gewaesserschutzbereich_au&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+        </Layer>
+        <Layer queryable="1">
+          <Name>grundwasserschutzareale</Name>
+          <Title>grundwasserschutzareale</Title>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_sm_nicht_in_kraft</Name>
+        <Title>Künftige Schutzzone Sm, nicht in Kraft</Title>
+        <Abstract>Künftige Schutzzone Sm, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_sm_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="191" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_sm_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_sm_in_kraft</Name>
+        <Title>Künftige Schutzzone Sm, in Kraft</Title>
+        <Abstract>Künftige Schutzzone Sm, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_sm_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="169" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_sm_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_sh_nicht_in_kraft</Name>
+        <Title>Künftige Schutzzone Sh, nicht in Kraft</Title>
+        <Abstract>Künftige Schutzzone Sh, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_sh_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="189" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_sh_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_sh_in_kraft</Name>
+        <Title>Künftige Schutzzone Sh, in Kraft</Title>
+        <Abstract>Künftige Schutzzone Sh, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_sh_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="166" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_sh_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s3_nicht_in_kraft</Name>
+        <Title>Künftige Schutzzone S3, nicht in Kraft</Title>
+        <Abstract>Künftige Schutzzone S3, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s3_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="189" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s3_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s3_in_kraft</Name>
+        <Title>Künftige Schutzzone S3, in Kraft</Title>
+        <Abstract>Künftige Schutzzone S3, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s3_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="166" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s3_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s2_nicht_in_kraft</Name>
+        <Title>Künftige Schutzzone S2, nicht in Kraft</Title>
+        <Abstract>Künftige Schutzzone S2, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s2_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="189" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s2_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s2_in_kraft</Name>
+        <Title>Künftige Schutzzone S2, in Kraft</Title>
+        <Abstract>Künftige Schutzzone S2, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s2_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="166" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s2_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s1_nicht_in_kraft</Name>
+        <Title>Künftige Schutzzone S1, nicht in Kraft</Title>
+        <Abstract>Künftige Schutzzone S1, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s1_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="189" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s1_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>kuenftige_schutzzone_s1_in_kraft</Name>
+        <Title>Künftige Schutzzone S1, in Kraft</Title>
+        <Abstract>Künftige Schutzzone S1, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=kuenftige_schutzzone_s1_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="166" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=kuenftige_schutzzone_s1_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzareal_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzareal, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzareal, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzareal_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="193" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzareal_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzareal_in_kraft</Name>
+        <Title>Grundwasserschutzareal, in Kraft</Title>
+        <Abstract>Grundwasserschutzareal, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzareal_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="170" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzareal_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+        </Layer>
+        <Layer queryable="1">
+          <Name>grundwasserschutzzonen</Name>
+          <Title>grundwasserschutzzonen</Title>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_sm_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzzone Sm, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzzone Sm, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_sm_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="207" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_sm_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_sm_in_kraft</Name>
+        <Title>Grundwasserschutzzone Sm, in Kraft</Title>
+        <Abstract>Grundwasserschutzzone Sm, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_sm_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="184" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_sm_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_sh_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzzone Sh, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzzone Sh, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_sh_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="204" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_sh_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_sh_in_kraft</Name>
+        <Title>Grundwasserschutzzone Sh, in Kraft</Title>
+        <Abstract>Grundwasserschutzzone Sh, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_sh_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="182" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_sh_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_nicht_in_kraft</Name>
+        <Title>Nicht nach Bundesrecht vorgesehener Schutzzonentyp, nicht in Kraft</Title>
+        <Abstract>Nicht nach Bundesrecht vorgesehener Schutzzonentyp, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="321" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_in_kraft</Name>
+        <Title>Nicht nach Bundesrecht vorgesehener Schutzzonentyp, in Kraft</Title>
+        <Abstract>Nicht nach Bundesrecht vorgesehener Schutzzonentyp, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="293" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=nicht_nach_bundesrecht_vorgesehener_schutzzonentyp_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>zustroembereich_zu_anstelle_einer_s3_oder_sm_nicht_in_kraft</Name>
+        <Title>Zuströmbereich Zu anstelle einer S3 oder Sm, nicht in Kraft</Title>
+        <Abstract>Zuströmbereich Zu anstelle einer S3 oder Sm, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=zustroembereich_zu_anstelle_einer_s3_oder_sm_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="278" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=zustroembereich_zu_anstelle_einer_s3_oder_sm_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>zustroembereich_zu_anstelle_einer_s3_oder_sm_in_kraft</Name>
+        <Title>Zuströmbereich Zu anstelle einer S3 oder Sm, in Kraft</Title>
+        <Abstract>Zuströmbereich Zu anstelle einer S3 oder Sm, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=zustroembereich_zu_anstelle_einer_s3_oder_sm_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="255" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=zustroembereich_zu_anstelle_einer_s3_oder_sm_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s3_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzzone S3, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S3, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s3_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="204" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s3_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s3_in_kraft</Name>
+        <Title>Grundwasserschutzzone S3, in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S3, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s3_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="182" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s3_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s2_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzzone S2, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S2, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s2_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="204" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s2_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s2_in_kraft</Name>
+        <Title>Grundwasserschutzzone S2, in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S2, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s2_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="182" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s2_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s1_nicht_in_kraft</Name>
+        <Title>Grundwasserschutzzone S1, nicht in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S1, nicht in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s1_nicht_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="204" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s1_nicht_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>grundwasserschutzzone_s1_in_kraft</Name>
+        <Title>Grundwasserschutzzone S1, in Kraft</Title>
+        <Abstract>Grundwasserschutzzone S1, in Kraft</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=grundwasserschutzzone_s1_in_kraft"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="182" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=grundwasserschutzzone_s1_in_kraft&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+        </Layer>
+        <Layer queryable="1">
+          <Name>zustroembereich</Name>
+          <Title>zustroembereich</Title>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>zustroembereich_zu</Name>
+        <Title>Zuströmbereich Zu</Title>
+        <Abstract>Zuströmbereich Zu</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=zustroembereich_zu"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="113" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=zustroembereich_zu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+          <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>zustroembereich_zo</Name>
+        <Title>Zuströmbereich Zo</Title>
+        <Abstract>Zuströmbereich Zo</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+    <Attribution>
+        <Title>geocat.ch</Title>
+        <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.geocat.ch/geonetwork/srv/ger/catalog.search#/metadata/a24ed0a9-cc08-4e71-b9e1-253281c25746"/>
+    </Attribution>
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=zustroembereich_zo"/>
+        </MetadataURL>
+        <DataURL>
+          <Format>text/html</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.geodienste.ch/downloads/planerischer_gewaesserschutz?data_format=wms"/>
+        </DataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="113" height="20">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=zustroembereich_zo&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+          </Layer>
+        </Layer>
+      </Layer>
+    </Layer>
+    <Layer>
+      <Name>verfuegbarkeit</Name>
+      <Title>verfuegbarkeit</Title>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>verfuegbarkeit_beschriftungen</Name>
+        <Title>Verfügbarkeit: Beschriftungen</Title>
+        <Abstract>Verfügbarkeit: Beschriftungen</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=verfuegbarkeit_beschriftungen"/>
+        </MetadataURL>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>verfuegbarkeit_kantone</Name>
+        <Title>Verfügbarkeit: Kantone</Title>
+        <Abstract>Verfügbarkeit: Kantone</Abstract>
+        <CRS>EPSG:2056</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>5.702107</westBoundLongitude>
+            <eastBoundLongitude>10.643213</eastBoundLongitude>
+            <southBoundLatitude>45.739229</southBoundLatitude>
+            <northBoundLatitude>47.850492</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:2056"
+                    minx="2.47e+06" miny="1.07e+06" maxx="2.84e+06" maxy="1.3e+06" />
+        <MetadataURL type="TC211">
+          <Format>text/xml</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?request=GetMetadata&amp;layer=verfuegbarkeit_kantone"/>
+        </MetadataURL>
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="193" height="65">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://wfs.geodienste.ch/planerischer_gewaesserschutz_v1_2_0/deu?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=verfuegbarkeit_kantone&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>2.5e+06</MaxScaleDenominator>
+      </Layer>
+    </Layer>
+  </Layer>
+</Capability>
+</WMS_Capabilities>

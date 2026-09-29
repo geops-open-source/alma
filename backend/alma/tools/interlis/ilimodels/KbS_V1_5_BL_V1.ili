@@ -1,0 +1,20 @@
+INTERLIS 2.3;
+
+!!@ furtherInformation=https://www.geo.bl.ch/index.php
+!!@ technicalContact=mailto:support.gis@bl.ch
+!!@ IDGeoIV="114.2, 116.1, 117.1, 118.1, 119.1"
+MODEL KbS_V1_5_BL_V1 (de)
+AT "http://models.geo.bl.ch/AUE"
+VERSION "2022-02-24"  =
+  IMPORTS KbS_V1_5;
+
+  TOPIC Belastete_Standorte EXTENDS KbS_V1_5.Belastete_Standorte =
+
+    CLASS Belasteter_Standort (EXTENDED) =
+      Untersuchungsstand: TEXT;
+      Zeitraum: TEXT;               !!Ablagerungs-, Betriebszeitraum / Unfallzeit
+    END Belasteter_Standort;
+
+  END Belastete_Standorte;
+
+END KbS_V1_5_BL_V1.

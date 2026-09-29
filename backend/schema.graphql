@@ -1,0 +1,2125 @@
+type Ablagerung {
+  intaId: ID!
+  volKompartiment: Float
+  tiefe: String
+  zeitraum: Zeitraum
+  kompartimentStoffklassen: [KompartimentStoffklasse!]!
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+  bemerkungDatenimport: Bemerkung
+}
+
+input AblagerungInput {
+  intaId: ID
+  volKompartiment: Float
+  tiefe: String
+  zeitraum: ZeitraumInput
+  kompartimentStoffklassen: [KompartimentStoffklasseInput!]!
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+}
+
+input AddSearchResultsToPoolInput {
+  poolId: ID!
+  query: String!
+}
+
+type Aufgabe implements Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+}
+
+union AufgabeWorkflowProblemGroup = Aufgabe | WorkflowProblemGroup
+
+type AusKbsGeloescht implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+}
+
+type AutoSuggestItem {
+  type: AutoSuggestType!
+  value: String!
+  category: SearchFieldCategory
+  fieldType: FieldType
+}
+
+enum AutoSuggestType {
+  FIELD_NAME
+  OPERATOR
+  VALUE
+}
+
+interface BasisBetrieb {
+  intbId: ID!
+  brancheAsw: Code
+  brancheNoga: Code
+  untersuchungsStand: Code
+  beurteilung: Code
+  firmaName: String
+  firmaStrasse: String
+  firmaPlz: String
+  firmaOrt: String
+  groesse: Int
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeit
+  relevant: Boolean
+  mobileStoffe: Boolean
+  erfassungMutation: ErfassungMutation
+  zentroid: GeoJSONPoint
+  bemerkung: Bemerkung
+  begruendungBewertung: Bemerkung
+}
+
+interface BasisZeitraum {
+  von: Date
+  bis: Date
+  vonjahr: Boolean!
+  bisjahr: Boolean!
+  bisheute: Boolean!
+}
+
+type BearbeitungsstandGesetzt implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+  code: Code!
+}
+
+type BearbeitungsstandSetzen {
+  code: Code!
+}
+
+type Bemerkung {
+  bem: String!
+  public: Boolean!
+  sort: Int
+  erfassungMutation: ErfassungMutation!
+}
+
+input BemerkungInput {
+  bem: String!
+}
+
+type Beteiligter {
+  betId: ID!
+  isEigentuemer: Boolean!
+  isSachbearbeiter: Boolean!
+  erfassungMutation: ErfassungMutation
+  subjekt: Subjekt!
+}
+
+type BeteiligterGeschaeft {
+  betTaskId: ID!
+  subjekt: Subjekt!
+}
+
+input BeteiligterGeschaeftInput {
+  betTaskId: ID
+  subjId: ID!
+}
+
+type BeteiligterStandort {
+  betArtId: ID!
+  beziehungsart: Code!
+  erfassungMutation: ErfassungMutation
+  beteiligter: Beteiligter!
+}
+
+input BeteiligterStandortInput {
+  betArtId: ID
+  subjId: ID!
+  beziehungsart: CodeInputType!
+}
+
+type Betrieb implements BasisBetrieb {
+  intbId: ID!
+  brancheAsw: Code
+  brancheNoga: Code
+  untersuchungsStand: Code
+  beurteilung: Code
+  firmaName: String
+  firmaStrasse: String
+  firmaPlz: String
+  firmaOrt: String
+  groesse: Int
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeit
+  relevant: Boolean
+  mobileStoffe: Boolean
+  erfassungMutation: ErfassungMutation
+  zentroid: GeoJSONPoint
+  bemerkung: Bemerkung
+  begruendungBewertung: Bemerkung
+  bemerkungDatenimport: Bemerkung
+}
+
+input BetriebInput {
+  intbId: ID
+  brancheAsw: CodeInputType
+  brancheNoga: CodeInputType
+  untersuchungsStand: CodeInputType
+  beurteilung: CodeInputType
+  firmaName: String
+  firmaStrasse: String
+  firmaPlz: String
+  firmaOrt: String
+  groesse: Int
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeitInput
+  relevant: Boolean
+  mobileStoffe: Boolean
+  zentroid: GeoJSONPoint
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+  begruendungBewertung: BemerkungInput
+}
+
+type Beurteilung {
+  vflzId: ID!
+  beurteilung: Code
+  rechtlicherBezug: Code
+  handlungsbedarf: Code
+  prioUntersuch: Code
+  prioSanier: Code
+  erfassungMutation: ErfassungMutation!
+  kbsInfo: KbsInfo
+}
+
+input BeurteilungInput {
+  beurteilung: CodeInputType
+  prioUntersuch: CodeInputType
+  prioSanier: CodeInputType
+}
+
+type BeurteilungStatistic {
+  beurteilungGruppe: Code!
+  count: Int!
+}
+
+scalar Code
+
+scalar CodeInputType
+
+type CodeList {
+  cliId: ID!
+  bezeichnung: Translation!
+  readOnly: Boolean!
+  entries: [CodeListEntry!]!
+}
+
+type CodeListEntry {
+  code: Code!
+  isActive: Boolean!
+  sortKey: Int
+  bezeichnung: Translation!
+}
+
+union CodeListEntryProblemGroup = CodeListEntry | ProblemGroup
+
+input CreateAufgabeInput {
+  title: String!
+  startDatum: Date!
+  faelligkeitsDatum: Date!
+  vflzId: ID!
+  notiz: String
+  taskId: ID = null
+}
+
+input CreateCodeListEntryInput {
+  cliId: ID!
+  code: CodeInputType!
+  bezeichnung: TranslationInput!
+  sortKey: Int
+  isActive: Boolean!
+}
+
+input CreateDokumentInput {
+  title: String!
+  startDatum: Date!
+  vflzId: ID!
+  dokument: String!
+  notiz: String!
+  taskId: ID = null
+  kategorie: CodeInputType
+  oeffentlich: Boolean!
+  url: String = null
+}
+
+input CreateNotizInput {
+  title: String!
+  startDatum: Date!
+  vflzId: ID!
+  notiz: String!
+  taskId: ID = null
+  kategorie: CodeInputType
+  oeffentlich: Boolean!
+  url: String = null
+}
+
+input CreatePoolInput {
+  bezeichnung: String!
+  bemerkungen: String
+}
+
+input CreateSavedSearchInput {
+  name: String!
+  query: String!
+  fields: [SearchField!]!
+  sortBy: [SortItemInput!]!
+  isGrouped: Boolean!
+  showOnDashboard: Boolean!
+  isShared: Boolean!
+}
+
+input CreateSubjektInput {
+  anrede: CodeInputType
+  land: CodeInputType
+  name: String
+  vorname: String
+  taetigkeit: String
+  kuerzel: String
+  kategorien: [CodeInputType!]!
+  kontakte: [KontaktInput!]!
+  ort: String
+  postleitzahl: String
+  strasse: String
+  bemerkung: BemerkungInput
+}
+
+input CreateTeilstandortInput {
+  parentGeometry: GeoJSONPointOrMultiPolygon!
+  parentZentroid: GeoJSONPoint
+  geometry: GeoJSONPointOrMultiPolygon!
+  zentroid: GeoJSONPoint
+  parentVflzId: ID!
+  gemeinde: GemeindeInput!
+  combinedId: String!
+  bezeichnung: String!
+  flugplatz: CodeInputType
+  ktu: CodeInputType
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  roleName: RoleName
+  password: String!
+  isSachbearbeitung: Boolean!
+}
+
+input CreateVflzInput {
+  zentroid: GeoJSONPoint
+  geometry: GeoJSONPointOrMultiPolygon!
+  vftyp: CodeInputType!
+  gemeinde: GemeindeInput!
+  combinedId: String!
+  bezeichnung: String!
+  flugplatz: CodeInputType
+  ktu: CodeInputType
+}
+
+type DashboardStatistic {
+  standortTypen: [StandortTypenStatistic!]!
+  beurteilungen: [BeurteilungStatistic!]!
+  geschaefte: [GeschaefteStatistic!]!
+}
+
+"""Date (isoformat)"""
+scalar Date
+
+"""Date with time (isoformat)"""
+scalar DateTime
+
+type Dokument implements Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+  dokument: String
+  url: String
+}
+
+type Eigentum {
+  status: EigentumStatus!
+  subjekt: Subjekt
+  beziehungsart: Code
+  gemeinde: Gemeinde
+  nummerierungsbereich: Nummerierungsbereich
+  parzellen: [String!]!
+  erfassungMutation: ErfassungMutation
+}
+
+input EigentumInput {
+  status: EigentumStatus!
+  subjId: ID
+  beziehungsart: CodeInputType
+  hGemId: ID
+  hNbId: String
+  parzellen: [String!]!
+}
+
+enum EigentumStatus {
+  ZUGEORDNET
+  FEHLEND
+  UEBERZAEHLIG
+}
+
+type Einzelereignis {
+  veenId: ID!
+  einzelereignis: Code
+  datum: Date
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+}
+
+input EinzelereignisInput {
+  veenId: ID
+  einzelereignis: Code
+  datum: Date
+  bemerkung: BemerkungInput
+}
+
+type ErfassungMutation {
+  erfassungsDatum: DateTime
+  erfasser: String
+  mutationsDatum: DateTime
+  mutierer: String
+}
+
+"""Gibt den Status zur Beurteilung und Publikation wieder."""
+type EvaluationStatus {
+  """Standortversion ist belastet."""
+  belastet: Boolean!
+
+  """Rechtskraft wurde oder ist gesetzt."""
+  rechtskraft: Boolean!
+
+  """Standort ist im KbS eingetragen."""
+  vflPublished: Boolean!
+
+  """Standortversion wird publiziert."""
+  publishNow: Boolean!
+
+  """Standort ist aus dem KbS entfernt worden."""
+  vflDeleted: Boolean!
+
+  """Standortversion soll aus dem KbS"""
+  deleteNow: Boolean!
+
+  """Datum der Rechtskraft."""
+  datRechtskraft: Date
+
+  """Publikationsdatum des Standorts"""
+  vflDatPublizieren: Date
+
+  """Frühere Standortversion wurde in KbS eingetragen."""
+  publishedPreviously: Boolean!
+
+  """Frühere Standortversion wurde aus dem KbS gelöscht."""
+  deletedPreviously: Boolean!
+}
+
+union Event = StandortHistorisiert | UntersuchungsStandGesetzt | BearbeitungsstandGesetzt | ProzessGestartet | InKbsEingetragen | AusKbsGeloescht
+
+interface EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+}
+
+union EventTrigger = StandortHistorisieren | UntersuchungsStandSetzen | BearbeitungsstandSetzen | ProzessStarten | Publizieren
+
+input ExportSearchInput {
+  query: String!
+  fields: [SearchField!]!
+  sortBy: [SortItemInput!]!
+  format: SearchExportFormat!
+  lang: Language!
+}
+
+enum FaelligkeitStatus {
+  UEBERFAELLIG
+  FAELLIG_NAECHSTE_WOCHE
+  FAELLIG_SPAETER
+  RUHEND
+}
+
+type FieldInfo {
+  field: SearchField!
+  name: String!
+  type: FieldType!
+}
+
+enum FieldType {
+  TEXT
+  CODE
+  NUMBER
+  DATE
+  BOOL
+  BBOX
+}
+
+type Formular implements Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+  felder: FormularFelder!
+  eingaben: FormularEingaben!
+}
+
+scalar FormularEingaben
+
+scalar FormularFelder
+
+union FormularProblemGroup = Formular | ProblemGroup
+
+type Gemeinde {
+  hGemId: ID!
+  bfsNummer: Int
+  gemeinde: String!
+  kanton: Code
+  displayValue: String!
+}
+
+input GemeindeInput {
+  hGemId: ID!
+}
+
+type GemeindeNummerierungsbereich {
+  gemeinde: Gemeinde
+  nummerierungsbereich: Nummerierungsbereich
+}
+
+scalar GeoJSONFeatureCollection
+
+scalar GeoJSONLineString
+
+scalar GeoJSONMultiPolygon
+
+scalar GeoJSONPoint
+
+scalar GeoJSONPointOrMultiPolygon
+
+type GeoSearchResult {
+  numResultsTotal: Int!
+  zentroid: GeoJSONFeatureCollection!
+  vflgeo: GeoJSONFeatureCollection!
+}
+
+input GeschaefteFilter {
+  status: [TaskStatus!]
+  eigene: Boolean
+  faelligkeit: [FaelligkeitStatus!]
+  teilflaechen: [String!]
+  taskTyp: [TaskType!]
+  titel: String
+}
+
+type GeschaefteStatistic {
+  faelligkeit: FaelligkeitStatus!
+  count: Int!
+}
+
+type GraphSearchResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [Vflz!]!
+}
+
+type Grundwasser {
+  gwasId: ID!
+  relativeLage: Code
+  flurabstand: Float
+  nutzung: Code
+  distanz: Int
+  erfassungMutation: ErfassungMutation!
+}
+
+input GrundwasserInput {
+  gwasId: ID
+  relativeLage: CodeInputType
+  flurabstand: Float
+  nutzung: CodeInputType
+  distanz: Int
+}
+
+input HistorizeVflzInput {
+  vflzId: ID!
+  message: String!
+}
+
+type InKbsEingetragen implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+}
+
+type InstanceSetting {
+  key: String!
+  value: JSON!
+  valueSchema: JSON!
+  category: SettingCategory!
+}
+
+union InstanceSettingProblemGroup = InstanceSetting | ProblemGroup
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](https://ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf).
+"""
+scalar JSON @specifiedBy(url: "https://ecma-international.org/wp-content/uploads/ECMA-404_2nd_edition_december_2017.pdf")
+
+scalar JSONTranslation
+
+type KbsInfo {
+  beurteilung: Code!
+  beurteilungGruppe: Code!
+  color: String!
+  colorRgb: String
+  belastet: Boolean!
+}
+
+type KinderspielplatzGruenflaeche {
+  intkId: ID!
+  kinderspielplatzGruenflacheTyp: Code
+  eigentumsform: Code
+  beurteilung: Code
+  untersuchungsStand: Code
+  name: String
+  strasse: String
+  plz: String
+  ort: String
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeit
+  relevant: Boolean
+  belastungUeberSanierungswert: Boolean
+  zentroid: GeoJSONPoint
+  altersstufenKinder: [Code!]!
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+  bemerkungDatenimport: Bemerkung
+  begruendungBewertung: Bemerkung
+}
+
+input KinderspielplatzGruenflaecheInput {
+  intkId: ID
+  kinderspielplatzGruenflacheTyp: CodeInputType
+  eigentumsform: CodeInputType
+  beurteilung: CodeInputType
+  untersuchungsStand: CodeInputType
+  name: String
+  strasse: String
+  plz: String
+  ort: String
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeitInput
+  relevant: Boolean
+  belastungUeberSanierungswert: Boolean
+  zentroid: GeoJSONPoint
+  altersstufenKinder: [CodeInputType!]!
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+  begruendungBewertung: BemerkungInput
+}
+
+type KompartimentStoffgruppe {
+  kksgId: ID!
+  stoffgruppe: Code
+  teilvol: Float
+  erfassungMutation: ErfassungMutation!
+}
+
+input KompartimentStoffgruppeInput {
+  kksgId: ID
+  stoffgruppe: CodeInputType
+  teilvol: Float
+}
+
+type KompartimentStoffklasse {
+  kkskId: ID!
+  stoffklasse: Code
+  teilvol: Float
+  zeitraum: ZeitraumMitGenauigkeit
+  kompartimentStoffgruppen: [KompartimentStoffgruppe!]!
+  erfassungMutation: ErfassungMutation!
+}
+
+input KompartimentStoffklasseInput {
+  kkskId: ID
+  stoffklasse: CodeInputType
+  teilvol: Float
+  zeitraum: ZeitraumMitGenauigkeitInput
+  kompartimentStoffgruppen: [KompartimentStoffgruppeInput!]!
+}
+
+type Kontakt {
+  kontaktId: ID!
+  kontaktTyp: Code!
+  kontakt: String!
+}
+
+input KontaktInput {
+  kontaktId: ID
+  kontaktTyp: CodeInputType!
+  kontakt: String!
+}
+
+enum Language {
+  DE
+  FR
+  IT
+}
+
+type LoeschschaumEinsatz {
+  intpLoeschschaumEinsatzId: ID!
+  loeschschaumEinsatz: Code!
+  haeufigkeitNutzung: Code
+}
+
+input LoeschschaumEinsatzInput {
+  intpLoeschschaumEinsatzId: ID
+  loeschschaumEinsatz: CodeInputType!
+  haeufigkeitNutzung: CodeInputType
+}
+
+type Massnahme {
+  massId: ID!
+  massnahme: Code
+  datMassnahme: Date
+  angMassnahme: Date
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+}
+
+input MassnahmeInput {
+  massId: ID
+  massnahme: CodeInputType
+  datMassnahme: Date
+  angMassnahme: Date
+  bemerkung: BemerkungInput
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): UserProblemGroup!
+  updateUser(data: UpdateUserInput!): UserProblemGroup!
+  updateCurrentUser(data: UpdateCurrentUserInput!): UserProblemGroup!
+  updateCurrentUserPassword(data: UpdateCurrentUserPasswordInput!): ProblemGroup
+  sendPasswordResetEmail(userId: Int!): User!
+  updateVflzData(data: UpdateVflzDataInput!): VflzProblemGroup!
+  historizeVflz(data: HistorizeVflzInput!): VflzProblemGroup!
+  updateInstanceSetting(data: UpdateInstanceSettingInput!): InstanceSettingProblemGroup!
+  updateUserSetting(data: UpdateUserSettingInput!): UserSetting!
+  createPool(data: CreatePoolInput!): PoolProblemGroup!
+  updatePoolInfo(data: UpdatePoolInfoInput!): PoolProblemGroup!
+  addToPool(vflId: ID!, poolId: ID!): Pool!
+  removeFromPool(vflId: ID!, poolId: ID!): Pool!
+  copyPool(poolId: ID!, bezeichnung: String!): Pool!
+  deletePool(poolId: ID!): ID!
+  updateVflzEvaluation(data: UpdateVflzEvaluationInput!): VflzProblemGroup!
+  updateVflzGeo(data: UpdateVflzGeoInput!): VflzProblemGroup!
+  createVflz(data: CreateVflzInput!): VflzProblemGroup!
+  createTeilstandort(data: CreateTeilstandortInput!): VflzProblemGroup!
+  createSubjekt(data: CreateSubjektInput!): UpdateSubjektResult!
+  updateSubjekt(data: UpdateSubjektInput!): UpdateSubjektResult!
+  deleteSubjekt(subjId: ID!): ID!
+  updateVflzVollzug(data: UpdateVflzVollzugInput!): VflzProblemGroup!
+  updateAufgabe(data: UpdateAufgabeInput!, updateParentTasks: Boolean! = false): AufgabeWorkflowProblemGroup!
+  updateProzess(data: UpdateProzessInput!, updateChildTasks: Boolean! = false): ProzessWorkflowProblemGroup!
+  updateDokument(data: UpdateDokumentInput!): Dokument!
+  updateNotiz(data: UpdateNotizInput!): Notiz!
+  updateFormular(data: UpdateFormularInput!): FormularProblemGroup!
+  startProzess(data: StartProzessInput!): StartProzessResult!
+  startFolgeschritt(data: StartTaskInput!): StartTaskResult!
+  createNotiz(data: CreateNotizInput!): Notiz!
+  createDokument(data: CreateDokumentInput!): Dokument!
+  createAufgabe(data: CreateAufgabeInput!): Aufgabe!
+  deleteTask(taskId: ID!): ID!
+  updateVflzBeteiligte(data: UpdateVflzBeteiligteInput!): VflzProblemGroup!
+  createSavedSearch(data: CreateSavedSearchInput!): SavedSearchProblemGroup!
+  addSearchResultsToPool(data: AddSearchResultsToPoolInput!): Pool!
+  exportSearch(data: ExportSearchInput!): ID!
+  updateSavedSearch(data: UpdateSavedSearchInput!): SavedSearchProblemGroup!
+  deleteSavedSearch(savedSearchId: ID!): ID!
+  createCodeListEntry(data: CreateCodeListEntryInput!): CodeListEntryProblemGroup!
+  updateCodeListEntry(data: UpdateCodeListEntryInput!): CodeListEntryProblemGroup!
+  updateTranslation(data: UpdateTranslationInput!): String!
+  updateCodeList(data: UpdateCodeListInput!): CodeList!
+}
+
+type Notiz implements Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+  url: String
+}
+
+type Nummerierungsbereich {
+  hNbId: String!
+  bezeichnung: String
+  geometry: GeoJSONMultiPolygon
+  erfassungMutation: ErfassungMutation
+}
+
+type NutzungBoden {
+  nuboId: ID!
+  nutzungsart: Code
+  aktuelleNutzung: Code
+  erfassungMutation: ErfassungMutation!
+}
+
+input NutzungBodenInput {
+  nuboId: ID
+  nutzungsart: CodeInputType
+  aktuelleNutzung: CodeInputType
+}
+
+type OberflaechenGewaesser {
+  ogwId: ID!
+  artGewaesser: Code
+  bauGewaesser: Code
+  relativeLage: Code
+  distanz: Int
+  name: String
+  erfassungMutation: ErfassungMutation!
+}
+
+input OberflaechenGewaesserInput {
+  ogwId: ID
+  artGewaesser: CodeInputType
+  bauGewaesser: CodeInputType
+  relativeLage: CodeInputType
+  distanz: Int
+  name: String
+}
+
+type Objekt {
+  objeId: ID!
+  erfassungMutation: ErfassungMutation!
+}
+
+type PFAS {
+  intpId: ID!
+  untersuchungsStand: Code
+  beurteilung: Code
+  branche: Code
+  pfasTyp: Code
+  pfasHaltigeLoeschmittel: [Code!]!
+  pfasFreieLoeschmittel: [Code!]!
+  loeschschaumEinsatz: [LoeschschaumEinsatz!]!
+  name: String
+  strasse: String
+  plz: String
+  ort: String
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeit
+  erfassungMutation: ErfassungMutation!
+  pfasLoeschmittel: Boolean
+  relevant: Boolean
+  mengeSchaumgemisch: Int
+  mengeKonzentrat: Int
+  beschreibungenDetail: String
+  zentroid: GeoJSONPoint
+  bemerkung: Bemerkung
+  bemerkungDatenimport: Bemerkung
+  begruendungBewertung: Bemerkung
+}
+
+input PFASInput {
+  intpId: ID
+  untersuchungsStand: CodeInputType
+  beurteilung: CodeInputType
+  branche: CodeInputType
+  pfasTyp: CodeInputType
+  pfasHaltigeLoeschmittel: [CodeInputType!]!
+  pfasFreieLoeschmittel: [CodeInputType!]!
+  loeschschaumEinsatz: [LoeschschaumEinsatzInput!]!
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+  begruendungBewertung: BemerkungInput
+  name: String
+  strasse: String
+  plz: String
+  ort: String
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeitInput
+  pfasLoeschmittel: Boolean
+  relevant: Boolean
+  mengeSchaumgemisch: Int
+  mengeKonzentrat: Int
+  beschreibungenDetail: String
+  zentroid: GeoJSONPoint
+}
+
+type PaginatedCodeListResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [CodeList!]!
+  page: Int!
+  perPage: Int!
+}
+
+type PaginatedPoolResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [Pool!]!
+  page: Int!
+  perPage: Int!
+}
+
+type PaginatedSubjektResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [Subjekt!]!
+  page: Int!
+  perPage: Int!
+}
+
+type PaginatedTaskResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [Task!]!
+  page: Int!
+  perPage: Int!
+}
+
+type PaginatedVflzResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [Vflz!]!
+  page: Int!
+  perPage: Int!
+}
+
+enum ParamType {
+  INTEGER
+  BOOL
+  TEXT
+  DATE
+}
+
+type Parzelle {
+  grunId: ID!
+  gemeinde: Gemeinde
+  nummerierungsbereich: Nummerierungsbereich
+  status: Code!
+  egrid: String
+  geometry: GeoJSONMultiPolygon
+  erfassungMutation: ErfassungMutation
+  gbNummer: String!
+}
+
+enum Permission {
+  VIEW_VFL
+  EDIT_VFL
+  VIEW_PROCESS
+  EDIT_PROCESS
+  EDIT_USER
+  EDIT_SETTINGS
+}
+
+type Pool {
+  poolId: ID!
+  bezeichnung: String
+  bemerkungen: String
+  erfassungMutation: ErfassungMutation
+  standorte(page: Int! = 1, perPage: Int! = 20): PaginatedVflzResult!
+}
+
+union PoolProblemGroup = Pool | ProblemGroup
+
+type Problem {
+  message: String!
+  problemCode: ProblemCodeEnum!
+  field: String!
+  messageCode: String
+  messageArgs: JSON
+}
+
+enum ProblemCodeEnum {
+  VALIDATION
+  VALIDATION_EMAIL
+  VALIDATION_PHONE
+  VALIDATION_URL
+  VALIDATION_GEOM
+  EXISTS
+  BUSY
+  TASK_DELETE
+}
+
+type ProblemGroup {
+  problems: [Problem!]!
+}
+
+type Prozess implements Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+}
+
+type ProzessGestartet implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+  title: String!
+  taskId: ID!
+}
+
+type ProzessStarten {
+  title: String!
+}
+
+union ProzessWorkflowProblemGroup = Prozess | WorkflowProblemGroup
+
+type Publizieren {
+  value: Void
+}
+
+type Query {
+  currentUser: User!
+  users: [User!]!
+  gemeinden: [Gemeinde!]!
+  latestVflz: [Vflz!]!
+  vflz(vflzId: ID!): Vflz!
+  vflzByVflIds(vflIds: [ID!]!): [Vflz!]!
+  pool(poolId: ID!): Pool!
+  pools(page: Int! = 1, perPage: Int! = 20, filterBezeichnung: String = null): PaginatedPoolResult!
+  codeLists(cliIds: [ID!] = null, filter: String = null, lang: Language! = DE, page: Int! = 1, perPage: Int! = 20): PaginatedCodeListResult!
+  mappingCodelisten: JSON!
+  translations: TranslationTable!
+  queryPermissions: [RequiredPermissions!]!
+  mutationPermissions: [RequiredPermissions!]!
+  instanceSettings: [InstanceSetting!]!
+  search(query: String!, advanced: Boolean! = false, filters: [SearchFilter!] = null, fields: [SearchField!] = null, sortBy: [SortItemInput!] = null, lang: Language! = DE, page: Int! = 1, perPage: Int! = 20): SearchResult!
+  searchFields: [FieldInfo!]!
+  searchFieldNames(lang: Language!): [SearchFieldName!]!
+  subjekt(subjId: ID!): Subjekt!
+  subjekte(page: Int! = 1, perPage: Int! = 20, filter: String = null, isSachbearbeiter: Boolean! = false): PaginatedSubjektResult!
+  kbsInfos: [KbsInfo!]!
+  validateVflzData(vflzId: ID!): ValidatedVflzDataProblemGroup!
+  validateCreateVflz(data: ValidateCreateVflzInput!): ValidatedCreateVflzDataProblemGroup!
+  validateCreateTeilstandort(data: ValidateCreateTeilstandortInput!): ValidatedCreateVflzDataProblemGroup!
+  geoUnion(geoA: GeoJSONMultiPolygon!, geoB: GeoJSONMultiPolygon!): GeoJSONMultiPolygon!
+  geoIntersection(geoA: GeoJSONMultiPolygon!, geoB: GeoJSONMultiPolygon!): GeoJSONMultiPolygon!
+  geoDifference(geoA: GeoJSONMultiPolygon!, geoB: GeoJSONMultiPolygon!): GeoJSONMultiPolygon!
+  geoSplit(geo: GeoJSONMultiPolygon!, blade: GeoJSONLineString!): GeoJSONMultiPolygon!
+  geoMakeValid(geo: GeoJSONMultiPolygon!): GeoJSONMultiPolygon!
+  validateSearchQuery(query: String!): Problem
+  autosuggestSearchQuery(input: String!, pos: Int! = -1, lang: Language! = DE): [AutoSuggestItem!]!
+  reportConfigurations(context: ReportContext!): [ReportConfigurationType!]!
+  geschaefte(filter: GeschaefteFilter = null, page: Int! = 1, perPage: Int! = 20, taskId: ID = null, asTree: Boolean! = true, sortBy: SortTasks! = StartDatum, reverse: Boolean! = false): PaginatedTaskResult!
+  task(taskId: ID!): Task!
+  savedSearches: [SavedSearch!]!
+  searchExports(exportId: ID = null): [SearchExport!]!
+  dashboardStatistic(stichtag: Date!): DashboardStatistic!
+}
+
+type ReportConfigurationType {
+  reportId: ID!
+  params: [ReportParamType!]!
+  title: String!
+}
+
+enum ReportContext {
+  STANDORT
+  DASHBOARD
+}
+
+type ReportParamType {
+  name: String!
+  paramType: ParamType!
+}
+
+type RequiredPermissions {
+  field: String!
+  hasPermission: Boolean!
+  permissions: [Permission!]!
+}
+
+enum RoleName {
+  LESEN_SACHDATEN
+  LESEN_GESCHAEFTE
+  BEARBEITEN_SACHDATEN
+  BEARBEITEN_GESCHAEFTE
+  ADMINISTRATION
+}
+
+type SachbearbeiterStandort {
+  betArtId: ID!
+  beziehungsart: Code!
+  erfassungMutation: ErfassungMutation
+  beteiligter: Beteiligter!
+}
+
+input SachbearbeitungInput {
+  betArtId: ID
+  subjId: ID!
+}
+
+type Sanierungsziel {
+  saniId: ID!
+  sanierungsziel: Code
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+}
+
+input SanierungszielInput {
+  saniId: ID
+  sanierungsziel: CodeInputType
+  bemerkung: BemerkungInput
+}
+
+type SavedSearch {
+  savedSearchId: ID!
+  name: String!
+  fields: [SearchField!]!
+  sortBy: [SortItem!]!
+  isGrouped: Boolean!
+  isShared: Boolean!
+  user: User!
+  showOnDashboard: Boolean!
+  query(lang: Language!): String!
+}
+
+union SavedSearchProblemGroup = SavedSearch | ProblemGroup
+
+type Schiessanlage implements BasisBetrieb {
+  intbId: ID!
+  brancheAsw: Code
+  brancheNoga: Code
+  untersuchungsStand: Code
+  beurteilung: Code
+  firmaName: String
+  firmaStrasse: String
+  firmaPlz: String
+  firmaOrt: String
+  groesse: Int
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeit
+  relevant: Boolean
+  mobileStoffe: Boolean
+  erfassungMutation: ErfassungMutation
+  zentroid: GeoJSONPoint
+  bemerkung: Bemerkung
+  begruendungBewertung: Bemerkung
+  typ: Code
+  schusszahl: Int
+  scheibenzahl: Int
+  hatKugelfang: Boolean
+  bemerkungDatenimport: Bemerkung
+}
+
+input SchiessanlageInput {
+  intbId: ID
+  brancheAsw: CodeInputType
+  brancheNoga: CodeInputType
+  untersuchungsStand: CodeInputType
+  beurteilung: CodeInputType
+  firmaName: String
+  firmaStrasse: String
+  firmaPlz: String
+  firmaOrt: String
+  groesse: Int
+  eva: String
+  zeitraum: ZeitraumMitGenauigkeitInput
+  relevant: Boolean
+  mobileStoffe: Boolean
+  zentroid: GeoJSONPoint
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+  begruendungBewertung: BemerkungInput
+  typ: CodeInputType
+  schusszahl: Int
+  scheibenzahl: Int
+  hatKugelfang: Boolean
+}
+
+type SearchExport {
+  exportId: ID!
+  format: SearchExportFormat!
+  lang: Language!
+  status: SearchExportStatus!
+  startedAt: DateTime!
+  finishedAt: DateTime
+  downloadUrl: String
+}
+
+enum SearchExportFormat {
+  EXCEL
+  GEOPACKAGE
+  SHAPEFILE
+}
+
+enum SearchExportStatus {
+  STARTED
+  RUNNING
+  SUCCESS
+  ERROR
+}
+
+enum SearchField {
+  VFLZ_ID
+  STANDORTNUMMER
+  STANDORTTYP
+  BEZEICHNUNG
+  STRASSE
+  ORT
+  PUBLIZIERT
+  GEMEINDE
+  BFS_NR
+  BEURTEILUNG
+  FIRMA_NAME
+  FIRMA_STRASSE
+  POOL
+  ERFASSUNG
+  ZEITRAUM_VON
+  ZEITRAUM_BIS
+  PLZ
+  FLAECHE
+  FLURNAME
+  X_KOORDINATE
+  Y_KOORDINATE
+  SPRACHE
+  KANTON
+  GRUNDDATEN_BEMERKUNGEN
+  IN_BETRIEB
+  NACHSORGE
+  DEPONIETYP
+  KOMPARTIMENT_VOLUMEN
+  KOMPARTIMENT_TIEFE
+  KOMPARTIMENT_VON
+  KOMPARTIMENT_BIS
+  KOMPARTIMENT_BEMERKUNGEN
+  STOFFKLASSE_STOFFKLASSE
+  STOFFKLASSE_TEILVOLUMEN
+  STOFFKLASSE_VON
+  STOFFKLASSE_BIS
+  STOFFGRUPPE_STOFFGRUPPE
+  STOFFGRUPPE_TEILVOLUMEN
+  EVA_NUMMER
+  BRANCHE
+  FIRMA_PLZ
+  FIRMA_ORT
+  FIRMA_VON
+  FIRMA_BIS
+  BRANCHE_NOGA
+  SCHIESSANLAGE_TYP
+  KUGELFANG_VORHANDEN
+  SCHEIBENZAHL
+  SCHUSSANZAHL
+  BETRIEBSGROESSE
+  FIRMA_KATASTERRELEVANZ
+  MOBILE_STOFFE
+  FIRMA_UNTERSUCHUNGSSTAND
+  FIRMA_BEURTEILUNG
+  FIRMA_BEMERKUNGEN
+  BEGRUENDUNG_BEWERTUNG_BETRIEB
+  FIRMA_X_KOORDINATE
+  FIRMA_Y_KOORDINATE
+  UNFALL_NAME
+  UNFALL_ZEITPUNKT
+  UNFALL_GENAUIGKEIT
+  UNFALLSTOFF_STOFFE
+  UNFALLSTOFF_AUSGELAUFEN
+  UNFALLSTOFF_ZURUECKGEW
+  UNFALLSTOFF_RESTMENGE
+  UNFALL_BEMERKUNG
+  GEWAESSERSCHUTZBEREICH
+  SCHUTZZONE
+  KARSTGEBIET
+  DURCHLAESSIGKEIT
+  UMWELT_BEMERKUNGEN
+  RELATIVE_LAGE_GRUNDWASSER
+  FLURABSTAND
+  NUTZUNG_GW_ABSTROMBEREICH
+  DISTANZ_NUTZUNG_GW_ABSTROMBEREICH
+  NAME_OBERFL_GEWAESSER
+  DISTANZ_OBERFL_GEWAESSER
+  ART_OBERFL_GEWAESSER
+  GEWAESSERBAU
+  RELATIVE_LAGE_OBERFL_GEWAESSER
+  UMWELTSTOFF_GRUPPE
+  SPEZIFISCHER_STOFF
+  UMWELT
+  UMWELTSTOFFE_BEURTEILUNG
+  NUTZUNGSZONE
+  AKTUELLE_NUTZUNG
+  GEFAEHRDETE_UMWELTBEREICHE
+  FESTGESTELLTE_EINWIRKUNGEN
+  UMWELTSCHADEN_BEMERKUNG
+  VORKOMMNIS_DATUM
+  VORKOMMNIS
+  BEMERKUNG_EINZELEREIGNIS
+  BEGRUENDUNG_BEURTEILUNG
+  BEARBEITUNGSSTAND
+  UNTERSUCHUNGSSTAND
+  RECHTSKRAEFTIG
+  DATUM_ERSTEINTRAG
+  DATUM_PUBLIKATION_KBS
+  AKTUELLSTE_PUBLIKATION
+  MASSNAHME
+  MASSNAHME_ANGEORDNET_AM
+  MASSNAHME_ERLEDIGT_AM
+  MASSNAHME_BEMERKUNG
+  BETEILIGTE
+  BEZIEHUNGSART_EIGENTUM
+  BEZIEHUNGSART_SACHBEARBEITUNG
+  BEZIEHUNGSART_SONSTIGE
+  STANDORT_EIGENTUEMER
+  VORNAME
+  NACHNAME
+  TAETIGKEIT
+  PRIO_UNTERSUCHUNGSBEDARF
+  BEGRUENDUNG_PRIO_UNTERSUCHUNGSBEDARF
+  PRIO_SANIERUNGSBEDARF
+  BEGRUENDUNG_PRIO_SANIERUNGSBDEDARF
+  SANIERUNGSZIEL
+  SANIERUNGSZIEL_BEMERKUNGEN
+  KARTENAUSSCHNITT
+  TASK_TITEL
+  TASK_START_DATUM
+  TASK_END_DATUM
+  TASK_FAELLIGKEIT
+  DOKUMENT_REFERENZ
+  NOTIZ
+  TASK_BETEILIGTE
+  TASK_BEZIEHUNGSART_EIGENTUM
+  TASK_BEZIEHUNGSART_SACHBEARBEITUNG
+  TASK_BEZIEHUNGSART_SONSTIGE
+  TASK_BEZIEHUNGSART_GESCHAEFTE
+  TASK_STATUS
+  TASK_TYP
+  TASK_KATEGORIE
+  BEMERKUNG_ADRESSE
+  KINDERSPIELPLATZ_NAME
+  KINDERSPIELPLATZ_STRASSE
+  KINDERSPIELPLATZ_PLZ
+  KINDERSPIELPLATZ_ORT
+  KINDERSPIELPLATZ_EVA
+  KINDERSPIELPLATZ_BEMERKUNG
+  KINDERSPIELPLATZ_KATASTERRELEVANZ
+  KINDERSPIELPLATZ_UNTERSUCHUNGSSTAND
+  KINDERSPIELPLATZ_BEURTEILUNG
+  EIGENTUMSFORM
+  BELASTUNG_UEBER_SANIERUNGSWERT
+  KINDERSPIELPLATZ_TYP
+  ALTERSSTUFE_KINDER
+  KINDERSPIELPLATZ_ZEITRAUM_VON
+  KINDERSPIELPLATZ_ZEITRAUM_BIS
+  KINDERSPIELPLATZ_X_KOORDINATE
+  KINDERSPIELPLATZ_Y_KOORDINATE
+  VOLLZUG
+  BEHOERDE
+  ALTERNATIVE_STANDORTNUMMER
+  PARZELLE
+  NB_IDENT
+  PFAS_NAME
+  BEMERKUNG_PFAS
+  PFAS_UNTERSUCHUNGSSTAND
+  PFAS_BEURTEILUNG
+  PFAS_BRANCHE
+  PFAS_TYP
+  BEGRUENDUNG_BEWERTUNG_PFAS
+  PFAS_HALTIGE_LOESCHMITTEL
+  PFAS_FREIE_LOESCHMITTEL
+  PFAS_LOESCHSCHAUM_EINSATZ
+  PFAS_HAEUFIGKEIT_NUTZUNG
+  PFAS_STRASSE
+  PFAS_PLZ
+  PFAS_ORT
+  PFAS_EVA_NUMMER
+  PFAS_ZEITRAUM_VON
+  PFAS_ZEITRAUM_BIS
+  PFAS_LOESCHMITTEL
+  PFAS_KATASTERRELEVANZ
+  PFAS_MENGE_SCHAUMGEMISCH
+  PFAS_MENGE_KONZENTRAT
+  PFAS_BESCHREIBUNGEN_DETAIL
+  PFAS_X_KOORDINATE
+  PFAS_Y_KOORDINATE
+  FLUGPLATZ_BEZEICHNUNG
+  KTU
+  GRUNDBUCH_BEZEICHNUNG
+}
+
+enum SearchFieldCategory {
+  STANDORT
+  GRUNDDATEN
+  ABLAGERUNGEN
+  BETRIEBE
+  UNFAELLE
+  NATUERLICHES_UMFELD
+  GRUNDWASSER
+  OBERFLAECHENGEWAESSER
+  UMWELTSTOFFE
+  NUTZUNGEN_GELAENDE
+  UMWELTEINWIRKUNGEN
+  VORKOMMNISSE
+  BEURTEILUNG
+  PRIORISIERUNG
+  ZIELE
+  MASSNAHMEN
+  BETEILIGTE
+  LOKALISIERUNG
+  VOLLZUG
+  GESCHAEFT
+  KINDERSPIELPLATZ
+  PFAS
+}
+
+type SearchFieldName {
+  field: SearchField!
+  category: SearchFieldCategory!
+  name: String!
+}
+
+input SearchFilter {
+  field: SearchField!
+  value: JSON!
+}
+
+type SearchResult {
+  page: Int!
+  perPage: Int!
+  directMatch: Boolean!
+  tabular: TabularSearchResult!
+  graph: GraphSearchResult!
+  geo(extent: [Float!]): GeoSearchResult!
+}
+
+enum SettingCategory {
+  GENERAL
+  ADMIN
+  USER_INITIAL
+}
+
+type SortItem {
+  field: SearchField!
+  reverse: Boolean!
+}
+
+input SortItemInput {
+  field: SearchField!
+  reverse: Boolean! = false
+}
+
+enum SortTasks {
+  StartDatum
+  Faelligkeit
+}
+
+type StandortHistorisieren {
+  value: Void
+}
+
+type StandortHistorisiert implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+  newVflzId: ID!
+}
+
+enum StandortTyp {
+  ABLAGERUNG
+  BETRIEB
+  UNFALL
+  SCHIESSANLAGE
+  KINDERSPIELPLATZ_GRUENFLAECHE
+  PFAS
+}
+
+type StandortTypenStatistic {
+  typ: StandortTyp!
+  count: Int!
+}
+
+input StartProzessInput {
+  vflzId: ID!
+  optionId: ID!
+}
+
+type StartProzessResult {
+  prozess: Prozess!
+}
+
+input StartTaskInput {
+  taskId: ID!
+  optionId: ID!
+}
+
+type StartTaskResult {
+  task: Task!
+}
+
+type StatusPublikation {
+  datPublizieren: Date
+  belastet: Boolean
+}
+
+type Subjekt {
+  subjId: ID!
+  anrede: Code
+  land: Code
+  name: String!
+  vorname: String!
+  taetigkeit: String!
+  kuerzel: String
+  identNr: String
+  ort: String!
+  postleitzahl: String!
+  strasse: String!
+  kategorien: [Code!]!
+  erfassungMutation: ErfassungMutation
+  kontakte: [Kontakt!]!
+  bemerkung: Bemerkung
+  user: User
+  hasStandorte: Boolean!
+}
+
+type TabularSearchResult {
+  numPages: Int!
+  numResultsTotal: Int!
+  results: [JSON!]!
+}
+
+interface Task {
+  taskId: ID!
+  parentId: ID
+  title: String!
+  type: TaskType!
+  status: TaskStatus!
+  startDatum: Date!
+  endDatum: Date
+  faelligkeitsDatum: Date
+  faelligkeitsStatus: FaelligkeitStatus!
+  notiz: String
+  readOnly: Boolean!
+  deletable: Boolean!
+  kategorie: Code
+  oeffentlich: Boolean!
+  triggers: [EventTrigger!]!
+  events: [Event!]!
+  vflz: Vflz!
+  sachbearbeitung: [BeteiligterGeschaeft!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeft!]!
+  folgeschritte: [TaskOption!]!
+}
+
+type TaskOption {
+  optionId: ID!
+  title: String!
+  type: TaskType!
+}
+
+enum TaskStatus {
+  OFFEN
+  ABGESCHLOSSEN
+  UEBERSPRUNGEN
+  RUHEND
+}
+
+enum TaskType {
+  PROZESS
+  AUFGABE
+  FORMULAR
+  DOKUMENT
+  NOTIZ
+}
+
+type Translation {
+  de: String
+  fr: String
+  it: String
+}
+
+input TranslationInput {
+  de: String!
+  fr: String!
+  it: String!
+}
+
+type TranslationTable {
+  de: JSONTranslation!
+  fr: JSONTranslation!
+  it: JSONTranslation!
+}
+
+type UmweltStoff {
+  stoffeId: ID!
+  gefaehrdeteBereiche: Code
+  stoffGruppe: Code
+  stoff: Code
+  beurteilung: Code
+  erfassungMutation: ErfassungMutation!
+}
+
+input UmweltStoffInput {
+  stoffeId: ID
+  gefaehrdeteBereiche: CodeInputType
+  stoffGruppe: CodeInputType
+  stoff: CodeInputType
+  beurteilung: CodeInputType
+}
+
+type Umweltschaden {
+  vfusId: ID!
+  artSchaden: Code
+  schaeden: Code
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+}
+
+input UmweltschadenInput {
+  vfusId: ID
+  artSchaden: Code
+  schaeden: Code
+  bemerkung: BemerkungInput
+}
+
+type Unfall {
+  intuId: ID!
+  genauigkeitZeitpunkt: Code
+  name: String
+  zeitpunkt: Date
+  zeitpunktjahr: Boolean!
+  unfallstoffe: [Unfallstoff!]!
+  erfassungMutation: ErfassungMutation!
+  bemerkung: Bemerkung
+  bemerkungDatenimport: Bemerkung
+}
+
+input UnfallInput {
+  intuId: ID
+  genauigkeitZeitpunkt: CodeInputType
+  name: String
+  zeitpunkt: Date
+  zeitpunktjahr: Boolean
+  unfallstoffe: [UnfallstoffInput!]!
+  bemerkung: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+}
+
+type Unfallstoff {
+  inumId: ID!
+  stoff: Code
+  stoffmng: Float
+  ausgelaufen: Float
+  zurueckgewonnen: Float
+  erfassungMutation: ErfassungMutation!
+}
+
+input UnfallstoffInput {
+  inumId: ID
+  stoff: CodeInputType
+  stoffmng: Float
+  ausgelaufen: Float
+  zurueckgewonnen: Float
+}
+
+type UntersuchungsStandGesetzt implements EventInterface {
+  timestamp: DateTime!
+  vflzId: ID!
+  code: Code!
+}
+
+type UntersuchungsStandSetzen {
+  code: Code!
+}
+
+input UpdateAufgabeInput {
+  taskId: ID!
+  title: String!
+  startDatum: Date!
+  faelligkeitsDatum: Date
+  endDatum: Date
+  status: TaskStatus!
+  notiz: String
+  sachbearbeitung: [BeteiligterGeschaeftInput!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeftInput!]!
+}
+
+input UpdateCodeListEntryInput {
+  code: CodeInputType!
+  bezeichnung: TranslationInput!
+  sortKey: Int
+  isActive: Boolean!
+}
+
+input UpdateCodeListInput {
+  cliId: ID!
+  bezeichnung: TranslationInput!
+}
+
+input UpdateCurrentUserInput {
+  firstName: String!
+  lastName: String!
+}
+
+input UpdateCurrentUserPasswordInput {
+  password: String!
+}
+
+input UpdateDokumentInput {
+  taskId: ID!
+  title: String!
+  dokument: String
+  startDatum: Date!
+  notiz: String
+  sachbearbeitung: [BeteiligterGeschaeftInput!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeftInput!]!
+  kategorie: CodeInputType
+  oeffentlich: Boolean!
+  url: String = null
+}
+
+input UpdateFormularInput {
+  taskId: ID!
+  title: String!
+  startDatum: Date!
+  notiz: String
+  eingaben: FormularEingaben
+  sachbearbeitung: [BeteiligterGeschaeftInput!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeftInput!]!
+}
+
+input UpdateInstanceSettingInput {
+  key: String!
+  value: JSON!
+  category: SettingCategory!
+}
+
+input UpdateNotizInput {
+  taskId: ID!
+  title: String!
+  startDatum: Date!
+  notiz: String
+  sachbearbeitung: [BeteiligterGeschaeftInput!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeftInput!]!
+  kategorie: CodeInputType
+  oeffentlich: Boolean!
+  url: String = null
+}
+
+input UpdatePoolInfoInput {
+  poolId: ID!
+  bezeichnung: String!
+  bemerkungen: String
+}
+
+input UpdateProzessInput {
+  taskId: ID!
+  title: String!
+  startDatum: Date!
+  faelligkeitsDatum: Date
+  endDatum: Date
+  status: TaskStatus!
+  notiz: String
+  sachbearbeitung: [BeteiligterGeschaeftInput!]!
+  sonstigeBeteiligte: [BeteiligterGeschaeftInput!]!
+}
+
+input UpdateSavedSearchInput {
+  savedSearchId: ID!
+  name: String!
+  isShared: Boolean!
+  showOnDashboard: Boolean!
+}
+
+input UpdateSubjektInput {
+  subjId: ID!
+  anrede: CodeInputType
+  land: CodeInputType
+  name: String
+  vorname: String
+  taetigkeit: String
+  kuerzel: String
+  kategorien: [CodeInputType!]!
+  kontakte: [KontaktInput!]!
+  ort: String
+  postleitzahl: String
+  strasse: String
+  bemerkung: BemerkungInput
+}
+
+type UpdateSubjektResult {
+  subjekt: Subjekt!
+  problemGroup: ProblemGroup!
+}
+
+input UpdateTranslationInput {
+  key: String!
+  translation: TranslationInput!
+}
+
+input UpdateUserInput {
+  id: ID!
+  roleName: RoleName
+  email: String!
+  firstName: String!
+  lastName: String!
+  isSachbearbeitung: Boolean!
+}
+
+input UpdateUserSettingInput {
+  key: String!
+  value: JSON!
+}
+
+input UpdateVflzBeteiligteInput {
+  vflzId: ID!
+  sachbearbeitung: [SachbearbeitungInput!]!
+  sonstigeBeteiligte: [BeteiligterStandortInput!]!
+  eigentum: [EigentumInput!]!
+}
+
+input UpdateVflzDataInput {
+  vflzId: ID!
+  bezeichnung: String
+  flurname: String
+  strasse: String
+  postleitzahl: String
+  ort: String
+  lang: Language
+  deponietyp: CodeInputType
+  gwsBereich: CodeInputType
+  gwsZone: CodeInputType
+  durchlaessigkeit: CodeInputType
+  karstgeb: CodeInputType
+  ktu: CodeInputType
+  inBetrieb: Boolean
+  nachsorge: Boolean
+  ablagerungen: [AblagerungInput!]!
+  betriebe: [BetriebInput!]!
+  schiessanlagen: [SchiessanlageInput!]!
+  unfaelle: [UnfallInput!]!
+  pfas: [PFASInput!]!
+  kinderspielplaetzeGruenflaechen: [KinderspielplatzGruenflaecheInput!]!
+  grundwasser: [GrundwasserInput!]!
+  oberflaechenGewaesser: [OberflaechenGewaesserInput!]!
+  nutzungenBoden: [NutzungBodenInput!]!
+  umweltStoffe: [UmweltStoffInput!]!
+  einzelereignisse: [EinzelereignisInput!]!
+  umweltschaeden: [UmweltschadenInput!]!
+  gemeinde: GemeindeInput
+  flugplatz: CodeInputType
+  bemerkungStandort: BemerkungInput
+  bemerkungUmwelt: BemerkungInput
+  bemerkungDatenimport: BemerkungInput
+}
+
+input UpdateVflzEvaluationInput {
+  vflzId: ID!
+  beurteilung: BeurteilungInput
+  massnahmen: [MassnahmeInput!]!
+  sanierungsziele: [SanierungszielInput!]!
+  datRechtskraft: Date
+  datPublizieren: Date
+  rechtskraft: Boolean!
+  publizieren: Boolean!
+  begruendungBewertung: BemerkungInput
+  begruendungPrioUntersuchungsbedarf: BemerkungInput
+  begruendungPrioSanierungsbedarf: BemerkungInput
+  bearbeitungsStand: CodeInputType
+  untersuchungsStand: CodeInputType
+}
+
+input UpdateVflzGeoInput {
+  vflzId: ID!
+  zentroid: GeoJSONPoint
+  geometry: GeoJSONPointOrMultiPolygon!
+}
+
+input UpdateVflzVollzugInput {
+  vflzId: ID!
+  vollzug: [VollzugInput!]!
+}
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  roleName: RoleName
+  permissions: [Permission!]!
+  firstName: String!
+  lastName: String!
+  isSachbearbeitung: Boolean!
+  subjekt: Subjekt
+  settings: [UserSetting!]!
+}
+
+union UserProblemGroup = User | ProblemGroup
+
+type UserSetting {
+  key: String!
+  value: JSON!
+}
+
+input ValidateCreateTeilstandortInput {
+  geometry: GeoJSONPointOrMultiPolygon!
+  parentCombinedId: String!
+  combinedId: String
+  gemeinde: GemeindeInput
+}
+
+input ValidateCreateVflzInput {
+  geometry: GeoJSONPointOrMultiPolygon!
+  vftyp: CodeInputType
+  gemeinde: GemeindeInput
+  combinedId: String
+  flugplatz: CodeInputType
+  ktu: CodeInputType
+}
+
+type ValidatedCreateVflzData {
+  combinedId: [String!]!
+  gemeinde: [Gemeinde!]!
+  flugplatz: [Code!]!
+}
+
+union ValidatedCreateVflzDataProblemGroup = ValidatedCreateVflzData | ProblemGroup
+
+type ValidatedParzelle {
+  gemeinde: Gemeinde
+  nummerierungsbereich: String
+  egrid: String
+  gbNummer: String!
+}
+
+type ValidatedVflzData {
+  ort: [String!]!
+  postleitzahl: [String!]!
+  gemeinde: [Gemeinde!]!
+  parzelle: [ValidatedParzelle!]!
+  gwsBereich: [Code!]!
+  gwsZone: [Code!]!
+  flugplatz: [Code!]!
+}
+
+union ValidatedVflzDataProblemGroup = ValidatedVflzData | ProblemGroup
+
+type VflGeo {
+  geometry: GeoJSONPointOrMultiPolygon
+  erfassungMutation: ErfassungMutation
+}
+
+type Vflz {
+  vflzId: ID!
+  vflId: ID!
+  combinedId: String!
+  vftyp: Code!
+  vftypEnum: StandortTyp!
+  objekt: Objekt!
+  bezeichnung: String
+  flurname: String
+  strasse: String
+  postleitzahl: String
+  ort: String
+  zentroid: GeoJSONPoint
+  datRechtskraft: Date
+  datPublizieren: Date
+  rechtskraft: Boolean
+  publizieren: Boolean
+  bearbeitungsStand: String
+  untersuchungsStand: String
+  lang: Language!
+  statusPublikation: StatusPublikation
+  deponietyp: Code
+  gwsBereich: Code
+  gwsZone: Code
+  durchlaessigkeit: Code
+  karstgeb: Code
+  ktu: Code
+  flugplatz: Code
+  erfassungMutation: ErfassungMutation!
+  vflzCreatedDate: DateTime
+  inBetrieb: Boolean
+  nachsorge: Boolean
+  isCurrent: Boolean!
+  message: String!
+  latestVflzId: ID!
+  parzellen: [Parzelle!]!
+  zeitraum: Zeitraum
+  gemeinde: Gemeinde
+  ablagerungen: [Ablagerung!]!
+  betriebe: [Betrieb!]!
+  schiessanlagen: [Schiessanlage!]!
+  unfaelle: [Unfall!]!
+  pfas: [PFAS!]!
+  kinderspielplaetzeGruenflaechen: [KinderspielplatzGruenflaeche!]!
+  grundwasser: [Grundwasser!]!
+  oberflaechenGewaesser: [OberflaechenGewaesser!]!
+  nutzungenBoden: [NutzungBoden!]!
+  umweltStoffe: [UmweltStoff!]!
+  umweltschaeden: [Umweltschaden!]!
+  einzelereignisse: [Einzelereignis!]!
+  beurteilung: Beurteilung
+  massnahmen: [Massnahme!]!
+  sanierungsziele: [Sanierungsziel!]!
+  bemerkungStandort: Bemerkung
+  bemerkungUmwelt: Bemerkung
+  bemerkungDatenimport: Bemerkung
+  bemerkungenIntern: [Bemerkung!]!
+  begruendungBewertung: Bemerkung
+  begruendungPrioUntersuchungsbedarf: Bemerkung
+  begruendungPrioSanierungsbedarf: Bemerkung
+  versionen: [Vflz!]!
+  teilstandorte: [Vflz!]!
+  vflgeo: VflGeo
+  pools: [Pool!]!
+  beteiligte: [Beteiligter!]!
+  sachbearbeitung: [SachbearbeiterStandort!]!
+  eigentum: [Eigentum!]!
+  sonstigeBeteiligte: [BeteiligterStandort!]!
+  beteiligteStandort: [BeteiligterStandort!]!
+  beteiligteParzellen: [BeteiligterStandort!]!
+  gemeindenUndNummerierungsbereiche: [GemeindeNummerierungsbereich!]!
+  flaeche: Int
+  vollzug: [Vollzug!]!
+  readOnly: Boolean!
+  geschaefte(filter: GeschaefteFilter = null, page: Int! = 1, perPage: Int! = 20, taskId: ID = null, asTree: Boolean! = true, sortBy: SortTasks! = StartDatum, reverse: Boolean! = false): PaginatedTaskResult!
+  evaluationStatus: EvaluationStatus!
+  prozesse: [TaskOption!]!
+}
+
+union VflzProblemGroup = Vflz | ProblemGroup
+
+"""Represents NULL values"""
+scalar Void
+
+type Vollzug {
+  vflnrId: ID!
+  aktiv: Boolean!
+  combinedId: String!
+  behoerde: Code!
+  erfassungMutation: ErfassungMutation
+  isDeleteable: Boolean!
+}
+
+input VollzugInput {
+  vflnrId: ID
+  aktiv: Boolean!
+  combinedId: String!
+  behoerde: CodeInputType!
+}
+
+type WorkflowProblemGroup {
+  problems: [Problem!]!
+  faelligkeitsDatumProblemTasks: [Task!]!
+  statusProblemTasks: [Task!]!
+  openEventsProblemTasks: [Task!]!
+}
+
+type Zeitraum implements BasisZeitraum {
+  von: Date
+  bis: Date
+  vonjahr: Boolean!
+  bisjahr: Boolean!
+  bisheute: Boolean!
+}
+
+input ZeitraumInput {
+  von: Date
+  bis: Date
+  vonjahr: Boolean
+  bisjahr: Boolean
+  bisheute: Boolean
+}
+
+type ZeitraumMitGenauigkeit implements BasisZeitraum {
+  von: Date
+  bis: Date
+  vonjahr: Boolean!
+  bisjahr: Boolean!
+  bisheute: Boolean!
+  genauigkeitVon: Code
+  genauigkeitBis: Code
+}
+
+input ZeitraumMitGenauigkeitInput {
+  von: Date
+  bis: Date
+  vonjahr: Boolean
+  bisjahr: Boolean
+  bisheute: Boolean
+  genauigkeitVon: CodeInputType
+  genauigkeitBis: CodeInputType
+}

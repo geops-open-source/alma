@@ -1,0 +1,54 @@
+{
+  "data": {
+    "kbsInfos": [
+      {
+        "beurteilung": "code:103:01",
+        "color": "#00FF00"
+      },
+      {
+        "beurteilung": "code:103:02",
+        "color": "#ffc000"
+      },
+      {
+        "beurteilung": "code:103:BAV70",
+        "color": "#FFFF00"
+      },
+      {
+        "beurteilung": "code:103:BAV91",
+        "color": "#7030a0"
+      },
+      {
+        "beurteilung": "code:103:00",
+        "color": "#aff0f0"
+      },
+      {
+        "beurteilung": "code:103:03",
+        "color": "#0066ff"
+      },
+      {
+        "beurteilung": "code:103:BAV60",
+        "color": "#5f5f5f"
+      },
+      {
+        "beurteilung": "code:103:BAV81",
+        "color": "#ff0000"
+      },
+      {
+        "beurteilung": "code:103:BAV92",
+        "color": "#00ffff"
+      },
+      {
+        "beurteilung": "code:103:BAV93",
+        "color": "#e020c5"
+      },
+      {
+        "beurteilung": "code:103:BAV94",
+        "color": "#e020c5"
+      },
+      {
+        "beurteilung": "code:103:BAV71",
+        "color": "#ff6600"
+      }
+    ]
+  }
+}
