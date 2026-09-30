@@ -1,3 +1,7 @@
+## Release 1.6.1
+
+- Update license and documentation.
+
 ## Release 1.6.0
 
 - Open Source publication alma on github.

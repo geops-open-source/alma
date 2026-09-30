@@ -1,11 +1,7 @@
-# alma
+# <img src="alma-logo.png" width=50> alma
 
-**alma** is a web application to manage the Swiss *Kataster der belasteten Standorte*
-(register of polluted sites / contaminated sites cadastre). It supports cantonal
-authorities in documenting suspected areas (VFLZ) and polluted sites, running the
-investigation and remediation workflows required by the Swiss *Altlasten-Verordnung*
-(AltlV), and producing cadastre extracts and reports.
-
+**alma** is a web application to manage the register of contaminated sites. It supports authorities in documenting suspected sites (VFLZ) and polluted sites, running the
+investigation and remediation workflows required by the Swiss *Contaminated Sites Ordinance (CSO)*, and producing register extracts and reports.
 
 ## Requirements
 
@@ -121,3 +117,4 @@ After setting up the external identity provider, you can disable the local login
   - backend tests pass (`pytest` in `backend/`)
   - the frontend builds and the Cypress tests pass (`make cypress-tests` in `frontend/`)
 - **Get in Touch**: feel free to get in touch by contacting info@geops.com
+- **Product Homepage**: feel free to read our official product homepage on https://alma-os.ch
