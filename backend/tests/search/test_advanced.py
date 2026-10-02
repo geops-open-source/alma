@@ -1684,6 +1684,27 @@ def test_search_for_tasks(session: Session, test_user):
     ]
 
 
+def test_search_for_task_titel_matches_translation(session: Session, test_user):
+    """
+    Task titles coming from workflow templates are stored on `wf_node.title`
+    as a translation key (msgid) referencing the `translations` table,
+    instead of literal text. Both the `~` and `=` operators must also match
+    against the translated text, not just the literal column value.
+    """
+    vflz = make_vflz(session, "Standort A", vfl_id=1)
+    make_document_node(session, vflz, "task:oreb:title")
+    make_translation(session, Language.DE, "task:oreb:title", "ÖREB Auszug")
+
+    assert advanced_search(session, test_user, 'Task-Titel ~ "ÖREB"') == [vflz.vflz_id]
+    assert advanced_search(session, test_user, 'Task-Titel = "ÖREB Auszug"') == [
+        vflz.vflz_id
+    ]
+    # Literal (untranslated) column values still match as before.
+    assert advanced_search(session, test_user, 'Task-Titel ~ "task:oreb"') == [
+        vflz.vflz_id
+    ]
+
+
 def test_search_for_tasks_searches_accross_vfl_versions(session: Session, test_user):
     vflz1 = make_vflz(session, "Standort A", vfl_id=1)
     vflz_id1 = vflz1.vflz_id

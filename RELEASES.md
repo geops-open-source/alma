@@ -1,3 +1,11 @@
+## Release 1.6.3
+
+- Update documentation
+
+## Release 1.6.2
+
+- Change db permissions
+
 ## Release 1.6.1
 
 - Update license and documentation.

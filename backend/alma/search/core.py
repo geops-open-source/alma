@@ -2641,6 +2641,17 @@ CODE_TRANSLATION_ALIASES: dict[
     ),
 }
 
+#
+# List of TEXT fields whose underlying column may contain a translation key
+# (msgid) instead of literal text, e.g. task titles generated from workflow
+# templates. When filtering these fields, we
+# additionally need to match against any translation of the key, since the
+# literal column value is not necessarily human-readable text.
+#
+TEXT_TRANSLATION_KEY_COLUMNS: dict[SearchField, SQLColumnExpression[Any]] = {
+    SearchField.TASK_TITEL: Node.title,
+}
+
 
 FTS_FIELDS = [
     Vflz.bezeichnung,

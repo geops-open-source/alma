@@ -30,6 +30,7 @@ services:
       FLYWAY_PLACEHOLDERS_POSTGRES_ANON_PASSWORD: dump_anon
       FLYWAY_PLACEHOLDERS_SKIPPERMISSIONGRANTS: "false"
       FLYWAY_PLACEHOLDERS_SKIPANONYMIZE: "false"
+      FLYWAY_PLACEHOLDERS_GRANTGEOPORTALROPERMISSIONS: "false"
     # To actually run migrations, specify 'migrate' on the command line
     command: info
     volumes:

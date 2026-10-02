@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 from sqlalchemy.orm import Session
-from utils import make_code, make_gemeinde, make_kbsinfo, make_vflz
+from utils import make_code, make_gemeinde, make_kbsinfo, make_note_node, make_vflz
 
 from alma import constants
 from alma.constants import Language
@@ -88,6 +88,42 @@ def test_no_direct_match_if_search_string_matches_more_than_one_standortnummer(
         {vflz2.vflz_id},
         True,
     )
+
+
+def test_filter_by_task_titel_matches_translation(session: Session, test_user):
+    """
+    Task titles coming from workflow templates are stored on `wf_node.title`
+    as a translation key (msgid) referencing the `translations` table,
+    instead of literal text. Filtering by TASK_TITEL must also match against
+    the translated text, not just the literal column value.
+    """
+    vflz = make_vflz(session, "Standort A", vfl_id=1)
+    make_note_node(session, vflz, "task:oreb:title")
+
+    other_vflz = make_vflz(session, "Standort B", vfl_id=2, combined_id="B-1")
+    make_note_node(session, other_vflz, "Ganz anderer Titel")
+
+    session.add(
+        Translation(key="task:oreb:title", value="ÖREB Auszug", locale=Language.DE)
+    )
+    session.commit()
+
+    vflz_ids, _ = get_search_results(
+        session,
+        test_user,
+        search="",
+        filters=[(SearchField.TASK_TITEL, "ÖREB")],
+    )
+    assert vflz_ids == {vflz.vflz_id}
+
+    # Filtering by the literal (untranslated) column value still works.
+    vflz_ids, _ = get_search_results(
+        session,
+        test_user,
+        search="",
+        filters=[(SearchField.TASK_TITEL, "anderer Titel")],
+    )
+    assert vflz_ids == {other_vflz.vflz_id}
 
 
 def test_simple_query_filter_by_bewertung_multiple(session: Session, test_user):

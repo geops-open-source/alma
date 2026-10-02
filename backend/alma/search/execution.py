@@ -27,6 +27,7 @@ from sqlalchemy.orm import Session, aliased
 from alma.constants import LV_95_SRID, Language
 from alma.models import codes
 from alma.models.auth import Permission, User
+from alma.models.translations import Translation
 from alma.models.vflz import (
     Beurteilung,
     EvaluationStatusData,
@@ -43,6 +44,7 @@ from .core import (
     FTS_JOIN_FIELDS,
     JOIN_PATH,
     JOINS,
+    TEXT_TRANSLATION_KEY_COLUMNS,
     FieldCategory,
     FieldType,
     JoinType,
@@ -56,6 +58,28 @@ class ResultPage:
     results: list[tuple[Any, ...]]
     num_pages: int
     num_results_total: int
+
+
+def _translation_match_clause(
+    key_column: SQLColumnExpression[Any], patterns: Sequence[str]
+) -> SQLColumnExpression[bool]:
+    """
+    Build an EXISTS clause that matches when `key_column` (e.g. `Node.title`)
+    is a translation key (msgid) for which at least one translation matches
+    any of `patterns` (SQL `ILIKE` patterns, e.g. `"%search%"`).
+
+    We use a correlated `EXISTS` subquery instead of joining the
+    `translations` table directly, since a plain join would multiply result
+    rows (there is one translation row per locale for each key).
+    """
+    return (
+        select(Translation.key)
+        .where(
+            Translation.key == key_column,
+            or_(Translation.value.op("ILIKE")(any_(array[str](patterns)))),
+        )
+        .exists()
+    )
 
 
 def _evaluate_advanced_query(stack: ParsedQuery) -> SQLColumnExpression[Any]:
@@ -79,10 +103,19 @@ def _evaluate_advanced_query(stack: ParsedQuery) -> SQLColumnExpression[Any]:
             # Allow comparison between text columns an integer values (e.g. PLZ)
             if field.type == FieldType.NUMBER:
                 value = str(value)
+            translation_key_column = TEXT_TRANSLATION_KEY_COLUMNS.get(field_name)
             match operator:
                 case "=":
                     if field.type == FieldType.TEXT:
-                        return func.lower(field.expr) == func.lower(value)
+                        clause = func.lower(field.expr) == func.lower(value)
+                        if translation_key_column is not None:
+                            clause = or_(
+                                clause,
+                                _translation_match_clause(
+                                    translation_key_column, [str(value)]
+                                ),
+                            )
+                        return clause
                     elif field.type == FieldType.BBOX:
                         assert isinstance(value, list)
                         xmin, ymin, xmax, ymax = value
@@ -102,7 +135,15 @@ def _evaluate_advanced_query(stack: ParsedQuery) -> SQLColumnExpression[Any]:
                 case ">=":
                     return field.expr >= value
                 case "~":
-                    return field.expr.icontains(value)
+                    clause = field.expr.icontains(value)
+                    if translation_key_column is not None:
+                        clause = or_(
+                            clause,
+                            _translation_match_clause(
+                                translation_key_column, [f"%{value}%"]
+                            ),
+                        )
+                    return clause
                 case _:
                     raise ValueError(f"Invalid operator: {operator!r}")
         case _:
@@ -191,11 +232,18 @@ def filter_vflz_ids(
                 # Replace ILIKE search with FTS later.
                 if isinstance(value, list):
                     patterns = [f"%{v}%" for v in typing.cast(list[Any], value)]
-                    query = query.where(
-                        field.expr.op("ILIKE")(any_(array[str](patterns)))
-                    )
+                    text_clause = field.expr.op("ILIKE")(any_(array[str](patterns)))
                 else:
-                    query = query.where(field.expr.icontains(value))
+                    patterns = [f"%{value}%"]
+                    text_clause = field.expr.icontains(value)
+                if translation_key_column := TEXT_TRANSLATION_KEY_COLUMNS.get(
+                    field_name
+                ):
+                    text_clause = or_(
+                        text_clause,
+                        _translation_match_clause(translation_key_column, patterns),
+                    )
+                query = query.where(text_clause)
             case _:
                 if isinstance(value, list):
                     query = query.where(field.expr.in_(typing.cast(list[Any], value)))

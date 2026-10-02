@@ -1509,12 +1509,18 @@ create view alma_export.tg_kbs_intern as
         end as parzellen,
         null::text as egrid,
         staotyp_mapping.code_long as standorttyp,
-        v.in_betrieb as inbetrieb,
+        case 
+	        when v.in_betrieb = true then true 
+        	else false
+        end as inbetrieb,
         case
             when v.in_betrieb then v.c_vflz_deponietyp
             else null::text
         end as deponietyp,
-        v.nachsorge,
+        case 
+	        when v.nachsorge = true then true 
+        	else false
+        end as nachsorge,
         case
             when untmass_aktuellste.untmass is not null then untmass_aktuellste.untmass
             else 'untmassn1'::text

@@ -26,6 +26,7 @@ from alma.models import auth as auth_models
 from alma.models import events as event_models
 from alma.models import subj as subj_models
 from alma.models import workflow as alma_wf_models
+from alma.models.translations import Translation
 
 from ..scalars import FormularEingaben, FormularFelder
 from ..utils.schema import Info, to_id
@@ -748,7 +749,22 @@ class GeschaefteFilter:
                 filter_clause, model_cls.type.in_([t.value for t in self.task_typ])
             )
         if self.titel:
-            filter_clause = and_(filter_clause, model_cls.title.icontains(self.titel))
+            # `model_cls.title` is either a literal, freely entered title, or a
+            # translation key (msgid) referencing the `translations` table
+            # (used for titles coming from workflow templates). We need to
+            # match on either the literal title or any of its translations.
+            translation_match = (
+                select(Translation.key)
+                .where(
+                    Translation.key == model_cls.title,
+                    Translation.value.icontains(self.titel),
+                )
+                .exists()
+            )
+            filter_clause = and_(
+                filter_clause,
+                or_(model_cls.title.icontains(self.titel), translation_match),
+            )
         return filter_clause
 
 

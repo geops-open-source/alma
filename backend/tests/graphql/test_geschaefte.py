@@ -17,11 +17,13 @@ from utils import (
     make_subj,
     make_task_config,
     make_task_node,
+    make_translation,
     make_vflz,
     make_workflow_config,
     make_workflow_node,
 )
 
+from alma.constants import Language
 from alma.graphql.types.workflow import FaelligkeitStatus
 from alma.models import auth
 from alma.models.vflz import Vflz
@@ -2446,6 +2448,50 @@ def test_global_geschaefte_page_filtered_flat(
             "numResultsTotal": len(results),
             "page": 1,
             "results": results,
+        }
+    }
+
+
+def test_global_geschaefte_page_filtered_by_translated_title(
+    session: Session, run_query, as_lesen_geschaefte
+):
+    """
+    Titles coming from workflow templates are stored on `wf_node.title` as a
+    translation key (msgid) rather than as literal text; the actual text is
+    looked up in the `translations` table. The title filter must therefore
+    also match against the translated text, not just the literal column value.
+    """
+    vflz = make_vflz(session, "My Site")
+    doc = make_document_node(session, vflz, "task:oreb:title")
+    make_translation(session, Language.DE, "task:oreb:title", "ÖREB Auszug")
+
+    query = """
+        query q($perPage: Int!, $filter: GeschaefteFilter!) {
+            geschaefte(perPage: $perPage, sortBy: StartDatum, filter: $filter, asTree: false) {
+                numResultsTotal
+                results { title }
+            }
+        }
+    """
+
+    result = run_query(
+        query=query,
+        variable_values={
+            "perPage": 10,
+            "filter": {
+                "status": None,
+                "eigene": False,
+                "faelligkeit": None,
+                "teilflaechen": None,
+                "taskTyp": None,
+                "titel": "ÖREB",
+            },
+        },
+    )
+    assert result.data == {
+        "geschaefte": {
+            "numResultsTotal": 1,
+            "results": [{"title": doc.title}],
         }
     }
 

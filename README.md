@@ -1,6 +1,6 @@
 # <img src="alma-logo.png" width=50> alma
 
-**alma** is a web application to manage the register of contaminated sites. It supports authorities in documenting suspected sites (VFLZ) and polluted sites, running the
+**alma** is a web application to manage the register of contaminated sites. It supports authorities in documenting suspected sites and polluted sites, running the
 investigation and remediation workflows required by the Swiss *Contaminated Sites Ordinance (CSO)*, and producing register extracts and reports.
 
 ## Requirements
@@ -38,8 +38,6 @@ To login, use these credentials:
 
 - username: `test@alma-os.ch`
 - password: `demo2024`
-
-On the first login, you are asked to complete the profile.
 
 ### Using prebuilt images (geOps internal)
 

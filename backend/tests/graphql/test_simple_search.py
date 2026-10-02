@@ -12,12 +12,14 @@ from utils import (
     make_sanierungsziel,
     make_sonstiger_beteiligte_standort,
     make_subj,
+    make_translation,
     make_umweltschaden,
     make_unfall,
     make_vflz,
     make_vflz_beurteilung,
 )
 
+from alma.constants import Language
 from alma.models import bem as bem_models
 from alma.models.vflz import EvaluationStatusData
 
@@ -356,6 +358,32 @@ def test_search_by_notiz(session, run_query, as_lesen_geschaefte):
     response = run_query(query)
     assert response.data["search"]["tabular"]["results"] == [
         (1, "Mein Titel", EvaluationStatusData().to_dict())
+    ]
+
+
+def test_filter_by_task_titel_matches_translation(
+    session, run_query, as_lesen_geschaefte
+):
+    """
+    Task titles coming from workflow templates are stored on `wf_node.title`
+    as a translation key (msgid) referencing the `translations` table,
+    instead of literal text. Filtering by TASK_TITEL must also match against
+    the translated text, not just the literal column value.
+    """
+    vflz = make_vflz(session, "My Site")
+    make_note_node(session, vflz, "task:oreb:title")
+    make_translation(session, Language.DE, "task:oreb:title", "ÖREB Auszug")
+
+    query = """
+    query q($filters: [SearchFilter!]!) {
+        search(query: "", filters: $filters, fields: [TASK_TITEL]) {
+            tabular { results }
+        }
+    }
+    """
+    response = run_query(query, {"filters": [{"field": "TASK_TITEL", "value": "ÖREB"}]})
+    assert response.data["search"]["tabular"]["results"] == [
+        (1, "task:oreb:title", EvaluationStatusData().to_dict())
     ]
 
 
