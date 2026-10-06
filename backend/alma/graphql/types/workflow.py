@@ -355,7 +355,7 @@ class Task:
             "vflz_id": to_id(int(node.entity_id)),
             "notiz": node.note,
             "read_only": node.is_readonly,
-            "deletable": node.children == [] and not node.is_readonly,
+            "deletable": node.is_deletable,
             "kategorie": Code.from_db(node.kategorie.kategorie)  # pyright: ignore
             if node.kategorie  # pyright: ignore
             else None,

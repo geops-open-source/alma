@@ -628,6 +628,48 @@ def test_create_new_aufgabe(session, run_query, as_bearbeiten_geschaefte):
     }
 
 
+def test_create_new_aufgabe_nested_under_task(
+    session, run_query, as_bearbeiten_geschaefte
+):
+    vflz = make_vflz(session, "Standort 1")
+    mutation = """
+    mutation m($data: CreateAufgabeInput!) {
+        createAufgabe(data: $data) {
+            taskId
+            parentId
+        }
+    }
+    """
+
+    parent_variables = {
+        "data": {
+            "title": "Übergeordnete Aufgabe",
+            "faelligkeitsDatum": date(2021, 1, 1).isoformat(),
+            "vflzId": str(vflz.vflz_id),
+            "notiz": "Notiz",
+            "startDatum": date(2020, 1, 1).isoformat(),
+        }
+    }
+    parent_result = run_query(mutation, parent_variables)
+    parent_task_id = parent_result.data["createAufgabe"]["taskId"]
+
+    child_variables = {
+        "data": {
+            "title": "Unteraufgabe",
+            "faelligkeitsDatum": date(2021, 1, 1).isoformat(),
+            "vflzId": str(vflz.vflz_id),
+            "notiz": "Notiz",
+            "startDatum": date(2020, 1, 1).isoformat(),
+            "taskId": parent_task_id,
+        }
+    }
+    child_result = run_query(mutation, child_variables)
+
+    # The new sub-Aufgabe must be nested directly under the selected parent
+    # Aufgabe, not the top-level workflow/process node.
+    assert child_result.data["createAufgabe"]["parentId"] == parent_task_id
+
+
 def test_start_folgeschritt_uses_current_vflz_after_historization(
     session, run_query, as_bearbeiten_geschaefte, workflow_manager
 ):

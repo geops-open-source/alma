@@ -69,7 +69,6 @@ fallback_version = "0.0"
 [tool.uv]
 no-binary-package = ["fiona","cronsim","phpserialize","preview-generator","pyexifinfo"]
 
-
 [tool.ruff.lint]
 select = [
     "F",      # pyflakes

@@ -24,8 +24,16 @@ interface FieldWithLabel {
   value: boolean;
 }
 
+// model segment in setting keys isn't always capitalized, but translation keys expect it to be
+function getFieldLabelKey(settingKey: string) {
+  const key = settingKey.split("ui.").pop()?.split(".hidden")[0] ?? "";
+  return key.replace(/^fields\.([a-z])/, (_, char: string) => {
+    return `fields.${char.toUpperCase()}`;
+  });
+}
+
 export default function AdminFieldsPage() {
-  const { t } = useI18n();
+  const { activeLocale, t } = useI18n();
   const router = useRouter();
   const { data, mutate } = useSWR<InstanceSettingsQuery>(queryInstanceSettings);
   const [filter, setFilter] = useState("");
@@ -57,7 +65,7 @@ export default function AdminFieldsPage() {
           return {
             category: field.category,
             key: field.key,
-            label: t(field.key.split("ui.").pop()?.split(".hidden")[0] ?? ""),
+            label: t(getFieldLabelKey(field.key), undefined, activeLocale),
             value: field.value as boolean,
           };
         })
@@ -74,7 +82,7 @@ export default function AdminFieldsPage() {
           return a.key.localeCompare(b.key);
         }) ?? []
     );
-  }, [data?.instanceSettings, filter, t]);
+  }, [activeLocale, data?.instanceSettings, filter, t]);
 
   return (
     <AdminLayout>

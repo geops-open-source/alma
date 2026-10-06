@@ -2650,7 +2650,7 @@ class Mutation:
         except WorkflowException as e:
             session.rollback()
             raise PermissionError(
-                "Cannot delete task since there are children assigned or it is read only."
+                "Cannot delete task since there are children assigned or there is a next node."
             ) from e
 
         session.commit()

@@ -7,6 +7,7 @@ import Field from "@/components/Field";
 import Link from "@/components/Link";
 import { useI18n } from "@/lib/i18n";
 import useDocumentFile, { getDocumentHeaders } from "@/lib/useDocumentFile";
+import useSetting from "@/lib/useSetting";
 
 import ClickableUrlField from "../ClickableUrlField";
 
@@ -47,23 +48,14 @@ function FileIcon({ className }: { className?: string }) {
   );
 }
 
-function FileUploadField({
-  name,
+function DocumentSync({
   onDocumentLoad,
 }: {
-  name: string;
   onDocumentLoad: (data: { dokumentId: string; name: string }) => void;
 }) {
-  const { t } = useI18n();
-  const { setValue, watch } = useFormContext();
-  const [dragging, setDragging] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const { watch } = useFormContext();
   const dokument = watch("dokument") as string;
   const documentFile = useDocumentFile(dokument);
-  const displayedMetadata = documentFile?.metadata;
-  const title = watch("title") as string;
-  const [uploadError, setUploadError] = useState<null | string>(null);
 
   useEffect(() => {
     if (!documentFile) {
@@ -76,6 +68,21 @@ function FileUploadField({
       name: documentFile.metadata.title,
     });
   }, [documentFile, onDocumentLoad]);
+
+  return null;
+}
+
+function FileUploadField({ name }: { name: string }) {
+  const { t } = useI18n();
+  const { setValue, watch } = useFormContext();
+  const [dragging, setDragging] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const dokument = watch("dokument") as string;
+  const documentFile = useDocumentFile(dokument);
+  const displayedMetadata = documentFile?.metadata;
+  const title = watch("title") as string;
+  const [uploadError, setUploadError] = useState<null | string>(null);
 
   const onFileSelect = useCallback(
     (file: File) => {
@@ -292,6 +299,10 @@ function DocumentPreview({
 export default function TaskDokument({ task, ...props }: TaskProps) {
   const [dokument, setDokument] = useState("");
   const [fileName, setFileName] = useState("");
+  const [uploadDokumentHidden] = useSetting(
+    "ui.fields.task.dokument.hidden",
+    false,
+  );
 
   return (
     <div className="flex flex-wrap gap-6 lg:flex-nowrap">
@@ -305,19 +316,13 @@ export default function TaskDokument({ task, ...props }: TaskProps) {
         }}
         {...props}
       >
-        <FileUploadField
-          name="dokument"
-          onDocumentLoad={({
-            dokumentId,
-            name,
-          }: {
-            dokumentId: string;
-            name: string;
-          }) => {
+        <DocumentSync
+          onDocumentLoad={({ dokumentId, name }) => {
             setDokument(dokumentId);
             setFileName(name);
           }}
         />
+        {uploadDokumentHidden ? null : <FileUploadField name="dokument" />}
         <ClickableUrlField name="url" />
       </TaskForm>
       <DocumentPreview dokument={dokument} fileName={fileName} />

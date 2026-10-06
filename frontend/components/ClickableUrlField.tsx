@@ -61,13 +61,14 @@ export default function ClickableUrlField({ name }: { name: string }) {
   return (
     <Field className="h-18 w-full" name={name}>
       {validUrl && !isEditing ? (
-        <div className="flex w-full items-center justify-between gap-2">
+        <div className="flex max-w-80 min-w-full items-center justify-between gap-2">
           <a
-            className="border-gray-5 text-blue-7 w-full rounded-lg border px-3 py-2 text-xs shadow-xs"
+            className="border-gray-5 text-blue-7 w-full truncate rounded-lg border px-3 py-2 text-xs shadow-xs"
             data-test="urlAnchor"
             href={validUrl ?? ""}
             rel="noopener noreferrer"
             target="_blank"
+            title={validUrl ?? ""}
           >
             {value}
           </a>
@@ -85,7 +86,7 @@ export default function ClickableUrlField({ name }: { name: string }) {
         </div>
       ) : (
         <Input
-          className={`border-gray-5 focus:border-blue-4 focus:ring-blue-6/25 disabled:bg-gray-2 disabled:text-gray-6 w-full rounded-lg border bg-white px-3 py-2 text-xs shadow-xs focus:ring-4 focus:outline-hidden`}
+          className="border-gray-5 focus:border-blue-4 focus:ring-blue-6/25 disabled:bg-gray-2 disabled:text-gray-6 w-full rounded-lg border bg-white px-3 py-2 text-xs shadow-xs focus:ring-4 focus:outline-hidden"
           data-test="urlInput"
           name={name}
           onBlur={() => {

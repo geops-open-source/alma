@@ -3657,9 +3657,6 @@ def test_delete_task_not_allowed_for_task_that_is_not_last_of_workflow(
     doc1_node = _start_next_step(task_node, workflow.tasks["task1"].steps[0].step)
     doc1_node.status = NodeStatus.FINISHED
     doc2_node = _start_next_step(task_node, workflow.tasks["task1"].steps[1].step)
-    assert not task_node.is_readonly
-    assert doc1_node.is_readonly
-    assert not doc2_node.is_readonly
 
     session.commit()
     with pytest.raises(QueryError, match="Cannot delete task"):
