@@ -1,3 +1,7 @@
+## Release 1.6.5
+
+- Update custom reports
+
 ## Release 1.6.4
 
 - Updated to business workflow manager to [1.3.0](https://github.com/geops-open-source/business-workflow-manager/blob/main/RELEASES.md)

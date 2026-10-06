@@ -835,6 +835,30 @@ create view alma_export.report_workflows_v as
             else false
         end as show_doc_iho_report,
         case 
+            when alma.translate_code(alma.msgid_code(task_category.h_category , task_category.c_category), 'de') 
+                in (
+                    'Historische Untersuchung', 
+                    'Technische  Untersuchung',
+                    'Detailuntersuchung',
+                    'Variantenstudie',
+                    'Sanierungsprojekt',
+                    'Sanierungsbericht',
+                    'Überwachungsbericht',
+                    'Baugrundgutachten',
+                    'Geologisches Gutachten',
+                    'Schlussbericht',
+                    'Pflichtenheft/Konzept',
+                    'Aushub-/Entsorgungskonzept',
+                    'Bericht : Aushubbegleitung',
+                    'Stellungnahme',
+                    'Verfügung',
+                    'Zwischenentscheid § 21 EG USG',
+                    'Bewilligung: Art 32d^bis USG'
+                )
+            	then true
+            else false
+        end as show_doc_iho_report_zg,
+        case 
             when task_category.task_category_id is not null then alma.translate_code(alma.msgid_code(task_category.h_category , task_category.c_category), (lang.language)::text)
             else ''
         end as kategorie,
