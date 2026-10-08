@@ -1,3 +1,7 @@
+## Release 1.6.6
+
+- Update custom data for migration and reports
+
 ## Release 1.6.5
 
 - Update custom reports

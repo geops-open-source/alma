@@ -838,7 +838,7 @@ create view alma_export.report_workflows_v as
             when alma.translate_code(alma.msgid_code(task_category.h_category , task_category.c_category), 'de') 
                 in (
                     'Historische Untersuchung', 
-                    'Technische  Untersuchung',
+                    'Technische Untersuchung',
                     'Detailuntersuchung',
                     'Variantenstudie',
                     'Sanierungsprojekt',
@@ -1192,6 +1192,26 @@ create view alma_export.report_parcels_nbident_v as
 
 comment on view alma_export.report_parcels_nbident_v is 'Liste der erfassten Parzellen pro Grundbuch für die Reporte';
 
+drop view if exists alma_export.report_parcels_cache_v;
+create view alma_export.report_parcels_cache_v as
+    select vflz_id, 
+    lang.language,
+    grun.h_gem_id as gemeindenummer, 
+    gemeinde as gemeindename, 
+    grun.h_nb_id as h_nb_id, 
+    bezeichnung as grundbuchname, 
+    string_agg(gb_nummer, ', ') AS parzellen
+from alma.vflgeo
+join alma.grun on st_intersects(vflgeo.wkb_geometry, grun.wkb_geometry)
+left join alma.h_gem on h_gem.bfs_nummer = grun.h_gem_id
+left join alma.h_nb on grun.h_nb_id = h_nb.h_nb_id
+cross join (select translations.locale as language
+            from alma.translations
+            group by translations.locale) lang
+group by vflz_id, lang.language, grun.h_gem_id, gemeinde, grun.h_nb_id, bezeichnung
+;
+
+comment on view alma_export.report_parcels_cache_v is 'Daten der Parzellen aus dem Verschnitt mit den Externen WFS Daten und dem Perimeter eines Standorts aufbereitet für die Reporte';
 
 drop view if exists alma_export.geoportal_fr_v;
 
